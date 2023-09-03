@@ -1,0 +1,145 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,latexsym}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage[nocompress]{cite}
+\usepackage[noblocks]{authblk} % 'noblocks' option: always use the footnote mode 
+\allowdisplaybreaks[3]
+
+% Figure
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[font=small]{caption}
+\usepackage[font=scriptsize]{subcaption}
+\usepackage[english]{babel}
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+%%%%%%%%%% End TeXmacs macros
+
+% Enunciations
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{Assumption}
+% End of enunciations
+
+
+%%%%%%%%%% Algorithm
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\newcommand\Algphase[1]{%
+	\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\textwidth}{0.4pt}%
+	\Statex\hspace*{-\algorithmicindent}\textbf{#1}%
+	\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\textwidth}{0.4pt}%
+}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand{\la}{\leftarrow}
+%%%%%%%%%% Algorithm
+% Notation
+\def\nhf{\nabla \hat{f}}
+\newcommand{\etamin}{\eta_{\min}}
+\newcommand{\etamax}{\eta_{\max}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\begin{document}
+    \begin{algorithm}
+        \caption{HumanPolicyGenerator}
+        \label{algo:human_policy_generator}
+        \begin{algorithmic}[1]
+            \Require $ \textsc{PolicyFunction} $
+            \Ensure $ \pi^{(2)}_{\textsc{PolicyFunction}} $ 
+            \State Start from $ \pi^{(2)}_{\textsc{PolicyFunction}} (s)= \textsc{NaN}  $, $\forall s\in S$
+            \For{$ s \in S$} 
+                \State  $ \pi^{(2)}_{\textsc{PolicyFunction}} (s)=  \textsc{PolicyFunction}(s) $    
+            \EndFor
+        \end{algorithmic}	
+
+        \begin{algorithmic}[1]
+            \Algphase{Algorithm \normalfont\textsc{PolicyFunction:Table}}
+            \Require $ s \in S $  
+            \Ensure $ a \in A $ 
+        \end{algorithmic}
+
+        \begin{algorithmic}[1]
+            \Algphase{Algorithm \normalfont\textsc{PolicyFunction:Below}}
+            \Require $ s \in S, \{\textsc{left},\textsc{right}\},  \{\textsc{left},\textsc{right}\}$  
+            \Ensure $ a \in A $ 
+        \end{algorithmic}
+
+    \end{algorithm}
+
+    \begin{algorithm}
+        \caption{ValueIteration}
+        \label{algo:vi}
+        \begin{algorithmic}[1]
+            \Require $ \pi^{(2)} $
+            \Ensure $ \pi^{(1)}$, $ V(\pi^{(1)},\pi^{(2)} ) $  
+        \end{algorithmic}	
+    \end{algorithm}
+
+    \begin{algorithm}
+        \caption{$ Q $ learning with UCB exploration}
+        \label{Q_UCB}
+        \begin{algorithmic}[1]
+            \Require $ \varepsilon $, $ \varepsilon_2 $, $ \delta $, $ c_2 $,   and   $ \textsc{iters} $.
+            \Ensure  $ Q \colon S \times A \rightarrow [0,1] $. 
+            \State $ Q_0(s,a), \hat{Q_0}(s,a) \leftarrow \frac{1}{1-\gamma} $, $ N(s,a) = 0 $, $ R = \lceil log(\frac{1}{\varepsilon_2 (1-\gamma)}) / (1-\gamma)  \rceil  $.
+            \State $ L = \lfloor log_{2} R \rfloor $, $ \varepsilon_L = \frac{1}{2^{L+2}} \varepsilon_2 (log(1/(1-\gamma)))^{-1} $.
+            \State  $ M = \max\{ \lceil 2 log_{2} (\frac{1}{\varepsilon_L (1-\gamma)}) \rceil , 10\} $,  $ \varepsilon_1 \leftarrow \frac{\varepsilon}{24 R M log \frac{1}{1-\gamma}} $, $ H = \frac{log 1/ ((1-\gamma)\varepsilon_1)}{log 1/\gamma} $.  
+            \State $ \iota(k) \triangleq log(SA(k+1)(k+2)/\delta) $, $ \alpha_k \triangleq \frac{H+1}{H+k} $.
+            \For{$i = 1 \colon \textsc{iters}$}
+                \State $a_i \leftarrow \argmax_{a'} \hat{Q}(s_i,a')$.
+                \State Receive reward $ r_i $ and transit to $ s_{i+1} $. 
+                \State $N(s_i,a_i)\leftarrow N(s_i,a_i) + 1$.
+                \State $k \leftarrow N(s_i,a_i)$, $ b_k = \frac{c_2}{1-\gamma} \sqrt{\frac{H\iota(k)}{k}} $ 
+                \State  $ Q_{i+1}(s,a) \leftarrow (1-\alpha) Q_{i}(s,a) + \alpha [ r(s,a) + \gamma \max_{a'} \hat{Q}_{i+1}(s',a') + b_k] $.
+                \State $  \hat{Q}_{i+1}(s,a) \leftarrow \min[\hat{Q}_{i+1}(s,a),Q_i(s,a)] $.  
+            \EndFor
+        \end{algorithmic}
+    \end{algorithm}
+
+    \begin{algorithm}
+        \caption{Maximize to Explore}
+        \label{MEX}
+        \begin{algorithmic}[1]
+            \Require $ \eta $, Hypothesis class $ \mathcal{H} $. $ \textsc{ValueIteration} $.
+            \Ensure  $ \pi^{(1)} $ 
+            \State $ \mathcal{D} = \phi $ 
+            \For{$i = 1 \colon \textsc{iters}$}
+                \State  $ \hat{\pi} = \argmax_{\pi^{(2)}\in \mathcal{H}} ( V(\textsc{ValueIteration}(\pi^{(2)}),\pi^{(2)}) - \eta \mathcal{L}^{\pi^{(2)}}(\mathcal{D}) ) $
+                \State $  \pi^{(1)} \leftarrow \textsc{ValueIteration}(\hat{\pi}
+                ) $ 
+                \State Simulate with $ \pi^{(1)} $ until the game terminates and store $ (s,a,s') $ pairs into $ \mathcal{D} $.
+            \EndFor
+        \end{algorithmic}
+    \end{algorithm}
+
+    \begin{algorithm}
+        \caption{Upper Confidence Bound}
+        \label{UCB}
+
+        \begin{algorithmic}[1]
+            \Require $ \alpha $, Hypothesis class $ \mathcal{H} $, $ \textsc{ValueIteration} $.
+            \Ensure  $ \pi^{(1)} $. 
+            \State $ N(\pi) \leftarrow 1 $ and $ V(\pi) \leftarrow 0 $  for all $ \pi $.
+            \For{$i = 1 \colon \textsc{iters}$}
+                \State  $ \hat{\pi} = \argmax_{\pi^{(1)}\in \textsc{ValueIteration}(\mathcal{H})} ( V(\pi^{(1)} )+ \sqrt{\frac{\alpha log i}{N(\pi^{(1)})}}) $. 
+                \State $ \pi^{(1)} \leftarrow \hat{\pi} $
+                \State  $ N(\pi^{(1)}) \leftarrow N(\pi^{(1)}) + 1  $. 
+                \State Simulate with $  \pi^{(1)}  $ and receive the cumulative reward $ V $.  
+                \State $ V(\pi^{(1)}) \leftarrow V $.
+            \EndFor
+        \end{algorithmic}
+    \end{algorithm}
+
+
+\end{document}
+

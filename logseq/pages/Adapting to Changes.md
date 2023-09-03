@@ -1,0 +1,10 @@
+- ## Belief revision
+	- ((644ee727-9dfb-44e2-bf2e-973c47d026ae))
+	- TODO [55] [[@Ad Hoc Teamwork With Behavior Switching Agents]]
+- ## Hypothesis space revision
+	- ((644ee7b0-cb3e-4123-aa67-1eca687cb6e7))
+	- TODO PLASTIC-MODEL [15] [[@Making friends on the fly: Cooperating with new teammates]]
+- ## Metalearning
+- ## Zero-Shot coordination techniques
+	- ((644ee802-dc3b-4994-93bd-df397bd084ca))
+- ## Communication

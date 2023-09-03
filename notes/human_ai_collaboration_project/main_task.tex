@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,theorem}
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+{\theorembodyfont{\rmfamily}\newtheorem{question}{Question}}
+{\theorembodyfont{\rmfamily}\newtheorem{remark}{Remark}}
+\newtheorem{theorem}{Theorem}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+\title{Human-AI Collaboration Project}
+
+\author{Jack Yansong Li}
+
+\maketitle
+
+\section{Proved Result}
+
+\begin{definition}
+  \label{def:strong-type}We call two policies $\pi$ and $\pi'$ to be of the
+  same \tmtextit{type} if
+  \[ V (\mu, \pi) = V (\mu, \pi') = V (\mu', \pi) = V (\mu', \pi')
+     \label{eq:st-condition} \]
+  for all $\mu \in \tmop{BR} (\pi)$ and $\mu' \in \tmop{BR} (\pi')$. 
+\end{definition}
+
+\begin{definition}
+  \label{def:size-type}Given a hypothesis set $\mathcal{H}$. For two policies
+  $\pi \in \mathcal{H}$ and $\pi' \in \mathcal{H}$ be of the same type, we
+  randomly eliminate one of them and construct a reduced hypothesis set
+  $\mathcal{H}_{\tmop{type}}$. The size of a reduced hypothesis set is denoted
+  as $n_{\tmop{type}} (\mathcal{H})$.
+\end{definition}
+
+Based on the definition of $n_{\tmop{type}} (\mathcal{H})$, we modified the
+regret analysis in {\cite{liu_one_2023}} to obtain the following theorem.
+
+\begin{theorem}
+  \label{thm:regret-analysis}Suppose $\pi^{\ast} \in \mathcal{H}$, the regret
+  for MEX algorithm with hypothesis set $\mathcal{H}$ is upper bounded by
+  \[ \tmop{Regret} (K) \lesssim \sqrt{d_{\tmop{GEC}} \left( 1 / \sqrt{H K}
+     \right) \cdot \log (H n_{\tmop{type}} (\mathcal{H}) / \delta) \cdot H K}
+     . \]
+\end{theorem}
+
+We also proved the following lemma,
+
+\begin{lemma}
+  There exists a policy $\pi$ such that $\tmop{BR} (\pi) = \{ \mu_1, \mu_2,
+  \mu_3 \}$ and $\tmop{BR} (\pi_{\varepsilon}) = \{ \mu_1, \mu_2 \}$ for any
+  $\varepsilon > 0$. Thus,
+  \[ V (\mu_3, \pi) \neq V (\mu_3, \pi'), \]
+  which violates the condition \eqref{eq:st-condition} in Definition
+  \ref{def:strong-type}.
+\end{lemma}
+
+\section{Remaining Problems}
+
+We have three main problems need to be considered:
+\begin{enumerate}
+  \item Infinite Hypothesis
+  
+  \item Certainty Equivalence
+  
+  \item Comparison of MEX with MAB
+\end{enumerate}
+
+\subsection{Infinite Hypothesis}
+
+Now, we assume $\pi^{\ast} \in \mathcal{H}^{\varepsilon}$, where
+\[ \mathcal{H}^{\varepsilon} \triangleq \{ \pi_{\varepsilon} : \| \pi -
+   \pi_{\varepsilon} \| \leq \varepsilon, \pi \in \mathcal{H} \} . \]
+In this case $| \mathcal{H}^{\varepsilon} | = \infty$. Thus, we cannot
+directly apply the regret analysis in {\cite{liu_one_2023}}.
+
+\begin{question}
+  Can we apply Theorem \ref{thm:regret-analysis} on the case of running MEX on
+  $\mathcal{H}^{\varepsilon}$?
+\end{question}
+
+To answer this question, we need to verify the following hypothesis,
+
+\begin{theorem}
+  (hypothesis)\tmtextit{ When $\varepsilon$ is small enough (to be
+  determined), $n_{\tmop{type}} (\mathcal{H}^{\varepsilon}) < \infty$.}
+\end{theorem}
+
+\begin{remark}
+  We may need a weaker denition of \tmtextit{type} to prove the above
+  hypothesis.
+\end{remark}
+
+\subsection{Certainty Equivalence Principle}
+
+Consider the following two model selection methods
+\[ f_{\tmop{CE}} \triangleq \min_{f \in \mathcal{H}} L_{\mathcal{D}} (f) \]
+and
+\[ f_{\tmop{MEX}} \triangleq \max_{f \in \mathcal{H}} V (f) - L_{\mathcal{D}}
+   (f) \]
+The data $\mathcal{D}$ is collected by running optimal policies for
+$f_{\tmop{CE}}$ and $f_{\tmop{MEX}}$ respectively.
+
+\begin{theorem}
+  (hypothesis) There exist a Markov game where $V (f_{\tmop{MEX}}) > V
+  (f_{\tmop{CE}})$ when the total episode $K$ is large enough
+\end{theorem}
+
+\subsection{Comparison of MEX with MAB}
+
+\begin{question}
+  What is the difference between the regret of MEX with $\mathcal{H}$ and the
+  regret of MAB with a reduced hypothesis set $\mathcal{H}_{\tmop{type}}$?
+\end{question}
+
+\bibliographystyle{tm-plain}\bibliography{reference}
+
+\end{document}

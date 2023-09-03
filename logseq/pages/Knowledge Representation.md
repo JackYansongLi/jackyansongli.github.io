@@ -1,0 +1,8 @@
+- ## [[Type-Based Method]]
+	- ((644ed76c-515a-40f2-93a0-edcff4c18f6c))
+	- ((644ed77b-0428-4140-84f9-8ac86687b037))
+		- TODO [[@Machine Theory of Mind]] [[@Learning Latent Representations to Influence Multi-Agent Interaction]] [[@Deep Interactive Bayesian Reinforcement Learning via Meta-Learning]]
+- ## Experience replay
+	- ((644ed877-3288-4265-b810-313e5951a2e8))
+- ## Task recognition
+	- ((644ed88a-52d1-4fea-991e-b56ce37a625b))

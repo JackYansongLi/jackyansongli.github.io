@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:x="https://www.texmacs.org/2002/extensions" xmlns:m="http://www.w3.org/1998/Math/MathML">
+  <head>
+    <title>Jack Yansong Li</title>
+    <meta content="TeXmacs 2.1.1" name="generator"></meta>
+    <link href="../resources/notes-base.css" type="text/css" rel="stylesheet"></link>
+    <link href="../resources/blog-icon.png" rel="icon"></link>
+    <script src="../resources/highlight.pack.js" language="javascript" defer></script>
+    <script src="../resources/notes-base.js" language="javascript" defer></script>
+  </head>
+  <body>
+    <div class="notes-header">
+      <p>
+        <img class="image" src="../resources/texmacs-blog-transparent.png" width="28.116784"></img><span style="margin-left: 2pt"></span><a href="./main.html">[main]</a><em
+        class="notes-header-name">Notes on TeXmacs</em>
+      </p>
+    </div>
+    <p>
+      <a id="auto-1"></a>
+    </p>
+    <h1>Why using regret in online learning<span style="margin-left: 1em"></span></h1>
+    <h2 id="auto-2">1.<span style="margin-left: 1em"></span>Worst-case cost and worst-case regret
+    cost<span style="margin-left: 1em"></span></h2>
+    <p>
+      Consider the function <img src="regret_ol-1.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0413333333333333em; margin-right: -0.0724040404040404em; margin-top: -0.0109090909090909em; vertical-align: -0.24820202020202em; height: 0.672888888888889em"></img> defined as <span class="no-breaks"><img
+      src="regret_ol-2.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0103030303030303em; margin-right: 0em; margin-top: -0.0363232323232323em; vertical-align: -0.837656565656566em; height: 1.70654545454545em"></img>.</span> The optimization problem defined as
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="regret_ol-3.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0103030303030303em; margin-right: 0em; margin-top: 0em; vertical-align: -0.837656565656566em; height: 1.55139393939394em"></img></td>
+        <td align="right">(1)</td>
+      </tr>
+    </table>
+    <p>
+      can be viewed as a worst-case optimization problem, and <img src="regret_ol-4.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0413333333333333em; margin-right: 0em; margin-top: -0.00775757575757574em; vertical-align: -0.24820202020202em; height: 0.930909090909091em"></img>
+      is called <i>worst-case cost</i>.
+    </p>
+    <p>
+      Let's consider a scenario where we have a function <img src="regret_ol-5.png" style="margin-left: -0.0517171717171717em; margin-bottom: 0.0413333333333333em; margin-right: 0em; margin-top: 0em; vertical-align: -0.24820202020202em; height: 0.930909090909091em"></img>
+      that represents the time required to drive a car from one location to
+      another. In this context, <img src="regret_ol-6.png" style="margin-left: -0.0206868686868687em; margin-bottom: -0.0103838383838384em; margin-right: -0.0724040404040404em; margin-top: -0.0109090909090909em; vertical-align: -0.0103030303030303em; height: 0.486707070707071em"></img> represents the
+      driver's policy, which encompass decisions like adjusting speed,
+      selecting lanes (left or right), and other driving strategies. On the
+      other hand, <img src="regret_ol-7.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0413333333333333em; margin-right: -0.0517171717171717em; margin-top: -0.0109090909090909em; vertical-align: -0.24820202020202em; height: 0.672888888888889em"></img> represents a binary condition
+      indicating whether it's currently raining (<span class="no-breaks"><img src="regret_ol-8.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0413333333333333em; margin-right: -0.0206868686868686em; margin-top: -0.0413737373737374em; vertical-align: -0.24820202020202em; height: 0.879191919191919em"></img>)</span>
+      or not (<span class="no-breaks"><img src="regret_ol-9.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0413333333333333em; margin-right: -0.0206868686868686em; margin-top: -0.0413737373737374em; vertical-align: -0.24820202020202em; height: 0.879191919191919em"></img>).</span> Together, this
+      function captures how the driver's decisions and weather conditions
+      collectively impact the time it takes for the journey.
+    </p>
+    <p>
+      It's a widely acknowledged fact that driving takes more time on days
+      when it's raining. Thus, <span class="no-breaks"><img src="regret_ol-10.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0103030303030303em; margin-right: 0em; margin-top: 0em; vertical-align: -0.837656565656566em; height: 1.55139393939394em"></img>.</span> By
+      definition, the function <img src="regret_ol-4.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0413333333333333em; margin-right: 0em; margin-top: -0.00775757575757574em; vertical-align: -0.24820202020202em; height: 0.930909090909091em"></img> currently represents
+      the time required for driving on days when it's raining.
+    </p>
+    <p>
+      Now, define <span class="no-breaks"><img src="regret_ol-11.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0103030303030303em; margin-right: 0em; margin-top: -0.0203232323232323em; vertical-align: -0.837656565656566em; height: 1.8840404040404em"></img>.</span> We call <img
+      src="regret_ol-12.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0413333333333333em; margin-right: 0em; margin-top: -0.031030303030303em; vertical-align: -0.24820202020202em; height: 1.02052525252525em"></img> the <i>worst-case regret cost</i>. Unlike worst-case
+      cost, the regret cost mesures the maximum achivement <b>it can be
+      improved</b> in the past days. For example, if a driver cannot drive in
+      the rainy day due to rheumatoid arthritis. Then there is no difference
+      between <img src="regret_ol-13.png" style="margin-left: -0.0517171717171717em; margin-bottom: 0.0413333333333333em; margin-right: 0em; margin-top: 0em; vertical-align: -0.24820202020202em; height: 0.930909090909091em"></img> and <img src="regret_ol-14.png" style="margin-left: -0.0517171717171717em; margin-bottom: 0.0413333333333333em; margin-right: 0em; margin-top: -0.031030303030303em; vertical-align: -0.24820202020202em; height: 1.02052525252525em"></img> for any <img
+      src="regret_ol-6.png" style="margin-left: -0.0206868686868687em; margin-bottom: -0.0103838383838384em; margin-right: -0.0724040404040404em; margin-top: -0.0109090909090909em; vertical-align: -0.0103030303030303em; height: 0.486707070707071em"></img> and <span class="no-breaks"><img src="regret_ol-15.png" style="margin-left: -0.0206868686868687em; margin-bottom: -0.0103838383838384em; margin-right: -0.0206868686868686em; margin-top: -0.031030303030303em; vertical-align: -0.0103030303030303em; height: 0.834343434343434em"></img>,</span>
+      which makes <span class="no-breaks"><img src="regret_ol-16.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0413333333333333em; margin-right: -0.0206868686868686em; margin-top: -0.031030303030303em; vertical-align: -0.24820202020202em; height: 1.02052525252525em"></img>.</span> No regret at
+      all! Because nothing can be improved in the worst-case.
+    </p>
+    <h2 id="auto-3">2.<span style="margin-left: 1em"></span>An example that minimizes regret cost
+    results in a better policy<span style="margin-left: 1em"></span></h2>
+    <p>
+      
+    </p>
+    <p>
+      Consider the function <img src="regret_ol-5.png" style="margin-left: -0.0517171717171717em; margin-bottom: 0.0413333333333333em; margin-right: 0em; margin-top: 0em; vertical-align: -0.24820202020202em; height: 0.930909090909091em"></img> as follows:
+    </p>
+    <center>
+      <img src="regret_ol-17.png" style="margin-left: -0.0672323232323232em; margin-bottom: -0.0672323232323233em; margin-right: -0.0206868686868686em; margin-top: -0.0672323232323233em; vertical-align: -2.23911111111111em; height: 5.09882828282828em"></img>
+    </center>
+    <p>
+      
+    </p>
+    <p>
+      The worst-case cost <img src="regret_ol-4.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0413333333333333em; margin-right: 0em; margin-top: -0.00775757575757574em; vertical-align: -0.24820202020202em; height: 0.930909090909091em"></img> in this example is <img src="regret_ol-18.png"
+      style="margin-left: -0.0206868686868687em; margin-bottom: 0.0103030303030303em; margin-right: -0.0206868686868678em; margin-top: 0em; vertical-align: -0.837656565656566em; height: 1.55139393939394em"></img> for any <span class="no-breaks"><img src="regret_ol-6.png" style="margin-left: -0.0206868686868687em; margin-bottom: -0.0103838383838384em; margin-right: -0.0724040404040404em; margin-top: -0.0109090909090909em; vertical-align: -0.0103030303030303em; height: 0.486707070707071em"></img>.</span> Thus,
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="regret_ol-19.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0103030303030304em; margin-right: -0.0206868686868686em; margin-top: -0.00775757575757574em; vertical-align: -0.67220202020202em; height: 1.38593939393939em"></img></td>
+        <td align="right">(2)</td>
+      </tr>
+    </table>
+    <p>
+      But for the worst-case regret cost, <img src="regret_ol-20.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0413333333333333em; margin-right: -0.0206868686868686em; margin-top: -0.031030303030303em; vertical-align: -0.24820202020202em; height: 1.02052525252525em"></img> and <span
+      class="no-breaks"><img src="regret_ol-21.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0413333333333333em; margin-right: -0.0206868686868686em; margin-top: -0.031030303030303em; vertical-align: -0.24820202020202em; height: 1.02052525252525em"></img>.</span> Thus
+    </p>
+    <table width="100%">
+      <tr>
+        <td width="100%" align="center"><img src="regret_ol-22.png" style="margin-left: -0.0206868686868687em; margin-bottom: 0.0103030303030304em; margin-right: -0.0206868686868686em; margin-top: -0.031030303030303em; vertical-align: -0.67220202020202em; height: 1.47555555555556em"></img></td>
+        <td align="right">(3)</td>
+      </tr>
+    </table>
+    <h2 id="auto-4">3.<span style="margin-left: 1em"></span>Why using regret in online learning?<span
+    style="margin-left: 1em"></span></h2>
+    <p>
+      The fundamental assumption of conventional offline machine learning is
+      that the collected data are independently and identically distributed,
+      stemming from an unknown distribution [<a href="#bib-vapnik_overview_1999">2</a>]. However, this
+      assumption can be easily compromised in the realm of online learning [<a
+      href="#bib-shalev-shwartz_online_2011-1">1</a>]. For instance, let's reconsider a scenario involving a
+      driver who refrains from driving on rainy days. In this case, data
+      points (representing the time taken to travel between places) within a
+      one-hour timeframe might have a probability of collection as low as
+      <span class="no-breaks"><img src="regret_ol-23.png" style="margin-left: -0.0206868686868687em; margin-bottom: -0.0103838383838384em; margin-right: -0.0206868686868687em; margin-top: -0.0413737373737374em; vertical-align: -0.0103030303030303em; height: 0.693010101010101em"></img>.</span> Conversely, data points
+      beyond one hour might possess a probability of collection greater than
+      <span class="no-breaks"><img src="regret_ol-23.png" style="margin-left: -0.0206868686868687em; margin-bottom: -0.0103838383838384em; margin-right: -0.0206868686868687em; margin-top: -0.0413737373737374em; vertical-align: -0.0103030303030303em; height: 0.693010101010101em"></img>.</span> This implies that data
+      collected on different dates adhere to distinct distributions. This
+      distinction underscores a crucial disparity between traditional offline
+      learning and online learning.
+    </p>
+    <h1 id="auto-5">Bibliography<span style="margin-left: 1em"></span></h1>
+    <div class="compact-block" style="text-indent: 0em">
+      <font style="font-size: 84.0%"><dl>
+        <p>
+          <dt>
+            <strong>[1]  </strong>
+          </dt>
+          <dd>
+            <p>
+              <a id="bib-shalev-shwartz_online_2011-1"></a>Shai Shalev-Shwartz. Online Learning and Online
+              Convex Optimization. <i>Foundations and Trends in Machine
+              Learning</i>, 4(2):107&ndash;194, 2011.
+            </p>
+          </dd>
+        </p>
+        <p>
+          <dt>
+            <strong>[2]  </strong>
+          </dt>
+          <dd>
+            <p>
+              <a id="bib-vapnik_overview_1999"></a>V.N. Vapnik. An overview of statistical learning
+              theory. <i>IEEE Transactions on Neural Networks</i>,
+              10(5):988&ndash;999, sep 1999.
+            </p>
+          </dd>
+        </p>
+      </dl></font>
+    </div>
+    <p>
+      
+    </p>
+  </body>
+</html>
