@@ -1,4 +1,4 @@
-<TeXmacs|2.1>
+<TeXmacs|2.1.2>
 
 <style|generic>
 
@@ -19,11 +19,7 @@
     \;
   </hide-preamble>
 
-  <doc-data|<doc-title|Finite Reduced Hypothesis
-  Set>|<doc-author|<author-data|<author-name|Jack Yansong
-  Li>|<\author-affiliation>
-    University of Illinois Chicago
-  </author-affiliation>|<author-email|yli340@uic.edu>>>>
+  <doc-data|<doc-title|Finite Reduced Hypothesis Set>>
 
   <section|Reduced Hypothesis Set in Regret Analysis>
 
@@ -409,87 +405,9 @@
     <reference|ass:oracle-distance>.
   </proof>
 
-  <section|Appendix>
+  \;
 
-  <\lemma>
-    <label|lem:loss-upperbound>With probability at least <math|1-\<delta\>>,
-    for any <math|<around*|(|h,k|)>\<in\><around*|[|H|]>\<times\><around*|[|K|]>>,
-    <math|\<mu\><rsup|s>\<in\>BR<around*|(|\<pi\><rsup|s>|)>>, and
-    <math|\<pi\>\<in\>\<Pi\>>
-
-    <\equation*>
-      L<rsub|h><rsup|k-1><around*|(|\<pi\><rsup|\<ast\>>|)>-L<rsub|h><rsup|k-1><around*|(|\<pi\>|)>\<leq\>-2<big|sum><rsub|s=1><rsup|k-1>\<bbb-E\><rsub|\<xi\><rsub|h>\<sim\>\<mu\><rsup|s>><around*|[|\<ell\><rsub|\<pi\><rsup|s>><around*|(|\<pi\>;\<xi\><rsub|h>|)>|]>+2log<around*|(|H<around*|\||\<Pi\>|\|>/\<delta\>|)>.
-    </equation*>
-  </lemma>
-
-  <\proof>
-    Given <math|\<pi\>\<in\>\<cal-H\>>, we denote the random variable
-    <math|X<rsup|k><rsub|h,\<pi\>>> as
-
-    <\equation*>
-      X<rsup|k><rsub|h,\<pi\>>=log<around*|(|<frac|\<bbb-P\><rsub|h,\<pi\><rsup|\<ast\>>><around*|(|s<rsub|h+1><rsup|k>\<mid\>s<rsub|h><rsup|k>,a<rsub|h><rsup|k>|)>|\<bbb-P\><rsub|h,\<pi\>><around*|(|s<rsub|h+1><rsup|k>\<mid\>s<rsub|h><rsup|k>,a<rsub|h><rsup|k>|)>>|)>.
-    </equation*>
-
-    Now we define a filtration <math|<around*|{|\<cal-F\><rsub|h,k>|}><rsub|k=1><rsup|K>>
-    as (B.25) in <cite|liu_one_2023>. Thus we have
-    <math|X<rsub|h,\<pi\>><rsup|k>\<in\>\<cal-F\><rsub|h,k>>. Therefore, by
-    applying Lemma D.1 in <cite|liu_one_2023>, we have that with probability
-    at least <math|1-\<delta\>>, for any <math|<around*|(|h,k|)>\<in\><around*|[|H|]>\<times\><around*|[|K|]>>,
-    and <math|\<pi\>\<in\>\<Pi\>>, we have
-
-    <\equation>
-      -<frac|1|2><big|sum><rsub|s=1><rsup|k-1>X<rsub|h,\<pi\>><rsup|s>\<leq\><big|sum><rsub|s=1><rsup|k-1>log\<bbb-E\><around*|[|exp<around*|{|-<frac|1|2>X<rsub|h,\<pi\>><rsup|s>|}>\<mid\>\<cal-F\><rsub|h,s-1>|]>+log<around*|(|H<around*|\||\<Pi\>|\|>/\<delta\>|)>.<label|eq:union-bound>
-    </equation>
-
-    Meanwhile, by (B.27) in <cite|liu_one_2023>, for any
-    <math|\<mu\><rsup|s>\<in\>BR<around*|(|\<pi\><rsup|s>|)>>, the
-    conditional expectation equals to
-
-    <\equation>
-      \<bbb-E\><around*|[|exp<around*|{|-<frac|1|2>X<rsub|h,\<pi\>><rsup|s>|}>\<mid\>\<cal-F\><rsub|h,s-1>|]>=1-\<bbb-E\><rsub|<around*|(|s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)>\<sim\>\<mu\><rsup|s>><around*|[|D<rsub|H><around*|(|\<bbb-P\><rsub|h,\<pi\><rsup|\<ast\>>><around*|(|\<cdot\>\<mid\>s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)><around*|\|||\|>\<bbb-P\><rsub|h,\<pi\>><around*|(|\<cdot\>\<mid\>s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)>|)>|]>.<label|eq:cond-exp>
-    </equation>
-
-    Denote <math| \<bbb-E\><rsub|<around*|(|s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)>\<sim\>\<mu\><rsup|s>><around*|[|D<rsub|H><around*|(|\<bbb-P\><rsub|h,\<pi\><rsup|\<ast\>>><around*|(|\<cdot\>\<mid\>s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)><around*|\|||\|>\<bbb-P\><rsub|h,\<pi\><rsup|s>><around*|(|\<cdot\>\<mid\>s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)>|)>|]>>
-    as <math|\<bbb-E\><rsub|\<xi\><rsub|h>\<sim\>\<mu\><rsup|s>><around*|[|\<ell\><rsub|\<pi\><rsup|s>><around*|(|\<pi\>;\<xi\><rsub|h>|)>|]>>.
-    Using the fact <math|log<around*|(|x|)>\<leq\>x-1> and substituting
-    <eqref|eq:cond-exp> into <eqref|eq:union-bound> finishes the proof.
-  </proof>
-
-  \ 
-
-  <section|Finite Reduced Hypothesis Set (Do not read)>
-
-  <\question>
-    Is <math|n<rsub|type><rsup|\<psi\>><around*|(|\<cal-H\><rsup|\<varepsilon\>>|)>\<less\>\<infty\>>?
-  </question>
-
-  <\corollary>
-    <math|n<rsub|stype><around*|(|\<cal-H\><rsup|\<varepsilon\>>|)>\<less\>\<infty\>\<Rightarrow\>><math|n<rsub|type><rsup|\<psi\>><around*|(|\<cal-H\><rsup|\<varepsilon\>>|)>\<less\>\<infty\>>,
-    if <math|\<psi\>> is a best response oracle.
-  </corollary>
-
-  <\hyp>
-    <label|hyp:equi-when-small-epsilon><math|\<pi\><rsub|\<varepsilon\><rprime|'>><above|\<sim\>|s>\<pi\><rsub|\<varepsilon\><rprime|''>>>
-    for <math|0\<less\>\<varepsilon\><rprime|'>\<less\>\<alpha\>> and
-    <math|0\<less\>\<varepsilon\><rprime|''>\<less\>\<alpha\>>\ 
-  </hyp>
-
-  <\theorem>
-    If Hypothesis <reference|hyp:equi-when-small-epsilon> holds, we have
-    <math|n<rsub|stype><around*|(|\<cal-H\>|)>\<less\>\<infty\>>.
-  </theorem>
-
-  <with|proof-text|<macro|<localize|Proof> Idea>|<\proof>
-    \;
-
-    <\enumerate>
-      <item><math|\<pi\><rsub|\<varepsilon\><rprime|'>><above|\<sim\>|s>\<pi\><rsub|\<varepsilon\><rprime|''>>>
-      for <math|0\<less\>\<varepsilon\><rprime|'>\<less\>\<alpha\>> and
-      <math|0\<less\>\<varepsilon\><rprime|''>\<less\>\<alpha\>>\ 
-
-      <item>Thus, <math|n<rsub|stype><around*|(|\<cal-H\><rsup|\<varepsilon\>>|)>\<leq\><frac|\<varepsilon\>|\<alpha\>>n<rsub|stype><around*|(|\<cal-H\>|)>\<less\>\<infty\>>
-    </enumerate>
-  </proof>>
+  \;
 
   <\bibliography|bib|tm-plain|reference>
     <\bib-list|1>
@@ -510,29 +428,23 @@
 
 <\references>
   <\collection>
-    <associate|ass:oracle-distance|<tuple|14|3>>
+    <associate|ass:oracle-distance|<tuple|14|2>>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|2|2>>
-    <associate|auto-3|<tuple|3|5>>
-    <associate|auto-4|<tuple|4|5>>
-    <associate|auto-5|<tuple|2|5>>
-    <associate|bib-liu_one_2023|<tuple|1|5>>
+    <associate|auto-3|<tuple|2|4>>
+    <associate|bib-liu_one_2023|<tuple|1|4>>
     <associate|cor:transition|<tuple|13|2>>
     <associate|def:appro-type|<tuple|11|2>>
     <associate|def:strong-type|<tuple|1|1>>
     <associate|def:sweak-type|<tuple|2|1>>
-    <associate|def:ty-ora|<tuple|6|2>>
+    <associate|def:ty-ora|<tuple|6|1>>
     <associate|def:weak-type|<tuple|3|1>>
     <associate|eq:choice-pi|<tuple|2|3>>
-    <associate|eq:cond-exp|<tuple|4|5>>
     <associate|eq:inf-upper|<tuple|2|2>>
-    <associate|eq:measure-error-bound|<tuple|2|4>>
+    <associate|eq:measure-error-bound|<tuple|2|3>>
     <associate|eq:reg-strong|<tuple|1|1>>
     <associate|eq:st-condition|<tuple|1|1>>
-    <associate|eq:union-bound|<tuple|3|5>>
-    <associate|eq:upper-bound|<tuple|2|4>>
-    <associate|hyp:equi-when-small-epsilon|<tuple|19|5>>
-    <associate|lem:loss-upperbound|<tuple|17|5>>
+    <associate|eq:upper-bound|<tuple|2|3>>
     <associate|lem:same-size|<tuple|15|3>>
   </collection>
 </references>
@@ -540,12 +452,6 @@
 <\auxiliary>
   <\collection>
     <\associate|bib>
-      liu_one_2023
-
-      liu_one_2023
-
-      liu_one_2023
-
       liu_one_2023
     </associate>
     <\associate|toc>
@@ -557,18 +463,9 @@
       Distance> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Appendix>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-3><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Finite
-      Reduced Hypothesis Set (Do not read)>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4><vspace|0.5fn>
-
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5><vspace|0.5fn>
+      <no-break><pageref|auto-3><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>

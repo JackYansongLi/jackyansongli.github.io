@@ -1,4 +1,4 @@
-<TeXmacs|2.1.1>
+<TeXmacs|2.1.2>
 
 <style|notes>
 
@@ -45,8 +45,6 @@
   regret at all! Because nothing can be improved in the worst-case.
 
   <section|An example that minimizes regret cost results in a better policy>
-
-  \;
 
   Consider the function <math|f<around*|(|x,y|)>> as follows:
 
