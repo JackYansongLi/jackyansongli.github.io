@@ -49,12 +49,10 @@
   <\definition>
     <with|font-series|bold|(<math|\<psi\>>-type)> We call two policies
     <math|\<pi\>> and <math|\<pi\><rprime|'>> to be of the same
-    <with|font-shape|italic|type> under oracle <math|\<psi\>> if for any
-    <math|\<mu\>=\<psi\><around*|(|\<pi\>|)>> and
-    <math|\<mu\><rprime|'>=\<psi\><around*|(|\<pi\><rprime|'>|)>> we have
+    <with|font-shape|italic|type> under oracle <math|\<psi\>> if we have
 
     <\equation*>
-      V<around*|(|\<mu\>,\<pi\>|)>=V<around*|(|\<mu\><rprime|'>,\<pi\><rprime|'>|)>.
+      V<around*|(|\<psi\><around*|(|\<pi\>|)>,\<pi\>|)>=V<around*|(|\<psi\><around*|(|\<pi\><rprime|'>|)>,\<pi\><rprime|'>|)>.
     </equation*>
 
     The relationship is denoted as <math|\<pi\><above|\<sim\>|\<psi\>>\<pi\><rprime|'>>.
@@ -82,11 +80,9 @@
     <math|\<cal-H\>>, i.e.,
 
     <\equation*>
-      n<rsup|\<psi\>><around*|(|\<cal-H\>|)>=max<around*|\||\<Pi\>|\|>,
+      n<rsup|\<psi\>><around*|(|\<cal-H\>|)>=max<around*|{|<around*|\||\<Pi\>|\|>:\<Pi\>\<subset\>\<cal-H\>,<text|<math|\<Pi\>>
+      is type-independent under oracle <math|\<psi\>>>|}>.
     </equation*>
-
-    where <math|\<Pi\>\<subset\>\<cal-H\>> and <math|\<Pi\>> is
-    type-independent under oracle <math|\<psi\>>.
   </definition>
 
   <subsection|Regret Analysis>
@@ -161,6 +157,10 @@
     for all <math|\<psi\>> be a best response oracle.
   </lemma>
 
+  <\example>
+    Add some examples about strong type and <math|\<psi\>>-type
+  </example>
+
   <section|Regret Analysis for Infinite Hypothesis Set>
 
   In this subsection, we discuss the cases where the cardinality of the
@@ -173,13 +173,29 @@
   Set>
 
   A direct approach to handling an infinite hypothesis set is to approximate
-  it as a finite hypothesis set. First, we outline what makes a good
+  it by a finite hypothesis set. First, we outline what makes a good
   approximation.
 
+  \;
+
+  <\remark>
+    <\with|color|blue>
+      SH: Define
+
+      <\equation*>
+        V<rsup|\<ast\>><around*|(|\<pi\>|)>\<triangleq\>max<rsub|\<mu\>\<in\>\<cal-U\>>
+        V<around*|(|\<mu\>,\<pi\>|)>=V<around*|(|\<psi\><around*|(|\<pi\>|)>,\<pi\>|)>.
+      </equation*>
+
+      Eliminate <math|\<varepsilon\><rsub|\<psi\>>>
+    </with>
+  </remark>
+
   <\definition>
-    <label|def:fin-cover>(<math|\<varepsilon\><rsub|\<psi\>>>-optimal
-    approximation) A finite hypothesis set <math|\<cal-H\><rsub|fin>> is
-    called an <math|\<varepsilon\><rsub|\<psi\>>>-optimal approximation of
+    <label|def:fin-cover>(<math|\<varepsilon\><rsub|\<psi\>>>-approximation
+    <with|color|blue|at <math|\<pi\><rsup|\<ast\>>>>) A finite hypothesis set
+    <math|\<cal-H\><rsub|fin>> is called an
+    <math|\<varepsilon\><rsub|\<psi\>>>-optimal approximation of
     <math|\<cal-H\><rsub|inf>> if
 
     <\equation*>
@@ -187,7 +203,8 @@
     </equation*>
 
     We denote <math|\<pi\><rsup|\<ast\>><rsub|det>> as
-    <math|\<varepsilon\><rsub|\<psi\>>>-optimal policy defined as
+    <math|\<varepsilon\><rsub|\<psi\>>>-approximate policy w.r.t.
+    <math|\<pi\><rsup|\<ast\>>> defined as
 
     <\equation*>
       \<pi\><rsup|\<ast\>><rsub|det>\<triangleq\><below|argmin|\<pi\>\<in\>\<cal-H\>>
@@ -196,8 +213,8 @@
   </definition>
 
   In the following, we list some examples of the
-  <math|\<varepsilon\><rsub|\<psi\>>>-optimal approximation. These examples
-  are established based on the following lemma.
+  <math|\<varepsilon\><rsub|\<psi\>>>-approximation. These examples are
+  established based on the following lemma.
 
   <\lemma>
     For any best response oracle <math|\<psi\>>, if
@@ -205,32 +222,36 @@
     then
 
     <\equation*>
-      <around*|\||<around*|\<nobracket\>|V<around*|(|\<psi\><around*|(|\<pi\>|\<nobracket\>>|)>,\<pi\>|)>-<around*|\<nobracket\>|V<around*|(|\<psi\><around*|(|\<pi\>|\<nobracket\>><rsup|\<ast\>>|)>,\<pi\><rsup|\<ast\>>|)>|\|>\<leq\>L<rsub|\<psi\>>
+      <around*|\||<around*|\<nobracket\>|V<around*|(|\<psi\><around*|(|\<pi\>|\<nobracket\>>|)>,\<pi\>|)>-<around*|\<nobracket\>|V<around*|(|\<psi\><around*|(|\<pi\>|\<nobracket\>><rsup|\<ast\>>|)>,\<pi\><rsup|\<ast\>>|)>|\|>\<leq\><with|color|blue|L<rsub|V>>
       \<varepsilon\>,
     </equation*>
 
-    where <math|L<rsub|\<psi\>>\<gtr\>0> is a constant.
+    where <math|L<rsub|V>\<gtr\>0> is a constant.
   </lemma>
 
   <\example>
-    Given a finite hypothesis set <math|\<cal-H\><rsub|fin>>. For
+    For any finite hypothesis set <math|\<cal-H\><rsub|fin>>. For
     <math|\<varepsilon\>\<gtr\>0>, Define an infinite hypothesis
     <math|\<cal-H\><rsub|inf>> as
 
     <\equation*>
-      \<cal-H\><rsub|inf>\<triangleq\><around*|{|\<pi\>\<mid\><around*|\<\|\|\>|\<pi\>-\<pi\><rprime|'>|\<\|\|\>>\<leq\>\<varepsilon\>,\<pi\><rprime|'>\<in\>\<cal-H\><rsub|fin>|}>.
+      \<cal-H\><rsub|inf>=<around*|{|\<pi\>\<mid\><around*|\<\|\|\>|\<pi\>-\<pi\><rprime|'>|\<\|\|\>>\<leq\>\<varepsilon\>,\<pi\><rprime|'>\<in\>\<cal-H\><rsub|fin>|}>.
     </equation*>
 
-    For the constructed <math|\<cal-H\><rsub|inf>>,
-    <math|\<cal-H\><rsub|fin>> is an <math|L<rsub|\<psi\>>
-    \<varepsilon\>>-optimal approximation of <math|\<cal-H\><rsub|inf>>.
+    For the <with|color|blue|constructed> <math|\<cal-H\><rsub|inf>>,
+    <math|\<cal-H\><rsub|fin>> is an <math|L<rsub|V>
+    \<varepsilon\>>-approximation of <math|\<cal-H\><rsub|inf>>.
+    <with|color|blue|SH: any <math|\<cal-H\><rsub|fin>> is an <math|L<rsub|V>
+    \<varepsilon\>>-approximation of <math|\<cal-H\><rsub|inf>=\<ldots\>> ,
+    write a story to sell it, ref some ad-hoc papers >
   </example>
 
   <\example>
-    Given a specific neural network structure <math|\<cal-N\>>, we define
-    <math|\<cal-H\><rsub|inf>> as the set comprising all neural networks
-    characterized by the set all possible parameters <math|\<Theta\>> that is
-    in accordance with the specified structure, formally represented as,
+    Given a specific <with|color|blue|parametrized> <math|\<cal-N\>>, we
+    define <math|\<cal-H\><rsub|inf>> as the set comprising all neural
+    networks characterized by the set all possible parameters
+    <math|\<Theta\>> that is in accordance with the specified structure,
+    formally represented as,
 
     <\equation*>
       \<cal-H\><rsub|inf>=<around*|{|\<pi\>\<mid\>\<pi\>\<in\>\<cal-N\><around*|(|\<theta\>|)>,\<theta\>\<in\>\<Theta\>|}>.
@@ -247,7 +268,7 @@
     By the choice of discretization interval, we can ensure that
     <math|<around*|\<\|\|\>|\<pi\>-\<pi\><rsup|\<ast\>>|\<\|\|\>>\<leq\>\<varepsilon\>>.
     Consequently, the discretized set <math|\<cal-H\><rsub|fin>> serves as
-    <math|L<rsub|\<psi\>> \<varepsilon\>>-optimal approximation of
+    <math|L<rsub|\<psi\>> \<varepsilon\>>-approximation of
     <math|\<cal-H\><rsub|inf>>.
   </example>
 
@@ -479,9 +500,9 @@
 
 <\references>
   <\collection>
-    <associate|app:thm-fin|<tuple|3.2|4>>
+    <associate|app:thm-fin|<tuple|3.2|5>>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-10|<tuple|3|5>>
+    <associate|auto-10|<tuple|3|6>>
     <associate|auto-2|<tuple|1.1|1>>
     <associate|auto-3|<tuple|1.2|2>>
     <associate|auto-4|<tuple|2|2>>
@@ -489,16 +510,16 @@
     <associate|auto-6|<tuple|2.2|3>>
     <associate|auto-7|<tuple|3|4>>
     <associate|auto-8|<tuple|3.1|4>>
-    <associate|auto-9|<tuple|3.2|4>>
-    <associate|bib-liu_one_2023|<tuple|1|5>>
-    <associate|def:fin-cover|<tuple|8|2>>
+    <associate|auto-9|<tuple|3.2|5>>
+    <associate|bib-liu_one_2023|<tuple|1|6>>
+    <associate|def:fin-cover|<tuple|10|2>>
     <associate|eq:cond-exp|<tuple|2|4>>
     <associate|eq:gen-error|<tuple|3|5>>
     <associate|eq:st-condition|<tuple|6|2>>
     <associate|eq:union-bound|<tuple|1|4>>
-    <associate|lem:loss-upperbound|<tuple|14|4>>
+    <associate|lem:loss-upperbound|<tuple|16|4>>
     <associate|thm:fin|<tuple|5|2>>
-    <associate|thm:inf|<tuple|12|3>>
+    <associate|thm:inf|<tuple|14|3>>
   </collection>
 </references>
 

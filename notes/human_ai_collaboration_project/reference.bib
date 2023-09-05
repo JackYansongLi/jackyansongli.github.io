@@ -52,6 +52,23 @@
   file = {/Users/yansongli/zotero/storage/BKEGCN6F/Albrecht and Ramamoorthy - 2015 - A Game-Theoretic Model and Best-Response Learning .pdf;/Users/yansongli/zotero/storage/CYAM46GI/1506.html}
 }
 
+@misc{azar_minimax_2017,
+  title = {Minimax {{Regret Bounds}} for {{Reinforcement Learning}}},
+  author = {Azar, Mohammad Gheshlaghi and Osband, Ian and Munos, R{\'e}mi},
+  year = {2017},
+  month = jul,
+  number = {arXiv:1703.05449},
+  eprint = {1703.05449},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1703.05449},
+  urldate = {2023-09-05},
+  abstract = {We consider the problem of provably optimal exploration in reinforcement learning for finite horizon MDPs. We show that an optimistic modification to value iteration achieves a regret bound of \$\textbackslash tilde\{O\}( \textbackslash sqrt\{HSAT\} + H\^2S\^2A+H\textbackslash sqrt\{T\})\$ where \$H\$ is the time horizon, \$S\$ the number of states, \$A\$ the number of actions and \$T\$ the number of time-steps. This result improves over the best previous known bound \$\textbackslash tilde\{O\}(HS \textbackslash sqrt\{AT\})\$ achieved by the UCRL2 algorithm of Jaksch et al., 2010. The key significance of our new results is that when \$T\textbackslash geq H\^3S\^3A\$ and \$SA\textbackslash geq H\$, it leads to a regret of \$\textbackslash tilde\{O\}(\textbackslash sqrt\{HSAT\})\$ that matches the established lower bound of \$\textbackslash Omega(\textbackslash sqrt\{HSAT\})\$ up to a logarithmic factor. Our analysis contains two key insights. We use careful application of concentration inequalities to the optimal value function as a whole, rather than to the transitions probabilities (to improve scaling in \$S\$), and we define Bernstein-based "exploration bonuses" that use the empirical variance of the estimated values at the next states (to improve scaling in \$H\$).},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Machine Learning,Statistics - Machine Learning},
+  file = {/Users/yansongli/zotero/storage/JG2NLUX8/Azar et al. - 2017 - Minimax Regret Bounds for Reinforcement Learning.pdf;/Users/yansongli/zotero/storage/HBTRBFH6/1703.html}
+}
+
 @article{barrett_making_2017,
   title = {Making Friends on the Fly: {{Cooperating}} with New Teammates},
   shorttitle = {Making Friends on the Fly},
@@ -208,6 +225,13 @@
   file = {/Users/yansongli/zotero/storage/8BKXDBD8/He et al. - 2016 - Opponent Modeling in Deep Reinforcement Learning.pdf;/Users/yansongli/zotero/storage/JH65LRS9/1609.html}
 }
 
+@article{jaksch_near-optimal_nodate,
+  title = {Near-Optimal {{Regret Bounds}} for {{Reinforcement Learning}}},
+  author = {Jaksch, Thomas and Ortner, Ronald and Auer, Peter and At, Unileoben Ac and At, Unileoben Ac and At, Unileoben Ac},
+  langid = {english},
+  file = {/Users/yansongli/zotero/storage/Q8ZKZL9E/Jaksch et al. - Near-optimal Regret Bounds for Reinforcement Learn.pdf}
+}
+
 @misc{jiang_contextual_2016,
   title = {Contextual {{Decision Processes}} with {{Low Bellman Rank}} Are {{PAC-Learnable}}},
   author = {Jiang, Nan and Krishnamurthy, Akshay and Agarwal, Alekh and Langford, John and Schapire, Robert E.},
@@ -240,6 +264,14 @@
   archiveprefix = {arxiv},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Machine Learning,Mathematics - Optimization and Control,Statistics - Machine Learning},
   file = {/Users/yansongli/zotero/storage/JLC4U25H/Jin et al. - 2018 - Is Q-learning Provably Efficient.pdf;/Users/yansongli/zotero/storage/QJHTXYU9/1807.html}
+}
+
+@article{kearns_near-optimal_nodate,
+  title = {Near-{{Optimal Reinforcement Learning}} in {{Polynomial Time}}},
+  author = {Kearns, Michael and Singh, Satinder},
+  abstract = {We present new algorithms for reinforcement learning, and prove that they have polynomial bounds on the resources required to achieve near-optimal return in general Markov decision processes. After observing that the number of actions required to approach the optimal return is lower bounded by the mixing time T of the optimal policy  in the undiscounted case  or by the horizon time T  in the discounted case , we then give algorithms requiring a number of actions and total computation time that are only polynomial in T and the number of states, for both the undiscounted and discounted cases. An interesting aspect of our algorithms is their explicit handling of the ExplorationExploitation trade-o .},
+  langid = {english},
+  file = {/Users/yansongli/zotero/storage/CUL5TYNJ/Kearns and Singh - Near-Optimal Reinforcement Learning in Polynomial .pdf}
 }
 
 @misc{kwon_rl_2021,
@@ -276,6 +308,50 @@
   archiveprefix = {arxiv},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Computer Science and Game Theory,Computer Science - Machine Learning,Mathematics - Optimization and Control,Statistics - Machine Learning},
   file = {/Users/yansongli/zotero/storage/DPZN5XT7/Liu et al. - 2023 - One Objective to Rule Them All A Maximization Obj.pdf;/Users/yansongli/zotero/storage/U3IZXPTD/2305.html}
+}
+
+@misc{ross_agnostic_2012-1,
+  title = {Agnostic {{System Identification}} for {{Model-Based Reinforcement Learning}}},
+  author = {Ross, Stephane and Bagnell, J. Andrew},
+  year = {2012},
+  month = jul,
+  number = {arXiv:1203.1007},
+  eprint = {1203.1007},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  urldate = {2023-09-05},
+  abstract = {A fundamental problem in control is to learn a model of a system from observations that is useful for controller synthesis. To provide good performance guarantees, existing methods must assume that the real system is in the class of models considered during learning. We present an iterative method with strong guarantees even in the agnostic case where the system is not in the class. In particular, we show that any no-regret online learning algorithm can be used to obtain a near-optimal policy, provided some model achieves low training error and access to a good exploration distribution. Our approach applies to both discrete and continuous domains. We demonstrate its efficacy and scalability on a challenging helicopter domain from the literature.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Machine Learning,Electrical Engineering and Systems Science - Systems and Control,Statistics - Machine Learning},
+  file = {/Users/yansongli/zotero/storage/VPNXRFL6/Ross and Bagnell - 2012 - Agnostic System Identification for Model-Based Rei.pdf;/Users/yansongli/zotero/storage/CD2MQT8G/1203.html}
+}
+
+@inproceedings{sutton_policy_1999,
+  title = {Policy {{Gradient Methods}} for {{Reinforcement Learning}} with {{Function Approximation}}},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Sutton, Richard S and McAllester, David and Singh, Satinder and Mansour, Yishay},
+  year = {1999},
+  volume = {12},
+  publisher = {{MIT Press}},
+  urldate = {2023-09-05},
+  abstract = {Function  approximation  is  essential  to  reinforcement  learning,  but  the standard approach of approximating a  value function and deter(cid:173) mining  a  policy  from  it  has so  far  proven theoretically  intractable.  In this paper we explore an alternative approach in which the policy  is explicitly represented by its own function approximator,  indepen(cid:173) dent of the value function,  and is  updated according to the gradient  of expected reward with respect to the policy parameters.  Williams's  REINFORCE method and actor-critic methods are examples of this  approach.  Our  main  new  result  is  to  show  that  the  gradient  can  be  written  in  a  form  suitable  for  estimation  from  experience  aided  by  an  approximate  action-value  or  advantage  function.  Using  this  result,  we  prove for  the first  time that a  version  of policy  iteration  with arbitrary differentiable function approximation is convergent to  a  locally optimal policy.}
+}
+
+@misc{wang_policy_2023,
+  title = {Policy {{Gradient}} in {{Robust MDPs}} with {{Global Convergence Guarantee}}},
+  author = {Wang, Qiuhao and Ho, Chin Pang and Petrik, Marek},
+  year = {2023},
+  month = jun,
+  number = {arXiv:2212.10439},
+  eprint = {2212.10439},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2212.10439},
+  urldate = {2023-09-05},
+  abstract = {Robust Markov decision processes (RMDPs) provide a promising framework for computing reliable policies in the face of model errors. Many successful reinforcement learning algorithms build on variations of policy-gradient methods, but adapting these methods to RMDPs has been challenging. As a result, the applicability of RMDPs to large, practical domains remains limited. This paper proposes a new Double-Loop Robust Policy Gradient (DRPG), the first generic policy gradient method for RMDPs. In contrast with prior robust policy gradient algorithms, DRPG monotonically reduces approximation errors to guarantee convergence to a globally optimal policy in tabular RMDPs. We introduce a novel parametric transition kernel and solve the inner loop robust policy via a gradient-based method. Finally, our numerical results demonstrate the utility of our new algorithm and confirm its global convergence properties.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Machine Learning},
+  file = {/Users/yansongli/zotero/storage/JYJ2PM83/Wang et al. - 2023 - Policy Gradient in Robust MDPs with Global Converg.pdf;/Users/yansongli/zotero/storage/Z3VLE9LJ/2212.html}
 }
 
 @misc{xie_learning_2020,
