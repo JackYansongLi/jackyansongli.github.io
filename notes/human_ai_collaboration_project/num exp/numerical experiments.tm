@@ -1,4 +1,4 @@
-<TeXmacs|2.1.1>
+<TeXmacs|2.1.2>
 
 <style|generic>
 
@@ -18,7 +18,7 @@
   <math|\<bbb-P\>> and the expected reward <math|r> are defined as functions:
 
   <\equation*>
-    \<bbb-P\>:S\<cup\><around*|{|s<rsub|abs>|}>\<times\>A<rsub|joint>\<rightarrow\>S,<space|1em>r:S\<times\>A<rsub|joint>\<rightarrow\><around*|{|0,1|}>.
+    \<bbb-P\>:S\<cup\><around*|{|s<rsub|abs>|}>\<times\>A<rsub|joint>\<rightarrow\>\<Delta\><around*|(|S|)>,<space|1em>r:S\<times\>A<rsub|joint>\<rightarrow\><around*|{|0,1|}>.
   </equation*>
 
   The game terminate when the state, denoted as <math|s>, reaches the
