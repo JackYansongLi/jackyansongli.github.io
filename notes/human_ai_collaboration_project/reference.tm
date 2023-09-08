@@ -1,4 +1,4 @@
-<TeXmacs|2.1>
+<TeXmacs|2.1.2>
 
 <style|generic>
 
@@ -7,18 +7,19 @@
 
   <section|AHT>
 
+  Our work is related to ad-hoc teamworks (AHT), expecilly the opponent
+  modelling subtask of AHT\ 
+
   <\enumerate>
     <item>Review: <cite|baumeister_survey_2022><cite|albrecht_autonomous_2018><cite|stone_ad_2010>
 
-    <item>Opponent Modelling: <cite|albrecht_game-theoretic_2015><cite|albrecht_belief_2016><cite|barrett_making_2017>
-
-    <item>Overcooked-AI: <cite|carroll_utility_2019><cite|he_opponent_2016>\ 
+    <item>Opponent Modelling: <cite|albrecht_game-theoretic_2015><cite|albrecht_belief_2016><cite|barrett_making_2017><cite|xie_learning_2020>
   </enumerate>
 
   <section|POMDP>
 
-  The earlies POMDP paper I found <with|font-shape|italic|The Optimal Control
-  of Partially Observable Markov Processes Over a Finite Horizon>:
+  The earlies POMDP paper I found is: <with|font-shape|italic|The Optimal
+  Control of Partially Observable Markov Processes Over a Finite Horizon>:
   <cite|smallwood_optimal_1973>
 
   <\enumerate>
@@ -26,53 +27,80 @@
 
     <item>IPOMDP:<cite|han_learning_2018><cite|gmytrasiewicz_framework_2005>
 
-    <item>augmented Bayes-Adaptive MDP (BAMDP):
+    <item>Augmented Bayes-Adaptive MDP (BAMDP):
     <cite|white_bayesian_1969><cite|duff_optimal_2002><cite|guez_efficient_2012>
   </enumerate>
 
   <subsection|LMDP>
 
-  This model <with|color|blue|LMDP> is important for diverse applications,
-  from serving a user in a
+  Our formulation is close to LMDP, which has few different names, listed in
+  the following:
 
-  <with|color|blue|contextual decision process> dynamic web application
-  <cite|hallak_contextual_2015>, <with|color|blue|multi-model mdp> to medical
-  decision making <cite|steimle_multi-model_2021>, to
-  <with|color|blue|<with|color|blue|multi-task rl>> transfer learning in
-  different RL tasks <cite|liu_pac_2016> <cite|taylor_transfer_2009>
-  <cite|brunskill_sample_2013>. <with|color|blue|Hidden model mdp, momdp>:
-  <cite|chades_momdps_2012>, <with|color|blue|concurrent mdp>
-  <cite|buchholz_computation_2019>
+  <\enumerate>
+    <item><with|color|blue|Contextual decision process>
+    <cite|hallak_contextual_2015>: dynamic web application\ 
 
-  Previous studies of partially-observed decision problems assumed the number
-  of observations is larger than the number of hidden states, as well as,
-  that a set of single observations forms sufficient statistics to learn the
-  hidden structure <cite|guo_pac_2016><cite|azizzadenesheli_reinforcement_2016>.
+    <item><with|color|blue|Multi-model MDP> <cite|steimle_multi-model_2021>:
+    medical decision making\ 
 
-  <section|MEX and Optimistic Posterior Sampling>
+    <item><with|color|blue|<with|color|blue|Multi-task RL>>: transfer
+    learning in different RL tasks <cite|liu_pac_2016>
+    <cite|taylor_transfer_2009> <cite|brunskill_sample_2013>
+
+    <item><with|color|blue|Hidden model MDP, MOMDP>:
+    <cite|chades_momdps_2012>
+
+    <item><with|color|blue|Concurrent MDP>: <cite|buchholz_computation_2019>
+  </enumerate>
+
+  <with|font-shape|italic|<with|font-series|bold|Kwon et.al. 2021:> Previous
+  studies of partially-observed decision problems assumed
+  <with|color|blue|the number of observations is larger than the number of
+  hidden states>, as well as, that a set of single observations forms
+  sufficient statistics to learn the hidden structure
+  <cite|guo_pac_2016><cite|azizzadenesheli_reinforcement_2016>.>\ 
+
+  <with|color|pink|YL: I can make an example such that MEX do not need to
+  visit all number of hidden states to achieve zero regret.>
+
+  <section|MEX Regret Analysis>
+
+  The regret analysis in this paper took some ideas from the following
+  papers.
 
   <\enumerate>
     <item>OLIVE: <cite|jiang_contextual_2016>
 
-    <item>PS: <cite|thompson_likelihood_1933><cite|russo_learning_2014><cite|zhong_gec_2023><cite|agarwal_model-based_2022><cite|zhang_feel-good_2021><cite|agarwal_non-linear_2022>
+    <item>Posterior Sampling and Thomas Sampling:
+    <cite|thompson_likelihood_1933><cite|russo_learning_2014><cite|zhong_gec_2023><cite|agarwal_model-based_2022><cite|zhang_feel-good_2021><cite|agarwal_non-linear_2022>
 
     <item>MEX: <cite|liu_one_2023>
-
-    <item>Eluder dimension: <cite|osband_model-based_2014>
   </enumerate>
 
-  <subsection|GEC Assumption>
+  <subsection|GEC assumption>
 
-  For example, linear MDP structure (<cite|yang_sample-optimal_2019>;
-  <cite|jin_provably_2020>), Bellman completeness (Zanette et al., 2020:
-  <cite|zanette_learning_2020>), Bellman rank (<cite|jiang_contextual_2016>),
-  eluder dimension (Osband and Van Roy, 2014
-  :<cite|osband_model-based_2014>),Bellman eluder dimension (Jin et al.,
-  2021<cite|jin_bellman_2021>) and bilinear class (Du et al., 2021).
+  The main result relies on GEC assumption, which covers the following
+  assumptions:
+
+  <\enumerate>
+    <item>linear MDP structure (<cite|yang_sample-optimal_2019>;
+    <cite|jin_provably_2020>)
+
+    <item>Bellman completeness (Zanette et al., 2020:
+    <cite|zanette_learning_2020>)
+
+    <item>Bellman rank (<cite|jiang_contextual_2016>)
+
+    <item>Eluder dimension (Osband and Van Roy, 2014
+    :<cite|osband_model-based_2014>)
+
+    <item>Bellman eluder dimension (Jin et al., 2021<cite|jin_bellman_2021>)
+  </enumerate>
 
   <subsection|Agnostic online learning>
 
-  <cite|ben-davidAgnosticOnlineLearning2009><cite|ross_agnostic_2012>
+  The regret analysi of infinite hypothesis set are related to agnostic
+  online learning: <cite|ben-davidAgnosticOnlineLearning2009><cite|ross_agnostic_2012>
 
   <section|Other Algorithms>
 
@@ -83,12 +111,18 @@
 
     <item>Model-based RL with UCB: <cite|azar_minimax_2017><cite|auer_near-optimal_2008>
 
-    <item>PBVI: <cite|pineau_anytime_2006>\ 
+    <item><with|color|blue|PBVI:> <cite|pineau_anytime_2006>
+    <with|color|pink|YL: we shall discuss whether to replicate this POMDP
+    algorithm.>
   </enumerate>
 
-  <section|>
+  <subsection|Environment>
 
-  <cite|xie_learning_2020>
+  We use a simplified version of the Overcooked-AI
+  <cite|carroll_utility_2019><cite|he_opponent_2016> as benchmark environment
+  for numerical experiment.
+
+  \;
 
   <\bibliography|bib|tm-plain|reference>
     <\bib-list|46>
@@ -102,12 +136,12 @@
       Action Spaces: Structural Conditions and Sample-efficiency of Posterior
       Sampling. <newblock><localize|In ><with|font-shape|italic|Proceedings
       of Thirty Fifth Conference on Learning Theory>, <localize|pages
-      >2776\U2814. PMLR, jun 2022.<newblock>
+      >2776-2814. PMLR, jun 2022.<newblock>
 
       <bibitem*|3><label|bib-albrecht_belief_2016>Stefano<nbsp>V.<nbsp>Albrecht,
       Jacob<nbsp>W.<nbsp>Crandall<localize|, and >Subramanian Ramamoorthy.
       <newblock>Belief and Truth in Hypothesised Behaviours.
-      <newblock><with|font-shape|italic|Artificial Intelligence>, 235:63\U94,
+      <newblock><with|font-shape|italic|Artificial Intelligence>, 235:63-94,
       jun 2016.<newblock>
 
       <bibitem*|4><label|bib-albrecht_game-theoretic_2015>Stefano<nbsp>V.<nbsp>Albrecht<localize|
@@ -118,7 +152,7 @@
       <bibitem*|5><label|bib-albrecht_autonomous_2018>Stefano<nbsp>V.<nbsp>Albrecht<localize|
       and >Peter Stone. <newblock>Autonomous agents modelling other agents: A
       comprehensive survey and open problems.
-      <newblock><with|font-shape|italic|Artificial Intelligence>, 258:66\U95,
+      <newblock><with|font-shape|italic|Artificial Intelligence>, 258:66-95,
       may 2018.<newblock>
 
       <bibitem*|6><label|bib-auer_near-optimal_2008>Peter Auer, Thomas
@@ -141,7 +175,7 @@
       Rosenfeld, Sarit Kraus<localize|, and >Peter Stone. <newblock>Making
       friends on the fly: Cooperating with new teammates.
       <newblock><with|font-shape|italic|Artificial Intelligence>,
-      242:132\U171, jan 2017.<newblock>
+      242:132-171, jan 2017.<newblock>
 
       <bibitem*|10><label|bib-ben-davidAgnosticOnlineLearning2009>Shai
       Ben-David, D.<nbsp>Pál<localize|, and >S.<nbsp>Shalev-Shwartz.
@@ -156,7 +190,7 @@
       <bibitem*|12><label|bib-buchholz_computation_2019>Peter
       Buchholz<localize| and >Dimitri Scheftelowitsch. <newblock>Computation
       of weighted sums of rewards for concurrent MDPs.
-      <newblock><with|font-shape|italic|Math Meth Oper Res>, 89(1):1\U42, feb
+      <newblock><with|font-shape|italic|Math Meth Oper Res>, 89(1):1-42, feb
       2019.<newblock>
 
       <bibitem*|13><label|bib-carroll_utility_2019>Micah Carroll, Rohin Shah,
@@ -169,7 +203,7 @@
       Carwardine, Tara Martin, Samuel Nicol, Regis Sabbadin<localize|, and
       >Olivier Buffet. <newblock>MOMDPs: A Solution for Modelling Adaptive
       Management Problems. <newblock><with|font-shape|italic|Proceedings of
-      the AAAI Conference on Artificial Intelligence>, 26(1):267\U273,
+      the AAAI Conference on Artificial Intelligence>, 26(1):267-273,
       2012.<newblock>
 
       <bibitem*|15><label|bib-dong_q-learning_2019>Kefan Dong, Yuanhao Wang,
@@ -181,19 +215,19 @@
       <newblock>Optimal learning: Computational procedures for Bayes
       -adaptive Markov decision processes.
       <newblock><with|font-shape|italic|Doctoral Dissertations Available from
-      Proquest>, <localize|pages >1\U247, jan 2002.<newblock>
+      Proquest>, <localize|pages >1-247, jan 2002.<newblock>
 
       <bibitem*|17><label|bib-gmytrasiewicz_framework_2005>P.<nbsp>J.<nbsp>Gmytrasiewicz<localize|
       and >P.<nbsp>Doshi. <newblock>A Framework for Sequential Planning in
       Multi-Agent Settings. <newblock><with|font-shape|italic|Journal of
-      Artificial Intelligence Research>, 24:49\U79, jul 2005.<newblock>
+      Artificial Intelligence Research>, 24:49-79, jul 2005.<newblock>
 
       <bibitem*|18><label|bib-guez_efficient_2012>Arthur Guez, David
       Silver<localize|, and >Peter Dayan. <newblock>Efficient Bayes-adaptive
       reinforcement learning using sample-based search.
       <newblock><localize|In ><with|font-shape|italic|Proceedings of the 25th
       International Conference on Neural Information Processing Systems -
-      Volume 1>, NIPS'12, <localize|pages >1025\U1033. Red Hook, NY, USA, dec
+      Volume 1>, NIPS'12, <localize|pages >1025-1033. Red Hook, NY, USA, dec
       2012. Curran Associates Inc.<newblock>
 
       <bibitem*|19><label|bib-guo_pac_2016>Z.<nbsp>Guo, Shayan
@@ -237,8 +271,7 @@
       <newblock>Provably efficient reinforcement learning with linear
       function approximation. <newblock><localize|In
       ><with|font-shape|italic|Proceedings of Thirty Third Conference on
-      Learning Theory>, <localize|pages >2137\U2143. PMLR, jul
-      2020.<newblock>
+      Learning Theory>, <localize|pages >2137-2143. PMLR, jul 2020.<newblock>
 
       <bibitem*|27><label|bib-kwon_rl_2021>Jeongyeol Kwon, Yonathan Efroni,
       Constantine Caramanis<localize|, and >Shie Mannor. <newblock>RL for
@@ -248,14 +281,14 @@
       <bibitem*|28><label|bib-lai_asymptotically_1985>T.<nbsp>L Lai<localize|
       and >Herbert Robbins. <newblock>Asymptotically efficient adaptive
       allocation rules. <newblock><with|font-shape|italic|Advances in Applied
-      Mathematics>, 6(1):4\U22, mar 1985.<newblock>
+      Mathematics>, 6(1):4-22, mar 1985.<newblock>
 
       <bibitem*|29><label|bib-liu_pac_2016>Yao Liu, Zhaohan Guo<localize|,
       and >Emma Brunskill. <newblock>PAC Continuous State Online Multitask
       Reinforcement Learning with Identification. <newblock><localize|In
       ><with|font-shape|italic|Proceedings of the 2016 International
       Conference on Autonomous Agents & Multiagent Systems>, AAMAS '16,
-      <localize|pages >438\U446. Richland, SC, may 2016. International
+      <localize|pages >438-446. Richland, SC, may 2016. International
       Foundation for Autonomous Agents and Multiagent Systems.<newblock>
 
       <bibitem*|30><label|bib-liu_one_2023>Zhihan Liu, Miao Lu, Wei Xiong,
@@ -270,7 +303,7 @@
       Survey of Ad Hoc Teamwork Research. <newblock><localize|In >Dorothea
       Baumeister<localize| and >Jörg Rothe<localize|, editors>,
       <with|font-shape|italic|Multi-Agent Systems>, <localize|volume> 13442,
-      <localize|pages >275\U293. Springer International Publishing, Cham,
+      <localize|pages >275-293. Springer International Publishing, Cham,
       2022.<newblock>
 
       <bibitem*|32><label|bib-osband_model-based_2014>Ian Osband<localize|
@@ -283,7 +316,7 @@
       <bibitem*|33><label|bib-pineau_anytime_2006>J.<nbsp>Pineau,
       G.<nbsp>Gordon<localize|, and >S.<nbsp>Thrun. <newblock>Anytime
       Point-Based Approximations for Large POMDPs.
-      <newblock><with|font-shape|italic|Jair>, 27:335\U380, nov
+      <newblock><with|font-shape|italic|Jair>, 27:335-380, nov
       2006.<newblock>
 
       <bibitem*|34><label|bib-ross_agnostic_2012>Stephane Ross<localize| and
@@ -300,35 +333,35 @@
       and >Edward<nbsp>J.<nbsp>Sondik. <newblock>The Optimal Control of
       Partially Observable Markov Processes Over a Finite Horizon.
       <newblock><with|font-shape|italic|Operations Research>,
-      21(5):1071\U1088, 1973.<newblock>
+      21(5):1071-1088, 1973.<newblock>
 
       <bibitem*|37><label|bib-steimle_multi-model_2021>Lauren<nbsp>N.<nbsp>Steimle,
       David<nbsp>L.<nbsp>Kaufman<localize|, and >Brian<nbsp>T.<nbsp>Denton.
       <newblock>Multi-model Markov decision processes.
       <newblock><with|font-shape|italic|IISE Transactions>, <localize|pages
-      >1\U16, may 2021.<newblock>
+      >1-16, may 2021.<newblock>
 
       <bibitem*|38><label|bib-stone_ad_2010>Peter Stone, Gal Kaminka, Sarit
       Kraus<localize|, and >Jeffrey Rosenschein. <newblock>Ad Hoc Autonomous
       Agent Teams: Collaboration without Pre-Coordination.
-      <newblock><with|font-shape|italic|AAAI>, 24(1):1504\U1509, jul
+      <newblock><with|font-shape|italic|AAAI>, 24(1):1504-1509, jul
       2010.<newblock>
 
       <bibitem*|39><label|bib-taylor_transfer_2009>Matthew<nbsp>E.<nbsp>Taylor<localize|
       and >Peter Stone. <newblock>Transfer Learning for Reinforcement
       Learning Domains: A Survey. <newblock><with|font-shape|italic|J. Mach.
-      Learn. Res.>, 10:1633\U1685, dec 2009.<newblock>
+      Learn. Res.>, 10:1633-1685, dec 2009.<newblock>
 
       <bibitem*|40><label|bib-thompson_likelihood_1933>William<nbsp>R.<nbsp>Thompson.
       <newblock>On the Likelihood that One Unknown Probability Exceeds
       Another in View of the Evidence of Two Samples.
-      <newblock><with|font-shape|italic|Biometrika>, 25(3/4):285\U294,
+      <newblock><with|font-shape|italic|Biometrika>, 25(3/4):285-294,
       1933.<newblock>
 
       <bibitem*|41><label|bib-white_bayesian_1969>D.<nbsp>J.<nbsp>White.
       <newblock>Bayesian Decision Problems and Markov Chains.
       <newblock><with|font-shape|italic|Royal Statistical Society. Journal.
-      Series A: General>, 132(1):106\U107, jan 1969.<newblock>
+      Series A: General>, 132(1):106-107, jan 1969.<newblock>
 
       <bibitem*|42><label|bib-xie_learning_2020>Annie Xie,
       Dylan<nbsp>P.<nbsp>Losey, Ryan Tolsma, Chelsea Finn<localize|, and
@@ -339,7 +372,7 @@
       >Mengdi Wang. <newblock>Sample-Optimal Parametric Q-Learning Using
       Linearly Additive Features. <newblock><localize|In
       ><with|font-shape|italic|Proceedings of the 36th International
-      Conference on Machine Learning>, <localize|pages >6995\U7004. PMLR, may
+      Conference on Machine Learning>, <localize|pages >6995-7004. PMLR, may
       2019.<newblock>
 
       <bibitem*|44><label|bib-zanette_learning_2020>Andrea Zanette,
@@ -347,7 +380,7 @@
       <newblock>Learning Near Optimal Policies with Low Inherent Bellman
       Error. <newblock><localize|In ><with|font-shape|italic|Proceedings of
       the 37th International Conference on Machine Learning>, <localize|pages
-      >10978\U10989. PMLR, nov 2020.<newblock>
+      >10978-10989. PMLR, nov 2020.<newblock>
 
       <bibitem*|45><label|bib-zhang_feel-good_2021>Tong Zhang.
       <newblock>Feel-Good Thompson Sampling for Contextual Bandits and
@@ -370,14 +403,15 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
+    <associate|auto-10|<tuple|5|?>>
     <associate|auto-2|<tuple|2|1>>
     <associate|auto-3|<tuple|2.1|1>>
     <associate|auto-4|<tuple|3|1>>
     <associate|auto-5|<tuple|3.1|1>>
     <associate|auto-6|<tuple|3.2|1>>
     <associate|auto-7|<tuple|4|2>>
-    <associate|auto-8|<tuple|5|2>>
-    <associate|auto-9|<tuple|5|2>>
+    <associate|auto-8|<tuple|4.1|2>>
+    <associate|auto-9|<tuple|4.1|2>>
     <associate|bib-agarwal_model-based_2022|<tuple|1|2>>
     <associate|bib-agarwal_non-linear_2022|<tuple|2|2>>
     <associate|bib-albrecht_autonomous_2018|<tuple|5|2>>
