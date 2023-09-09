@@ -1,4 +1,4 @@
-<TeXmacs|2.1.1>
+<TeXmacs|2.1.2>
 
 <style|notes>
 
@@ -57,7 +57,7 @@
   (Aug 2022)>: Accepted for publication in the
   <with|font-shape|italic|<with|font-shape|italic|Proceedings of The 4th
   Annual Learning for Dynamics and Control Conference>>.
-  <hlink|[PLMR]|https://proceedings.mlr.press/v168/li22a.html>>>>>>
+  <hlink|[PMLR]|https://proceedings.mlr.press/v168/li22a.html>>>>>>
 
   \;
 
@@ -81,8 +81,6 @@
     <associate|auto-3|<tuple|?|1>>
     <associate|auto-4|<tuple|?|1>>
     <associate|auto-5|<tuple|?|1>>
-    <associate|footnote-1|<tuple|1|1>>
-    <associate|footnr-1|<tuple|1|1>>
   </collection>
 </references>
 
@@ -90,7 +88,7 @@
   <\collection>
     <\associate|>
       <tuple|normal|Taken at the tea club at
-      <locus|<id|%22F90738-259B1CB0>|<link|hyperlink|<id|%22F90738-259B1CB0>|<url|https://www.sustech.edu.cn/en/>>|SUSTech>
+      <locus|<id|%10712AE28-113A1B0C0>|<link|hyperlink|<id|%10712AE28-113A1B0C0>|<url|https://www.sustech.edu.cn/en/>>|SUSTech>
       in 2019|<pageref|auto-2>>
     </associate>
     <\associate|toc>
