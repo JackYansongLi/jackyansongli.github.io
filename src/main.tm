@@ -20,8 +20,8 @@
 
   I am a fourth year Ph.D. student in the Electrical and Computer Engineering
   Department at the University of Illinois Chicago. I am very fortunate to be
-  csadvised by Prof. <hlink|Shuo Han|https://hanshuo.people.uic.edu/site/>. I
-  received my bachalors in Department of Mathematics at the <hlink|Southern
+  advised by Prof. <hlink|Shuo Han|https://hanshuo.people.uic.edu/site/>. I
+  received my bachelors in Department of Mathematics at the <hlink|Southern
   University of Science and Technology|https://www.sustech.edu.cn/en/>.
 
   My primary research interests lie in multi-agent reinforcement learning and
@@ -88,7 +88,7 @@
   <\collection>
     <\associate|>
       <tuple|normal|Taken at the tea club at
-      <locus|<id|%10712AE28-113A1B0C0>|<link|hyperlink|<id|%10712AE28-113A1B0C0>|<url|https://www.sustech.edu.cn/en/>>|SUSTech>
+      <locus|<id|%-F0482798--EF14E030>|<link|hyperlink|<id|%-F0482798--EF14E030>|<url|https://www.sustech.edu.cn/en/>>|SUSTech>
       in 2019|<pageref|auto-2>>
     </associate>
     <\associate|toc>

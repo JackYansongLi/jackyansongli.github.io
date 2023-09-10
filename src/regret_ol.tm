@@ -36,7 +36,7 @@
   Now, define <math|g<rprime|'><around*|(|x|)>\<triangleq\><below|max|y><around*|(|f<around*|(|x,y|)>-<below|min|x<rprime|'>>f<around*|(|x<rprime|'>,y|)>|)>>.
   We call <math|g<rprime|'><around*|(|x|)>> the
   <with|font-shape|italic|worst-case regret cost>. Unlike worst-case cost,
-  the regret cost mesures the maximum achivement <with|font-series|bold|it
+  the regret cost measures the maximum achievement <with|font-series|bold|it
   can be improved> in the past days. For example, if a driver cannot drive in
   the rainy day due to rheumatoid arthritis. Then there is no difference
   between <math|f<around*|(|x,rain|)>> and
@@ -78,7 +78,7 @@
   <cite|shalev-shwartz_online_2011-1>. For instance, let's reconsider a
   scenario involving a driver who refrains from driving on rainy days. In
   this case, data points (representing the time taken to travel between
-  places) within a one-hour timeframe might have a probability of collection
+  places) within a one-hour time-frame might have a probability of collection
   as low as <math|0>. Conversely, data points beyond one hour might possess a
   probability of collection greater than <math|0>. This implies that data
   collected on different dates adhere to distinct distributions. This
