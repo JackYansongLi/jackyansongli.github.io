@@ -512,14 +512,14 @@
     <associate|auto-8|<tuple|3.1|4>>
     <associate|auto-9|<tuple|3.2|5>>
     <associate|bib-liu_one_2023|<tuple|1|6>>
-    <associate|def:fin-cover|<tuple|10|2>>
-    <associate|eq:cond-exp|<tuple|2|4>>
+    <associate|def:fin-cover|<tuple|10|3>>
+    <associate|eq:cond-exp|<tuple|2|5>>
     <associate|eq:gen-error|<tuple|3|5>>
     <associate|eq:st-condition|<tuple|6|2>>
-    <associate|eq:union-bound|<tuple|1|4>>
+    <associate|eq:union-bound|<tuple|1|5>>
     <associate|lem:loss-upperbound|<tuple|16|4>>
     <associate|thm:fin|<tuple|5|2>>
-    <associate|thm:inf|<tuple|14|3>>
+    <associate|thm:inf|<tuple|14|4>>
   </collection>
 </references>
 
