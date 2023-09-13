@@ -1,4 +1,4 @@
-<TeXmacs|2.1>
+<TeXmacs|2.1.2>
 
 <style|generic>
 
@@ -44,10 +44,10 @@
   <cite|taylor_transfer_2009> <cite|brunskill_sample_2013>. We will explore
   these and others in greater detail in the related work.\ 
 
-  In this study, we use an episodic Markov decision process where the
-  transitions and rewards are influenced by the policy that the human agent
-  keeps secret. The AI agent begins with a set of initial guesses about the
-  human's policy, grouped together in a finite hypothesis set
+  To model the HAI problem, we use an episodic Markov decision process where
+  the transitions and rewards are influenced by the policy that the human
+  agent keeps secret. The AI agent begins with a set of initial guesses about
+  the human's policy, grouped together in a finite hypothesis set
   <math|\<cal-H\>>. We discuss loosening the limitation of this finite set in
   a later section (refer to the section on the infinite hypothesis set). It's
   assumed that the actual policy the human is using is a part of set
@@ -97,11 +97,26 @@
 
   <section|Related Work>
 
-  <with|font-series|bold|Game Environment>: Several benchmark environments
-  facilitate the study of cooperative human-AI interaction tasks, including
-  the two-player cooperative Atari game <cite|tylkin_learning_2021>, bridge
-  card <cite|lockhart_human-agent_2020>, and Overcooked-AI
-  <cite|carroll_utility_2019><cite|strouse_collaborating_2022>.\ 
+  Previous research in the Human-AI (HAI) field tends to model human policy
+  as a policy that closely aligns with the AI agent, with efforts to
+  parameterize this closeness [42]. \ To evaluate these algorithms, several
+  benchmark environments are available that aid in analyzing cooperative
+  human-AI interaction tasks, including platforms like the two-player
+  cooperative Atari game [57], bridge card game [40], and Overcooked-AI
+  [16][54].
+
+  <with|font-series|bold|Human-AI Interaction>: Previous research in the
+  Human-AI (HAI) field model human policy as a policy that closely aligns
+  with the AI agent, with efforts to parameterize this closeness
+  <cite|nikolaidis_human-robot_2017>. Additionally, there are studies in Meta
+  Reinforcement Learning (Meta RL) that work on deciphering the MDP the AI
+  agent encounters, inherently learning the human agent's policy, since the
+  structure of this MDP is influenced by the human agent's choices. To
+  evaluate these algorithms, several benchmark environments are available
+  that aid in analyzing cooperative human-AI interaction tasks, including
+  platforms like the two-player cooperative Atari game
+  <cite|tylkin_learning_2021>, bridge card <cite|lockhart_human-agent_2020>,
+  and Overcooked-AI <cite|carroll_utility_2019><cite|strouse_collaborating_2022>.\ 
 
   <with|font-series|bold|Human agent generation:> Collecting human policies
   can be notably costly. Previous studies have developed methods for more
@@ -110,135 +125,62 @@
   diversity of the best responses these policies can offer. The algorithm
   then maximizes this measure to find the policies that provide a diverse set
   of best responses <cite|rahman_generating_2023>. Another strategy
-  formulates human policies by runing best response dynamics
+  formulates human policies by running best response dynamics
   <cite|strouse_collaborating_2022>.
 
   <with|font-series|bold|Ad-Hoc teamworks:> Our work is closely related to
   ad-hoc teamworks <cite|baumeister_survey_2022><cite|albrecht_autonomous_2018><cite|stone_ad_2010>
-  , especially the oppenent modeling subtask.\ 
+  , especially the opponent modeling subtask. Barrett et. al.
+  <cite|barrett_making_2017> introduces PLASTIC-Model and PLASTIC-Policy
+  algorithms, the formal algorithm models the team-member by its transition
+  dynamics and the latter models team-member by its policy. He et.al.
+  <cite|he_opponent_2016> models the human agent's policy as a deep neural
+  network.
 
-  <with|font-series|bold|Partially observable Markov decision process:> Our
-  problem can also be formulated as\ 
+  <with|color|blue|YL: needs more time to read
+  <cite|albrecht_game-theoretic_2015><cite|albrecht_belief_2016><cite|xie_learning_2020>
+  >
 
-  \;
+  <with|font-series|bold|Partially observable Markov decision process
+  (POMDP):> The foundation of our problem is closely related to the partially
+  observable Markov decision process <cite|astrom_optimal_1965><cite|smallwood_optimal_1973>,
+  since each human policy in the hypothesis set can be viewed as a latent
+  variable of the POMDP. The POMDP problem where we have latent variables are
+  called latent MDPs (LMDP) <cite|kwon_rl_2021>. LMDP has few different
+  names, such as contextual decision process <cite|hallak_contextual_2015>,
+  multi-model MDP <cite|steimle_multi-model_2021>, multi-task RL
+  <cite|liu_pac_2016><cite|taylor_transfer_2009><cite|brunskill_sample_2013>,
+  MOMDP/hidden model MDP <cite|ong_planning_2010><cite|chades_momdps_2012><cite|doshi-velez_hidden_2013><cite|fern_decision-theoretic_2014>,
+  and concurrent MDP <cite|buchholz_computation_2019>. Beyond original POMDP,
+  there are also some other settings that can cover our problem, such as
+  interactive-POMDP <cite|han_learning_2018><cite|gmytrasiewicz_framework_2005>,
+  Augmented Bayes-Adaptive MDP (BAMDP) <cite|white_bayesian_1969><cite|duff_optimal_2002><cite|guez_efficient_2012>.
+  The model-based RL with UCB exploration algorithms
+  <cite|strehl_analysis_2008><cite|azar_minimax_2017> is also related to our
+  setting.
 
-  <subsection|HAI>
+  <with|font-series|bold|MEX related algorithms:> Our algorithm is based on
+  MEX <cite|liu_one_2023>, in each episode, the algorithm chooses a human
+  policy from the hypothesis set. On the other hand, the posterior sampling
+  algorithms <cite|thompson_likelihood_1933><cite|russo_learning_2014><cite|zhong_gec_2023><cite|agarwal_model-based_2022><cite|zhang_feel-good_2021><cite|agarwal_non-linear_2022><cite|agrawal_posterior_2020>
+  updates a belief over the hypothesis set in each episode and draws a policy
+  based on the current belief. Some methods like OLIVE
+  <cite|jiang_contextual_2016> eliminates policy from current hypothesis set
+  in each episode. Additionally, there is a method that trains one policy
+  that is robust for all possible human policies in the hypothesis set
+  <cite|bertuccelli_robust_2012>.
 
-  Human-robot mutual adaptation in collaborative tasks: Models and
-  experiments <cite|nikolaidis_human-robot_2017>
-
-  Meta RL<cite|charakorn_learning_2021>
-
-  <section|AHT>
-
-  <\enumerate>
-    <item>Opponent Modeling: <cite|albrecht_game-theoretic_2015><cite|albrecht_belief_2016><cite|barrett_making_2017><cite|xie_learning_2020><cite|he_opponent_2016>
-  </enumerate>
-
-  <section|POMDP>
-
-  earliest POMDP <cite|astrom_optimal_1965>
-
-  The earliest POMDP paper that introduces alpha vector is:
-  <with|font-shape|italic|The Optimal Control of Partially Observable Markov
-  Processes Over a Finite Horizon>: <cite|smallwood_optimal_1973>
-
-  <\enumerate>
-    <item>LMDP: <cite|kwon_rl_2021><cite|hallak_contextual_2015><cite|brunskill_sample_2013>
-
-    <item>IPOMDP:<cite|han_learning_2018><cite|gmytrasiewicz_framework_2005>
-
-    <item>Augmented Bayes-Adaptive MDP (BAMDP):
-    <cite|white_bayesian_1969><cite|duff_optimal_2002><cite|guez_efficient_2012>
-  </enumerate>
-
-  <subsection|LMDP>
-
-  Our formulation is close to LMDP, which has few different names, listed in
-  the following:
-
-  <\enumerate>
-    <item><with|color|blue|Contextual decision process>
-    <cite|hallak_contextual_2015>: dynamic web application\ 
-
-    <item><with|color|blue|Multi-model MDP> <cite|steimle_multi-model_2021>:
-    medical decision making\ 
-
-    <item><with|color|blue|<with|color|blue|Multi-task RL>>: transfer
-    learning in different RL tasks <cite|liu_pac_2016>
-    <cite|taylor_transfer_2009> <cite|brunskill_sample_2013>
-
-    <item><with|color|blue|Hidden model MDP, MOMDP>:
-    <cite|chades_momdps_2012> Hidden parameter mdp
-    <cite|doshi-velez_hidden_2013>, earliest momdp<cite|ong_planning_2010>
-
-    <item>Hidden-goal MDP: <cite|fern_decision-theoretic_2014>
-
-    <item><with|color|blue|Concurrent MDP>: <cite|buchholz_computation_2019>
-  </enumerate>
-
-  <subsection|Robust collaborative policy (one policy for all possible
-  partners)>
-
-  <cite|bertuccelli_robust_2012>
-
-  <section|MEX Regret Analysis>
-
-  The regret analysis in this paper took some ideas from the following
-  papers.
-
-  <\enumerate>
-    <item>OLIVE: <cite|jiang_contextual_2016>
-
-    <item>Posterior Sampling and Thomas Sampling:
-    <cite|thompson_likelihood_1933><cite|russo_learning_2014><cite|zhong_gec_2023><cite|agarwal_model-based_2022><cite|zhang_feel-good_2021><cite|agarwal_non-linear_2022><cite|agrawal_posterior_2020>
-
-    <item>MEX: <cite|liu_one_2023>
-  </enumerate>
-
-  <subsection|GEC assumption>
-
-  The main result relies on GEC assumption, which covers the following
-  assumptions:
-
-  <\enumerate>
-    <item>linear MDP structure (<cite|yang_sample-optimal_2019>;
-    <cite|jin_provably_2020>)
-
-    <item>Bellman completeness (Zanette et al., 2020:
-    <cite|zanette_learning_2020>)
-
-    <item>Bellman rank (<cite|jiang_contextual_2016>)
-
-    <item>Bilinear classes <cite|du_bilinear_2021>
-
-    <item>Eluder dimension (Osband and Van Roy, 2014
-    :<cite|osband_model-based_2014>)
-
-    <item>Bellman eluder dimension (Jin et al., 2021<cite|jin_bellman_2021>)
-  </enumerate>
-
-  <subsection|Agnostic online learning>
-
-  The regret analysis of infinite hypothesis set are related to agnostic
-  online learning: <cite|ben-davidAgnosticOnlineLearning2009><cite|ross_agnostic_2012>
-
-  <section|Other Algorithms>
-
-  <\enumerate>
-    <item><math|Q> learning with UCB: <cite|jin_is_2018><cite|dong_q-learning_2019>
-
-    <item>UCB: 1985 original paper. <cite|lai_asymptotically_1985>
-
-    <item>Model-based RL with UCB: <cite|azar_minimax_2017><cite|auer_near-optimal_2008>
-    earliest <cite|strehl_analysis_2008>
-
-    <item><with|color|blue|PBVI:> <cite|pineau_anytime_2006>
-    <with|color|pink|YL: we shall discuss whether to replicate this POMDP
-    algorithm.>
-  </enumerate>
-
-  \;
+  <with|font-series|bold|MDP structure assumptions:> Our regret analysis is
+  based on the low generalized eluder coefficient assumption
+  <cite|zhong_gec_2023>, which is a weaker assumption than low Eluder
+  dimension/Bellman eluder dimension <cite|osband_model-based_2014><cite|jin_bellman_2021>,
+  low Bellman rank <cite|jiang_contextual_2016>, Bellman completeness
+  <cite|zanette_learning_2020>, Bilinear classes <cite|du_bilinear_2021>, and
+  linear MDP structure <cite|yang_sample-optimal_2019><cite|jin_provably_2020>.
+  The environment we used in the experiment is a tabular MDP which satisfies
+  the low Bellman eluder dimension assumption <cite|jin_bellman_2021>. Also,
+  the regret analysis of infinite hypothesis set are related to agnostic
+  online learning <cite|ben-davidAgnosticOnlineLearning2009><cite|ross_agnostic_2012>.
 
   <\bibliography|bib|tm-plain|reference>
     <\bib-list|65>
@@ -623,83 +565,73 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-10|<tuple|5.2|3>>
-    <associate|auto-11|<tuple|6|3>>
-    <associate|auto-12|<tuple|4|3>>
-    <associate|auto-13|<tuple|4|4>>
-    <associate|auto-2|<tuple|2|1>>
-    <associate|auto-3|<tuple|2.1|2>>
-    <associate|auto-4|<tuple|3|2>>
-    <associate|auto-5|<tuple|4|2>>
-    <associate|auto-6|<tuple|4.1|2>>
-    <associate|auto-7|<tuple|4.2|2>>
-    <associate|auto-8|<tuple|5|3>>
-    <associate|auto-9|<tuple|5.1|3>>
-    <associate|bib-agarwal_model-based_2022|<tuple|1|4>>
-    <associate|bib-agarwal_non-linear_2022|<tuple|2|4>>
-    <associate|bib-agrawal_posterior_2020|<tuple|3|4>>
-    <associate|bib-albrecht_autonomous_2018|<tuple|6|4>>
-    <associate|bib-albrecht_belief_2016|<tuple|4|4>>
-    <associate|bib-albrecht_game-theoretic_2015|<tuple|5|4>>
-    <associate|bib-astrom_optimal_1965|<tuple|7|4>>
-    <associate|bib-auer_near-optimal_2008|<tuple|8|4>>
-    <associate|bib-azar_minimax_2017|<tuple|9|4>>
-    <associate|bib-azizzadenesheli_reinforcement_2016|<tuple|10|4>>
-    <associate|bib-barrett_making_2017|<tuple|11|4>>
-    <associate|bib-baumeister_survey_2022|<tuple|41|5>>
-    <associate|bib-ben-davidAgnosticOnlineLearning2009|<tuple|12|4>>
-    <associate|bib-bertuccelli_robust_2012|<tuple|13|4>>
-    <associate|bib-brunskill_sample_2013|<tuple|14|4>>
-    <associate|bib-buchholz_computation_2019|<tuple|15|4>>
-    <associate|bib-carroll_utility_2019|<tuple|16|4>>
-    <associate|bib-chades_momdps_2012|<tuple|17|4>>
-    <associate|bib-charakorn_learning_2021|<tuple|18|4>>
-    <associate|bib-dong_q-learning_2019|<tuple|19|4>>
-    <associate|bib-doshi-velez_hidden_2013|<tuple|20|4>>
-    <associate|bib-du_bilinear_2021|<tuple|21|4>>
-    <associate|bib-duff_optimal_2002|<tuple|22|4>>
-    <associate|bib-fern_decision-theoretic_2014|<tuple|23|4>>
-    <associate|bib-foerster_counterfactual_2017|<tuple|24|4>>
-    <associate|bib-gmytrasiewicz_framework_2005|<tuple|25|4>>
-    <associate|bib-guez_efficient_2012|<tuple|26|4>>
+    <associate|auto-2|<tuple|2|2>>
+    <associate|auto-3|<tuple|2|3>>
+    <associate|bib-agarwal_model-based_2022|<tuple|1|3>>
+    <associate|bib-agarwal_non-linear_2022|<tuple|2|3>>
+    <associate|bib-agrawal_posterior_2020|<tuple|3|3>>
+    <associate|bib-albrecht_autonomous_2018|<tuple|6|3>>
+    <associate|bib-albrecht_belief_2016|<tuple|4|3>>
+    <associate|bib-albrecht_game-theoretic_2015|<tuple|5|3>>
+    <associate|bib-astrom_optimal_1965|<tuple|7|3>>
+    <associate|bib-auer_near-optimal_2008|<tuple|8|3>>
+    <associate|bib-azar_minimax_2017|<tuple|9|3>>
+    <associate|bib-azizzadenesheli_reinforcement_2016|<tuple|10|3>>
+    <associate|bib-barrett_making_2017|<tuple|11|3>>
+    <associate|bib-baumeister_survey_2022|<tuple|41|4>>
+    <associate|bib-ben-davidAgnosticOnlineLearning2009|<tuple|12|3>>
+    <associate|bib-bertuccelli_robust_2012|<tuple|13|3>>
+    <associate|bib-brunskill_sample_2013|<tuple|14|3>>
+    <associate|bib-buchholz_computation_2019|<tuple|15|3>>
+    <associate|bib-carroll_utility_2019|<tuple|16|3>>
+    <associate|bib-chades_momdps_2012|<tuple|17|3>>
+    <associate|bib-charakorn_learning_2021|<tuple|18|3>>
+    <associate|bib-dong_q-learning_2019|<tuple|19|3>>
+    <associate|bib-doshi-velez_hidden_2013|<tuple|20|3>>
+    <associate|bib-du_bilinear_2021|<tuple|21|3>>
+    <associate|bib-duff_optimal_2002|<tuple|22|3>>
+    <associate|bib-fern_decision-theoretic_2014|<tuple|23|3>>
+    <associate|bib-foerster_counterfactual_2017|<tuple|24|3>>
+    <associate|bib-gmytrasiewicz_framework_2005|<tuple|25|3>>
+    <associate|bib-guez_efficient_2012|<tuple|26|3>>
     <associate|bib-guo_pac_2016|<tuple|27|4>>
     <associate|bib-hallak_contextual_2015|<tuple|28|4>>
     <associate|bib-han_learning_2018|<tuple|29|4>>
     <associate|bib-he_opponent_2016|<tuple|30|4>>
     <associate|bib-jiang_contextual_2016|<tuple|31|4>>
-    <associate|bib-jin_bellman_2021|<tuple|34|5>>
-    <associate|bib-jin_is_2018|<tuple|32|5>>
-    <associate|bib-jin_provably_2020|<tuple|35|5>>
-    <associate|bib-jin_sample-efficient_2020|<tuple|33|5>>
-    <associate|bib-kwon_rl_2021|<tuple|36|5>>
-    <associate|bib-lai_asymptotically_1985|<tuple|37|5>>
-    <associate|bib-liu_one_2023|<tuple|39|5>>
-    <associate|bib-liu_pac_2016|<tuple|38|5>>
-    <associate|bib-lockhart_human-agent_2020|<tuple|40|5>>
-    <associate|bib-nikolaidis_human-robot_2017|<tuple|42|5>>
-    <associate|bib-ong_planning_2010|<tuple|43|5>>
-    <associate|bib-osband_model-based_2014|<tuple|44|5>>
-    <associate|bib-pineau_anytime_2006|<tuple|45|5>>
-    <associate|bib-rahman_generating_2023|<tuple|46|5>>
-    <associate|bib-ribeiro_assisting_2022|<tuple|47|5>>
-    <associate|bib-ross_agnostic_2012|<tuple|48|5>>
-    <associate|bib-russo_learning_2014|<tuple|49|5>>
-    <associate|bib-smallwood_optimal_1973|<tuple|50|5>>
-    <associate|bib-steimle_multi-model_2021|<tuple|51|5>>
-    <associate|bib-stone_ad_2010|<tuple|52|5>>
-    <associate|bib-strehl_analysis_2008|<tuple|53|5>>
-    <associate|bib-strouse_collaborating_2022|<tuple|54|5>>
-    <associate|bib-taylor_transfer_2009|<tuple|55|5>>
-    <associate|bib-thompson_likelihood_1933|<tuple|56|5>>
+    <associate|bib-jin_bellman_2021|<tuple|34|4>>
+    <associate|bib-jin_is_2018|<tuple|32|4>>
+    <associate|bib-jin_provably_2020|<tuple|35|4>>
+    <associate|bib-jin_sample-efficient_2020|<tuple|33|4>>
+    <associate|bib-kwon_rl_2021|<tuple|36|4>>
+    <associate|bib-lai_asymptotically_1985|<tuple|37|4>>
+    <associate|bib-liu_one_2023|<tuple|39|4>>
+    <associate|bib-liu_pac_2016|<tuple|38|4>>
+    <associate|bib-lockhart_human-agent_2020|<tuple|40|4>>
+    <associate|bib-nikolaidis_human-robot_2017|<tuple|42|4>>
+    <associate|bib-ong_planning_2010|<tuple|43|4>>
+    <associate|bib-osband_model-based_2014|<tuple|44|4>>
+    <associate|bib-pineau_anytime_2006|<tuple|45|4>>
+    <associate|bib-rahman_generating_2023|<tuple|46|4>>
+    <associate|bib-ribeiro_assisting_2022|<tuple|47|4>>
+    <associate|bib-ross_agnostic_2012|<tuple|48|4>>
+    <associate|bib-russo_learning_2014|<tuple|49|4>>
+    <associate|bib-smallwood_optimal_1973|<tuple|50|4>>
+    <associate|bib-steimle_multi-model_2021|<tuple|51|4>>
+    <associate|bib-stone_ad_2010|<tuple|52|4>>
+    <associate|bib-strehl_analysis_2008|<tuple|53|4>>
+    <associate|bib-strouse_collaborating_2022|<tuple|54|4>>
+    <associate|bib-taylor_transfer_2009|<tuple|55|4>>
+    <associate|bib-thompson_likelihood_1933|<tuple|56|4>>
     <associate|bib-tylkin_learning_2021|<tuple|57|5>>
     <associate|bib-white_bayesian_1969|<tuple|58|5>>
     <associate|bib-xie_learning_2020|<tuple|59|5>>
     <associate|bib-yang_sample-optimal_2019|<tuple|60|5>>
     <associate|bib-yao_smixlambda_2020|<tuple|61|5>>
-    <associate|bib-zanette_learning_2020|<tuple|62|6>>
-    <associate|bib-zhang_feel-good_2021|<tuple|64|6>>
-    <associate|bib-zhang_multi-agent_2021|<tuple|63|6>>
-    <associate|bib-zhong_gec_2023|<tuple|65|6>>
+    <associate|bib-zanette_learning_2020|<tuple|62|5>>
+    <associate|bib-zhang_feel-good_2021|<tuple|64|5>>
+    <associate|bib-zhang_multi-agent_2021|<tuple|63|5>>
+    <associate|bib-zhong_gec_2023|<tuple|65|5>>
   </collection>
 </references>
 
@@ -742,6 +674,30 @@
 
       brunskill_sample_2013
 
+      liu_one_2023
+
+      liu_one_2023
+
+      carroll_utility_2019
+
+      strouse_collaborating_2022
+
+      rahman_generating_2023
+
+      strouse_collaborating_2022
+
+      jin_is_2018
+
+      dong_q-learning_2019
+
+      lai_asymptotically_1985
+
+      zhong_gec_2023
+
+      auer_near-optimal_2008
+
+      nikolaidis_human-robot_2017
+
       tylkin_learning_2021
 
       lockhart_human-agent_2020
@@ -754,53 +710,27 @@
 
       strouse_collaborating_2022
 
-      carroll_utility_2019
-
-      strouse_collaborating_2022
-
-      rahman_generating_2023
-
-      nikolaidis_human-robot_2017
-
-      ribeiro_assisting_2022
-
-      charakorn_learning_2021
-
       baumeister_survey_2022
 
       albrecht_autonomous_2018
 
       stone_ad_2010
 
+      barrett_making_2017
+
+      he_opponent_2016
+
       albrecht_game-theoretic_2015
 
       albrecht_belief_2016
 
-      barrett_making_2017
-
       xie_learning_2020
-
-      he_opponent_2016
 
       astrom_optimal_1965
 
       smallwood_optimal_1973
 
       kwon_rl_2021
-
-      hallak_contextual_2015
-
-      brunskill_sample_2013
-
-      han_learning_2018
-
-      gmytrasiewicz_framework_2005
-
-      white_bayesian_1969
-
-      duff_optimal_2002
-
-      guez_efficient_2012
 
       hallak_contextual_2015
 
@@ -812,25 +742,27 @@
 
       brunskill_sample_2013
 
+      ong_planning_2010
+
       chades_momdps_2012
 
       doshi-velez_hidden_2013
-
-      ong_planning_2010
 
       fern_decision-theoretic_2014
 
       buchholz_computation_2019
 
-      guo_pac_2016
+      han_learning_2018
 
-      azizzadenesheli_reinforcement_2016
+      gmytrasiewicz_framework_2005
 
-      jin_sample-efficient_2020
+      white_bayesian_1969
 
-      bertuccelli_robust_2012
+      duff_optimal_2002
 
-      jiang_contextual_2016
+      guez_efficient_2012
+
+      liu_one_2023
 
       thompson_likelihood_1933
 
@@ -846,39 +778,35 @@
 
       agrawal_posterior_2020
 
-      liu_one_2023
+      jiang_contextual_2016
+
+      bertuccelli_robust_2012
+
+      strehl_analysis_2008
+
+      azar_minimax_2017
+
+      zhong_gec_2023
+
+      osband_model-based_2014
+
+      jin_bellman_2021
+
+      jiang_contextual_2016
+
+      zanette_learning_2020
+
+      du_bilinear_2021
 
       yang_sample-optimal_2019
 
       jin_provably_2020
-
-      zanette_learning_2020
-
-      jiang_contextual_2016
-
-      du_bilinear_2021
-
-      osband_model-based_2014
 
       jin_bellman_2021
 
       ben-davidAgnosticOnlineLearning2009
 
       ross_agnostic_2012
-
-      jin_is_2018
-
-      dong_q-learning_2019
-
-      lai_asymptotically_1985
-
-      azar_minimax_2017
-
-      auer_near-optimal_2008
-
-      strehl_analysis_2008
-
-      pineau_anytime_2006
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Introduction>
@@ -889,50 +817,9 @@
       Work> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|2.1<space|2spc>Environment
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-3>>
-
-      <with|par-left|<quote|1tab>|2.2<space|2spc>HAI
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4>>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>AHT>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>POMDP>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-6><vspace|0.5fn>
-
-      <with|par-left|<quote|1tab>|4.1<space|2spc>LMDP
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7>>
-
-      <with|par-left|<quote|1tab>|4.2<space|2spc>Robust collaborative policy
-      (one policy for all possible partners)
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-8>>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>MEX
-      Regret Analysis> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-9><vspace|0.5fn>
-
-      <with|par-left|<quote|1tab>|5.1<space|2spc>GEC assumption
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-10>>
-
-      <with|par-left|<quote|1tab>|5.2<space|2spc>Agnostic online learning
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-11>>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>Other
-      Algorithms> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-12><vspace|0.5fn>
-
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-13><vspace|0.5fn>
+      <no-break><pageref|auto-3><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
