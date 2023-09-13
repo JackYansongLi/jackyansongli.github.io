@@ -1,4 +1,4 @@
-<TeXmacs|2.1.2>
+<TeXmacs|2.1>
 
 <style|generic>
 
@@ -15,8 +15,8 @@
   <section|Introduction>
 
   Training an AI agent capable of cooperating with various types of humans
-  stands as a central challenge in human-AI collaborations (HAI). This
-  problem proves to be difficult because different humans can create varied
+  stands as a central challenge in human-AI Interaction (HAI). This problem
+  proves to be difficult because different humans can create varied
   environments for the AI agent to navigate. Additionally, the AI agent
   cannot presume rational behavior from humans within the collaboration
   setting <cite|carroll_utility_2019>. Many studies in the realm of
@@ -33,19 +33,75 @@
   a concept that, in the context of Human-AI (HAI) interactions, primarily
   entails modeling human behaviors and policies.
 
+  In this paper, we tackle a problem in the Human-AI (HAI) interaction domain
+  where there are two participants: a human agent and an AI agent. The human
+  agent keeps her policy hidden from the AI. However, the AI starts with a
+  few initial guesses about the human's possible policies. The main goal of
+  the AI is to figure out the actual policies the human agent is using. We
+  categorize this approach as falling within several known frameworks such as
+  latent Markov Decision Processes (MDP) <cite|kwon_rl_2021><cite|hallak_contextual_2015><cite|brunskill_sample_2013>
+  and multi-task Reinforcement Learning (RL) <cite|liu_pac_2016>
+  <cite|taylor_transfer_2009> <cite|brunskill_sample_2013>. We will explore
+  these and others in greater detail in the related work.\ 
+
+  In this study, we use an episodic Markov decision process where the
+  transitions and rewards are influenced by the policy that the human agent
+  keeps secret. The AI agent begins with a set of initial guesses about the
+  human's policy, grouped together in a finite hypothesis set
+  <math|\<cal-H\>>. We discuss loosening the limitation of this finite set in
+  a later section (refer to the section on the infinite hypothesis set). It's
+  assumed that the actual policy the human is using is a part of set
+  <math|\<cal-H\>>, an idea referred to as the realization assumption. We'll
+  talk about easing this assumption in another section (see the section on
+  the realization assumption).
+
+  We used the Maximize to Explore (MEX) algorithm mentioned in
+  <cite|liu_one_2023> to tackle the episodic MDP with an undefined hypothesis
+  set. We confirm a sub-linear regret outcome in Section (finite regret).
+  Moreover, we found that the MEX algorithm can naturally decrease the size
+  of the hypothesis set by grouping together human policies that are of the
+  same type, allowing for a regret boundary that is smaller than the upper
+  limit noted in <cite|liu_one_2023>. The definition for policies be of the
+  same type is introduced in Section (same type). Furthermore, we applied the
+  MEX algorithm with an infinite hypothesis set that encompasses the true
+  policy. We demonstrated that utilizing MEX with a finite hypothesis set,
+  which contains a policy nearly identical to the true policy in the infinite
+  hypothesis set, can still achieve sub-linear regret that tends to a value
+  that close to an optimal value. This aspect is elaborated in Section
+  (infinite hypothesis set).
+
+  In our experiment, we developed a simplified environment of the
+  Overcooked-AI <cite|carroll_utility_2019>, where agents are required to
+  engage in a series of actions such as cooking, waiting, and delivering
+  food. The simplified version of Overcooked-AI, focusing exclusively on the
+  food delivery task. This simplification is essential as it enables us to
+  focus clearly on the main challenges posed by the original environment but
+  significantly reduce the size of both state and action spaces, leading to a
+  considerable decrease in computational complexity.
+
+  We created the finite hypothesis set using the best response dynamics
+  method <cite|strouse_collaborating_2022>, where agents constantly modify
+  their policies to best respond to the policies observed from other agents.
+  In addition to this, numerous studies have explored various approaches to
+  develop a finite hypothesis set <math|\<cal-H\>>
+  <cite|rahman_generating_2023><cite|strouse_collaborating_2022>. The
+  infinite hypothesis set is defined as an open cover of the generated finite
+  hypothesis set, which mimic the situation that human agents' bounded
+  rationality.
+
+  We compared our algorithm with <math|Q>-learning with UCB exploration
+  <cite|jin_is_2018><cite|dong_q-learning_2019>, Upper confidence bound
+  <cite|lai_asymptotically_1985>, optimistic posterior sampling
+  <cite|zhong_gec_2023>, and UCRL2 <cite|auer_near-optimal_2008> algorithms.
+  Our results shows that (added experiment)
+
   <section|Related Work>
 
-  <with|font-series|bold|Game environment>: Several benchmark environments
-  facilitate the study of cooperative human-AI collaboration tasks, including
+  <with|font-series|bold|Game Environment>: Several benchmark environments
+  facilitate the study of cooperative human-AI interaction tasks, including
   the two-player cooperative Atari game <cite|tylkin_learning_2021>, bridge
   card <cite|lockhart_human-agent_2020>, and Overcooked-AI
-  <cite|carroll_utility_2019><cite|strouse_collaborating_2022>. In this
-  paper, we use a simplified version of Overcooked-AI where the only goal of
-  all agents is to deliver food to the guest that ask for this food. In this
-  paper, we introduce a simplified version inspired by the original
-  Overcooked-AI environment, with a narrowed scope to facilitate focused
-  research. In this simplified Overcooked-AI environment, the sole objective
-  for all agents is to fulfill food requests from guests.
+  <cite|carroll_utility_2019><cite|strouse_collaborating_2022>.\ 
 
   <with|font-series|bold|Human agent generation:> Collecting human policies
   can be notably costly. Previous studies have developed methods for more
@@ -54,39 +110,28 @@
   diversity of the best responses these policies can offer. The algorithm
   then maximizes this measure to find the policies that provide a diverse set
   of best responses <cite|rahman_generating_2023>. Another strategy
-  formulates human policies where each policy is generated as the best
-  response to different self-play agents <cite|strouse_collaborating_2022>.
+  formulates human policies by runing best response dynamics
+  <cite|strouse_collaborating_2022>.
+
+  <with|font-series|bold|Ad-Hoc teamworks:> Our work is closely related to
+  ad-hoc teamworks <cite|baumeister_survey_2022><cite|albrecht_autonomous_2018><cite|stone_ad_2010>
+  , especially the oppenent modeling subtask.\ 
 
   <with|font-series|bold|Partially observable Markov decision process:> Our
   problem can also be formulated as\ 
 
-  <with|font-series|bold|Ad-Hoc teamworks:>
-
-  <subsection|Environment>
-
-  We use a simplified version of the Overcooked-AI
-  <cite|carroll_utility_2019><cite|strouse_collaborating_2022> as benchmark
-  environment for numerical experiment.
-
-  Generating diverse partners: Generating Teammates for Training Robust Ad
-  Hoc Teamwork Agents via Best-Response Diversity
-  <cite|rahman_generating_2023>Collaborating with Humans without Human Data
+  \;
 
   <subsection|HAI>
 
   Human-robot mutual adaptation in collaborative tasks: Models and
   experiments <cite|nikolaidis_human-robot_2017>
 
-  <cite|ribeiro_assisting_2022><cite|charakorn_learning_2021>
+  Meta RL<cite|charakorn_learning_2021>
 
   <section|AHT>
 
-  Our work is related to ad-hoc teamworks (AHT), especially the opponent
-  modeling subtask of AHT\ 
-
   <\enumerate>
-    <item>Review:<cite|baumeister_survey_2022><cite|albrecht_autonomous_2018><cite|stone_ad_2010>\ 
-
     <item>Opponent Modeling: <cite|albrecht_game-theoretic_2015><cite|albrecht_belief_2016><cite|barrett_making_2017><cite|xie_learning_2020><cite|he_opponent_2016>
   </enumerate>
 
@@ -131,17 +176,6 @@
 
     <item><with|color|blue|Concurrent MDP>: <cite|buchholz_computation_2019>
   </enumerate>
-
-  <with|font-shape|italic|<with|font-series|bold|Kwon et.al. 2021:> Previous
-  studies of partially-observed decision problems assumed
-  <with|color|blue|the number of observations is larger than the number of
-  hidden states>, as well as, that a set of single observations forms
-  sufficient statistics to learn the hidden structure
-  <cite|guo_pac_2016><cite|azizzadenesheli_reinforcement_2016>.>
-  Undercomplete POMDP<cite|jin_sample-efficient_2020>
-
-  <with|color|pink|YL: I can make an example such that MEX do not need to
-  visit all number of hidden states to achieve zero regret.>
 
   <subsection|Robust collaborative policy (one policy for all possible
   partners)>
@@ -589,25 +623,25 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-10|<tuple|5.1|3>>
-    <associate|auto-11|<tuple|5.2|3>>
-    <associate|auto-12|<tuple|6|3>>
-    <associate|auto-13|<tuple|4|3>>
+    <associate|auto-10|<tuple|5.2|3>>
+    <associate|auto-11|<tuple|6|3>>
+    <associate|auto-12|<tuple|4|3>>
+    <associate|auto-13|<tuple|4|4>>
     <associate|auto-2|<tuple|2|1>>
-    <associate|auto-3|<tuple|2.1|1>>
-    <associate|auto-4|<tuple|2.2|1>>
-    <associate|auto-5|<tuple|3|2>>
-    <associate|auto-6|<tuple|4|2>>
-    <associate|auto-7|<tuple|4.1|2>>
-    <associate|auto-8|<tuple|4.2|2>>
-    <associate|auto-9|<tuple|5|2>>
-    <associate|bib-agarwal_model-based_2022|<tuple|1|3>>
-    <associate|bib-agarwal_non-linear_2022|<tuple|2|3>>
-    <associate|bib-agrawal_posterior_2020|<tuple|3|3>>
-    <associate|bib-albrecht_autonomous_2018|<tuple|6|3>>
-    <associate|bib-albrecht_belief_2016|<tuple|4|3>>
-    <associate|bib-albrecht_game-theoretic_2015|<tuple|5|3>>
-    <associate|bib-astrom_optimal_1965|<tuple|7|3>>
+    <associate|auto-3|<tuple|2.1|2>>
+    <associate|auto-4|<tuple|3|2>>
+    <associate|auto-5|<tuple|4|2>>
+    <associate|auto-6|<tuple|4.1|2>>
+    <associate|auto-7|<tuple|4.2|2>>
+    <associate|auto-8|<tuple|5|3>>
+    <associate|auto-9|<tuple|5.1|3>>
+    <associate|bib-agarwal_model-based_2022|<tuple|1|4>>
+    <associate|bib-agarwal_non-linear_2022|<tuple|2|4>>
+    <associate|bib-agrawal_posterior_2020|<tuple|3|4>>
+    <associate|bib-albrecht_autonomous_2018|<tuple|6|4>>
+    <associate|bib-albrecht_belief_2016|<tuple|4|4>>
+    <associate|bib-albrecht_game-theoretic_2015|<tuple|5|4>>
+    <associate|bib-astrom_optimal_1965|<tuple|7|4>>
     <associate|bib-auer_near-optimal_2008|<tuple|8|4>>
     <associate|bib-azar_minimax_2017|<tuple|9|4>>
     <associate|bib-azizzadenesheli_reinforcement_2016|<tuple|10|4>>
@@ -633,14 +667,14 @@
     <associate|bib-han_learning_2018|<tuple|29|4>>
     <associate|bib-he_opponent_2016|<tuple|30|4>>
     <associate|bib-jiang_contextual_2016|<tuple|31|4>>
-    <associate|bib-jin_bellman_2021|<tuple|34|4>>
-    <associate|bib-jin_is_2018|<tuple|32|4>>
-    <associate|bib-jin_provably_2020|<tuple|35|4>>
-    <associate|bib-jin_sample-efficient_2020|<tuple|33|4>>
-    <associate|bib-kwon_rl_2021|<tuple|36|4>>
-    <associate|bib-lai_asymptotically_1985|<tuple|37|4>>
+    <associate|bib-jin_bellman_2021|<tuple|34|5>>
+    <associate|bib-jin_is_2018|<tuple|32|5>>
+    <associate|bib-jin_provably_2020|<tuple|35|5>>
+    <associate|bib-jin_sample-efficient_2020|<tuple|33|5>>
+    <associate|bib-kwon_rl_2021|<tuple|36|5>>
+    <associate|bib-lai_asymptotically_1985|<tuple|37|5>>
     <associate|bib-liu_one_2023|<tuple|39|5>>
-    <associate|bib-liu_pac_2016|<tuple|38|4>>
+    <associate|bib-liu_pac_2016|<tuple|38|5>>
     <associate|bib-lockhart_human-agent_2020|<tuple|40|5>>
     <associate|bib-nikolaidis_human-robot_2017|<tuple|42|5>>
     <associate|bib-ong_planning_2010|<tuple|43|5>>
@@ -662,10 +696,10 @@
     <associate|bib-xie_learning_2020|<tuple|59|5>>
     <associate|bib-yang_sample-optimal_2019|<tuple|60|5>>
     <associate|bib-yao_smixlambda_2020|<tuple|61|5>>
-    <associate|bib-zanette_learning_2020|<tuple|62|5>>
-    <associate|bib-zhang_feel-good_2021|<tuple|64|5>>
-    <associate|bib-zhang_multi-agent_2021|<tuple|63|5>>
-    <associate|bib-zhong_gec_2023|<tuple|65|5>>
+    <associate|bib-zanette_learning_2020|<tuple|62|6>>
+    <associate|bib-zhang_feel-good_2021|<tuple|64|6>>
+    <associate|bib-zhang_multi-agent_2021|<tuple|63|6>>
+    <associate|bib-zhong_gec_2023|<tuple|65|6>>
   </collection>
 </references>
 
@@ -695,6 +729,18 @@
       xie_learning_2020
 
       he_opponent_2016
+
+      kwon_rl_2021
+
+      hallak_contextual_2015
+
+      brunskill_sample_2013
+
+      liu_pac_2016
+
+      taylor_transfer_2009
+
+      brunskill_sample_2013
 
       tylkin_learning_2021
 
