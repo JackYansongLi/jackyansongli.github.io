@@ -4,10 +4,11 @@
   <head>
     <title>Jack Yansong Li</title>
     <meta name="generator" content="TeXmacs 2.1.2"></meta>
-    <link type="text/css" href="../resources/notes-base.css" rel="stylesheet"></link>
+    <link href="../resources/notes-base.css" type="text/css" rel="stylesheet"></link>
     <link href="../resources/blog-icon.png" rel="icon"></link>
     <script language="javascript" src="../resources/highlight.pack.js" defer></script>
     <script language="javascript" src="../resources/notes-base.js" defer></script>
+    <script language="javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
   <body>
     <div class="notes-header">
@@ -23,76 +24,92 @@
     <h2 id="auto-2">1.<span style="margin-left: 1em"></span>Worst-case cost and worst-case regret
     cost<span style="margin-left: 1em"></span></h2>
     <p>
-      Consider the function <img src="regret_ol-1.png" style="margin-left: -0.062060606060606066em; margin-bottom: -0.023797979797979762em; margin-right: -0.020686868686868753em; margin-top: 0.018585858585858595em; vertical-align: -0.28650505050505054em; height: 0.8274747474747475em"></img> defined as <span class="no-breaks"><img
-      src="regret_ol-2.png" style="margin-left: -0.062060606060606066em; margin-bottom: -0.026222222222222258em; margin-right: -0.020686868686867754em; margin-top: -0.031030303030302964em; vertical-align: -0.8967272727272727em; height: 1.8538585858585859em"></img>.</span> The optimization problem defined as
+      Consider the function \(g\) defined as \(g (x) \triangleq
+      \underset{y}{\max .} f (x, y)\). The optimization problem defined as
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="regret_ol-3.png" style="margin-left: -0.020686868686868688em; margin-bottom: -0.026222222222222258em; margin-right: -0.02068686868686953em; margin-top: -0.010343434343434321em; vertical-align: -0.8967272727272727em; height: 1.709050505050505em"></img></td>
+        <td width="100%" align="center">\(\displaystyle \underset{x}{\min .} \quad g (x)
+        \equiv \underset{x}{\min .} \quad
+\underset{y}{\max .} f (x, y)\)</td>
         <td align="right">(1)</td>
       </tr>
     </table>
     <p>
-      can be viewed as a worst-case optimization problem, and <img src="regret_ol-4.png" style="margin-left: -0.062060606060606066em; margin-bottom: -0.023797979797979762em; margin-right: -0.02068686868686842em; margin-top: 0em; vertical-align: -0.28650505050505054em; height: 1.086060606060606em"></img>
-      is called <i>worst-case cost</i>.
+      can be viewed as a worst-case optimization problem, and \(g (x)\) is
+      called <i>worst-case cost</i>.
     </p>
     <p>
-      Let's consider a scenario where we have a function <img src="regret_ol-5.png" style="margin-left: -0.19652525252525252em; margin-bottom: -0.013454545454545441em; margin-right: -0.020686868686868642em; margin-top: -0.010343434343434321em; vertical-align: -0.28650505050505054em; height: 1.086060606060606em"></img>
-      that represents the time required to drive a car from one location to
-      another. In this context, <img src="regret_ol-6.png" style="margin-left: -0.020686868686868688em; margin-bottom: -0.01967676767676768em; margin-right: -0.020686868686868753em; margin-top: 0.018585858585858595em; vertical-align: -0.011353535353535352em; height: 0.5482020202020202em"></img> represents the
-      driver's policy, which encompass decisions like adjusting speed,
-      selecting lanes (left or right), and other driving strategies. On the
-      other hand, <img src="regret_ol-7.png" style="margin-left: -0.031030303030303033em; margin-bottom: -0.013454545454545441em; margin-right: -0.020686868686868753em; margin-top: 0.018585858585858595em; vertical-align: -0.28650505050505054em; height: 0.8171313131313132em"></img> represents a binary condition
-      indicating whether it's currently raining (<span class="no-breaks"><img src="regret_ol-8.png" style="margin-left: -0.031030303030303033em; margin-bottom: -0.013454545454545441em; margin-right: -0.020686868686868642em; margin-top: 0em; vertical-align: -0.28650505050505054em; height: 1.0343434343434343em"></img>)</span>
-      or not (<span class="no-breaks"><img src="regret_ol-9.png" style="margin-left: -0.031030303030303033em; margin-bottom: -0.013454545454545441em; margin-right: -0.020686868686868642em; margin-top: 0em; vertical-align: -0.28650505050505054em; height: 1.0343434343434343em"></img>).</span> Together, this
-      function captures how the driver's decisions and weather conditions
-      collectively impact the time it takes for the journey.
+      Let's consider a scenario where we have a function \(f (x, y)\) that
+      represents the time required to drive a car from one location to
+      another. In this context, \(x\) represents the driver's policy, which
+      encompass decisions like adjusting speed, selecting lanes (left or
+      right), and other driving strategies. On the other hand, \(y\)
+      represents a binary condition indicating whether it's currently raining
+      (\(y = 1\)) or not (\(y = 0\)). Together, this function captures how the
+      driver's decisions and weather conditions collectively impact the time
+      it takes for the journey.
     </p>
     <p>
       It's a widely acknowledged fact that driving takes more time on days
-      when it's raining. Thus, <span class="no-breaks"><img src="regret_ol-10.png" style="margin-left: -0.020686868686868688em; margin-bottom: -0.026222222222222258em; margin-right: -0.020686868686867754em; margin-top: -0.010343434343434321em; vertical-align: -0.8967272727272727em; height: 1.709050505050505em"></img>.</span> By
-      definition, the function <img src="regret_ol-4.png" style="margin-left: -0.062060606060606066em; margin-bottom: -0.023797979797979762em; margin-right: -0.02068686868686842em; margin-top: 0em; vertical-align: -0.28650505050505054em; height: 1.086060606060606em"></img> currently represents
-      the time required for driving on days when it's raining.
+      when it's raining. Thus, \(\underset{y}{\max .} f (x, y) = f (x,
+      \operatorname{rain})\). By definition, the function \(g (x)\) currently
+      represents the time required for driving on days when it's raining.
     </p>
     <p>
-      Now, define <span class="no-breaks"><img src="regret_ol-11.png" style="margin-left: -0.062060606060606066em; margin-bottom: -0.026222222222222258em; margin-right: 0em; margin-top: -0.04137373737373751em; vertical-align: -0.8967272727272727em; height: 2.191919191919192em"></img>.</span> We call <img
-      src="regret_ol-12.png" style="margin-left: -0.062060606060606066em; margin-bottom: -0.023797979797979762em; margin-right: -0.020686868686868642em; margin-top: -0.031030303030303075em; vertical-align: -0.28650505050505054em; height: 1.2946262626262626em"></img> the <i>worst-case regret cost</i>. Unlike worst-case
-      cost, the regret cost measures the maximum achievement <b>it can be
-      improved</b> in the past days. For example, if a driver cannot drive in
-      the rainy day due to rheumatoid arthritis. Then there is no difference
-      between <img src="regret_ol-13.png" style="margin-left: -0.19652525252525252em; margin-bottom: -0.013454545454545441em; margin-right: -0.020686868686868642em; margin-top: -0.010343434343434321em; vertical-align: -0.28650505050505054em; height: 1.086060606060606em"></img> and <img src="regret_ol-14.png" style="margin-left: -0.19652525252525252em; margin-bottom: -0.013454545454545441em; margin-right: -0.020686868686868642em; margin-top: -0.031030303030303075em; vertical-align: -0.28650505050505054em; height: 1.2842828282828282em"></img> for any <img
-      src="regret_ol-6.png" style="margin-left: -0.020686868686868688em; margin-bottom: -0.01967676767676768em; margin-right: -0.020686868686868753em; margin-top: 0.018585858585858595em; vertical-align: -0.011353535353535352em; height: 0.5482020202020202em"></img> and <span class="no-breaks"><img src="regret_ol-15.png" style="margin-left: -0.020686868686868688em; margin-bottom: -0.01967676767676768em; margin-right: -0.020686868686868753em; margin-top: -0.031030303030303075em; vertical-align: -0.011353535353535352em; height: 1.0153535353535355em"></img>,</span>
-      which makes <span class="no-breaks"><img src="regret_ol-16.png" style="margin-left: -0.062060606060606066em; margin-bottom: -0.023797979797979762em; margin-right: -0.020686868686868642em; margin-top: -0.031030303030303075em; vertical-align: -0.28650505050505054em; height: 1.2946262626262626em"></img>.</span> No regret at
-      all! Because nothing can be improved in the worst-case.
+      Now, define \(g' (x) \triangleq \underset{y}{\max} \left( f (x, y) -
+      \underset{x'}{\min} f
+(x', y) \right)\). We call \(g' (x)\) the
+      <i>worst-case regret cost</i>. Unlike worst-case cost, the regret cost
+      measures the maximum achievement <b>it can be improved</b> in the past
+      days. For example, if a driver cannot drive in the rainy day due to
+      rheumatoid arthritis. Then there is no difference between \(f (x,
+      \operatorname{rain})\) and \(f (x', \operatorname{rain})\) for any \(x\)
+      and \(x'\), which makes \(g' (x) = 0\). No regret at all! Because
+      nothing can be improved in the worst-case.
     </p>
     <h2 id="auto-3">2.<span style="margin-left: 1em"></span>An example that minimizes regret cost
     results in a better policy<span style="margin-left: 1em"></span></h2>
     <p>
-      Consider the function <img src="regret_ol-5.png" style="margin-left: -0.19652525252525252em; margin-bottom: -0.013454545454545441em; margin-right: -0.020686868686868642em; margin-top: -0.010343434343434321em; vertical-align: -0.28650505050505054em; height: 1.086060606060606em"></img> as follows:
+      Consider the function \(f (x, y)\) as follows:
     </p>
     <center>
-      <img src="regret_ol-17.png" style="margin-left: -0.06719191919191919em; margin-bottom: -0.06719191919191925em; margin-right: -0.020686868686868642em; margin-top: -0.06719191919191925em; vertical-align: -2.3642828282828283em; height: 5.361454545454546em"></img>
+      \(\displaystyle \begin{array}{|c|c|c|c|}
+  \hline
+  &  & x & y\\
+ 
+      \hline
+  &  & 0 & 1\\
+  \hline
+  x & 0 & 100 & 0\\
+  \hline
+  y & 1 &
+      100 & 99\\
+  \hline
+\end{array} .\)
     </center>
     <p>
       
     </p>
     <p>
-      The worst-case cost <img src="regret_ol-4.png" style="margin-left: -0.062060606060606066em; margin-bottom: -0.023797979797979762em; margin-right: -0.02068686868686842em; margin-top: 0em; vertical-align: -0.28650505050505054em; height: 1.086060606060606em"></img> in this example is <img src="regret_ol-18.png"
-      style="margin-left: -0.020686868686868688em; margin-bottom: -0.026222222222222258em; margin-right: -0.020686868686867754em; margin-top: -0.010343434343434321em; vertical-align: -0.8967272727272727em; height: 1.709050505050505em"></img> for any <span class="no-breaks"><img src="regret_ol-6.png" style="margin-left: -0.020686868686868688em; margin-bottom: -0.01967676767676768em; margin-right: -0.020686868686868753em; margin-top: 0.018585858585858595em; vertical-align: -0.011353535353535352em; height: 0.5482020202020202em"></img>.</span> Thus,
+      The worst-case cost \(g (x)\) in this example is \(\underset{y}{\max} f
+      (x, y) = f (x, 0) = 100\) for any \(x\). Thus,
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="regret_ol-19.png" style="margin-left: -0.020686868686868688em; margin-bottom: -0.023474747474747426em; margin-right: -0.020686868686867754em; margin-top: 0em; vertical-align: -0.7132929292929293em; height: 1.5125252525252524em"></img></td>
+        <td width="100%" align="center">\(\displaystyle \arg \underset{x}{\min} g (x) = 0
+        \vee 1.\)</td>
         <td align="right">(2)</td>
       </tr>
     </table>
     <p>
-      But for the worst-case regret cost, <img src="regret_ol-20.png" style="margin-left: -0.062060606060606066em; margin-bottom: -0.023797979797979762em; margin-right: -0.020686868686868642em; margin-top: -0.031030303030303075em; vertical-align: -0.28650505050505054em; height: 1.2946262626262626em"></img> and <span
-      class="no-breaks"><img src="regret_ol-21.png" style="margin-left: -0.062060606060606066em; margin-bottom: -0.023797979797979762em; margin-right: -0.020686868686868642em; margin-top: -0.031030303030303075em; vertical-align: -0.28650505050505054em; height: 1.2946262626262626em"></img>.</span> Thus
+      But for the worst-case regret cost, \(g' (0) = 0\) and \(g' (1) = 99\).
+      Thus
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><img src="regret_ol-22.png" style="margin-left: -0.020686868686868688em; margin-bottom: -0.023474747474747426em; margin-right: -0.020686868686868642em; margin-top: -0.031030303030303075em; vertical-align: -0.7132929292929293em; height: 1.721090909090909em"></img></td>
+        <td width="100%" align="center">\(\displaystyle \arg \underset{x}{\min} g' (x) =
+        0.\)</td>
         <td align="right">(3)</td>
       </tr>
     </table>
@@ -107,15 +124,14 @@
       driver who refrains from driving on rainy days. In this case, data
       points (representing the time taken to travel between places) within a
       one-hour time-frame might have a probability of collection as low as
-      <span class="no-breaks"><img src="regret_ol-23.png" style="margin-left: -0.020686868686868688em; margin-bottom: -0.019676767676767678em; margin-right: -0.020686868686868753em; margin-top: 0em; vertical-align: -0.021696969696969697em; height: 0.7757575757575758em"></img>.</span> Conversely, data points
-      beyond one hour might possess a probability of collection greater than
-      <span class="no-breaks"><img src="regret_ol-23.png" style="margin-left: -0.020686868686868688em; margin-bottom: -0.019676767676767678em; margin-right: -0.020686868686868753em; margin-top: 0em; vertical-align: -0.021696969696969697em; height: 0.7757575757575758em"></img>.</span> This implies that data
+      \(0\). Conversely, data points beyond one hour might possess a
+      probability of collection greater than \(0\). This implies that data
       collected on different dates adhere to distinct distributions. This
       distinction underscores a crucial disparity between traditional offline
       learning and online learning.
     </p>
     <h1 id="auto-5">Bibliography<span style="margin-left: 1em"></span></h1>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <font style="font-size: 84.0%"><dl>
         <p>
           <dt>
