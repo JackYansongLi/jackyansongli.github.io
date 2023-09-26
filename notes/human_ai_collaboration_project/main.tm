@@ -561,7 +561,7 @@
   and <math|r<rsub|\<mu\>><around*|(|s,a|)>\<triangleq\>r<around*|(|s,\<mu\><around*|(|s|)>,a|)>>.
   <math|d<rsub|S A><around*|(|<around*|(|s,a|)>,<around*|(|s<rprime|'>,a<rprime|'>|)>|)>\<triangleq\>d<rsub|S><around*|(|s,s<rprime|'>|)>+d<rsub|A><around*|(|a,a<rprime|'>|)>>,
   where <math|<with|color|blue|d<rsub|S>\<triangleq\><around*|\<\|\|\>|s-s<rprime|'>|\<\|\|\>><rsub|\<infty\>>,state
-  is not vector>> and\ 
+  is not a vector>> and\ 
 
   The assumption holds for MDPs where the transition kernel and the reward
   function satisfies,
@@ -1281,23 +1281,23 @@
 
 <\references>
   <\collection>
-    <associate|app:thm-fin|<tuple|8.2|9>>
+    <associate|app:thm-fin|<tuple|8.2|10>>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-10|<tuple|5.1|5>>
-    <associate|auto-11|<tuple|5.2|5>>
-    <associate|auto-12|<tuple|6|6>>
-    <associate|auto-13|<tuple|6.1|6>>
-    <associate|auto-14|<tuple|6.2|7>>
-    <associate|auto-15|<tuple|7|8>>
-    <associate|auto-16|<tuple|8|8>>
-    <associate|auto-17|<tuple|8.1|8>>
-    <associate|auto-18|<tuple|8.2|9>>
-    <associate|auto-19|<tuple|9|10>>
+    <associate|auto-11|<tuple|5.2|6>>
+    <associate|auto-12|<tuple|6|7>>
+    <associate|auto-13|<tuple|6.1|7>>
+    <associate|auto-14|<tuple|6.2|8>>
+    <associate|auto-15|<tuple|7|9>>
+    <associate|auto-16|<tuple|8|9>>
+    <associate|auto-17|<tuple|8.1|9>>
+    <associate|auto-18|<tuple|8.2|10>>
+    <associate|auto-19|<tuple|9|11>>
     <associate|auto-2|<tuple|2|2>>
     <associate|auto-20|<tuple|9|11>>
     <associate|auto-3|<tuple|3|3>>
     <associate|auto-4|<tuple|3.1|3>>
-    <associate|auto-5|<tuple|3.2|3>>
+    <associate|auto-5|<tuple|3.2|4>>
     <associate|auto-6|<tuple|4|4>>
     <associate|auto-7|<tuple|4.1|4>>
     <associate|auto-8|<tuple|4.2|4>>
@@ -1313,26 +1313,26 @@
     <associate|bib-astrom_optimal_1965|<tuple|9|11>>
     <associate|bib-auer_near-optimal_2008|<tuple|10|11>>
     <associate|bib-azar_minimax_2017|<tuple|11|11>>
-    <associate|bib-barrett_making_2017|<tuple|12|11>>
+    <associate|bib-barrett_making_2017|<tuple|12|12>>
     <associate|bib-baumeister_survey_2022|<tuple|40|12>>
-    <associate|bib-ben-davidAgnosticOnlineLearning2009|<tuple|13|11>>
-    <associate|bib-bertuccelli_robust_2012|<tuple|14|11>>
-    <associate|bib-brunskill_sample_2013|<tuple|15|11>>
-    <associate|bib-buchholz_computation_2019|<tuple|16|11>>
-    <associate|bib-carroll_utility_2019|<tuple|17|11>>
-    <associate|bib-chades_momdps_2012|<tuple|18|11>>
-    <associate|bib-dong_q-learning_2019|<tuple|19|11>>
-    <associate|bib-doshi-velez_hidden_2013|<tuple|20|11>>
-    <associate|bib-du_bilinear_2021|<tuple|21|11>>
-    <associate|bib-duff_optimal_2002|<tuple|22|11>>
-    <associate|bib-fern_decision-theoretic_2014|<tuple|23|11>>
-    <associate|bib-foerster_counterfactual_2017|<tuple|24|11>>
-    <associate|bib-gmytrasiewicz_framework_2005|<tuple|25|11>>
-    <associate|bib-guez_efficient_2012|<tuple|26|11>>
-    <associate|bib-hallak_contextual_2015|<tuple|27|11>>
-    <associate|bib-han_learning_2018|<tuple|28|11>>
-    <associate|bib-he_opponent_2016|<tuple|29|11>>
-    <associate|bib-jiang_contextual_2016|<tuple|30|11>>
+    <associate|bib-ben-davidAgnosticOnlineLearning2009|<tuple|13|12>>
+    <associate|bib-bertuccelli_robust_2012|<tuple|14|12>>
+    <associate|bib-brunskill_sample_2013|<tuple|15|12>>
+    <associate|bib-buchholz_computation_2019|<tuple|16|12>>
+    <associate|bib-carroll_utility_2019|<tuple|17|12>>
+    <associate|bib-chades_momdps_2012|<tuple|18|12>>
+    <associate|bib-dong_q-learning_2019|<tuple|19|12>>
+    <associate|bib-doshi-velez_hidden_2013|<tuple|20|12>>
+    <associate|bib-du_bilinear_2021|<tuple|21|12>>
+    <associate|bib-duff_optimal_2002|<tuple|22|12>>
+    <associate|bib-fern_decision-theoretic_2014|<tuple|23|12>>
+    <associate|bib-foerster_counterfactual_2017|<tuple|24|12>>
+    <associate|bib-gmytrasiewicz_framework_2005|<tuple|25|12>>
+    <associate|bib-guez_efficient_2012|<tuple|26|12>>
+    <associate|bib-hallak_contextual_2015|<tuple|27|12>>
+    <associate|bib-han_learning_2018|<tuple|28|12>>
+    <associate|bib-he_opponent_2016|<tuple|29|12>>
+    <associate|bib-jiang_contextual_2016|<tuple|30|12>>
     <associate|bib-jin_bellman_2021|<tuple|32|12>>
     <associate|bib-jin_is_2018|<tuple|31|12>>
     <associate|bib-jin_provably_2020|<tuple|33|12>>
@@ -1342,25 +1342,25 @@
     <associate|bib-liu_one_2023|<tuple|38|12>>
     <associate|bib-liu_pac_2016|<tuple|37|12>>
     <associate|bib-lockhart_human-agent_2020|<tuple|39|12>>
-    <associate|bib-monderer_potential_1996|<tuple|41|12>>
-    <associate|bib-nikolaidis_human-robot_2017|<tuple|42|12>>
-    <associate|bib-ong_planning_2010|<tuple|43|12>>
-    <associate|bib-osband_model-based_2014|<tuple|44|12>>
-    <associate|bib-rahman_generating_2023|<tuple|45|12>>
-    <associate|bib-ross_agnostic_2012|<tuple|46|12>>
-    <associate|bib-russo_learning_2014|<tuple|47|12>>
-    <associate|bib-smallwood_optimal_1973|<tuple|48|12>>
-    <associate|bib-steimle_multi-model_2021|<tuple|49|12>>
-    <associate|bib-stone_ad_2010|<tuple|50|12>>
-    <associate|bib-strehl_analysis_2008|<tuple|51|12>>
-    <associate|bib-strouse_collaborating_2022|<tuple|52|12>>
-    <associate|bib-sutton_policy_1999|<tuple|53|12>>
-    <associate|bib-taylor_transfer_2009|<tuple|54|12>>
-    <associate|bib-thompson_likelihood_1933|<tuple|55|12>>
-    <associate|bib-tylkin_learning_2021|<tuple|56|12>>
-    <associate|bib-white_bayesian_1969|<tuple|57|12>>
-    <associate|bib-xie_learning_2020|<tuple|58|12>>
-    <associate|bib-xu_sample_2021|<tuple|59|12>>
+    <associate|bib-monderer_potential_1996|<tuple|41|13>>
+    <associate|bib-nikolaidis_human-robot_2017|<tuple|42|13>>
+    <associate|bib-ong_planning_2010|<tuple|43|13>>
+    <associate|bib-osband_model-based_2014|<tuple|44|13>>
+    <associate|bib-rahman_generating_2023|<tuple|45|13>>
+    <associate|bib-ross_agnostic_2012|<tuple|46|13>>
+    <associate|bib-russo_learning_2014|<tuple|47|13>>
+    <associate|bib-smallwood_optimal_1973|<tuple|48|13>>
+    <associate|bib-steimle_multi-model_2021|<tuple|49|13>>
+    <associate|bib-stone_ad_2010|<tuple|50|13>>
+    <associate|bib-strehl_analysis_2008|<tuple|51|13>>
+    <associate|bib-strouse_collaborating_2022|<tuple|52|13>>
+    <associate|bib-sutton_policy_1999|<tuple|53|13>>
+    <associate|bib-taylor_transfer_2009|<tuple|54|13>>
+    <associate|bib-thompson_likelihood_1933|<tuple|55|13>>
+    <associate|bib-tylkin_learning_2021|<tuple|56|13>>
+    <associate|bib-white_bayesian_1969|<tuple|57|13>>
+    <associate|bib-xie_learning_2020|<tuple|58|13>>
+    <associate|bib-xu_sample_2021|<tuple|59|13>>
     <associate|bib-yang_sample-optimal_2019|<tuple|60|13>>
     <associate|bib-yao_smixlambda_2020|<tuple|61|13>>
     <associate|bib-zanette_learning_2020|<tuple|62|13>>
@@ -1368,19 +1368,19 @@
     <associate|bib-zhang_global_2020|<tuple|63|13>>
     <associate|bib-zhang_multi-agent_2021|<tuple|64|13>>
     <associate|bib-zhong_gec_2023|<tuple|66|13>>
-    <associate|def:fin-cover|<tuple|10|6>>
+    <associate|def:fin-cover|<tuple|10|7>>
     <associate|eq:cond-exp|<tuple|3|9>>
     <associate|eq:gec-condition|<tuple|1|5>>
-    <associate|eq:gen-error|<tuple|4|9>>
+    <associate|eq:gen-error|<tuple|4|10>>
     <associate|eq:st-condition|<tuple|7|6>>
-    <associate|eq:union-bound|<tuple|2|8>>
-    <associate|lem:loss-upperbound|<tuple|16|8>>
+    <associate|eq:union-bound|<tuple|2|9>>
+    <associate|lem:loss-upperbound|<tuple|16|9>>
     <associate|sec:fin-hypo|<tuple|5|5>>
-    <associate|sec:infi-hypo|<tuple|6|6>>
-    <associate|sec:num|<tuple|7|8>>
+    <associate|sec:infi-hypo|<tuple|6|7>>
+    <associate|sec:num|<tuple|7|9>>
     <associate|sec:type|<tuple|4|4>>
-    <associate|thm:fin|<tuple|6|5>>
-    <associate|thm:inf|<tuple|14|7>>
+    <associate|thm:fin|<tuple|6|6>>
+    <associate|thm:inf|<tuple|14|8>>
   </collection>
 </references>
 
