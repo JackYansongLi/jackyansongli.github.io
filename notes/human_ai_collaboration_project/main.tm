@@ -1,4 +1,4 @@
-<TeXmacs|2.1.2>
+<TeXmacs|2.1>
 
 <style|generic>
 
@@ -249,8 +249,13 @@
 
   <\equation*>
     Reg<around*|(|K|)>=<big|sum><rsub|k=1><rsup|K>max<rsub|\<mu\>\<in\>\<cal-U\>>
-    V<around*|(|\<mu\>,\<pi\><rsup|\<ast\>>|)>-V<around*|(|\<mu\><rsup|k>,\<pi\><rsup|k>|)>.
+    V<around*|(|\<mu\>,\<pi\><rsup|\<ast\>>|)>-V<around*|(|\<mu\><rsup|k>,\<pi\><rsup|\<ast\>>|)>.
   </equation*>
+
+  <subsection|Maximize to Explore Algorithm>
+
+  <with|color|blue|TODO: introduce MEX in here, compare the original
+  implementation and our implementation.>
 
   Here, <math|\<pi\><rsup|k>> is the guessed policy of player <math|2> in
   episode <math|k> (guessed by player <math|1>). The guessed policies are
@@ -267,11 +272,6 @@
   with the true policy, <math|\<pi\><rsup|\<ast\>>>, representing the actual
   behavior demonstrated by the human agent during the interaction with the AI
   agent.
-
-  <subsection|Maximize to Explore Algorithm>
-
-  <with|color|blue|TODO: introduce MEX in here, compare the original
-  implementation and our implementation.>
 
   <section|Classifying Different Types of Agents by Policies><label|sec:type>
 
@@ -534,8 +534,6 @@
   <math|L<rsub|2>>-norm defined on <math|\<Pi\>>, we have the following
   definition,
 
-  \;
-
   <\definition>
     <label|def:fin-cover>(<math|\<varepsilon\>>-approximation) A finite
     hypothesis set <math|\<cal-H\><rsub|fin>> is called an
@@ -553,17 +551,35 @@
     we have
 
     <\equation*>
-      <around*|\||V<rsup|\<ast\>><around*|(|\<pi\>|)>-V<rsup|\<ast\>><around*|(|\<pi\><rsup|\<ast\>>|)>|\|>\<leq\>L<rsub|V>
-      \<varepsilon\>,
+      <around*|\||V<rsup|\<ast\>><around*|(|\<pi\>|)>-V<rsup|\<ast\>><around*|(|\<pi\><rsup|\<ast\>>|)>|\|>\<leq\>L<rsub|V><around*|(|\<pi\><rsup|\<ast\>>|)>\<varepsilon\>,
     </equation*>
 
-    for some constant <math|L<rsub|V>\<gtr\>0>.
+    for some constant <math|L<rsub|V><around*|(|\<pi\><rsup|\<ast\>>|)>\<gtr\>0>.
   </ass>
 
+  Define <math|\<bbb-P\><rsub|\<mu\>><around*|(|s,a|)>\<triangleq\>\<bbb-P\><around*|(|\<cdot\>\<mid\>s,\<mu\><around*|(|s|)>,a|)>>
+  and <math|r<rsub|\<mu\>><around*|(|s,a|)>\<triangleq\>r<around*|(|s,\<mu\><around*|(|s|)>,a|)>>.
+  <math|d<rsub|S A><around*|(|<around*|(|s,a|)>,<around*|(|s<rprime|'>,a<rprime|'>|)>|)>\<triangleq\>d<rsub|S><around*|(|s,s<rprime|'>|)>+d<rsub|A><around*|(|a,a<rprime|'>|)>>,
+  where <math|<with|color|blue|d<rsub|S>\<triangleq\><around*|\<\|\|\>|s-s<rprime|'>|\<\|\|\>><rsub|\<infty\>>,state
+  is not vector>> and\ 
+
   The assumption holds for MDPs where the transition kernel and the reward
-  function are both Lipschitz continuous, see Proposition 2 in
-  <cite|sutton_policy_1999>. Similar results can also be found in
-  <cite|asadi_lipschitz_2018><cite|karimi_non-asymptotic_2019><cite|zhang_global_2020><cite|xu_sample_2021><cite|agarwal_optimality_2020>
+  function satisfies,
+
+  <\equation*>
+    \<forall\><around*|(|s,s<rprime|'>,a,a<rprime|'>|)>\<in\>S<rsup|2>\<times\>A<rsup|2>,<space|2em>\<cal-K\><around*|(|\<bbb-P\><rsub|\<mu\>><around*|(|\<cdot\>\<mid\>s,a|)>,\<bbb-P\><rsub|\<mu\>><around*|(|\<cdot\>\<mid\>s<rprime|'>,a<rprime|'>|)>|)>\<leq\>L<rsub|\<bbb-P\><rsub|\<mu\>>>d<rsub|S
+    A><around*|(|<around*|(|s,a|)>,<around*|(|s<rprime|'>,a<rprime|'>|)>|)>
+  </equation*>
+
+  and
+
+  <\equation*>
+    \<forall\><around*|(|s,<wide|s|^>,a,<wide|a|^>|)>\<in\>S<rsup|2>\<times\>A<rsup|2>,<space|2em><around*|\||r<rsub|\<mu\>><around*|(|s,a|)>-r<rsub|\<mu\>><around*|(|s<rprime|'>,a<rprime|'>|)>|\|>\<leq\>L<rsub|r<rsub|\<mu\>>>d<rsub|S
+    A><around*|(|<around*|(|s,a|)>,<around*|(|s<rprime|'>,a<rprime|'>|)>|)>.
+  </equation*>
+
+  see Theorem 1 in <cite|sutton_policy_1999>. Similar results can also be
+  found in <cite|asadi_lipschitz_2018><cite|karimi_non-asymptotic_2019><cite|zhang_global_2020><cite|xu_sample_2021><cite|agarwal_optimality_2020>
 
   <\example>
     Many works <with|color|blue|(TODO: add citations)> in ad-hoc teamworks
@@ -1281,7 +1297,7 @@
     <associate|auto-20|<tuple|9|11>>
     <associate|auto-3|<tuple|3|3>>
     <associate|auto-4|<tuple|3.1|3>>
-    <associate|auto-5|<tuple|3.2|4>>
+    <associate|auto-5|<tuple|3.2|3>>
     <associate|auto-6|<tuple|4|4>>
     <associate|auto-7|<tuple|4.1|4>>
     <associate|auto-8|<tuple|4.2|4>>
