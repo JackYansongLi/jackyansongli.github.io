@@ -700,9 +700,118 @@
 
   <section|Numerical Experiments><label|sec:num>
 
+  In this section, we compare the MEX algorithm with Upper confidence bound
+  algorithm (UCB) <cite|lai_asymptotically_1985>, <math|Q> learning with UCB
+  exploration algorithm <cite|jin_is_2018><cite|dong_q-learning_2019> and
+  optimistic posterior sampling algorithm <cite|zhong_gec_2023>.
+
+  <subsection|Simplified Overcooked Environment>
+
+  Our experiment employs a simplified version of Overcooked-AI
+  <cite|carroll_utility_2019> within a <math|5\<times\>5> gridworld. Each
+  block is indexed by <math|<around*|(|i,j|)>>, where
+  <math|<around*|(|i,j|)>\<in\><around*|{|1,2,3,4,5|}><rsup|2>>, representing
+  the block's row and column, respectively. The central block,
+  <math|<around*|(|3,3|)>> contains an immovable table. In this <math|5> by
+  <math|5> setting, the AI player (player 1) and the human player (player 2)
+  collaborate to serve four dishes to corresponding guests. The action space
+  for both players are <math|A=<around*|{|<with|font-family|tt|stay>,<with|font-family|tt|up>,<with|font-family|tt|down>,<with|font-family|tt|left>,<with|font-family|tt|right>,<with|font-family|tt|interact>|}>>.
+  At the game's onset, the AI player occupies block <math|<around*|(|5,3|)>>
+  while the human player is positioned at <math|<around*|(|1,3|)>>. The tasks
+  for picking up and delivering food are as follows, and players can decide
+  which to pursue first:
+
+  <\itemize>
+    <item>Pick from <math|(5,3)>, deliver to <math|<around*|(|1,3|)>>
+
+    <item>Pick from <math|(1,3)>, deliver to <math|<around*|(|5,3|)>>
+
+    <item>Pick from <math|(2,1)>, deliver to <math|<around*|(|4,5|)>>
+
+    <item>Pick from <math|(4,1)>, deliver to <math|(2,5)>
+  </itemize>
+
+  Both players and the table can only hold one dish at any moment. Each
+  successful delivery rewards both players with an immediate reward <math|1>.
+  The game has a discount factor, <math|\<gamma\>=0.9>. The game ends either
+  all dishes are delivered or after 50 timesteps have elapsed.
+
+  Unlike the original overcooked-AI, our simplification occurs in the
+  following three aspects:
+
+  <\enumerate>
+    <item>All dishes are ready to serve, negating the cooking process.
+
+    <item>Foods can only be placed on the table or held by a player, whereas
+    in the original Overcooked-AI, food could be set on the ground.\ 
+
+    <item>Food at each location can be picked up only once, ensuring that
+    there are just four foods available in this game.
+
+    <item>Player orientation is absent in our version. For instance, if a
+    player at <math|<around*|(|2,3|)>> holds a food, the ``interact'' action
+    places it on the table. In contrast, the original Overcooked-AI would
+    also require the player to face downwards towards the table.
+  </enumerate>
+
+  An instace of the state is
+
+  <\python>
+    state = {'player_positions': [(1,2), (3,2)], \ 'player_has_food': [0,2],
+    'table_has_food': 3, 'kitchen_has_food': (False,False,False,True)}
+  </python>
+
+  The state represents that player <math|1> is in <math|<around*|(|1,2|)>>
+  while player <math|2>'s position is <math|<around*|(|3,2|)>>. The player
+  <math|1> has no food on his hand, player <math|2> has food <math|2> on her
+  hand and food <math|3> is put on the table. The food <math|1>,<math|2> and
+  <math|3> are picked while the food <math|4> is not picked. The total number
+  of states are <math|5<rsup|4>\<times\>5<rsup|3>\<times\>2<rsup|4>=1250000>.
+  However, some states are invalid. For example, consider the state
+
+  <\python>
+    state = {'player_positions': [(1,2), (3,2)], \ 'player_has_food': [1,2],
+    'table_has_food': 3, 'kitchen_has_food': (True,False,False,True)}
+  </python>
+
+  This state is invalid because Player 1 possesses food 1, while the
+  <python|'kitchen_has_food'> entry indicates that food 1 has not been picked
+  up, which is a contradictory scenario. Following our simplification, the
+  size of the state space <math|<around*|\||S|\|>> is now
+  <math|<around*|\||S|\|>=174529>.\ 
+
+  <subsection|Human Policy Generation Without Human Data>
+
+  We derive human policies using best response dynamics applied to a diverse
+  set of initial policies <cite|strouse_collaborating_2022>. To ensure a
+  diverse set of initial policies, we introduced 16 handcrafted initial
+  policies for training. These are polices for player 1 or player 2 to either
+  initially deliver food <math|i> to guest <math|i>, followed by a random
+  walk, or to initially take food <math|i> to the table and followed by a
+  random walk. In total, this approach generates <math|16>
+  (<math|4\<times\>2\<times\>2>) distinct initial policies. Besides these
+  handcrafted initial policies, we also randomly generated 6 distinct initial
+  policies. We use these 22 (<math|16+6>) initial policies as starting point
+  to train using best response dynamics. In addition to the end results of
+  best response dynamics, we also store the outcomes of the first three
+  iterations that returns a player <math|2>'s policy as human policies. The
+  genration method gives us a set of human policies <math|\<cal-H\>> with
+  <math|<around*|\||\<cal-H\>|\|>=88> (<math|22\<times\>4>) and
+  <math|n<rsup|\<psi\>><around*|(|\<cal-H\>|)>=7>.
+
+  Throughout our experiment, the best response oracle <math|\<psi\>> used in
+  best response dynamics, optimistic posterier sampling and MEX algorithm is
+  value iteration algorithm. The value iteration algorithm terminates when
+  the Bellman residual is smaller than <math|10<rsup|-3>> and returns a
+  greedy policy based on the trained value function.\ 
+
   \;
 
-  <section|Appendix>
+  \;
+
+  <\section>
+    Appendix
+  </section>
 
   <subsection|Lemmas>
 
@@ -1289,12 +1398,15 @@
     <associate|auto-13|<tuple|6.1|7>>
     <associate|auto-14|<tuple|6.2|8>>
     <associate|auto-15|<tuple|7|9>>
-    <associate|auto-16|<tuple|8|9>>
-    <associate|auto-17|<tuple|8.1|9>>
-    <associate|auto-18|<tuple|8.2|10>>
-    <associate|auto-19|<tuple|9|11>>
+    <associate|auto-16|<tuple|7.1|9>>
+    <associate|auto-17|<tuple|7.2|9>>
+    <associate|auto-18|<tuple|8|10>>
+    <associate|auto-19|<tuple|8.1|11>>
     <associate|auto-2|<tuple|2|2>>
-    <associate|auto-20|<tuple|9|11>>
+    <associate|auto-20|<tuple|8.2|11>>
+    <associate|auto-21|<tuple|9|?>>
+    <associate|auto-22|<tuple|9|?>>
+    <associate|auto-23|<tuple|9|?>>
     <associate|auto-3|<tuple|3|3>>
     <associate|auto-4|<tuple|3.1|3>>
     <associate|auto-5|<tuple|3.2|4>>
