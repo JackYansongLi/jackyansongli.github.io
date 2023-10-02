@@ -991,16 +991,6 @@
     leads to the proof.
   </proof>
 
-  <section|Do Not Read The Following>
-
-  An optimal policy is denoted as <math|<around*|(|\<mu\><rsup|\<ast\>>,\<pi\><rsup|\<ast\>>|)>>
-  and defined by
-
-  <\equation*>
-    <around*|(|\<mu\><rsup|\<ast\>>,\<pi\><rsup|\<ast\>>|)>\<in\><below|argmax|<around*|(|\<mu\>,\<pi\>|)>\<in\>\<cal-U\>\<times\>\<Pi\>>
-    V<around*|(|\<mu\>,\<pi\>|)>.
-  </equation*>
-
   <\bibliography|bib|tm-plain|reference>
     <\bib-list|66>
       <bibitem*|1><label|bib-agarwal_optimality_2020>Alekh Agarwal,
@@ -1390,7 +1380,7 @@
 
 <\references>
   <\collection>
-    <associate|app:thm-fin|<tuple|8.2|10>>
+    <associate|app:thm-fin|<tuple|8.2|11>>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-10|<tuple|5.1|5>>
     <associate|auto-11|<tuple|5.2|6>>
@@ -1399,14 +1389,13 @@
     <associate|auto-14|<tuple|6.2|8>>
     <associate|auto-15|<tuple|7|9>>
     <associate|auto-16|<tuple|7.1|9>>
-    <associate|auto-17|<tuple|7.2|9>>
+    <associate|auto-17|<tuple|7.2|10>>
     <associate|auto-18|<tuple|8|10>>
-    <associate|auto-19|<tuple|8.1|11>>
+    <associate|auto-19|<tuple|8.1|10>>
     <associate|auto-2|<tuple|2|2>>
     <associate|auto-20|<tuple|8.2|11>>
-    <associate|auto-21|<tuple|9|?>>
-    <associate|auto-22|<tuple|9|?>>
-    <associate|auto-23|<tuple|9|?>>
+    <associate|auto-21|<tuple|4|12>>
+    <associate|auto-22|<tuple|9|12>>
     <associate|auto-3|<tuple|3|3>>
     <associate|auto-4|<tuple|3.1|3>>
     <associate|auto-5|<tuple|3.2|4>>
@@ -1414,79 +1403,79 @@
     <associate|auto-7|<tuple|4.1|4>>
     <associate|auto-8|<tuple|4.2|4>>
     <associate|auto-9|<tuple|5|5>>
-    <associate|bib-agarwal_model-based_2022|<tuple|2|11>>
-    <associate|bib-agarwal_non-linear_2022|<tuple|3|11>>
-    <associate|bib-agarwal_optimality_2020|<tuple|1|11>>
-    <associate|bib-agrawal_posterior_2020|<tuple|4|11>>
-    <associate|bib-albrecht_autonomous_2018|<tuple|7|11>>
-    <associate|bib-albrecht_belief_2016|<tuple|5|11>>
-    <associate|bib-albrecht_game-theoretic_2015|<tuple|6|11>>
-    <associate|bib-asadi_lipschitz_2018|<tuple|8|11>>
-    <associate|bib-astrom_optimal_1965|<tuple|9|11>>
-    <associate|bib-auer_near-optimal_2008|<tuple|10|11>>
-    <associate|bib-azar_minimax_2017|<tuple|11|11>>
-    <associate|bib-barrett_making_2017|<tuple|12|12>>
-    <associate|bib-baumeister_survey_2022|<tuple|40|12>>
-    <associate|bib-ben-davidAgnosticOnlineLearning2009|<tuple|13|12>>
-    <associate|bib-bertuccelli_robust_2012|<tuple|14|12>>
-    <associate|bib-brunskill_sample_2013|<tuple|15|12>>
-    <associate|bib-buchholz_computation_2019|<tuple|16|12>>
-    <associate|bib-carroll_utility_2019|<tuple|17|12>>
-    <associate|bib-chades_momdps_2012|<tuple|18|12>>
-    <associate|bib-dong_q-learning_2019|<tuple|19|12>>
-    <associate|bib-doshi-velez_hidden_2013|<tuple|20|12>>
-    <associate|bib-du_bilinear_2021|<tuple|21|12>>
-    <associate|bib-duff_optimal_2002|<tuple|22|12>>
-    <associate|bib-fern_decision-theoretic_2014|<tuple|23|12>>
-    <associate|bib-foerster_counterfactual_2017|<tuple|24|12>>
-    <associate|bib-gmytrasiewicz_framework_2005|<tuple|25|12>>
-    <associate|bib-guez_efficient_2012|<tuple|26|12>>
-    <associate|bib-hallak_contextual_2015|<tuple|27|12>>
-    <associate|bib-han_learning_2018|<tuple|28|12>>
-    <associate|bib-he_opponent_2016|<tuple|29|12>>
-    <associate|bib-jiang_contextual_2016|<tuple|30|12>>
-    <associate|bib-jin_bellman_2021|<tuple|32|12>>
-    <associate|bib-jin_is_2018|<tuple|31|12>>
-    <associate|bib-jin_provably_2020|<tuple|33|12>>
-    <associate|bib-karimi_non-asymptotic_2019|<tuple|34|12>>
-    <associate|bib-kwon_rl_2021|<tuple|35|12>>
-    <associate|bib-lai_asymptotically_1985|<tuple|36|12>>
-    <associate|bib-liu_one_2023|<tuple|38|12>>
-    <associate|bib-liu_pac_2016|<tuple|37|12>>
-    <associate|bib-lockhart_human-agent_2020|<tuple|39|12>>
-    <associate|bib-monderer_potential_1996|<tuple|41|13>>
-    <associate|bib-nikolaidis_human-robot_2017|<tuple|42|13>>
-    <associate|bib-ong_planning_2010|<tuple|43|13>>
-    <associate|bib-osband_model-based_2014|<tuple|44|13>>
-    <associate|bib-rahman_generating_2023|<tuple|45|13>>
-    <associate|bib-ross_agnostic_2012|<tuple|46|13>>
-    <associate|bib-russo_learning_2014|<tuple|47|13>>
-    <associate|bib-smallwood_optimal_1973|<tuple|48|13>>
-    <associate|bib-steimle_multi-model_2021|<tuple|49|13>>
-    <associate|bib-stone_ad_2010|<tuple|50|13>>
-    <associate|bib-strehl_analysis_2008|<tuple|51|13>>
-    <associate|bib-strouse_collaborating_2022|<tuple|52|13>>
-    <associate|bib-sutton_policy_1999|<tuple|53|13>>
-    <associate|bib-taylor_transfer_2009|<tuple|54|13>>
-    <associate|bib-thompson_likelihood_1933|<tuple|55|13>>
-    <associate|bib-tylkin_learning_2021|<tuple|56|13>>
-    <associate|bib-white_bayesian_1969|<tuple|57|13>>
-    <associate|bib-xie_learning_2020|<tuple|58|13>>
-    <associate|bib-xu_sample_2021|<tuple|59|13>>
-    <associate|bib-yang_sample-optimal_2019|<tuple|60|13>>
-    <associate|bib-yao_smixlambda_2020|<tuple|61|13>>
-    <associate|bib-zanette_learning_2020|<tuple|62|13>>
-    <associate|bib-zhang_feel-good_2021|<tuple|65|13>>
-    <associate|bib-zhang_global_2020|<tuple|63|13>>
-    <associate|bib-zhang_multi-agent_2021|<tuple|64|13>>
-    <associate|bib-zhong_gec_2023|<tuple|66|13>>
+    <associate|bib-agarwal_model-based_2022|<tuple|2|12>>
+    <associate|bib-agarwal_non-linear_2022|<tuple|3|12>>
+    <associate|bib-agarwal_optimality_2020|<tuple|1|12>>
+    <associate|bib-agrawal_posterior_2020|<tuple|4|12>>
+    <associate|bib-albrecht_autonomous_2018|<tuple|7|12>>
+    <associate|bib-albrecht_belief_2016|<tuple|5|12>>
+    <associate|bib-albrecht_game-theoretic_2015|<tuple|6|12>>
+    <associate|bib-asadi_lipschitz_2018|<tuple|8|12>>
+    <associate|bib-astrom_optimal_1965|<tuple|9|13>>
+    <associate|bib-auer_near-optimal_2008|<tuple|10|13>>
+    <associate|bib-azar_minimax_2017|<tuple|11|13>>
+    <associate|bib-barrett_making_2017|<tuple|12|13>>
+    <associate|bib-baumeister_survey_2022|<tuple|40|14>>
+    <associate|bib-ben-davidAgnosticOnlineLearning2009|<tuple|13|13>>
+    <associate|bib-bertuccelli_robust_2012|<tuple|14|13>>
+    <associate|bib-brunskill_sample_2013|<tuple|15|13>>
+    <associate|bib-buchholz_computation_2019|<tuple|16|13>>
+    <associate|bib-carroll_utility_2019|<tuple|17|13>>
+    <associate|bib-chades_momdps_2012|<tuple|18|13>>
+    <associate|bib-dong_q-learning_2019|<tuple|19|13>>
+    <associate|bib-doshi-velez_hidden_2013|<tuple|20|13>>
+    <associate|bib-du_bilinear_2021|<tuple|21|13>>
+    <associate|bib-duff_optimal_2002|<tuple|22|13>>
+    <associate|bib-fern_decision-theoretic_2014|<tuple|23|13>>
+    <associate|bib-foerster_counterfactual_2017|<tuple|24|13>>
+    <associate|bib-gmytrasiewicz_framework_2005|<tuple|25|13>>
+    <associate|bib-guez_efficient_2012|<tuple|26|13>>
+    <associate|bib-hallak_contextual_2015|<tuple|27|13>>
+    <associate|bib-han_learning_2018|<tuple|28|13>>
+    <associate|bib-he_opponent_2016|<tuple|29|13>>
+    <associate|bib-jiang_contextual_2016|<tuple|30|13>>
+    <associate|bib-jin_bellman_2021|<tuple|32|13>>
+    <associate|bib-jin_is_2018|<tuple|31|13>>
+    <associate|bib-jin_provably_2020|<tuple|33|13>>
+    <associate|bib-karimi_non-asymptotic_2019|<tuple|34|13>>
+    <associate|bib-kwon_rl_2021|<tuple|35|13>>
+    <associate|bib-lai_asymptotically_1985|<tuple|36|13>>
+    <associate|bib-liu_one_2023|<tuple|38|13>>
+    <associate|bib-liu_pac_2016|<tuple|37|13>>
+    <associate|bib-lockhart_human-agent_2020|<tuple|39|14>>
+    <associate|bib-monderer_potential_1996|<tuple|41|14>>
+    <associate|bib-nikolaidis_human-robot_2017|<tuple|42|14>>
+    <associate|bib-ong_planning_2010|<tuple|43|14>>
+    <associate|bib-osband_model-based_2014|<tuple|44|14>>
+    <associate|bib-rahman_generating_2023|<tuple|45|14>>
+    <associate|bib-ross_agnostic_2012|<tuple|46|14>>
+    <associate|bib-russo_learning_2014|<tuple|47|14>>
+    <associate|bib-smallwood_optimal_1973|<tuple|48|14>>
+    <associate|bib-steimle_multi-model_2021|<tuple|49|14>>
+    <associate|bib-stone_ad_2010|<tuple|50|14>>
+    <associate|bib-strehl_analysis_2008|<tuple|51|14>>
+    <associate|bib-strouse_collaborating_2022|<tuple|52|14>>
+    <associate|bib-sutton_policy_1999|<tuple|53|14>>
+    <associate|bib-taylor_transfer_2009|<tuple|54|14>>
+    <associate|bib-thompson_likelihood_1933|<tuple|55|14>>
+    <associate|bib-tylkin_learning_2021|<tuple|56|14>>
+    <associate|bib-white_bayesian_1969|<tuple|57|14>>
+    <associate|bib-xie_learning_2020|<tuple|58|14>>
+    <associate|bib-xu_sample_2021|<tuple|59|14>>
+    <associate|bib-yang_sample-optimal_2019|<tuple|60|14>>
+    <associate|bib-yao_smixlambda_2020|<tuple|61|14>>
+    <associate|bib-zanette_learning_2020|<tuple|62|14>>
+    <associate|bib-zhang_feel-good_2021|<tuple|65|14>>
+    <associate|bib-zhang_global_2020|<tuple|63|14>>
+    <associate|bib-zhang_multi-agent_2021|<tuple|64|14>>
+    <associate|bib-zhong_gec_2023|<tuple|66|14>>
     <associate|def:fin-cover|<tuple|10|7>>
-    <associate|eq:cond-exp|<tuple|3|9>>
+    <associate|eq:cond-exp|<tuple|3|10>>
     <associate|eq:gec-condition|<tuple|1|5>>
-    <associate|eq:gen-error|<tuple|4|10>>
+    <associate|eq:gen-error|<tuple|4|11>>
     <associate|eq:st-condition|<tuple|7|6>>
-    <associate|eq:union-bound|<tuple|2|9>>
-    <associate|lem:loss-upperbound|<tuple|16|9>>
+    <associate|eq:union-bound|<tuple|2|10>>
+    <associate|lem:loss-upperbound|<tuple|16|10>>
     <associate|sec:fin-hypo|<tuple|5|5>>
     <associate|sec:infi-hypo|<tuple|6|7>>
     <associate|sec:num|<tuple|7|9>>
@@ -1693,6 +1682,18 @@
 
       agarwal_optimality_2020
 
+      lai_asymptotically_1985
+
+      jin_is_2018
+
+      dong_q-learning_2019
+
+      zhong_gec_2023
+
+      carroll_utility_2019
+
+      strouse_collaborating_2022
+
       liu_one_2023
 
       liu_one_2023
@@ -1767,25 +1768,33 @@
       Experiments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-15><vspace|0.5fn>
 
+      <with|par-left|<quote|1tab>|7.1<space|2spc>Simplified Overcooked
+      Environment <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-16>>
+
+      <with|par-left|<quote|1tab>|7.2<space|2spc>Human Policy Generation
+      Without Human Data <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-17>>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>Appendix>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-16><vspace|0.5fn>
+      <no-break><pageref|auto-18><vspace|0.5fn>
 
       <with|par-left|<quote|1tab>|8.1<space|2spc>Lemmas
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-17>>
+      <no-break><pageref|auto-19>>
 
       <with|par-left|<quote|1tab>|8.2<space|2spc>Proof of Theorem
       <reference|thm:fin> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-18>>
+      <no-break><pageref|auto-20>>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Do
       Not Read The Following> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-19><vspace|0.5fn>
+      <no-break><pageref|auto-21><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-20><vspace|0.5fn>
+      <no-break><pageref|auto-22><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
