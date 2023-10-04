@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,bbm}
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+\title{Lipschitz Proof}
+
+\maketitle
+
+For any policy $\pi \in \Pi$, define $\| \pi \|_{\infty}$ as
+\[ \| \pi \|_{\infty} \triangleq \max_{(s, a) \in S \times A} \pi (a \mid s)
+   . \]
+Define a metric on $S$ and $A$ as
+\[ d_S (s, s') = \mathbbm{1} (s = s'), \quad d_A (a, a') = \mathbbm{1} (a =
+   a'), \]
+and
+\[ d_{S \times A} ((s, a), (s', a')) = d_S (s, s') + d_A (s, s') . \]
+Now fix $\mu \in \mathcal{U}$, define
+\[ \mathbb{P}_{\mu} (\cdot \mid s, a) \triangleq \mathbb{P} (\cdot \mid s, \mu
+   (s), a) \]
+and
+\[ r_{\mu} \triangleq r (s, \mu (s), a) . \]
+It is easy to verify that the following inequalities holds:
+\begin{equation}
+  \forall (s, s', a, a') \in S^2 \times A^2, \qquad \mathcal{K}
+  (\mathbb{P}_{\mu} (\cdot \mid s, a), \mathbb{P}_{\mu} (\cdot \mid s', a'))
+  \leq d_{S \times A} ((s, a), (s', a')), \label{eq:lip-prob}
+\end{equation}
+and
+\begin{equation}
+  \forall (s, s', a, a') \in S^2 \times A^2, \qquad | r_{\mu} (s, a) - r_{\mu}
+  (s', a') | \leq d_{S \times A} ((s, a), (s', a')) . \label{eq:lip-reward}
+\end{equation}
+The term $\mathcal{K}$ is the Kantorovich metric defined as
+\[ \mathcal{K} (p, q) = \sup_f \left\{ \left| \sum_{i = 1}^{| S |} f (s_i)
+   (p_i - q_i) \right| : \| f \|_L \leq 1 \right\}, \]
+where $p \in \Delta (S)$, $q \in \Delta (S)$, and $f : S \rightarrow
+\mathbb{R}$. The constrain $\| f \|_L \leq 1$ means that the function $f$ is
+$1 - \tmop{Lipschitz}$, i.e.,
+\[ | f (s) - f (s') | \leq d_S (s, s') \]
+for all $s$, $s' \in S$. Inequalities \eqref{eq:lip-prob} and
+\eqref{eq:lip-reward} implies that the MDP defined by $(S, A, \gamma,
+\mathbb{P}_{\mu}, r_{\mu})$, is a $(1, 1)$-Lipschitz continous MDP. Also, the
+following inequalities holds:
+\[ \forall (s, s') \in S^2, \qquad \mathcal{K} (\pi (\cdot \mid s), \pi (\cdot
+   \mid s')) \leq d_S (s, s'), \]
+and
+\[ \forall s \in S, \quad \forall (\pi, \pi') \in \Pi^2, \qquad \mathcal{K}
+   (\pi (\cdot \mid s), \pi' (\cdot \mid s)) \leq d_{\Pi} (\pi, \pi') . \]
+where $d_{\Pi} (\pi, \pi') \triangleq \| \pi - \pi' \|_{\infty}$. Now,
+applying Proposition 1, Lemma 2 and Lemma $3$ in {\cite{pirotta_policy_2015}}
+gives us
+\[ | V (\mu, \pi) - V (\mu, \pi') | \leq \frac{1}{1 - \gamma} \left( \| \pi -
+   \pi' \|_{\infty} + \frac{2 \gamma}{1 - \gamma} \| \pi - \pi' \|_{\infty}
+   \right) . \]
+
+\bibliographystyle{plain}
+\bibliography{reference}
+
+\end{document}
