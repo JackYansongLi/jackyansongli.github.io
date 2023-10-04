@@ -1,4 +1,4 @@
-<TeXmacs|2.1>
+<TeXmacs|2.1.2>
 
 <style|generic>
 
@@ -1395,7 +1395,6 @@
     <associate|auto-2|<tuple|2|2>>
     <associate|auto-20|<tuple|8.2|11>>
     <associate|auto-21|<tuple|4|12>>
-    <associate|auto-22|<tuple|9|12>>
     <associate|auto-3|<tuple|3|3>>
     <associate|auto-4|<tuple|3.1|3>>
     <associate|auto-5|<tuple|3.2|4>>
@@ -1470,7 +1469,7 @@
     <associate|bib-zhang_multi-agent_2021|<tuple|64|14>>
     <associate|bib-zhong_gec_2023|<tuple|66|14>>
     <associate|def:fin-cover|<tuple|10|7>>
-    <associate|eq:cond-exp|<tuple|3|10>>
+    <associate|eq:cond-exp|<tuple|3|11>>
     <associate|eq:gec-condition|<tuple|1|5>>
     <associate|eq:gen-error|<tuple|4|11>>
     <associate|eq:st-condition|<tuple|7|6>>
@@ -1788,13 +1787,9 @@
       <reference|thm:fin> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-20>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Do
-      Not Read The Following> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-21><vspace|0.5fn>
-
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-22><vspace|0.5fn>
+      <no-break><pageref|auto-21><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
