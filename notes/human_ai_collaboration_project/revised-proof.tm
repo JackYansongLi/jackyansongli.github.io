@@ -1,25 +1,28 @@
-<TeXmacs|2.1>
+<TeXmacs|2.1.2>
 
 <style|generic>
 
 <\body>
   <\lemma>
-    <label|lem:loss-upperbound>With probability at least <math|1-\<delta\>>,
-    for any <math|<around*|(|h,k|)>\<in\><around*|[|H|]>\<times\><around*|[|K|]>>,
-    <math|\<mu\><rsup|s>\<in\>BR<around*|(|\<pi\><rsup|s>|)>>, and
-    <math|\<pi\>\<in\>\<Pi\>>
+    <label|lem:loss-upperbound>Let <math|\<Pi\>> be a given set of policies,
+    with probability at least <math|1-\<delta\>>, for any
+    <math|<around*|(|h,k|)>\<in\><around*|[|H|]>\<times\><around*|[|K|]>>,
+    and <math|\<pi\>\<in\>\<Pi\>>,
 
     <\equation*>
-      L<rsub|h><rsup|k-1><around*|(|\<pi\><rsup|\<ast\>>|)>-L<rsub|h><rsup|k-1><around*|(|\<pi\>|)>\<leq\>-2<big|sum><rsub|s=1><rsup|k-1>\<bbb-E\><rsub|\<xi\><rsub|h>\<sim\>\<mu\><rsup|s>><around*|[|\<ell\><rsub|\<pi\><rsup|s>><around*|(|\<pi\>;\<xi\><rsub|h>|)>|]>+2log<around*|(|H<around*|\||\<Pi\>|\|>/\<delta\>|)>.
+      L<rsub|h><rsup|k-1><around*|(|\<pi\><rsup|\<ast\>>|)>-L<rsub|h><rsup|k-1><around*|(|\<pi\>|)>\<leq\>-2<big|sum><rsub|s=1><rsup|k-1>\<bbb-E\><rsub|\<xi\><rsub|h>\<sim\>\<mu\><rsup|s>><around*|[|\<ell\><rsub|\<pi\><rsup|s>><around*|(|\<pi\>;\<xi\><rsub|h>|)>|]>+2log<around*|(|H<around*|\||\<Pi\>|\|>/\<delta\>|)>,
     </equation*>
+
+    where <math|\<mu\><rsup|s>\<in\>BR<around*|(|\<pi\><rsup|s>|)>> for any
+    <math|\<pi\><rsup|1>,\<pi\><rsup|2>,\<ldots\>,\<pi\><rsup|k>>.
   </lemma>
 
   <\proof>
-    Given <math|\<pi\>\<in\>\<cal-H\>>, we denote the random variable
+    Given <math|\<pi\>\<in\>\<Pi\>>, we denote the random variable
     <math|X<rsup|k><rsub|h,\<pi\>>> as
 
     <\equation*>
-      X<rsup|k><rsub|h,\<pi\>>=log<around*|(|<frac|\<bbb-P\><rsub|h,\<pi\><rsup|\<ast\>>><around*|(|s<rsub|h+1><rsup|k>\<mid\>s<rsub|h><rsup|k>,a<rsub|h><rsup|k>|)>|\<bbb-P\><rsub|h,\<pi\>><around*|(|s<rsub|h+1><rsup|k>\<mid\>s<rsub|h><rsup|k>,a<rsub|h><rsup|k>|)>>|)>.
+      X<rsup|k><rsub|h,\<pi\>>=log<around*|(|<frac|\<bbb-P\><rsub|><around*|(|s<rsub|h+1><rsup|k>\<mid\>s<rsub|h><rsup|k>,a<rsub|h><rsup|k>,\<pi\><rsup|\<ast\>><around*|(|s<rsup|k><rsub|h>|)>|)>|\<bbb-P\><around*|(|s<rsub|h+1><rsup|k>\<mid\>s<rsub|h><rsup|k>,a<rsub|h><rsup|k>,\<pi\><around*|(|s<rsup|k><rsub|h>|)>|)>>|)>.
     </equation*>
 
     Now we define a filtration <math|<around*|{|\<cal-F\><rsub|h,k>|}><rsub|k=1><rsup|K>>
@@ -38,27 +41,23 @@
     conditional expectation equals to
 
     <\equation>
-      \<bbb-E\><around*|[|exp<around*|{|-<frac|1|2>X<rsub|h,\<pi\>><rsup|s>|}>\<mid\>\<cal-F\><rsub|h,s-1>|]>=1-\<bbb-E\><rsub|<around*|(|s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)>\<sim\>\<mu\><rsup|s>><around*|[|D<rsub|H><around*|(|\<bbb-P\><rsub|h,\<pi\><rsup|\<ast\>>><around*|(|\<cdot\>\<mid\>s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)><around*|\|||\|>\<bbb-P\><rsub|h,\<pi\>><around*|(|\<cdot\>\<mid\>s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)>|)>|]>.<label|eq:cond-exp>
+      \<bbb-E\><around*|[|exp<around*|{|-<frac|1|2>X<rsub|h,\<pi\>><rsup|s>|}>\<mid\>\<cal-F\><rsub|h,s-1>|]>=1-\<bbb-E\><rsub|<around*|(|s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)>\<sim\>\<mu\><rsup|s>><around*|[|D<rsub|H><around*|(|\<bbb-P\><around*|(|\<cdot\>\<mid\>s<rsub|h><rsup|s>,a<rsub|h><rsup|s>,\<pi\><rsup|\<ast\>><around*|(|s<rsub|h><rsup|s>|)>|)>,\<bbb-P\><around*|(|\<cdot\>\<mid\>s<rsub|h><rsup|s>,a<rsub|h><rsup|s>,\<pi\><around*|(|s<rsup|s><rsub|h>|)>|)>|)>|]>.<label|eq:cond-exp>
     </equation>
 
-    Denote <math| \<bbb-E\><rsub|<around*|(|s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)>\<sim\>\<mu\><rsup|s>><around*|[|D<rsub|H><around*|(|\<bbb-P\><rsub|h,\<pi\><rsup|\<ast\>>><around*|(|\<cdot\>\<mid\>s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)><around*|\|||\|>\<bbb-P\><rsub|h,\<pi\><rsup|s>><around*|(|\<cdot\>\<mid\>s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)>|)>|]>>
+    Denote <math| \<bbb-E\><rsub|<around*|(|s<rsub|h><rsup|s>,a<rsub|h><rsup|s>|)>\<sim\>\<mu\><rsup|s>><around*|[|D<rsub|H><around*|(|\<bbb-P\><around*|(|\<cdot\>\<mid\>s<rsub|h><rsup|s>,a<rsub|h><rsup|s>,\<pi\><rsup|\<ast\>><around*|(|s<rsub|h><rsup|s>|)>|)>,\<bbb-P\><around*|(|\<cdot\>\<mid\>s<rsub|h><rsup|s>,a<rsub|h><rsup|s>,\<pi\><around*|(|s<rsup|s><rsub|h>|)>|)>|)>|]>>
     as <math|\<bbb-E\><rsub|\<xi\><rsub|h>\<sim\>\<mu\><rsup|s>><around*|[|\<ell\><rsub|\<pi\><rsup|s>><around*|(|\<pi\>;\<xi\><rsub|h>|)>|]>>.
     Using the fact <math|log<around*|(|x|)>\<leq\>x-1> and substituting
     <eqref|eq:cond-exp> into <eqref|eq:union-bound> finishes the proof.
   </proof>
 
-  Initializing a policy set <math|\<cal-H\><rsub|\<psi\>>\<leftarrow\>\<cal-H\><rsub|fin>>,
-  for all <math|k>, <math|l\<in\><around*|[|K|]>> with <math|k\<gtr\>l>, if
-  <math|\<pi\><rsup|k><above|\<sim\>|\<psi\>>\<pi\><rsup|l>>, we eliminate
-  <math|\<pi\><rsup|l>> from <math|\<cal-H\><rsub|\<psi\>>>. The resulting
-  <math|\<cal-H\><rsub|\<psi\>>> has the following property by its
-  construction:
-
-  <\itemize>
-    <item><math|\<cal-H\><rsub|\<psi\>>\<subset\>\<cal-H\><rsub|fin>>.
-
-    <item><math|n<rsup|\<psi\>><around*|(|\<cal-H\><rsub|\<psi\>>|)>\<leq\>n<rsup|\<psi\>><around*|(|\<cal-H\><rsub|fin>|)>>.
-  </itemize>
+  All guessed partner's policies in <math|K> episodes forms a set
+  <math|<around*|{|\<pi\><rsup|i>|}><rsub|i=1><rsup|K>>, let
+  <math|\<cal-H\><rsub|\<psi\>>> be a subset of
+  <math|<around*|{|\<pi\><rsup|i>|}><rsub|i=1><rsup|K>> satisfying the
+  following preperty: <math|\<pi\><rsup|l>> is in
+  <math|\<cal-H\><rsub|\<psi\>>> if and only if there does not exist
+  <math|k\<gtr\>l> such that <math|\<pi\><rsup|k><above|\<sim\>|\<psi\>>\<pi\><rsup|l>>.
+  We have the following lemma.
 
   <\lemma>
     <label|lem:increasing-seq>If for all <math|k\<in\><around*|[|K|]>> such
@@ -110,6 +109,10 @@
       <math|V<around*|(|\<psi\><around*|(|\<pi\><rsup|\<ast\>>|)>,\<pi\><rsup|\<ast\>>|)>>-V<around*|(|\<psi\><around*|(|\<pi\><rsup|l>|)>,\<pi\><rsup|l>|)>\<leq\>c<rsub|k<rprime|'>>\<leq\>c<rsub|l>.
     </equation*>
   </proof>
+
+  Based on this lemma, we can prove that the regret upper bound given a
+  finite hypothsis set depends on the type number of the hypothesis set
+  rather than the size of the hypothesis set.
 
   <\theorem>
     <label|thm:fin>Given an MDP with generalized eluder coefficient
@@ -194,8 +197,9 @@
 
     <\align>
       <tformat|<table|<row|<cell|<text|Term
-      (i)>\<leq\>>|<cell|<big|sum><rsub|k=1><rsup|K>c<rsub|k>>>|<row|<cell|=>|<cell|-2\<eta\><big|sum><rsub|k=1><rsup|K><big|sum><rsub|h=1><rsup|H><big|sum><rsub|s=1><rsup|k-1>\<bbb-E\><rsub|\<xi\><rsub|h>\<sim\>\<psi\><around*|(|\<pi\><rsup|s>|)>><around*|[|\<ell\><rsub|\<pi\><rsup|s>><around*|(|\<pi\><rsup|k>;\<xi\><rsub|h>|)>|]>+2H\<eta\>log<around*|(|H<around*|\||\<cal-H\><rsub|\<psi\>>|\|>/\<delta\>|)>>>|<row|<cell|\<leq\>>|<cell|-2\<eta\><big|sum><rsub|k=1><rsup|K><big|sum><rsub|h=1><rsup|H><big|sum><rsub|s=1><rsup|k-1>\<bbb-E\><rsub|\<xi\><rsub|h>\<sim\>\<psi\><around*|(|\<pi\><rsup|s>|)>><around*|[|\<ell\><rsub|\<pi\><rsup|s>><around*|(|\<pi\><rsup|k>;\<xi\><rsub|h>|)>|]>+2H\<eta\>log<around*|(|H
-      n<rsub|\<psi\>><around*|(|\<cal-H\><rsub|fin>|)>/\<delta\>|)>.>>>>
+      (i)>\<leq\>>|<cell|<big|sum><rsub|k=1><rsup|K>c<rsub|k>>>|<row|<cell|=>|<cell|-2\<eta\><big|sum><rsub|k=1><rsup|K><big|sum><rsub|h=1><rsup|H><big|sum><rsub|s=1><rsup|k-1>\<bbb-E\><rsub|\<xi\><rsub|h>\<sim\>\<psi\><around*|(|\<pi\><rsup|s>|)>><around*|[|\<ell\><rsub|\<pi\><rsup|s>><around*|(|\<pi\><rsup|k>;\<xi\><rsub|h>|)>|]>+2H
+      K\<eta\>log<around*|(|H<around*|\||\<cal-H\><rsub|\<psi\>>|\|>/\<delta\>|)>>>|<row|<cell|\<leq\>>|<cell|-2\<eta\><big|sum><rsub|k=1><rsup|K><big|sum><rsub|h=1><rsup|H><big|sum><rsub|s=1><rsup|k-1>\<bbb-E\><rsub|\<xi\><rsub|h>\<sim\>\<psi\><around*|(|\<pi\><rsup|s>|)>><around*|[|\<ell\><rsub|\<pi\><rsup|s>><around*|(|\<pi\><rsup|k>;\<xi\><rsub|h>|)>|]>+2H
+      K\<eta\>log<around*|(|H n<rsub|\<psi\>><around*|(|\<cal-H\><rsub|fin>|)>/\<delta\>|)>.>>>>
     </align>
 
     \;
@@ -247,14 +251,14 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|3|2|../../../.TeXmacs/texts/scratch/no_name_3.tm>>
-    <associate|bib-liu_one_2023|<tuple|1|2|../../../.TeXmacs/texts/scratch/no_name_3.tm>>
-    <associate|eq:cond-exp|<tuple|2|1|../../../.TeXmacs/texts/scratch/no_name_3.tm>>
-    <associate|eq:gen-error|<tuple|3|2|../../../.TeXmacs/texts/scratch/no_name_3.tm>>
-    <associate|eq:union-bound|<tuple|1|1|../../../.TeXmacs/texts/scratch/no_name_3.tm>>
-    <associate|lem:increasing-seq|<tuple|2|?|../../../.TeXmacs/texts/scratch/no_name_3.tm>>
-    <associate|lem:loss-upperbound|<tuple|1|1|../../../.TeXmacs/texts/scratch/no_name_3.tm>>
-    <associate|thm:fin|<tuple|3|1|../../../.TeXmacs/texts/scratch/no_name_3.tm>>
+    <associate|auto-1|<tuple|3|3>>
+    <associate|bib-liu_one_2023|<tuple|1|3>>
+    <associate|eq:cond-exp|<tuple|2|1>>
+    <associate|eq:gen-error|<tuple|3|2>>
+    <associate|eq:union-bound|<tuple|1|1>>
+    <associate|lem:increasing-seq|<tuple|2|1>>
+    <associate|lem:loss-upperbound|<tuple|1|1>>
+    <associate|thm:fin|<tuple|3|2>>
   </collection>
 </references>
 
