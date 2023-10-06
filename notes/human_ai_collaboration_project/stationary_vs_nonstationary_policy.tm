@@ -3,32 +3,45 @@
 <style|generic>
 
 <\body>
-  <section|Best stationary policy is close to optimal policy when time
-  horizon is large>
+  <\lemma>
+    <label|lem:argmax>If <math|a=argmax<rsub|x\<in\>\<cal-X\>>
+    <around*|[|f<around*|(|x|)>+g<around*|(|x|)>|]>> and
+    <math|b=argmax<rsub|x\<in\>\<cal-X\>> f<around*|(|x|)>>, then,
+    <math|f<around*|(|b|)>\<geq\>f<around*|(|a|)>> and
 
-  <\equation*>
-    V<rsup|\<ast\>><around*|(|\<pi\><rsup|\<ast\>><rsub|\<infty\>>|)>\<triangleq\>V<rsup|\<ast\>><rsub|\<infty\>>
-  </equation*>
+    <\equation*>
+      f<around*|(|b|)>-f<around*|(|a|)>\<leq\>g<around*|(|a|)>-g<around*|(|b|)>.
+    </equation*>
+  </lemma>
 
-  <\equation*>
-    \<gamma\>\<less\>1,H=\<infty\>:station poli opt
-  </equation*>
+  <\proof>
+    By definition,
 
-  <\equation*>
-    \<gamma\>\<less\>1,H\<less\>\<infty\>:<around*|(|\<pi\><rsub|0>,\<pi\><rsub|1>,\<ldots\>|)>
-  </equation*>
+    <\equation*>
+      f<around*|(|a|)>+g<around*|(|a|)>\<geq\>f<around*|(|x|)>+g<around*|(|x|)>
+    </equation*>
 
-  <\equation*>
-    V<rsub|fin><rsup|\<ast\>><around*|(|\<pi\>|)>\<triangleq\>\<bbb-E\><around*|[|<big|sum><rsub|h=0><rsup|H>r<rsub|h><around*|(|s<rsub|h>,a<rsub|h>|)>|]>
-  </equation*>
+    for all <math|x\<in\>\<cal-X\>>. Let <math|x=b>, we have
 
-  <\equation*>
-    V<rsub|fin><rsup|\<ast\>><around*|(|\<pi\>|)>\<triangleq\>max<rsub|\<pi\>\<in\>\<Pi\><rsub|NS>>V<rsub|fin><rsup|*\<ast\>><around*|(|\<pi\>|)>
-  </equation*>
+    <\equation*>
+      f<around*|(|a|)>+g<around*|(|a|)>\<geq\>f<around*|(|b|)>+g<around*|(|b|)>.
+    </equation*>
 
-  <\equation*>
-    V<rsub|fin><rsup|\<ast\>><around*|(|<around*|(|\<pi\><rsub|\<infty\>><rsup|\<ast\>>,\<pi\><rsub|\<infty\>><rsup|\<ast\>>,\<ldots\>|)>|)>\<geq\>V<rsub|fin><rsup|\<ast\>>-\<gamma\><rsup|H>
-  </equation*>
+    Rearranging the above formula gives us
+
+    <\equation*>
+      f<around*|(|b|)>-f<around*|(|a|)>\<leq\>g<around*|(|a|)>-g<around*|(|b|)>.
+    </equation*>
+
+    Similarly, by definition
+
+    <\equation*>
+      f<around*|(|b|)>\<geq\>f<around*|(|x|)>
+    </equation*>
+
+    for all <math|x\<in\>\<cal-X\>>. Let <math|x=a> gives
+    <math|f<around*|(|b|)>\<geq\>f<around*|(|a|)>>
+  </proof>
 
   It is well-known that an optimal policies for an infinite horizon MDP is
   stationary, i.e., the policy can be independent of time. In the following,
@@ -37,37 +50,44 @@
   infinite counterpart is close to the cumulative reward of a finite MDP that
   adopts an non-stationary policy of its own.
 
+  An optimal stationary policy <math|<around*|(|\<mu\><rsub|\<infty\>>,\<pi\><rsub|\<infty\>>|)>>
+  for an infinite counterpart is defined as
+
+  <\equation*>
+    <around*|(|\<mu\><rsub|\<infty\>>,\<pi\><rsub|\<infty\>>|)>=<below|argmax|<around*|(|\<mu\>,\<pi\>|)>\<in\>\<cal-U\>\<times\>\<Pi\>><space|1em>\<bbb-E\><rsub|a<rsup|k><rsub|t>\<sim\>\<mu\><around*|(|s<rsup|k><rsub|t>,t|)>,b<rsup|k><rsub|t>\<sim\>\<pi\><around*|(|s<rsup|k><rsub|t>,t|)>><around*|[|<big|sum><rsub|t=1><rsup|\<infty\>>\<gamma\><rsup|t-1>r<around*|(|s<rsup|k><rsub|t>,a<rsup|k><rsub|t>,b<rsup|k><rsub|t>|)>\<mid\>a<rsup|k><rsub|1>=a<rsub|1>|]>
+  </equation*>
+
+  and an optimal nonstationary policy <math|<around*|(|\<mu\><rsup|\<ast\>>,\<pi\><rsup|\<ast\>>|)>>
+  is defined as\ 
+
+  <\equation*>
+    <around*|(|\<mu\><rsup|\<ast\>>,\<pi\><rsup|\<ast\>>|)>=<below|argmax|<around*|(|\<mu\>,\<pi\>|)>\<in\>\<cal-U\>\<times\>\<Pi\>><space|1em>\<bbb-E\><rsub|a<rsup|k><rsub|t>\<sim\>\<mu\><around*|(|s<rsup|k><rsub|t>,t|)>,b<rsup|k><rsub|t>\<sim\>\<pi\><around*|(|s<rsup|k><rsub|t>,t|)>><around*|[|<big|sum><rsub|t=1><rsup|H>\<gamma\><rsup|t-1>r<around*|(|s<rsup|k><rsub|t>,a<rsup|k><rsub|t>,b<rsup|k><rsub|t>|)>\<mid\>a<rsup|k><rsub|1>=a<rsub|1>|]>
+  </equation*>
+
+  Thus, applying Lemma <reference|lem:argmax>, we have
+  <math|V<around*|(|\<mu\><rsup|\<ast\>>,\<pi\><rsup|\<ast\>>|)>\<geq\>V<around*|(|\<mu\><rsub|\<infty\>>,\<pi\><rsub|\<infty\>>|)>>
+  and
+
+  <\equation*>
+    V<around*|(|\<mu\><rsup|\<ast\>>,\<pi\><rsup|\<ast\>>|)>-V<around*|(|\<mu\><rsub|\<infty\>>,\<pi\><rsub|\<infty\>>|)>\<leq\>g<around*|(|\<mu\><rsub|\<infty\>>,\<pi\><rsub|\<infty\>>|)>-g<around*|(|\<mu\><rsup|\<ast\>>,\<pi\><rsup|\<ast\>>|)>,
+  </equation*>
+
+  where
+
+  <\equation*>
+    g<around*|(|\<mu\>,\<pi\>|)>\<triangleq\>\<bbb-E\><rsub|a<rsup|k><rsub|t>\<sim\>\<mu\><around*|(|s<rsup|k><rsub|t>,t|)>,b<rsup|k><rsub|t>\<sim\>\<pi\><around*|(|s<rsup|k><rsub|t>,t|)>><around*|[|<big|sum><rsub|t=H+1><rsup|\<infty\>>\<gamma\><rsup|t-1>r<around*|(|s<rsup|k><rsub|t>,a<rsup|k><rsub|t>,b<rsup|k><rsub|t>|)>\<mid\>a<rsup|k><rsub|1>=a<rsub|1>|]>.
+  </equation*>
+
+  Since <math|r:S\<times\>A<rsup|2>\<rightarrow\><around*|[|0,1|]>>, we have
+
+  <\equation*>
+    V<around*|(|\<mu\><rsup|\<ast\>>,\<pi\><rsup|\<ast\>>|)>-V<around*|(|\<mu\><rsub|\<infty\>>,\<pi\><rsub|\<infty\>>|)>\<leq\>2<big|sum><rsub|t=H+1><rsup|\<infty\>>\<gamma\><rsup|t-1>=<frac|\<gamma\><rsup|H>|1-\<gamma\>>.
+  </equation*>
+
+  The distance <math|\<gamma\><rsup|H>/<around*|(|1-\<gamma\>|)>> will be
+  small if <math|H> is large.
+
   \;
-
-  <\proposition>
-    \;
-  </proposition>
-
-  <\proof>
-    \;
-
-    An optimal stationary policy <math|<around*|(|\<mu\><rsub|\<infty\>>,\<pi\><rsub|\<infty\>>|)>>
-    for an infinite counterpart is defined as
-
-    <\equation*>
-      <around*|(|\<mu\><rsub|\<infty\>>,\<pi\><rsub|\<infty\>>|)>=<below|argmax|<around*|(|\<mu\>,\<pi\>|)>\<in\>\<cal-U\>\<times\>\<Pi\>><space|1em>\<bbb-E\><rsub|a<rsup|k><rsub|t>\<sim\>\<mu\><around*|(|s<rsup|k><rsub|t>,t|)>,b<rsup|k><rsub|t>\<sim\>\<pi\><around*|(|s<rsup|k><rsub|t>,t|)>><around*|[|<big|sum><rsub|t=1><rsup|\<infty\>>\<gamma\><rsup|t-1>r<around*|(|s<rsup|k><rsub|t>,a<rsup|k><rsub|t>,b<rsup|k><rsub|t>|)>\<mid\>a<rsup|k><rsub|1>=a<rsub|1>|]>
-    </equation*>
-
-    and an optimal nonstationary policy <math|<around*|(|\<mu\><rsup|\<ast\>>,\<pi\><rsup|\<ast\>>|)>>
-    is defined as\ 
-
-    <\equation*>
-      <around*|(|\<mu\><rsup|\<ast\>>,\<pi\><rsup|\<ast\>>|)>=<below|argmax|<around*|(|\<mu\>,\<pi\>|)>><space|1em>\<bbb-E\><rsub|a<rsup|k><rsub|t>\<sim\>\<mu\><around*|(|s<rsup|k><rsub|t>,t|)>,b<rsup|k><rsub|t>\<sim\>\<pi\><around*|(|s<rsup|k><rsub|t>,t|)>><around*|[|<big|sum><rsub|t=1><rsup|H>\<gamma\><rsup|t-1>r<around*|(|s<rsup|k><rsub|t>,a<rsup|k><rsub|t>,b<rsup|k><rsub|t>|)>\<mid\>a<rsup|k><rsub|1>=a<rsub|1>|]>
-    </equation*>
-
-    Thus,\ 
-
-    <\align>
-      <tformat|<table|<row|<cell|V<around*|(|\<mu\><rsub|\<infty\>>,\<pi\><rsub|\<infty\>>|)>=>|<cell|\<bbb-E\><rsub|a<rsup|k><rsub|t>\<sim\>\<mu\><rsub|\<infty\>><around*|(|s<rsup|k><rsub|t>,t|)>,b<rsup|k><rsub|t>\<sim\>\<pi\><rsub|\<infty\>><around*|(|s<rsup|k><rsub|t>,t|)>><around*|[|<big|sum><rsub|t=1><rsup|H>\<gamma\><rsup|t-1>r<around*|(|s<rsup|k><rsub|t>,a<rsup|k><rsub|t>,b<rsup|k><rsub|t>|)>\<mid\>a<rsup|k><rsub|1>=a<rsub|1>|]>>>>>
-    </align>
-
-    \;
-  </proof>
 
   \;
 </body>
@@ -81,6 +101,7 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
+    <associate|lem:argmax|<tuple|1|?>>
   </collection>
 </references>
 
