@@ -1,5 +1,0 @@
-- [[@Bandit Algorithms]]
-	- ## Chapter 38
-		- ((63d1e7b2-b4e7-43c6-ba21-f2ccaa349906))
-		- The algorithm discussed in this book is UCRL2, which uses a modified UCB exploration with a modified value-based method (Not Q learning, it only uses state-value function instead of state-action value function)
--
