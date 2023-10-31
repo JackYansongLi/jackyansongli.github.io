@@ -1,0 +1,25 @@
+<TeXmacs|2.1.2>
+
+<style|<tuple|generic|python>>
+
+<\body>
+  <\session|scheme|default>
+    <\input|Scheme] >
+      \;
+    </input>
+
+    <\input|Scheme] >
+      \;
+    </input>
+  </session>
+
+  \;
+
+  \;
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+  </collection>
+</initial>
