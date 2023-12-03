@@ -1,15 +1,22 @@
-<TeXmacs|2.1.2>
+<TeXmacs|2.1.1>
 
 <style|notes>
 
 <\body>
   <notes-header><chapter*|Why using regret in online learning>
 
+  Regret analysis is broadly adopted in learning with online interactions.
+  However, why using regret minimization instead of cost minimization as in
+  other learning tasks such as batch learning? In this short note, we will
+  give an example that by minimizing the regret, the learner gets a better
+  reward.
+
   <section|Worst-case cost and worst-case regret cost>
 
   Consider the function <math|g> defined as
-  <math|g<around*|(|x|)>\<triangleq\><below|max. |y>f<around*|(|x,y|)>>. The
-  optimization problem defined as
+  <math|g<around*|(|x|)>\<triangleq\><below|max. |y>f<around*|(|x,y|)>>,
+  where <math|f> is an arbitrary function. The optimization problem defined
+  as
 
   <\equation>
     <below|min.|x><space|1em>g<around*|(|x|)>\<equiv\><below|min.|x><space|1em><below|max.|y>f<around*|(|x,y|)>
@@ -18,20 +25,20 @@
   can be viewed as a worst-case optimization problem, and
   <math|g<around*|(|x|)>> is called <with|font-shape|italic|worst-case cost>.
 
-  Let's consider a scenario where we have a function
-  <math|f<around*|(|x,y|)>> that represents the time required to drive a car
-  from one location to another. In this context, <math|x> represents the
-  driver's policy, which encompass decisions like adjusting speed, selecting
-  lanes (left or right), and other driving strategies. On the other hand,
-  <math|y> represents a binary condition indicating whether it's currently
-  raining (<math|y = 1>) or not (<math|y = 0>). Together, this function
-  captures how the driver's decisions and weather conditions collectively
-  impact the time it takes for the journey.
+  Let's consider a scenario where we have <math|f<around*|(|x,y|)>> that
+  represents the time required to drive a car from one location to another
+  given policy <math|x> and environment <math|y>. In this context, <math|x>
+  represents the driver's driving pattern, which encompass decisions like
+  adjusting speed, selecting lanes (left or right), and other driving
+  strategies. On the other hand, <math|y> represents a binary condition
+  indicating whether it's currently raining (<math|y = 1>) or not (<math|y =
+  0>). Together, this function captures how the driver's decisions and
+  weather conditions collectively impact the time it takes for the journey.
 
   It's a widely acknowledged fact that driving takes more time on days when
-  it's raining. Thus, <math|<below|max.|y>f<around*|(|x,y|)>=f<around*|(|x,rain|)>>.
+  it's raining. Thus, <math|<below|max.|y>f<around*|(|x,y|)>=f<around*|(|x,1|)>>.
   By definition, the function <math|g<around*|(|x|)>> currently represents
-  the time required for driving on days when it's raining.
+  the time required for driving on rainy days.
 
   Now, define <math|g<rprime|'><around*|(|x|)>\<triangleq\><below|max|y><around*|(|f<around*|(|x,y|)>-<below|min|x<rprime|'>>f<around*|(|x<rprime|'>,y|)>|)>>.
   We call <math|g<rprime|'><around*|(|x|)>> the
@@ -55,7 +62,7 @@
   \;
 
   The worst-case cost <math|g<around*|(|x|)>> in this example is
-  <math|<below|max|y>f<around*|(|x,y|)>=f<around*|(|x,0|)>=100> for any
+  <math|<below|max|y>. f<around*|(|x,y|)>=f<around*|(|x,0|)>=100> for any
   <math|x>. Thus,
 
   <\equation>
@@ -69,7 +76,7 @@
     arg<below|min|x> g<rprime|'><around*|(|x|)>=0.
   </equation>
 
-  <section|Why using regret in online learning?>
+  <section|Data correlation>
 
   The fundamental assumption of conventional offline machine learning is that
   the collected data are independently and identically distributed, stemming
@@ -82,7 +89,7 @@
   as low as <math|0>. Conversely, data points beyond one hour might possess a
   probability of collection greater than <math|0>. This implies that data
   collected on different dates adhere to distinct distributions. This
-  distinction underscores a crucial disparity between traditional offline
+  distinction underscores a crucial difference between traditional offline
   learning and online learning.
 
   <\bibliography|bib|tm-plain|OL>
