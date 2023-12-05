@@ -181,6 +181,10 @@
       V<rsub|\<pi\><rsup|\<ast\>>><around*|(|\<mu\>|)>=V<around*|(|\<mu\>,\<pi\><rsup|\<ast\>>|)>.
     </equation*>
   </def>
+
+  <section|Summary>
+
+  \;
 </body>
 
 <\initial>
@@ -191,29 +195,32 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|1|../../../../../.Xmacs/texts/scratch/no_name_11.tm>>
-    <associate|auto-12|<tuple|1.9|?|../../../../../.Xmacs/texts/scratch/no_name_11.tm>>
-    <associate|auto-15|<tuple|1.12|?|../../../../../.Xmacs/texts/scratch/no_name_11.tm>>
-    <associate|auto-2|<tuple|1.1|2|../../../../../.Xmacs/texts/scratch/no_name_11.tm>>
-    <associate|auto-3|<tuple|2|?|../../../../../.Xmacs/texts/scratch/no_name_11.tm>>
-    <associate|auto-30|<tuple|1.9|?|../../../../../.Xmacs/texts/scratch/no_name_11.tm>>
-    <associate|auto-39|<tuple|1.12|?|../../../../../.Xmacs/texts/scratch/no_name_11.tm>>
-    <associate|auto-4|<tuple|3|?|../../../../../.Xmacs/texts/scratch/no_name_11.tm>>
-    <associate|auto-42|<tuple|1.12.3|?|../../../../../.Xmacs/texts/scratch/no_name_11.tm>>
-    <associate|auto-6|<tuple|1.3|?|../../../../../.Xmacs/texts/scratch/no_name_11.tm>>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-2|<tuple|1.1|2>>
+    <associate|auto-3|<tuple|2|2>>
+    <associate|auto-4|<tuple|3|2>>
+    <associate|auto-5|<tuple|4|?>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
     <\associate|toc>
-      <with|par-left|<quote|1tab>|1<space|2spc>Games
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Games>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-1>>
+      <no-break><pageref|auto-1><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|2<space|2spc>Partially Observable
+      <with|par-left|<quote|1tab>|1.1<space|2spc>Partially Observable
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Policies>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Markov
+      Decision Process> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>

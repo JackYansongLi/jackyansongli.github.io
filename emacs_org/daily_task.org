@@ -4,3 +4,16 @@
   :LAST_REPEAT: [2023-12-02 Sat 16:45]
   :END:
   - State "DONE"       from "WAITING"    [2023-12-02 Sat 16:45]
+
+* TODO Godot tutorial
+  SCHEDULED: <2023-12-04 Mon +1d>
+  :PROPERTIES:
+  :LAST_REPEAT: [2023-12-03 Sun 21:56]
+  :END:
+
+  - State "DONE"       from "WAITING"    [2023-12-03 Sun 21:56]
+* TODO Read academic papers
+  SCHEDULED: <2023-12-03 Sun +1d>
+
+* TODO Write academic notes
+  SCHEDULED: <2023-12-03 Sun +1d>
