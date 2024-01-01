@@ -1,6 +1,97 @@
 * TODO Watch one course of c/cpp tutorial from SUSTech
-  SCHEDULED: <2023-12-03 Sun +1d>
+  SCHEDULED: <2023-12-19 Tue +1d>
   :PROPERTIES:
-  :LAST_REPEAT: [2023-12-02 Sat 16:45]
+  :LAST_REPEAT: [2023-12-19 Tue 02:49]
   :END:
-  - State "DONE"       from "WAITING"    [2023-12-02 Sat 16:45]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-15 Fri 14:28]
+  - State "DONE"       from "TODO"       [2023-12-15 Fri 14:27]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 15:42]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 15:42]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 15:42]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 15:42]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 15:42]
+  - State "DONE"       from "TODO"       [2023-12-07 Thu 16:06]
+  - State "DONE"       from "TODO"       [2023-12-07 Thu 00:49]
+  - State "DONE"       from "TODO"       [2023-12-05 Tue 17:31]
+  - State "DONE"       from "TODO"       [2023-12-05 Tue 17:31]
+  - State "DONE"       from "TODO"       [2023-12-05 Tue 17:26]
+
+
+* TODO Godot tutorial
+  SCHEDULED: <2023-12-19 Tue +1d>
+  :PROPERTIES:
+  :LAST_REPEAT: [2023-12-19 Tue 02:49]
+  :END:
+
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-15 Fri 14:28]
+  - State "DONE"       from "TODO"       [2023-12-15 Fri 14:28]
+  - State "DONE"       from "TODO"       [2023-12-15 Fri 14:28]
+  - State "DONE"       from "TODO"       [2023-12-15 Fri 14:28]
+  - State "DONE"       from "TODO"       [2023-12-07 Thu 16:51]
+  - State "DONE"       from "TODO"       [2023-12-07 Thu 00:49]
+  - State "DONE"       from "TODO"       [2023-12-05 Tue 17:31]
+  - State "DONE"       from "TODO"       [2023-12-05 Tue 17:26]
+
+* TODO Read academic papers
+  SCHEDULED: <2023-12-19 Tue +1d>
+  :PROPERTIES:
+  :LAST_REPEAT: [2023-12-19 Tue 02:49]
+  :END:
+
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 16:41]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 16:41]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 16:41]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 15:42]
+  - State "DONE"       from "TODO"       [2023-12-08 Fri 17:51]
+  - State "DONE"       from "TODO"       [2023-12-07 Thu 22:30]
+  - State "DONE"       from "TODO"       [2023-12-07 Thu 00:49]
+  - State "DONE"       from "TODO"       [2023-12-05 Tue 17:31]
+  - State "DONE"       from "TODO"       [2023-12-05 Tue 17:31]
+  - State "DONE"       from "TODO"       [2023-12-05 Tue 17:26]
+* TODO Write academic notes
+  SCHEDULED: <2023-12-19 Tue +1d>
+  :PROPERTIES:
+  :LAST_REPEAT: [2023-12-19 Tue 02:49]
+  :END:
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-19 Tue 02:49]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 15:43]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 15:43]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 15:43]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 15:42]
+  - State "DONE"       from "TODO"       [2023-12-13 Wed 15:42]
+  - State "DONE"       from "TODO"       [2023-12-07 Thu 22:11]
+  - State "DONE"       from "TODO"       [2023-12-07 Thu 00:49]
+  - State "DONE"       from "TODO"       [2023-12-05 Tue 17:32]
+  - State "DONE"       from "TODO"       [2023-12-05 Tue 17:32]
+  - State "DONE"       from "TODO"       [2023-12-05 Tue 17:31]
+
+* DONE Read the proof of linear bandit
+  SCHEDULED: <2023-12-08 Fri>
+
+* DONE Finish the summary report of ECE599
+  SCHEDULED: <2023-12-09 Sat>
+
+* DONE create a modified MEX algorithm that takes the loss function on the model induced by the best response (instead of the partner policies)
+  SCHEDULED: <2023-12-13 Wed>

@@ -19,7 +19,8 @@
 
   <\itemize>
     <item><em|Goal>: Generating <math|\<cal-H\>> such that
-    <math|\<cal-H\><rsup|\<ast\>>\<subset\>\<cal-H\>>.
+    <math|\<cal-H\><rsup|\<ast\>>\<subset\>\<cal-H\>> and
+    <math|<around*|\||\<cal-H\>|\|>\<less\><around*|\||\<Pi\>|\|>>.
   </itemize>
 
   However, <math|\<cal-H\><rsup|\<ast\>>> may contain many redundant
@@ -116,6 +117,31 @@
     where <math|\<pi\><rsup|\<ast\>><rsub|fin>\<triangleq\>min<rsub|\<pi\>\<in\>\<cal-H\>><around*|\||V<rsup|\<ast\>><around*|(|\<pi\>|)>-V<rsup|\<ast\>><around*|(|\<pi\><rsup|\<ast\>>|)>|\|>>)
     when she noticed that <math|\<pi\><rsup|\<ast\>>\<nin\>\<cal-H\>>?
   </enumerate>
+
+  <section|Comments by Shuo>
+
+  I have some additional thoughts after reading your note:
+
+  Why is explicit construction of $\\mathcal{H}$ necessary after all? Why is
+  directly running a glancing online algorithm on $\\Pi$ a bad idea? Wouldn't
+  the algorithm implicitly exploit the intrinsic complexity (defined by the
+  equivalence relation) of $\\Pi$?
+
+  I think item 4 in the to-do list is an interesting direction to look into,
+  but I haven't read much on this topic. Before deciding whether to pursue
+  this direction, you should ask people round (e.g., Mesrob) and conduct a
+  literature survey to see what has been done \V I would be very surprised if
+  similar problems have not been looked into. For example, I suspect that
+  \Pinstance-optimal learning/interactive decision making\Q is relevant:
+
+  https://arxiv.org/abs/2206.02326
+
+  https://arxiv.org/abs/2304.12466
+
+  If you do not plan to address these questions immediately, you should
+  create a personal note to collect questions like these so that you have an
+  opportunity to revisit them later. (If you don't, then you will soon forget
+  these questions.)
 </body>
 
 <\initial>
@@ -128,10 +154,9 @@
   <\collection>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|2|1>>
+    <associate|auto-3|<tuple|3|2>>
     <associate|footnote-1|<tuple|1|1>>
-    <associate|footnote-2|<tuple|2|?>>
     <associate|footnr-1|<tuple|1|1>>
-    <associate|footnr-2|<tuple|2|?>>
   </collection>
 </references>
 
@@ -145,6 +170,10 @@
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>TODO>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Comments
+      by Shuo> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>

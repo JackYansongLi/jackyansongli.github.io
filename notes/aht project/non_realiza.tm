@@ -148,7 +148,7 @@
   when <math|\<pi\><rsup|\<ast\>>\<nin\>\<cal-H\>>, thus, cannot cancle out
   <math|\<bbb-E\><rsub|\<xi\><rsub|h>\<sim\>\<mu\><rsup|s>><around*|[|\<ell\><around*|(|\<pi\><rsup|k>;\<xi\><rsub|h>|)>|]>>
   part in the upper bound of GEC term. To see this, recall that when
-  <math|\<pi\><rsup|\<ast\>>\<nin\>\<cal-H\>>, in the type term, we are
+  <math|\<pi\><rsup|\<ast\>>\<nin\>\<cal-H\>>, for the type term, we are
   trying to upper bound
 
   <\equation*>
@@ -156,7 +156,7 @@
   </equation*>
 
   using martingale exponential inequality. However, when
-  <math|\<pi\><rsup|\<ast\>>\<in\>\<cal-H\>>, we are trying to upperbound
+  <math|\<pi\><rsup|\<ast\>>\<in\>\<cal-H\>>, we are trying to upper bound
 
   <\equation*>
     <big|sum><rsub|h=1><rsup|H>L<rsub|h><rsup|k-1><around*|(|\<pi\><rsup|\<ast\>>|)>-<big|sum><rsub|h=1><rsup|H>L<rsub|h><rsup|k-1><around*|(|\<pi\><rsup|k>|)>.
