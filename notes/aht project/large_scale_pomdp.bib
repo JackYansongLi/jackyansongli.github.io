@@ -1,0 +1,210 @@
+@article{albrecht_autonomous_2018,
+  title = {Autonomous Agents Modelling Other Agents: {{A}} Comprehensive Survey and Open Problems},
+  shorttitle = {Autonomous Agents Modelling Other Agents},
+  author = {Albrecht, Stefano V. and Stone, Peter},
+  year = {2018},
+  month = may,
+  journal = {Artificial Intelligence},
+  volume = {258},
+  pages = {66--95},
+  issn = {00043702},
+  doi = {10.1016/j.artint.2018.01.002},
+  urldate = {2023-04-27},
+  langid = {english},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/IFH3CE54/Albrecht and Stone - 2018 - Autonomous agents modelling other agents A compre.pdf}
+}
+
+@inproceedings{budd_bayesian_2023,
+  title = {Bayesian {{Reinforcement Learning}} for {{Single-Episode Missions}} in {{Partially Unknown Environments}}},
+  booktitle = {Proceedings of {{The}} 6th {{Conference}} on {{Robot Learning}}},
+  author = {Budd, Matthew and Duckworth, Paul and Hawes, Nick and Lacerda, Bruno},
+  year = {2023},
+  month = mar,
+  pages = {1189--1198},
+  publisher = {PMLR},
+  issn = {2640-3498},
+  urldate = {2024-04-27},
+  abstract = {We consider planning for mobile robots conducting missions in real-world domains where a priori unknown dynamics affect the robot's costs and transitions. We study single-episode missions where it is crucial that the robot appropriately trades off exploration and exploitation, such that the learning of the environment dynamics is just enough to effectively complete the mission. Thus, we propose modelling unknown dynamics using Gaussian processes, which provide a principled Bayesian framework for incorporating online observations made by the robot, and using them to predict the dynamics in unexplored areas. We then formulate the problem of mission planning in Markov decision processes under Gaussian process predictions as Bayesian model-based reinforcement learning. This allows us to employ solution techniques that plan more efficiently than previous Gaussian process planning methods are able to. We empirically evaluate the benefits of our formulation in an underwater autonomous vehicle navigation task and robot mission planning in a realistic simulation of a nuclear environment.},
+  langid = {english},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/TZ9LQ2AM/Budd et al. - 2023 - Bayesian Reinforcement Learning for Single-Episode.pdf}
+}
+
+@misc{cohen_future_2022,
+  title = {Future Memories Are Not Needed for Large Classes of {{POMDPs}}},
+  author = {Cohen, Victor and Parmentier, Axel},
+  year = {2022},
+  month = may,
+  number = {arXiv:2205.02580},
+  eprint = {2205.02580},
+  primaryclass = {math},
+  publisher = {arXiv},
+  urldate = {2024-04-06},
+  abstract = {Optimal policies for partially observed Markov decision processes (POMDPs) are history-dependent: Decisions are made based on the entire history of observation. Memoryless policies, which take decisions based on the last observation only, are generally considered useless in the literature because we can construct POMDP instances for which optimal memoryless policies are arbitrarily worse than history-dependent ones. Our purpose is to challenge this belief. We show that optimal memoryless policies can be computed efficiently using mixed integer linear programming (MILP), and perform reasonably well on a wide range of instances from the literature. When strengthened with valid inequalities, the linear relaxation of this MILP provides high quality upper-bounds on the value of an optimal history dependent policy. Furthermore, when used with a finite horizon POMDP problem with memoryless policies as rolling optimization problem, a model predictive control approach leads to an efficient history-dependent policy, which we call the short memory in the future (SMF) policy. Basically, the SMF policy leverages these memoryless policies to build an approximation of the Bellman value function. Numerical experiments show the efficiency of our approach on benchmark instances from the literature.},
+  archiveprefix = {arxiv},
+  keywords = {Mathematics - Optimization and Control},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/K8WN5ZFW/Cohen and Parmentier - 2022 - Future memories are not needed for large classes o.pdf;/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/L45VWZGF/2205.html}
+}
+
+@article{gmytrasiewicz_framework_2005,
+  title = {A {{Framework}} for {{Sequential Planning}} in {{Multi-Agent Settings}}},
+  author = {Gmytrasiewicz, P. J. and Doshi, P.},
+  year = {2005},
+  month = jul,
+  journal = {Journal of Artificial Intelligence Research},
+  volume = {24},
+  pages = {49--79},
+  issn = {1076-9757},
+  doi = {10.1613/jair.1579},
+  urldate = {2023-04-26},
+  abstract = {This paper extends the framework of partially observable Markov decision processes (POMDPs) to multi-agent settings by incorporating the notion of agent models into the state space.  Agents maintain beliefs over physical states of the environment and over models of other agents, and they use Bayesian updates to maintain their beliefs over time. The solutions map belief states to actions. Models of other agents may include their belief states and are related to agent types considered in games of incomplete information.  We express the agents' autonomy by postulating that their models are not directly manipulable or observable by other agents.  We show that important properties of POMDPs, such as convergence of value iteration, the rate of convergence, and piece-wise linearity and convexity of the value functions carry over to our framework.  Our approach complements a more traditional approach to interactive settings which uses Nash equilibria as a solution paradigm.  We seek to avoid some of the drawbacks of equilibria which may be non-unique and do not capture off-equilibrium behaviors.  We do so at the cost of having to represent, process and continuously revise models of other agents. Since the agent's beliefs may be arbitrarily nested, the optimal solutions to decision making problems are only asymptotically computable.  However, approximate belief updates and approximately optimal plans are computable. We illustrate our framework using a simple application domain, and we show examples of belief updates and value functions.},
+  copyright = {Copyright (c)},
+  langid = {english},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/L7RAKGRF/Gmytrasiewicz and Doshi - 2005 - A Framework for Sequential Planning in Multi-Agent.pdf}
+}
+
+@inproceedings{guez_bayes-adaptive_2014,
+  title = {Bayes-{{Adaptive Simulation-based Search}} with {{Value Function Approximation}}},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Guez, Arthur and Heess, Nicolas and Silver, David and Dayan, Peter},
+  year = {2014},
+  volume = {27},
+  publisher = {Curran Associates, Inc.},
+  urldate = {2024-04-27},
+  abstract = {Bayes-adaptive planning offers a principled solution to the exploration-exploitation trade-off under model uncertainty. It finds the optimal policy in belief space, which explicitly accounts for the expected effect on future rewards of reductions in uncertainty. However, the Bayes-adaptive solution is typically intractable in domains with large or continuous state spaces. We present a tractable method for approximating the Bayes-adaptive solution by combining simulation-based search with a novel value function approximation technique that generalises over belief space. Our method outperforms prior approaches in both discrete bandit tasks and simple continuous navigation and control tasks.},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/4ZBY2XXX/supp.pdf;/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/IGG8MR7F/Guez et al. - 2014 - Bayes-Adaptive Simulation-based Search with Value .pdf}
+}
+
+@inproceedings{han_learning_2018,
+  title = {Learning {{Others}}' {{Intentional Models}} in {{Multi-Agent Settings Using Interactive POMDPs}}},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Han, Yanlin and Gmytrasiewicz, Piotr},
+  year = {2018},
+  volume = {31},
+  publisher = {Curran Associates, Inc.},
+  urldate = {2023-04-26},
+  abstract = {Interactive partially observable Markov decision processes (I-POMDPs) provide a principled framework for planning and acting in a partially observable, stochastic and multi-agent environment. It extends POMDPs to multi-agent settings by including models of other agents in the state space and forming a hierarchical belief structure. In order to predict other agents' actions using I-POMDPs, we propose an approach that effectively uses Bayesian inference and sequential Monte Carlo sampling to learn others' intentional models which ascribe to them beliefs, preferences and rationality in action selection. Empirical results show that our algorithm accurately learns models of the other agent and has superior performance than methods that use subintentional models. Our approach serves as a generalized Bayesian learning algorithm that learns other agents' beliefs, strategy levels, and transition, observation and reward functions. It also effectively mitigates the belief space complexity due to the nested belief hierarchy.},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/23KUA24Q/Han and Gmytrasiewicz - 2018 - Learning Others' Intentional Models in Multi-Agent.pdf}
+}
+
+@misc{hausknecht_deep_2017,
+  title = {Deep {{Recurrent Q-Learning}} for {{Partially Observable MDPs}}},
+  author = {Hausknecht, Matthew and Stone, Peter},
+  year = {2017},
+  month = jan,
+  number = {arXiv:1507.06527},
+  eprint = {1507.06527},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  urldate = {2024-04-28},
+  abstract = {Deep Reinforcement Learning has yielded proficient controllers for complex tasks. However, these controllers have limited memory and rely on being able to perceive the complete game screen at each decision point. To address these shortcomings, this article investigates the effects of adding recurrency to a Deep Q-Network (DQN) by replacing the first post-convolutional fully-connected layer with a recurrent LSTM. The resulting Deep Recurrent Q-Network (DRQN), although capable of seeing only a single frame at each timestep, successfully integrates information through time and replicates DQN's performance on standard Atari games and partially observed equivalents featuring flickering game screens. Additionally, when trained with partial observations and evaluated with incrementally more complete observations, DRQN's performance scales as a function of observability. Conversely, when trained with full observations and evaluated with partial observations, DRQN's performance degrades less than DQN's. Thus, given the same length of history, recurrency is a viable alternative to stacking a history of frames in the DQN's input layer and while recurrency confers no systematic advantage when learning to play the game, the recurrent net can better adapt at evaluation time if the quality of observations changes.},
+  archiveprefix = {arxiv},
+  langid = {english},
+  keywords = {Computer Science - Machine Learning},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/FYYGJ2QW/Hausknecht and Stone - 2017 - Deep Recurrent Q-Learning for Partially Observable.pdf}
+}
+
+@misc{he_opponent_2016,
+  title = {Opponent {{Modeling}} in {{Deep Reinforcement Learning}}},
+  author = {He, He and {Boyd-Graber}, Jordan and Kwok, Kevin and Daum{\'e} III, Hal},
+  year = {2016},
+  month = sep,
+  number = {arXiv:1609.05559},
+  eprint = {1609.05559},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  urldate = {2023-04-17},
+  abstract = {Opponent modeling is necessary in multi-agent settings where secondary agents with competing goals also adapt their strategies, yet it remains challenging because strategies interact with each other and change. Most previous work focuses on developing probabilistic models or parameterized strategies for specific applications. Inspired by the recent success of deep reinforcement learning, we present neural-based models that jointly learn a policy and the behavior of opponents. Instead of explicitly predicting the opponent's action, we encode observation of the opponents into a deep Q-Network (DQN); however, we retain explicit modeling (if desired) using multitasking. By using a Mixture-of-Experts architecture, our model automatically discovers different strategy patterns of opponents without extra supervision. We evaluate our models on a simulated soccer game and a popular trivia game, showing superior performance over DQN and its variants.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Machine Learning},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/8BKXDBD8/He et al. - 2016 - Opponent Modeling in Deep Reinforcement Learning.pdf;/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/JH65LRS9/1609.html}
+}
+
+@book{krishnamurthy_partially_2016,
+  title = {Partially Observed {{Markov}} Decision Processes: From Filtering to Controlled Sensing},
+  shorttitle = {Partially Observed {{Markov}} Decision Processes},
+  author = {Krishnamurthy, V.},
+  year = {2016},
+  publisher = {Cambridge University Press},
+  address = {Cambridge},
+  isbn = {978-1-107-13460-7},
+  langid = {english},
+  lccn = {QA274.7 .K75 2016},
+  keywords = {Markov processes,Stochastic processes,Textbooks},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/DHBAKPXU/Krishnamurthy - 2016 - Partially observed Markov decision processes from.pdf;/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/FUZX7U69/Errata & Internet Supplement.pdf}
+}
+
+@inproceedings{lee_learning_2023,
+  title = {Learning in {{POMDPs}} Is {{Sample-Efficient}} with {{Hindsight Observability}}},
+  booktitle = {Proceedings of the 40th {{International Conference}} on {{Machine Learning}}},
+  author = {Lee, Jonathan and Agarwal, Alekh and Dann, Christoph and Zhang, Tong},
+  year = {2023},
+  month = jul,
+  pages = {18733--18773},
+  publisher = {PMLR},
+  issn = {2640-3498},
+  urldate = {2024-04-06},
+  abstract = {POMDPs capture a broad class of decision making problems, but hardness results suggest that learning is intractable even in simple settings due to the inherent partial observability. However, in many realistic problems, more information is either revealed or can be computed during some point of the learning process. Motivated by diverse applications ranging from robotics to data center scheduling, we formulate a Hindsight Observable Markov Decision Process (HOMDP) as a POMDP where the latent states are revealed to the learner in hindsight and only during training. We introduce new algorithms for the tabular and function approximation settings that are provably sample-efficient with hindsight observability, even in POMDPs that would otherwise be statistically intractable. We give a lower bound showing that the tabular algorithm is optimal in its dependence on latent state and observation cardinalities.},
+  langid = {english},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/KE498S7Q/Lee et al. - 2023 - Learning in POMDPs is Sample-Efficient with Hindsi.pdf}
+}
+
+@misc{leitao_human-ai_2022,
+  title = {Human-{{AI Collaboration}} in {{Decision-Making}}: {{Beyond Learning}} to {{Defer}}},
+  shorttitle = {Human-{{AI Collaboration}} in {{Decision-Making}}},
+  author = {Leit{\~a}o, Diogo and Saleiro, Pedro and Figueiredo, M{\'a}rio A. T. and Bizarro, Pedro},
+  year = {2022},
+  month = jul,
+  number = {arXiv:2206.13202},
+  eprint = {2206.13202},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.2206.13202},
+  urldate = {2023-04-19},
+  abstract = {Human-AI collaboration (HAIC) in decision-making aims to create synergistic teaming between human decision-makers and AI systems. Learning to defer (L2D) has been presented as a promising framework to determine who among humans and AI should make which decisions in order to optimize the performance and fairness of the combined system. Nevertheless, L2D entails several often unfeasible requirements, such as the availability of predictions from humans for every instance or ground-truth labels that are independent from said humans. Furthermore, neither L2D nor alternative approaches tackle fundamental issues of deploying HAIC systems in real-world settings, such as capacity management or dealing with dynamic environments. In this paper, we aim to identify and review these and other limitations, pointing to where opportunities for future research in HAIC may lie.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Human-Computer Interaction,Computer Science - Machine Learning},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/NGWLZ2Z7/Leitão et al. - 2022 - Human-AI Collaboration in Decision-Making Beyond .pdf;/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/MTZRPV34/2206.html}
+}
+
+@article{pineau_anytime_2006,
+  title = {Anytime {{Point-Based Approximations}} for {{Large POMDPs}}},
+  author = {Pineau, J. and Gordon, G. and Thrun, S.},
+  year = {2006},
+  month = nov,
+  journal = {jair},
+  volume = {27},
+  pages = {335--380},
+  issn = {1076-9757},
+  doi = {10.1613/jair.2078},
+  urldate = {2023-04-13},
+  abstract = {The Partially Observable Markov Decision Process has long been recognized as a rich framework for real-world planning and control problems, especially in robotics. However exact solutions in this framework are typically computationally intractable for all but the smallest problems. A well-known technique for speeding up POMDP solving involves performing value backups at specific belief points, rather than over the entire belief simplex. The efficiency of this approach, however, depends greatly on the selection of points. This paper presents a set of novel techniques for selecting informative belief points which work well in practice. The point selection procedure is combined with point-based value backups to form an effective anytime POMDP algorithm called Point-Based Value Iteration (PBVI). The first aim of this paper is to introduce this algorithm and present a theoretical analysis justifying the choice of belief selection technique. The second aim of this paper is to provide a thorough empirical comparison between PBVI and other state-of-the-art POMDP methods, in particular the Perseus algorithm, in an effort to highlight their similarities and differences. Evaluation is performed using both standard POMDP domains and realistic robotic tasks.},
+  langid = {english},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/SXKYSLSW/Pineau et al. - 2006 - Anytime Point-Based Approximations for Large POMDP.pdf}
+}
+
+@unpublished{romac_deep_2019,
+  title = {Deep {{Recurrent Q-Learning}} vs {{Deep Q-Learning}} on a Simple {{Partially Observable Markov Decision Process}} with {{Minecraft}}},
+  author = {Romac, Cl{\'e}ment and B{\'e}raud, Vincent},
+  year = {2019},
+  month = apr,
+  urldate = {2024-04-28},
+  abstract = {Deep Q-Learning has been successfully applied to a wide variety of tasks in the past several years. However, the architecture of the vanilla Deep Q-Network is not suited to deal with partially observable environments such as 3D video games. For this, recurrent layers have been added to the Deep Q-Network in order to allow it to handle past dependencies. We here use Minecraft for its customization advantages and design two very simple missions that can be frames as Partially Observable Markov Decision Process. We compare on these missions the Deep Q-Network and the Deep Recurrent Q-Network in order to see if the latter, which is trickier and longer to train, is always the best architecture when the agent has to deal with partial observability.},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/YB2GY3NW/Romac and Béraud - 2019 - Deep Recurrent Q-Learning vs Deep Q-Learning on a .pdf}
+}
+
+@misc{sunberg_online_2018,
+  title = {Online Algorithms for {{POMDPs}} with Continuous State, Action, and Observation Spaces},
+  author = {Sunberg, Zachary and Kochenderfer, Mykel},
+  year = {2018},
+  month = sep,
+  number = {arXiv:1709.06196},
+  eprint = {1709.06196},
+  primaryclass = {cs},
+  publisher = {arXiv},
+  urldate = {2024-04-28},
+  abstract = {Online solvers for partially observable Markov decision processes have been applied to problems with large discrete state spaces, but continuous state, action, and observation spaces remain a challenge. This paper begins by investigating double progressive widening (DPW) as a solution to this challenge. However, we prove that this modification alone is not sufficient because the belief representations in the search tree collapse to a single particle causing the algorithm to converge to a policy that is suboptimal regardless of the computation time. This paper proposes and evaluates two new algorithms, POMCPOW and PFT-DPW, that overcome this deficiency by using weighted particle filtering. Simulation results show that these modifications allow the algorithms to be successful where previous approaches fail.},
+  archiveprefix = {arxiv},
+  langid = {english},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Robotics,Electrical Engineering and Systems Science - Systems and Control},
+  file = {/Users/jackyansongli/Library/CloudStorage/Dropbox/zotero/storage/L4E9CBYW/Sunberg and Kochenderfer - 2018 - Online algorithms for POMDPs with continuous state.pdf}
+}

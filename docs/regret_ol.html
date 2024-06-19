@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:x="https://www.texmacs.org/2002/extensions" xmlns:m="http://www.w3.org/1998/Math/MathML">
+<html xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:x="https://www.texmacs.org/2002/extensions" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Jack Yansong Li</title>
-    <meta name="generator" content="TeXmacs 2.1.2"></meta>
-    <link href="../resources/notes-base.css" type="text/css" rel="stylesheet"></link>
+    <title>TeXmacs notes</title>
+    <meta content="TeXmacs 2.1.2" name="generator"></meta>
+    <link href="../resources/notes-base.css" rel="stylesheet" type="text/css"></link>
     <link href="../resources/blog-icon.png" rel="icon"></link>
     <script language="javascript" src="../resources/highlight.pack.js" defer></script>
     <script language="javascript" src="../resources/notes-base.js" defer></script>
@@ -13,19 +13,27 @@
   <body>
     <div class="notes-header">
       <p>
-        <img src="../resources/texmacs-blog-transparent.png" width="28.116784" class="image"></img><span style="margin-left: 2pt"></span><a href="./main.html">[main]</a><em
-        class="notes-header-name">Jack Yansong Li's Blog</em>
+        <img class="image" width="28.116784" src="../resources/texmacs-blog-transparent.png"></img><span style="margin-left: 2pt"></span><a href="./main.html">[main]</a><em
+        class="notes-header-name">Notes on TeXmacs</em>
       </p>
     </div>
     <p>
       <a id="auto-1"></a>
     </p>
     <h1>Why using regret in online learning<span style="margin-left: 1em"></span></h1>
+    <p>
+      Regret analysis is broadly adopted in learning with online interactions.
+      However, why using regret minimization instead of cost minimization as
+      in other learning tasks such as batch learning? In this short note, we
+      will give an example that by minimizing the regret, the learner gets a
+      better reward.
+    </p>
     <h2 id="auto-2">1.<span style="margin-left: 1em"></span>Worst-case cost and worst-case regret
     cost<span style="margin-left: 1em"></span></h2>
     <p>
       Consider the function \(g\) defined as \(g (x) \triangleq
-      \underset{y}{\max .} f (x, y)\). The optimization problem defined as
+      \underset{y}{\max .} f (x, y)\), where \(f\) is an arbitrary function.
+      The optimization problem defined as
     </p>
     <table width="100%">
       <tr>
@@ -40,21 +48,21 @@
       called <i>worst-case cost</i>.
     </p>
     <p>
-      Let's consider a scenario where we have a function \(f (x, y)\) that
-      represents the time required to drive a car from one location to
-      another. In this context, \(x\) represents the driver's policy, which
-      encompass decisions like adjusting speed, selecting lanes (left or
-      right), and other driving strategies. On the other hand, \(y\)
-      represents a binary condition indicating whether it's currently raining
-      (\(y = 1\)) or not (\(y = 0\)). Together, this function captures how the
-      driver's decisions and weather conditions collectively impact the time
-      it takes for the journey.
+      Let's consider a scenario where we have \(f (x, y)\) that represents the
+      time required to drive a car from one location to another given policy
+      \(x\) and environment \(y\). In this context, \(x\) represents the
+      driver's driving pattern, which encompass decisions like adjusting
+      speed, selecting lanes (left or right), and other driving strategies. On
+      the other hand, \(y\) represents a binary condition indicating whether
+      it's currently raining (\(y = 1\)) or not (\(y = 0\)). Together, this
+      function captures how the driver's decisions and weather conditions
+      collectively impact the time it takes for the journey.
     </p>
     <p>
       It's a widely acknowledged fact that driving takes more time on days
-      when it's raining. Thus, \(\underset{y}{\max .} f (x, y) = f (x,
-      \operatorname{rain})\). By definition, the function \(g (x)\) currently
-      represents the time required for driving on days when it's raining.
+      when it's raining. Thus, \(\underset{y}{\max .} f (x, y) = f (x, 1)\).
+      By definition, the function \(g (x)\) currently represents the time
+      required for driving on rainy days.
     </p>
     <p>
       Now, define \(g' (x) \triangleq \underset{y}{\max} \left( f (x, y) -
@@ -92,8 +100,8 @@
       
     </p>
     <p>
-      The worst-case cost \(g (x)\) in this example is \(\underset{y}{\max} f
-      (x, y) = f (x, 0) = 100\) for any \(x\). Thus,
+      The worst-case cost \(g (x)\) in this example is \(\underset{y}{\max} .
+      f (x, y) = f (x, 0) = 100\) for any \(x\). Thus,
     </p>
     <table width="100%">
       <tr>
@@ -113,11 +121,10 @@
         <td align="right">(3)</td>
       </tr>
     </table>
-    <h2 id="auto-4">3.<span style="margin-left: 1em"></span>Why using regret in online learning?<span
-    style="margin-left: 1em"></span></h2>
+    <h2 id="auto-4">3.<span style="margin-left: 1em"></span>Data correlation<span style="margin-left: 1em"></span></h2>
     <p>
-      The fundamental assumption of conventional offline machine learning is
-      that the collected data are independently and identically distributed,
+      The fundamental assumption of standard offline machine learning is that
+      the collected data are independently and identically distributed,
       stemming from an unknown distribution [<a href="#bib-vapnik_overview_1999">2</a>]. However, this
       assumption can be easily compromised in the realm of online learning [<a
       href="#bib-shalev-shwartz_online_2011-1">1</a>]. For instance, let's reconsider a scenario involving a
@@ -127,7 +134,7 @@
       \(0\). Conversely, data points beyond one hour might possess a
       probability of collection greater than \(0\). This implies that data
       collected on different dates adhere to distinct distributions. This
-      distinction underscores a crucial disparity between traditional offline
+      distinction underscores a crucial difference between traditional offline
       learning and online learning.
     </p>
     <h1 id="auto-5">Bibliography<span style="margin-left: 1em"></span></h1>

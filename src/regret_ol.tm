@@ -1,4 +1,4 @@
-<TeXmacs|2.1.1>
+<TeXmacs|2.1.2>
 
 <style|notes>
 
@@ -78,9 +78,9 @@
 
   <section|Data correlation>
 
-  The fundamental assumption of conventional offline machine learning is that
-  the collected data are independently and identically distributed, stemming
-  from an unknown distribution <cite|vapnik_overview_1999>. However, this
+  The fundamental assumption of standard offline machine learning is that the
+  collected data are independently and identically distributed, stemming from
+  an unknown distribution <cite|vapnik_overview_1999>. However, this
   assumption can be easily compromised in the realm of online learning
   <cite|shalev-shwartz_online_2011-1>. For instance, let's reconsider a
   scenario involving a driver who refrains from driving on rainy days. In
@@ -119,7 +119,7 @@
   <\collection>
     <associate|auto-1|<tuple|?|1>>
     <associate|auto-2|<tuple|1|1>>
-    <associate|auto-3|<tuple|2|1>>
+    <associate|auto-3|<tuple|2|2>>
     <associate|auto-4|<tuple|3|2>>
     <associate|auto-5|<tuple|3|3>>
     <associate|bib-shalev-shwartz_online_2011-1|<tuple|1|3>>
@@ -147,8 +147,7 @@
       policy <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3>
 
-      3.<space|2spc>Why using regret in online learning?
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      3.<space|2spc>Data correlation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Bibliography>

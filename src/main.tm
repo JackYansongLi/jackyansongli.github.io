@@ -18,15 +18,15 @@
 
   <section*|About Me>
 
-  I am a fourth year Ph.D. student in the Electrical and Computer Engineering
-  Department at the University of Illinois Chicago. I am very fortunate to be
-  advised by Prof. <hlink|Shuo Han|https://hanshuo.people.uic.edu/site/>. I
-  received my bachelors in Department of Mathematics at the <hlink|Southern
-  University of Science and Technology|https://www.sustech.edu.cn/en/>.
+  I am a fourth year Ph.D. candidate in the Electrical and Computer
+  Engineering Department at the University of Illinois Chicago. I am very
+  fortunate to be advised by Prof. <hlink|Shuo
+  Han|https://hanshuo.people.uic.edu/site/>. I received my bachelors in
+  Department of Mathematics at the <hlink|Southern University of Science and
+  Technology|https://www.sustech.edu.cn/en/>.
 
-  My primary research interests lie in multi-agent reinforcement learning and
-  game theory, particularly in decentralized multi-agent reinforcement
-  learning (decentralized MARL) and human-computer interaction domains.
+  My primary research interests lie in reinforcement learning and game
+  theory. Currently, I am working on model-based RL with ensemble method.
   Previously, I have worked on projects combining both model-based and
   model-free approaches and have examined optimization techniques for
   Stackelberg games.
@@ -44,9 +44,22 @@
 
   <section*|Publications>
 
-  <tabular|<tformat|<table|<row|<cell|Mar 2023<space|1em>>|<cell|Manuscript:
-  \P<hlink|Solving Strongly Convex and Smooth Stackelberg Games Without
-  Modeling the Follower.|https://arxiv.org/abs/2303.06192>\Q>>|<row|<cell|>|<cell|<underline|Update
+  All my publications are available as open access on Google Scholar under
+  the name Yansong Li: <hlink|Yansong Li's Google
+  Scholar|https://scholar.google.com/citations?hl=en&user=VPFNboUAAAAJ>. Feel
+  free to email me if you have any questions or need the source code for my
+  work.
+
+  <tabular|<tformat|<table|<row|<cell|Mar 2024<space|1em>>|<cell|Extended
+  abstract: \P<hlink|Efficient Collaboration with Unknown Agents: Ignoring
+  Similar Agents without Checking Similarity|https://www.ifaamas.org/Proceedings/aamas2024/pdfs/p2363.pdf>\Q>>|<row|<cell|>|<cell|Accepted
+  for publication as extended abstract in the
+  <with|font-shape|italic|<with|font-shape|italic|<with|font-shape|italic|Proc.
+  of the 23rd International Conference on Autonomous Agents and Multiagent
+  Systems (AAMAS 2024)>>>.>>|<row|<cell|Mar
+  2023<space|1em>>|<cell|Manuscript: \P<hlink|Solving Strongly Convex and
+  Smooth Stackelberg Games Without Modeling the
+  Follower.|https://arxiv.org/abs/2303.06192>\Q>>|<row|<cell|>|<cell|<underline|Update
   (Jul 2023)>: Accepted for publication in the
   <with|font-shape|italic|<with|font-shape|italic|<with|font-shape|italic|American
   Control Conference (ACC)> 2023>>. <hlink|[IEEE
@@ -88,7 +101,7 @@
   <\collection>
     <\associate|>
       <tuple|normal|Taken at the tea club at
-      <locus|<id|%-F0482798--EF14E030>|<link|hyperlink|<id|%-F0482798--EF14E030>|<url|https://www.sustech.edu.cn/en/>>|SUSTech>
+      <locus|<id|%32004B50C00-32005E4D340>|<link|hyperlink|<id|%32004B50C00-32005E4D340>|<url|https://www.sustech.edu.cn/en/>>|SUSTech>
       in 2019|<pageref|auto-2>>
     </associate>
     <\associate|toc>
