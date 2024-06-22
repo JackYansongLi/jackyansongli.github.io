@@ -1,4 +1,4 @@
-<TeXmacs|1.99.16>
+<TeXmacs|2.1.2>
 
 <style|source>
 
@@ -36,7 +36,7 @@
 
   \;
 
-  <assign|html-title|TeXmacs notes>
+  <assign|html-title|Jack Yansong Li's Website>
 
   <assign|html-css|../resources/notes-base.css>
 
@@ -56,7 +56,7 @@
 
   <assign|hlink-tm|<macro|body|target|<hlink|<arg|body>|<merge|<arg|target>|.tm>>>>
 
-  <assign|notes-header-name|Notes on TeXmacs>
+  <assign|notes-header-name|Jack Yansong Li's Website>
 
   <assign|notes-header-image|<image|../resources/texmacs-blog-transparent.png|20pt|||>>
 
