@@ -1,4 +1,4 @@
-<TeXmacs|2.1.1>
+<TeXmacs|2.1.2>
 
 <style|notes>
 
@@ -12,9 +12,13 @@
 
   <hrule>
 
+  <\notes-entry|xorgate.pdf>
+    XOR gate approximation using PyTorch
+  </notes-entry|(No abstract)|<date|>>
+
   <\notes-entry|regret_ol.tm>
     Why using regret in online Learning
-  </notes-entry|(No abstract)|<date|>>
+  </notes-entry|(No abstract)|<date|June 20, 2022>>
 
   <hrule>
 
