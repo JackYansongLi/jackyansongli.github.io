@@ -65,17 +65,15 @@
   Systems (AAMAS 2024)>>>.>>|<row|<cell|Mar
   2023<space|1em>>|<cell|Manuscript: \P<hlink|Solving Strongly Convex and
   Smooth Stackelberg Games Without Modeling the
-  Follower.|https://arxiv.org/abs/2303.06192>\Q>>|<row|<cell|>|<cell|<underline|Update
-  (Jul 2023)>: Accepted for publication in the
-  <with|font-shape|italic|<with|font-shape|italic|<with|font-shape|italic|American
+  Follower.|https://arxiv.org/abs/2303.06192>\Q>>|<row|<cell|>|<cell|Accepted
+  for publication in the <with|font-shape|italic|<with|font-shape|italic|<with|font-shape|italic|American
   Control Conference (ACC)> 2023>>. <hlink|[IEEE
-  Xplore]|https://ieeexplore.ieee.org/document/10156010>>>|<row|<cell|Mar
+  Xplore]|https://ieeexplore.ieee.org/document/10156010>>>|<row|<cell|June
   2022<space|1em>>|<cell|Manuscript: \P<hlink|Accelerating Model-Free Policy
   Optimization Using Model-Based Gradient: A Composite Optimization
-  Perspective.|https://arxiv.org/abs/2203.11424>\Q>>|<row|<cell|>|<cell|<underline|Update
-  (Aug 2022)>: Accepted for publication in the
-  <with|font-shape|italic|<with|font-shape|italic|Proceedings of The 4th
-  Annual Learning for Dynamics and Control Conference>>.
+  Perspective.|https://arxiv.org/abs/2203.11424>\Q>>|<row|<cell|>|<cell|Accepted
+  for publication in the <with|font-shape|italic|<with|font-shape|italic|Proceedings
+  of The 4th Annual Learning for Dynamics and Control Conference>>.
   <hlink|[PMLR]|https://proceedings.mlr.press/v168/li22a.html>>>>>>
 
   \;
