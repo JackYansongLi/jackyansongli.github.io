@@ -56,9 +56,13 @@
   Feel free to email me if you have any questions for my work or seek for
   collaboration. I am open to all collaboration opportunities.
 
-  <tabular|<tformat|<table|<row|<cell|Mar 2024<space|1em>>|<cell|Extended
-  abstract: \P<hlink|Efficient Collaboration with Unknown Agents: Ignoring
-  Similar Agents without Checking Similarity|https://www.ifaamas.org/Proceedings/aamas2024/pdfs/p2363.pdf>\Q>>|<row|<cell|>|<cell|Accepted
+  <tabular|<tformat|<table|<row|<cell|Sep 2024>|<cell|Manuscript:
+  \P<hlink|<hlink|Generalizing End-To-End Autonomous Driving In Real-World
+  Environments Using Zero-Shot LLMs|https://openreview.net/forum?id=s0vHSq5QEv>|https://openreview.net/pdf?id=s0vHSq5QEv>\Q>>|<row|<cell|>|<cell|Accepted
+  for publication in the <with|font-shape|italic|8th Annual Conference on
+  Robot Learning>>>|<row|<cell|Mar 2024<space|1em>>|<cell|Extended abstract:
+  \P<hlink|Efficient Collaboration with Unknown Agents: Ignoring Similar
+  Agents without Checking Similarity|https://www.ifaamas.org/Proceedings/aamas2024/pdfs/p2363.pdf>\Q>>|<row|<cell|>|<cell|Accepted
   for publication as extended abstract in the
   <with|font-shape|italic|<with|font-shape|italic|<with|font-shape|italic|Proc.
   of the 23rd International Conference on Autonomous Agents and Multiagent
