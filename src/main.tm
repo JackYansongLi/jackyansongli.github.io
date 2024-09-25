@@ -58,24 +58,24 @@
 
   <tabular|<tformat|<table|<row|<cell|Sep 2024>|<cell|Manuscript:
   \P<hlink|<hlink|Generalizing End-To-End Autonomous Driving In Real-World
-  Environments Using Zero-Shot LLMs|https://openreview.net/forum?id=s0vHSq5QEv>|https://openreview.net/pdf?id=s0vHSq5QEv>\Q>>|<row|<cell|>|<cell|Accepted
+  Environments Using Zero-Shot LLMs|https://openreview.net/forum?id=s0vHSq5QEv>|https://openreview.net/pdf?id=s0vHSq5QEv>\Q.>>|<row|<cell|>|<cell|Accepted
   for publication in the <with|font-shape|italic|8th Annual Conference on
-  Robot Learning>>>|<row|<cell|Mar 2024<space|1em>>|<cell|Extended abstract:
+  Robot Learning>.>>|<row|<cell|Mar 2024<space|1em>>|<cell|Extended abstract:
   \P<hlink|Efficient Collaboration with Unknown Agents: Ignoring Similar
-  Agents without Checking Similarity|https://www.ifaamas.org/Proceedings/aamas2024/pdfs/p2363.pdf>\Q>>|<row|<cell|>|<cell|Accepted
+  Agents without Checking Similarity|https://www.ifaamas.org/Proceedings/aamas2024/pdfs/p2363.pdf>\Q.>>|<row|<cell|>|<cell|Accepted
   for publication as extended abstract in the
   <with|font-shape|italic|<with|font-shape|italic|<with|font-shape|italic|Proc.
   of the 23rd International Conference on Autonomous Agents and Multiagent
   Systems (AAMAS 2024)>>>.>>|<row|<cell|Mar
   2023<space|1em>>|<cell|Manuscript: \P<hlink|Solving Strongly Convex and
   Smooth Stackelberg Games Without Modeling the
-  Follower.|https://arxiv.org/abs/2303.06192>\Q>>|<row|<cell|>|<cell|Accepted
+  Follower|https://arxiv.org/abs/2303.06192>\Q.>>|<row|<cell|>|<cell|Accepted
   for publication in the <with|font-shape|italic|<with|font-shape|italic|<with|font-shape|italic|American
   Control Conference (ACC)> 2023>>. <hlink|[IEEE
   Xplore]|https://ieeexplore.ieee.org/document/10156010>>>|<row|<cell|June
   2022<space|1em>>|<cell|Manuscript: \P<hlink|Accelerating Model-Free Policy
   Optimization Using Model-Based Gradient: A Composite Optimization
-  Perspective.|https://arxiv.org/abs/2203.11424>\Q>>|<row|<cell|>|<cell|Accepted
+  Perspective|https://arxiv.org/abs/2203.11424>\Q.>>|<row|<cell|>|<cell|Accepted
   for publication in the <with|font-shape|italic|<with|font-shape|italic|Proceedings
   of The 4th Annual Learning for Dynamics and Control Conference>>.
   <hlink|[PMLR]|https://proceedings.mlr.press/v168/li22a.html>>>>>>

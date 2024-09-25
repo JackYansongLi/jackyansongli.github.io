@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ML Theory Week 1</title>
+    <meta content="MoganSTEMSuite 1.2.9.2-rc5" name="generator" />
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      body { text-align: justify } h5 { display: inline; padding-right: 1em }
+      h6 { display: inline; padding-right: 1em } table { border-collapse:
+      collapse } td { padding: 0.2em; vertical-align: baseline } dt { float:
+      left; min-width: 1.75em; text-align: right; padding-right: 0.75em;
+      font-weight: bold; } dd { margin-left: 2.75em; padding-bottom: 0.25em; }
+      dd p { padding-top: 0em; } .subsup { display: inline; vertical-align:
+      -0.2em } .subsup td { padding: 0px; text-align: left} .fraction {
+      display: inline; vertical-align: -0.8em } .fraction td { padding: 0px;
+      text-align: center } .wide { position: relative; margin-left: -0.4em }
+      .accent { position: relative; margin-left: -0.4em; top: -0.1em }
+      .title-block { width: 100%; text-align: center } .title-block p {
+      margin: 0px } .compact-block p { margin-top: 0px; margin-bottom: 0px }
+      .left-tab { text-align: left } .center-tab { text-align: center }
+      .balloon-anchor { border-bottom: 1px dotted #000000; outline: none;
+      cursor: help; position: relative; } .balloon-anchor [hidden] {
+      margin-left: -999em; position: absolute; display: none; }
+      .balloon-anchor: hover [hidden] { position: absolute; left: 1em; top:
+      2em; z-index: 99; margin-left: 0; width: 500px; display: inline-block; }
+      .balloon-body { } .ornament { border-width: 1px; border-style: solid;
+      border-color: black; display: inline-block; padding: 0.2em; } .right-tab
+      { float: right; position: relative; top: -1em; } .no-breaks {
+      white-space: nowrap; } .underline { text-decoration: underline; }
+      .overline { text-decoration: overline; } .strike-through {
+      text-decoration: line-through; } del { text-decoration: line-through
+      wavy red; } .fill-out { text-decoration: underline dotted; } math {
+      font-family: cmr, times, verdana } 
+    </style>
+  </head>
+  <body>
+    <table class="title-block" style="margin-bottom: 2em">
+      <tr>
+        <td><table class="title-block" style="margin-top: 0.5em; margin-bottom: 0.5em">
+          <tr>
+            <td><font style="font-size: 168.2%"><strong>ML Theory Week 1</strong></font></td>
+          </tr>
+        </table><div class="compact-block" style="margin-top: 1em; margin-bottom: 1em">
+          <table class="title-block">
+            <tr>
+              <td><p style="margin-top: 0.5em; margin-bottom: 0.5em">
+                <div style="display: inline">
+                  <span style="margin-left: 0pt"></span>
+                </div>
+                <table style="display: inline-table; vertical-align: middle">
+                  <tbody><tr>
+                    <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                      <p>
+                        <class style="font-variant: small-caps">by Jack Yansong Li</class>
+                      </p>
+                    </center></td>
+                  </tr></tbody>
+                </table>
+              </p><p style="margin-top: 0.5em; margin-bottom: 0.5em">
+                <div style="display: inline">
+                  <span style="margin-left: 0pt"></span>
+                </div>
+                <table style="display: inline-table; vertical-align: middle">
+                  <tbody><tr>
+                    <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                      <p>
+                        University of Illinois Chicago
+                      </p>
+                    </center></td>
+                  </tr></tbody>
+                </table>
+              </p><p>
+                <div style="display: inline">
+                  <span style="margin-left: 0pt"></span>
+                </div>
+                <table style="display: inline-table; vertical-align: middle">
+                  <tbody><tr>
+                    <td style="text-align: center; padding-left: 0em; padding-right: 0em; padding-bottom: 0em; padding-top: 0em; width: 100%"><center>
+                      <p>
+                        <i>Email: </i><tt>yli340@uic.edu</tt>
+                      </p>
+                    </center></td>
+                  </tr></tbody>
+                </table>
+              </p></td>
+            </tr>
+          </table>
+        </div></td>
+      </tr>
+    </table>
+    <h2 id="auto-1">1<span style="margin-left: 1em"></span>A tutorial on PyTorch<span style="margin-left: 1em"></span></h2>
+    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+import torch</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+import torch.nn as nn</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+import torch.optim as optim</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <p>
+      The goal is to approximate the <tt>XOR</tt> gate defined as follows:
+    </p>
+    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+def xor(a,b):
+    return a ^ b</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+inputs = [(0, 0), (0, 1), (1, 0), (1, 1)]
+outputs = [xor(x[0], x[1]) for x in inputs]</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <p>
+      The <tt>XOR</tt> gate is approximated by a single layer neural net
+      defined as:
+    </p>
+    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+class XORNet(nn.Module):
+    def __init__(self):
+        super(XORNet, self).__init__()
+        self.layer1 = nn.Linear(2,4)
+        self.layer2 = nn.Linear(4,1)
+    def forward(self, x):
+        x = torch.relu(self.layer1(x))
+        x = self.layer2(x)
+        return x</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+model = XORNet()</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+# Define the loss function and optimizer
+loss_func = nn.MSELoss()  # Mean Squared Error Loss
+optimizer = optim.SGD(model.parameters(), lr=0.01)  # Stochastic Gradient Descent</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+def weights_init(model):
+    for m in model.modules():
+        if isinstance(m, nn.Linear):
+            # initialize the weight tensor, here we use a normal distribution
+            m.weight.data.normal_(0, 1)
+
+weights_init(model)</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <p>
+      Convert inputs and outputs data to torch tensors for training
+    </p>
+    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+X = torch.tensor(inputs, dtype=torch.float32)</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+Y = torch.tensor([y for y in outputs], dtype=torch.float32).view(-1,1)
+print(&quot;Inputs:&quot;, X)
+print(&quot;Outputs:&quot;, Y)
+#print(model(X))</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+      <p style="margin-top: 0.5em">
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            Inputs: tensor([[0., 0.],
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            [0., 1.],
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            [1., 0.],
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            [1., 1.]])
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            Outputs: tensor([[0.],
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            [1.],
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            [1.],
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+      <p style="margin-bottom: 0.5em">
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            [0.]])
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+epochs = 2000  # Increased epochs
+for epoch in range(epochs):
+    Y_pred = model(X)
+    loss = loss_func(Y_pred, Y)
+    if epoch % 500 == 0:
+        print(f'Epoch {epoch} Loss: {loss.item()}')
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+      <p style="margin-top: 0.5em">
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            Epoch 0 Loss: 3.7070677280426025
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            Epoch 500 Loss: 0.014563385397195816
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            Epoch 1000 Loss: 0.001690817647613585
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+      <p style="margin-bottom: 0.5em">
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            Epoch 1500 Loss: 0.00018612013082019985
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+# Test the model
+with torch.no_grad():
+    test_pred = model(X)
+    print(&quot;Predicted outputs:&quot;)
+    print(test_pred.round())</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+      <p style="margin-top: 0.5em">
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            Predicted outputs:
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            tensor([[0.],
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            [1.],
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            [1.],
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+      <p style="margin-bottom: 0.5em">
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            [0.]])
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <p>
+      However, if we only use a single layer network defined below, it cannot
+      approximate the <tt>XOR</tt> gate:
+    </p>
+    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+class XORNetSingleLayer(nn.Module):
+    def __init__(self):
+        super(XORNetSingleLayer, self).__init__()
+        self.layer1 = nn.Linear(2,1)
+    def forward(self, x):
+        x = torch.relu(self.layer1(x))
+        return x</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+model_single_layer = XORNetSingleLayer()</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+# Define the loss function and optimizer
+loss_func = nn.MSELoss()  # Mean Squared Error Loss
+optimizer = optim.SGD(model.parameters(), lr=0.01)  # Stochastic Gradient Descent</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+weights_init(model)</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+epochs = 2000  # Increased epochs
+for epoch in range(epochs):
+    Y_pred = model_single_layer(X)
+    loss = loss_func(Y_pred, Y)
+    if epoch % 500 == 0:
+        print(f'Epoch {epoch} Loss: {loss.item()}')
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+      <p style="margin-top: 0.5em">
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            Epoch 0 Loss: 0.2725851237773895
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            Epoch 500 Loss: 0.2725851237773895
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            Epoch 1000 Loss: 0.2725851237773895
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+      <p style="margin-bottom: 0.5em">
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            Epoch 1500 Loss: 0.2725851237773895
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+# Test the model
+with torch.no_grad():
+    test_pred = model_single_layer(X)
+    print(&quot;Predicted outputs:&quot;)
+    print(test_pred.round())</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+      <p style="margin-top: 0.5em">
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            Predicted outputs:
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            tensor([[0.],
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            [0.],
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="text-indent: 0em">
+      <p>
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            [1.],
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+      <p style="margin-bottom: 0.5em">
+        <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
+          <div align="justify">
+            [0.]])
+          </div>
+        </div></tt></tt>
+      </p>
+    </div>
+    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></span></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
+            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+</pre></span>
+          </p></td>
+        </tr></tbody>
+      </table>
+    </div>
+    <h2 id="auto-2">2<span style="margin-left: 1em"></span>Homework<span style="margin-left: 1em"></span></h2>
+    <div style="margin-top: 0.5em; margin-bottom: 0.5em; margin-left: 35.145870328812px">
+      <p>
+        <font style="font-size: 84.1%"><strong>Problem <class style="font-style: normal">1</class>.
+        </strong>Formally state and prove that a single layer neural network
+        (also known as perceptron) cannot approximate the <tt>XOR</tt> gate.
+        Verify your result empirically. <em>Hint: derive a lower bound of the
+        approximation error. Verify your bound by drawing the approximation
+        error w.r.t. number of iterations.</em></font>
+      </p>
+    </div>
+    <div style="margin-top: 0.5em; margin-bottom: 0.5em; margin-left: 35.145870328812px">
+      <p>
+        <font style="font-size: 84.1%"><strong>Problem <class style="font-style: normal">2</class>.
+        </strong>Formally state and prove that a two-layer neural network with
+        more than <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn></math> neurons in the hidden layer
+        can approximate the <tt>XOR</tt> gate. <em>Hint: Manually construct a
+        neural network that gives the same outputs as <tt>XOR</tt> gate and
+        computes its parameters by hand.</em></font>
+      </p>
+    </div>
+  </body>
+</html>

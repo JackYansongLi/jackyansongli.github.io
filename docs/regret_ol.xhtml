@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jack Yansong Li's Website</title>
+    <meta content="MoganSTEMSuite 1.2.9.2-rc5" name="generator" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../resources/notes-base.css" />
+    <link rel="icon" href="../resources/blog-icon.png" />
+    <script defer language="javascript" src="../resources/highlight.pack.js"></script>
+    <script defer language="javascript" src="../resources/notes-base.js"></script>
+  </head>
+  <body>
+    <div class="notes-header">
+      <p>
+        <img class="image" width="28.116784" src="../resources/texmacs-blog-transparent.png" /><span style="margin-left: 2pt"></span><a href="./main.xhtml">[main]</a><em
+        class="notes-header-name">Jack Yansong Li's Website</em>
+      </p>
+    </div>
+    <p>
+      <a id="auto-1"></a>
+    </p>
+    <h1>Why using regret in online learning<span style="margin-left: 1em"></span></h1>
+    <p>
+      Regret analysis is broadly adopted in learning with online interactions.
+      However, why using regret minimization instead of cost minimization as
+      in other learning tasks such as batch learning? In this short note, we
+      will give an example that by minimizing the regret, the learner gets a
+      better reward.
+    </p>
+    <h2 id="auto-2">1.<span style="margin-left: 1em"></span>Worst-case cost and worst-case regret
+    cost<span style="margin-left: 1em"></span></h2>
+    <p>
+      Consider the function <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math> defined as <math
+      xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>g</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow><mo>≜</mo><munder><mrow><mo>max</mo><mi>.</mi><mo>&ApplyFunction;</mo></mrow><mi>y</mi></munder><mi>f</mi><mrow><mo
+      form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo form="postfix">)</mo></mrow></mrow></math>,
+      where <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math> is an arbitrary function. The
+      optimization problem defined as
+    </p>
+    <table width="100%">
+      <tr>
+        <td align="center" width="100%"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mrow><munder><mrow><mo>min</mo><mi>.</mi></mrow><mi>x</mi></munder><mi>g</mi><mrow><mo
+        form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow><mo>≡</mo><munder><mrow><mo>min</mo><mi>.</mi></mrow><mi>x</mi></munder><munder><mrow><mo>max</mo><mi>.</mi></mrow><mi>y</mi></munder><mi>f</mi><mrow><mo
+        form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo form="postfix">)</mo></mrow></mrow></mstyle></math></td>
+        <td align="right">(1)</td>
+      </tr>
+    </table>
+    <p>
+      can be viewed as a worst-case optimization problem, and <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>g</mi><mrow><mo
+      form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow></mrow></math> is called
+      <i>worst-case cost</i>.
+    </p>
+    <p>
+      Let's consider a scenario where we have <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi><mrow><mo
+      form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo form="postfix">)</mo></mrow></mrow></math>
+      that represents the time required to drive a car from one location to
+      another given policy <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math> and environment
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math>. In this context, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math>
+      represents the driver's driving pattern, which encompass decisions like
+      adjusting speed, selecting lanes (left or right), and other driving
+      strategies. On the other hand, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math> represents
+      a binary condition indicating whether it's currently raining (<math
+      xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>y</mi><mo>&ApplyFunction;</mo><mo>=</mo><mo>&ApplyFunction;</mo><mn>1</mn></mrow></math>)
+      or not (<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>y</mi><mo>&ApplyFunction;</mo><mo>=</mo><mo>&ApplyFunction;</mo><mn>0</mn></mrow></math>).
+      Together, this function captures how the driver's decisions and weather
+      conditions collectively impact the time it takes for the journey.
+    </p>
+    <p>
+      It's a widely acknowledged fact that driving takes more time on days
+      when it's raining. Thus, <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><munder><mrow><mo>max</mo><mi>.</mi></mrow><mi>y</mi></munder><mi>f</mi><mrow><mo
+      form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo form="postfix">)</mo></mrow><mo>=</mo><mi>f</mi><mrow><mo
+      form="prefix">(</mo><mi>x</mi><mo>,</mo><mn>1</mn><mo form="postfix">)</mo></mrow></mrow></math>.
+      By definition, the function <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>g</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo
+      form="postfix">)</mo></mrow></mrow></math> currently represents the time required
+      for driving on rainy days.
+    </p>
+    <p>
+      Now, define <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>g</mi><mi>'</mi></msup><mrow><mo
+      form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow><mo>≜</mo><munder><mo>max</mo><mi>y</mi></munder><mrow><mo
+      form="prefix">(</mo><mi>f</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo
+      form="postfix">)</mo></mrow><mo>-</mo><munder><mo>min</mo><msup><mi>x</mi><mi>'</mi></msup></munder><mi>f</mi><mrow><mo
+      form="prefix">(</mo><msup><mi>x</mi><mi>'</mi></msup><mo>,</mo><mi>y</mi><mo
+      form="postfix">)</mo></mrow><mo form="postfix">)</mo></mrow></mrow></math>. We call <math
+      xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>g</mi><mi>'</mi></msup><mrow><mo form="prefix">(</mo><mi>x</mi><mo
+      form="postfix">)</mo></mrow></mrow></math> the <i>worst-case regret cost</i>.
+      Unlike worst-case cost, the regret cost measures the maximum achievement
+      <b>it can be improved</b> in the past days. For example, if a driver
+      cannot drive in the rainy day due to rheumatoid arthritis. Then there is
+      no difference between <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>rain</mi><mo
+      form="postfix">)</mo></mrow></mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi><mrow><mo
+      form="prefix">(</mo><msup><mi>x</mi><mi>'</mi></msup><mo>,</mo><mi>rain</mi><mo
+      form="postfix">)</mo></mrow></mrow></math> for any <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math>
+      and <math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>x</mi><mi>'</mi></msup></math>, which makes
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>g</mi><mi>'</mi></msup><mrow><mo form="prefix">(</mo><mi>x</mi><mo
+      form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow></math>. No regret at all!
+      Because nothing can be improved in the worst-case.
+    </p>
+    <h2 id="auto-3">2.<span style="margin-left: 1em"></span>An example that minimizes regret cost
+    results in a better policy<span style="margin-left: 1em"></span></h2>
+    <p>
+      Consider the function <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo
+      form="postfix">)</mo></mrow></mrow></math> as follows:
+    </p>
+    <center>
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mrow><mtable columnalign="center center center center">
+        <mtr>
+          <mtd><mrow></mrow></mtd>
+          <mtd><mrow></mrow></mtd>
+          <mtd><mi>x</mi></mtd>
+          <mtd><mi>y</mi></mtd>
+        </mtr>
+        <mtr>
+          <mtd><mrow></mrow></mtd>
+          <mtd></mtd>
+          <mtd><mn>0</mn></mtd>
+          <mtd><mn>1</mn></mtd>
+        </mtr>
+        <mtr>
+          <mtd><mi>x</mi></mtd>
+          <mtd><mn>0</mn></mtd>
+          <mtd><mn>100</mn></mtd>
+          <mtd><mn>0</mn></mtd>
+        </mtr>
+        <mtr>
+          <mtd><mi>y</mi></mtd>
+          <mtd><mn>1</mn></mtd>
+          <mtd><mn>100</mn></mtd>
+          <mtd><mn>99</mn></mtd>
+        </mtr>
+      </mtable><mi>.</mi></mrow></mstyle></math>
+    </center>
+    <p>
+      
+    </p>
+    <p>
+      The worst-case cost <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>g</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo
+      form="postfix">)</mo></mrow></mrow></math> in this example is <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><munder><mo>max</mo><mi>y</mi></munder><mi>.</mi><mo>&ApplyFunction;</mo><mi>f</mi><mrow><mo
+      form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo form="postfix">)</mo></mrow><mo>=</mo><mi>f</mi><mrow><mo
+      form="prefix">(</mo><mi>x</mi><mo>,</mo><mn>0</mn><mo form="postfix">)</mo></mrow><mo>=</mo><mn>100</mn></mrow></math>
+      for any <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math>. Thus,
+    </p>
+    <table width="100%">
+      <tr>
+        <td align="center" width="100%"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mrow><mi>arg</mi><munder><mo>min</mo><mi>x</mi></munder><mo>&ApplyFunction;</mo><mi>g</mi><mrow><mo
+        form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mo>∨</mo><mn>1</mn><mi>.</mi></mrow></mstyle></math></td>
+        <td align="right">(2)</td>
+      </tr>
+    </table>
+    <p>
+      But for the worst-case regret cost, <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>g</mi><mi>'</mi></msup><mrow><mo
+      form="prefix">(</mo><mn>0</mn><mo form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow></math>
+      and <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>g</mi><mi>'</mi></msup><mrow><mo form="prefix">(</mo><mn>1</mn><mo
+      form="postfix">)</mo></mrow><mo>=</mo><mn>99</mn></mrow></math>. Thus
+    </p>
+    <table width="100%">
+      <tr>
+        <td align="center" width="100%"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mrow><mi>arg</mi><munder><mo>min</mo><mi>x</mi></munder><mo>&ApplyFunction;</mo><msup><mi>g</mi><mi>'</mi></msup><mrow><mo
+        form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mi>.</mi></mrow></mstyle></math></td>
+        <td align="right">(3)</td>
+      </tr>
+    </table>
+    <h2 id="auto-4">3.<span style="margin-left: 1em"></span>Data correlation<span style="margin-left: 1em"></span></h2>
+    <p>
+      The fundamental assumption of standard offline machine learning is that
+      the collected data are independently and identically distributed,
+      stemming from an unknown distribution [<a href="#bib-vapnik_overview_1999">2</a>]. However, this
+      assumption can be easily compromised in the realm of online learning [<a
+      href="#bib-shalev-shwartz_online_2011-1">1</a>]. For instance, let's reconsider a scenario involving a
+      driver who refrains from driving on rainy days. In this case, data
+      points (representing the time taken to travel between places) within a
+      one-hour time-frame might have a probability of collection as low as
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math>. Conversely, data points beyond one hour
+      might possess a probability of collection greater than <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math>.
+      This implies that data collected on different dates adhere to distinct
+      distributions. This distinction underscores a crucial difference between
+      traditional offline learning and online learning.
+    </p>
+    <h1 id="auto-5">Bibliography<span style="margin-left: 1em"></span></h1>
+    <div class="compact-block" style="text-indent: 0em">
+      <font style="font-size: 84.0%"><dl>
+        <p>
+          <dt>
+            <strong>[1]  </strong>
+          </dt>
+          <dd>
+            <p>
+              <a id="bib-shalev-shwartz_online_2011-1"></a>Shai Shalev-Shwartz. Online Learning and Online
+              Convex Optimization. <i>Foundations and Trends in Machine
+              Learning</i>, 4(2):107&ndash;194, 2011.
+            </p>
+          </dd>
+        </p>
+        <p>
+          <dt>
+            <strong>[2]  </strong>
+          </dt>
+          <dd>
+            <p>
+              <a id="bib-vapnik_overview_1999"></a>V.N. Vapnik. An overview of statistical learning
+              theory. <i>IEEE Transactions on Neural Networks</i>,
+              10(5):988&ndash;999, sep 1999.
+            </p>
+          </dd>
+        </p>
+      </dl></font>
+    </div>
+    <p>
+      
+    </p>
+  </body>
+</html>
