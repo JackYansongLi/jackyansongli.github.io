@@ -56,15 +56,16 @@
 
     <item><hlink|Goldfish Scheme|https://github.com/LiiiLabs/goldfish>: I am
     one of the main developers of <with|font-family|tt|Goldfish Scheme>, a
-    Scheme compiler based on <hlink|<em|S7
+    Scheme compiler based on <hlink|<with|font-family|tt|S7
     Scheme>|https://ccrma.stanford.edu/software/snd/snd/s7.html> and
-    <em|C++>. This compiler matches the speed and simplicity of <em|S7>,
-    while offering improved support for <em|Windows>. In <em|Goldfish
-    Scheme>, we have implemented the complete set of features from
-    <hlink|<em|R7RS>|https://r7rs.org/> and included many functionalities
-    inspired by the <with|font-family|tt|Python> standard library.
-    <with|font-family|tt|Goldfish Scheme> will serve as the fondation for
-    <with|font-family|tt|TeXmacs/Mogan> in the future.
+    <with|font-family|tt|C++>. This compiler matches the speed and simplicity
+    of <with|font-family|tt|S7>, while offering improved support for
+    <with|font-family|tt|Microsoft Windows> system. In
+    <with|font-family|tt|Goldfish Scheme>, we have implemented the complete
+    set of features from <hlink|<em|R7RS>|https://r7rs.org/> and included
+    many functionalities inspired by the <with|font-family|tt|Python>
+    standard library. <with|font-family|tt|Goldfish Scheme> will serve as the
+    fondation for <with|font-family|tt|TeXmacs/Mogan> in the future.
   </itemize>
 
   <section*|Publications>
@@ -121,6 +122,7 @@
     <associate|auto-4|<tuple|?|1>>
     <associate|auto-5|<tuple|?|1>>
     <associate|auto-6|<tuple|<with|mode|<quote|math>|\<bullet\>>|2>>
+    <associate|auto-7|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
   </collection>
 </references>
 
