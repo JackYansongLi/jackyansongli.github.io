@@ -1,4 +1,4 @@
-<TeXmacs|2.1.2>
+<TeXmacs|2.1.4>
 
 <style|notes>
 
@@ -36,11 +36,6 @@
   <hlink|Mogan|https://github.com/XmacsLabs/mogan> and
   <hlink|texmacs-notes|https://github.com/texmacs/notes>.\ 
 
-  I am also a contributor to TeXmacs/Mogan, you can see the plugins I
-  developed for TeXmacs/Mogan on my github page: For example <hlink|vim
-  plugin|https://github.com/JackYansongLi/texvim> and <hlink|algorithm2e
-  plugin|https://github.com/JackYansongLi/algorithm2e-texmacs>.
-
   <section*|Notes>
 
   On this website, I've shared some notes from my Ph.D. journey. If you
@@ -48,6 +43,29 @@
   hesitate to reach out to me. You can email me at <href|yli340@uic.edu>. For
   a complete list of all the notes I've published here, please refer to
   <hlink|here|list-articles.tm>.
+
+  <section*|Contributions to Open Source Projects>
+
+  <\itemize>
+    <item><hlink|<TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>: I am a
+    contributor to <with|font-family|tt|TeXmacs/Mogan>, and you can find the
+    plugins I developed, such as the <hlink|<em|Vim>
+    plugin|https://github.com/JackYansongLi/texvim> and the
+    <hlink|<em|Algorithm2e> plugin|https://github.com/JackYansongLi/algorithm2e-texmacs>,
+    on my GitHub page.
+
+    <item><hlink|Goldfish Scheme|https://github.com/LiiiLabs/goldfish>: I am
+    one of the main developers of <with|font-family|tt|Goldfish Scheme>, a
+    Scheme compiler based on <hlink|<em|S7
+    Scheme>|https://ccrma.stanford.edu/software/snd/snd/s7.html> and
+    <em|C++>. This compiler matches the speed and simplicity of <em|S7>,
+    while offering improved support for <em|Windows>. In <em|Goldfish
+    Scheme>, we have implemented the complete set of features from
+    <hlink|<em|R7RS>|https://r7rs.org/> and included many functionalities
+    inspired by the <with|font-family|tt|Python> standard library.
+    <with|font-family|tt|Goldfish Scheme> will serve as the fondation for
+    <with|font-family|tt|TeXmacs/Mogan> in the future.
+  </itemize>
 
   <section*|Publications>
 
@@ -102,6 +120,7 @@
     <associate|auto-3|<tuple|?|1>>
     <associate|auto-4|<tuple|?|1>>
     <associate|auto-5|<tuple|?|1>>
+    <associate|auto-6|<tuple|<with|mode|<quote|math>|\<bullet\>>|2>>
   </collection>
 </references>
 
@@ -123,8 +142,12 @@
       Notes <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4>
 
-      Publications <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      Contributions to Open Source Projects
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5>
+
+      Publications <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-6>
     </associate>
   </collection>
 </auxiliary>
