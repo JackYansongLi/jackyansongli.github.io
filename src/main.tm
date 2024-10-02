@@ -75,6 +75,8 @@
   Feel free to email me if you have any questions for my work or seek for
   collaboration. I am open to all collaboration opportunities.
 
+  <paragraph|Conference>
+
   <tabular|<tformat|<table|<row|<cell|Sep 2024>|<cell|Manuscript:
   \P<hlink|<hlink|Generalizing End-To-End Autonomous Driving In Real-World
   Environments Using Zero-Shot LLMs|https://openreview.net/forum?id=s0vHSq5QEv>|https://openreview.net/pdf?id=s0vHSq5QEv>\Q.>>|<row|<cell|>|<cell|Accepted
@@ -99,7 +101,13 @@
   of The 4th Annual Learning for Dynamics and Control Conference>>.
   <hlink|[PMLR]|https://proceedings.mlr.press/v168/li22a.html>>>>>>
 
-  \;
+  <paragraph*|Preprint>
+
+  <tabular|<tformat|<table|<row|<cell|Sep 2024>|<cell|\P<hlink|Bayes-Optimal,
+  Robust, and Distributionally Robust Policies for Uncertain
+  MDPs|https://indigo.uic.edu/articles/preprint/Bayes-Optimal_Robust_and_Distributionally_Robust_Policies_for_Uncertain_MDPs/27138990?file=49515501>\Q.>>|<row|<cell|Mar
+  2024<space|1em>>|<cell|\P<hlink|Removing Redundant Partner Policies May Be
+  Unnecessary for Ad Hoc Teamwork|https://indigo.uic.edu/articles/preprint/Removing_Redundant_Partner_Policies_May_Be_Unnecessary_for_Ad_Hoc_Teamwork/27139116?file=49516221>\Q.>>>>>
 
   \;
 
@@ -122,7 +130,8 @@
     <associate|auto-4|<tuple|?|1>>
     <associate|auto-5|<tuple|?|1>>
     <associate|auto-6|<tuple|<with|mode|<quote|math>|\<bullet\>>|2>>
-    <associate|auto-7|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-7|<tuple|1|?>>
+    <associate|auto-8|<tuple|1|?>>
   </collection>
 </references>
 
