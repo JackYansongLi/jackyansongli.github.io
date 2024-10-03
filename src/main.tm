@@ -48,9 +48,12 @@
   <section*|Contributions to Open Source Projects>
 
   <\itemize>
-    <item><hlink|<TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>: I am a
-    contributor to <with|font-family|tt|TeXmacs/Mogan>, and you can find the
-    plugins I developed, such as the <hlink|<em|Vim>
+    <item><hlink|<TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>: A
+    WYSIWYG editor that can type equations 10 times faster than <LaTeX>. See
+    \P<hlink|A quick tour of TeXmacs|https://www.youtube.com/watch?v=H46ON2FB30U>\Q
+    for a 3 mins short introduction. I am a contributor to
+    <with|font-family|tt|TeXmacs/Mogan>, and you can find the plugins I
+    developed, such as the <hlink|<em|Vim>
     plugin|https://github.com/JackYansongLi/texvim> and the
     <hlink|<em|Algorithm2e> plugin|https://github.com/JackYansongLi/algorithm2e-texmacs>,
     on my GitHub page.
