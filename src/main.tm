@@ -25,6 +25,7 @@
   advised by Prof. <hlink|Shuo Han|https://hanshuo.people.uic.edu/site/>. I
   received my bachelors in Department of Mathematics at the <hlink|Southern
   University of Science and Technology|https://www.sustech.edu.cn/en/>.
+  <hlink|<with|font-series|bold|[Curriculum Vitae]>|cv_jack.pdf>
 
   My primary research interests lie in reinforcement learning and game
   theory. Currently, I am working on combining model-based RL with model-free
@@ -130,8 +131,8 @@
     <associate|auto-4|<tuple|?|1>>
     <associate|auto-5|<tuple|?|1>>
     <associate|auto-6|<tuple|<with|mode|<quote|math>|\<bullet\>>|2>>
-    <associate|auto-7|<tuple|1|?>>
-    <associate|auto-8|<tuple|1|?>>
+    <associate|auto-7|<tuple|1|2>>
+    <associate|auto-8|<tuple|1|2>>
   </collection>
 </references>
 
@@ -159,6 +160,14 @@
 
       Publications <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6>
+
+      <with|par-left|<quote|3tab>|Conference
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-7>>
+
+      <with|par-left|<quote|3tab>|Preprint
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-8>>
     </associate>
   </collection>
 </auxiliary>
