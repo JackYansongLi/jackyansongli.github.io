@@ -60,13 +60,13 @@
     Scheme compiler based on <hlink|<with|font-family|tt|S7
     Scheme>|https://ccrma.stanford.edu/software/snd/snd/s7.html> and
     <with|font-family|tt|C++>. This compiler matches the speed and simplicity
-    of <with|font-family|tt|S7>, while offering improved support for
+    of <with|font-family|tt|S7>, while offering improved support for the
     <with|font-family|tt|Microsoft Windows> system. In
     <with|font-family|tt|Goldfish Scheme>, we have implemented the complete
     set of features from <hlink|<em|R7RS>|https://r7rs.org/> and included
     many functionalities inspired by the <with|font-family|tt|Python>
-    standard library. <with|font-family|tt|Goldfish Scheme> will serve as the
-    fondation for <with|font-family|tt|TeXmacs/Mogan> in the future.
+    standard library. <with|font-family|tt|Goldfish Scheme> will be the
+    foundation for <with|font-family|tt|TeXmacs/Mogan> in the future.
   </itemize>
 
   <section*|Publications>
