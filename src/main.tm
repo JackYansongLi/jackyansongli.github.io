@@ -107,9 +107,11 @@
 
   <paragraph*|Preprint>
 
-  <tabular|<tformat|<table|<row|<cell|Sep 2024>|<cell|\P<hlink|Bayes-Optimal,
-  Robust, and Distributionally Robust Policies for Uncertain
-  MDPs|https://indigo.uic.edu/articles/preprint/Bayes-Optimal_Robust_and_Distributionally_Robust_Policies_for_Uncertain_MDPs/27138990?file=49515501>\Q.>>|<row|<cell|Mar
+  <tabular|<tformat|<table|<row|<cell|Aug 2024>|<cell|\P<hlink|When to Trust
+  Your Data: Enhancing Dyna-Style Model-Based Reinforcement Learning With
+  Data Filter|https://arxiv.org/abs/2410.12160>\Q.>>|<row|<cell|Mar
+  2024>|<cell|\P<hlink|Bayes-Optimal, Robust, and Distributionally Robust
+  Policies for Uncertain MDPs|https://indigo.uic.edu/articles/preprint/Bayes-Optimal_Robust_and_Distributionally_Robust_Policies_for_Uncertain_MDPs/27138990?file=49515501>\Q.>>|<row|<cell|Jan
   2024<space|1em>>|<cell|\P<hlink|Removing Redundant Partner Policies May Be
   Unnecessary for Ad Hoc Teamwork|https://indigo.uic.edu/articles/preprint/Removing_Redundant_Partner_Policies_May_Be_Unnecessary_for_Ad_Hoc_Teamwork/27139116?file=49516221>\Q.>>>>>
 
