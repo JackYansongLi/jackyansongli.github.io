@@ -64,12 +64,12 @@
     Scheme>|https://ccrma.stanford.edu/software/snd/snd/s7.html> and
     <with|font-family|tt|C++>. This compiler matches the speed and simplicity
     of <with|font-family|tt|S7>, while offering improved support for the
-    <with|font-family|tt|Microsoft Windows> system. In
-    <with|font-family|tt|Goldfish Scheme>, we have implemented the complete
-    set of features from <hlink|<em|R7RS>|https://r7rs.org/> and included
-    many functionalities inspired by the <with|font-family|tt|Python>
-    standard library. <with|font-family|tt|Goldfish Scheme> will be the
-    foundation for <with|font-family|tt|TeXmacs/Mogan> in the future.
+    <with|font-family|tt|Microsoft Windows>. In <with|font-family|tt|Goldfish
+    Scheme>, we have implemented the complete set of features from
+    <hlink|<em|R7RS>|https://r7rs.org/> and included many functionalities
+    inspired by the <with|font-family|tt|Python> standard library.
+    <with|font-family|tt|Goldfish Scheme> will be the foundation for
+    <with|font-family|tt|TeXmacs/Mogan> in the future.
   </itemize>
 
   <section*|Publications>
@@ -109,7 +109,9 @@
 
   <tabular|<tformat|<table|<row|<cell|Aug 2024>|<cell|\P<hlink|When to Trust
   Your Data: Enhancing Dyna-Style Model-Based Reinforcement Learning With
-  Data Filter|https://arxiv.org/abs/2410.12160>\Q.>>|<row|<cell|Mar
+  Data Filter|https://arxiv.org/abs/2410.12160>\Q.>>|<row|<cell|Aug
+  2024>|<cell|\P<hlink|Goldfish Scheme: A Scheme Interpreter with Python-Like
+  Standard Library|goldfish.pdf>\Q (Chinese)>>|<row|<cell|Mar
   2024>|<cell|\P<hlink|Bayes-Optimal, Robust, and Distributionally Robust
   Policies for Uncertain MDPs|https://indigo.uic.edu/articles/preprint/Bayes-Optimal_Robust_and_Distributionally_Robust_Policies_for_Uncertain_MDPs/27138990?file=49515501>\Q.>>|<row|<cell|Jan
   2024<space|1em>>|<cell|\P<hlink|Removing Redundant Partner Policies May Be
