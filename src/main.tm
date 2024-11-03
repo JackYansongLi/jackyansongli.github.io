@@ -48,19 +48,15 @@
   <section*|Contributions to Open Source Projects>
 
   <\itemize>
-    <item><hlink|<TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>: A
-    WYSIWYG editor that can type equations 10 times faster than <LaTeX>. See
+    <item><hlink|GNU <TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>: I
+    am one of the maintainers of GNU <TeXmacs>/Mogan: a WYSIWYG editor that
+    can help users type equations 10 times faster than <LaTeX>. See
     \P<hlink|A quick tour of TeXmacs|https://www.youtube.com/watch?v=H46ON2FB30U>\Q
-    for a 3 mins short introduction. I am a contributor to
-    <with|font-family|tt|TeXmacs/Mogan>, and you can find the plugins I
-    developed, such as the <hlink|<em|Vim>
-    plugin|https://github.com/JackYansongLi/texvim> and the
-    <hlink|<em|Algorithm2e> plugin|https://github.com/JackYansongLi/algorithm2e-texmacs>,
-    on my GitHub page.
+    for a 3 mins short introduction.
 
     <item><hlink|Goldfish Scheme|https://github.com/LiiiLabs/goldfish>: I am
-    one of the main developers of <with|font-family|tt|Goldfish Scheme>, a
-    Scheme compiler based on <hlink|<with|font-family|tt|S7
+    one of the maintainers of <with|font-family|tt|Goldfish Scheme>, a Scheme
+    compiler based on <hlink|<with|font-family|tt|S7
     Scheme>|https://ccrma.stanford.edu/software/snd/snd/s7.html> and
     <with|font-family|tt|C++>. This compiler matches the speed and simplicity
     of <with|font-family|tt|S7>, while offering improved support for the
@@ -68,8 +64,8 @@
     Scheme>, we have implemented the complete set of features from
     <hlink|<em|R7RS>|https://r7rs.org/> and included many functionalities
     inspired by the <with|font-family|tt|Python> standard library.
-    <with|font-family|tt|Goldfish Scheme> will be the foundation for
-    <with|font-family|tt|TeXmacs/Mogan> in the future.
+    <with|font-family|tt|Goldfish Scheme> will be the foundation for GNU
+    <TeXmacs>/Mogan \ in the future.
   </itemize>
 
   <section*|Publications>
