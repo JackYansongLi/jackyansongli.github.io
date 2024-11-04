@@ -32,7 +32,7 @@
   RL. Previously, I have worked on projects that examines optimization
   techniques for Stackelberg games.
 
-  This website is built in <hlink|<TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>
+  This website is built in <hlink|GNU <TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>
   with the notes plugin, you can access the source repository by clicking:
   <hlink|Mogan|https://github.com/XmacsLabs/mogan> and
   <hlink|texmacs-notes|https://github.com/texmacs/notes>.\ 
