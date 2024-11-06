@@ -56,16 +56,16 @@
 
     <item><hlink|Goldfish Scheme|https://github.com/LiiiLabs/goldfish>: I am
     one of the maintainers of <with|font-family|tt|Goldfish Scheme>, a Scheme
-    compiler based on <hlink|<with|font-family|tt|S7
+    interpreter based on <hlink|<with|font-family|tt|S7
     Scheme>|https://ccrma.stanford.edu/software/snd/snd/s7.html> and
-    <with|font-family|tt|C++>. This compiler matches the speed and simplicity
-    of <with|font-family|tt|S7>, while offering improved support for the
-    <with|font-family|tt|Microsoft Windows>. In <with|font-family|tt|Goldfish
-    Scheme>, we have implemented the complete set of features from
-    <hlink|<em|R7RS>|https://r7rs.org/> and included many functionalities
-    inspired by the <with|font-family|tt|Python> standard library.
-    <with|font-family|tt|Goldfish Scheme> will be the foundation for GNU
-    <TeXmacs>/Mogan \ in the future.
+    <with|font-family|tt|C++>. This interpreter matches the speed and
+    simplicity of <with|font-family|tt|S7>, while offering improved support
+    for the <with|font-family|tt|Microsoft Windows>. In
+    <with|font-family|tt|Goldfish Scheme>, we have implemented the complete
+    set of features from <hlink|<em|R7RS>|https://r7rs.org/> and included
+    many functionalities inspired by the <with|font-family|tt|Python>
+    standard library. <with|font-family|tt|Goldfish Scheme> will be the
+    foundation for GNU <TeXmacs>/Mogan \ in the future.
   </itemize>
 
   <section*|Publications>
