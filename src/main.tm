@@ -47,6 +47,9 @@
 
   <section*|Contributions to Open Source Projects>
 
+  I am a co-founder of <hlink|LIII NETWORK|https://mogan.app/guide/Contact.html>,
+  a software developing company who developed:
+
   <\itemize>
     <item><hlink|GNU <TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>: I
     am one of the maintainers of GNU <TeXmacs>/Mogan: a WYSIWYG editor that
@@ -107,7 +110,7 @@
   Your Data: Enhancing Dyna-Style Model-Based Reinforcement Learning With
   Data Filter|https://arxiv.org/abs/2410.12160>\Q.>>|<row|<cell|Aug
   2024>|<cell|\P<hlink|Goldfish Scheme: A Scheme Interpreter with Python-Like
-  Standard Library|goldfish.pdf>\Q (Chinese)>>|<row|<cell|Mar
+  Standard Library|goldfish.pdf>\Q >>|<row|<cell|Mar
   2024>|<cell|\P<hlink|Bayes-Optimal, Robust, and Distributionally Robust
   Policies for Uncertain MDPs|https://indigo.uic.edu/articles/preprint/Bayes-Optimal_Robust_and_Distributionally_Robust_Policies_for_Uncertain_MDPs/27138990?file=49515501>\Q.>>|<row|<cell|Jan
   2024<space|1em>>|<cell|\P<hlink|Removing Redundant Partner Policies May Be
