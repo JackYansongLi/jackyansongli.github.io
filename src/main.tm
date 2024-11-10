@@ -48,7 +48,7 @@
   <section*|Contributions to Open Source Projects>
 
   I am a co-founder of <hlink|LIII NETWORK|https://mogan.app/guide/Contact.html>,
-  a software developing company who developed:
+  an open source company that developes:
 
   <\itemize>
     <item><hlink|GNU <TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>: I
