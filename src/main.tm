@@ -26,6 +26,8 @@
   received my bachelors in Department of Mathematics at the <hlink|Southern
   University of Science and Technology|https://www.sustech.edu.cn/en/>.
   <hlink|<with|font-series|bold|[Curriculum Vitae]>|cv_jack.pdf>
+  <hlink|<with|font-series|bold|[Research
+  Statement]>|research_statement_yansong.pdf>
 
   My primary research interests lie in reinforcement learning and game
   theory. Currently, I am working on combining model-based RL with model-free
