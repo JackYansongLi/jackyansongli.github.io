@@ -25,7 +25,7 @@
   advised by Prof. <hlink|Shuo Han|https://hanshuo.people.uic.edu/site/>. I
   received my bachelors in Department of Mathematics at the <hlink|Southern
   University of Science and Technology|https://www.sustech.edu.cn/en/>.
-  <hlink|<with|font-series|bold|[Curriculum Vitae]>|cv_jack.pdf>
+  <hlink|<with|font-series|bold|[Curriculum Vitae]>|résumé_yansong.pdf>
   <hlink|<with|font-series|bold|[Research
   Statement]>|research_statement_yansong.pdf>
 
@@ -108,9 +108,12 @@
 
   <paragraph*|Preprint>
 
-  <tabular|<tformat|<table|<row|<cell|Aug 2024>|<cell|\P<hlink|When to Trust
-  Your Data: Enhancing Dyna-Style Model-Based Reinforcement Learning With
-  Data Filter|https://arxiv.org/abs/2410.12160>\Q.>>|<row|<cell|Aug
+  <tabular|<tformat|<table|<row|<cell|Nov 2024>|<cell|\P<hlink|EAPCR: A
+  Universal Feature Extractor for Scientific Data without Explicit Feature
+  Relation Patterns|https://arxiv.org/abs/2411.08164>\Q>>|<row|<cell|Aug
+  2024>|<cell|\P<hlink|When to Trust Your Data: Enhancing Dyna-Style
+  Model-Based Reinforcement Learning With Data
+  Filter|https://arxiv.org/abs/2410.12160>\Q.>>|<row|<cell|Aug
   2024>|<cell|\P<hlink|Goldfish Scheme: A Scheme Interpreter with Python-Like
   Standard Library|goldfish.pdf>\Q >>|<row|<cell|Mar
   2024>|<cell|\P<hlink|Bayes-Optimal, Robust, and Distributionally Robust
@@ -141,6 +144,7 @@
     <associate|auto-6|<tuple|<with|mode|<quote|math>|\<bullet\>>|2>>
     <associate|auto-7|<tuple|1|2>>
     <associate|auto-8|<tuple|1|2>>
+    <associate|auto-9|<tuple|1|?>>
   </collection>
 </references>
 
