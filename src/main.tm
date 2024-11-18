@@ -25,9 +25,6 @@
   advised by Prof. <hlink|Shuo Han|https://hanshuo.people.uic.edu/site/>. I
   received my bachelors in Department of Mathematics at the <hlink|Southern
   University of Science and Technology|https://www.sustech.edu.cn/en/>.
-  <hlink|<with|font-series|bold|[Curriculum Vitae]>|résumé_yansong.pdf>
-  <hlink|<with|font-series|bold|[Research
-  Statement]>|research_statement_yansong.pdf>
 
   My primary research interests lie in reinforcement learning and game
   theory. Currently, I am working on combining model-based RL with model-free
@@ -38,6 +35,18 @@
   with the notes plugin, you can access the source repository by clicking:
   <hlink|Mogan|https://github.com/XmacsLabs/mogan> and
   <hlink|texmacs-notes|https://github.com/texmacs/notes>.\ 
+
+  I am currently seeking a Post-Doctoral position or an Assistant Professor
+  position. Below, I have attached my CV and statements outlining. I welcome
+  any opportunities that align with my expertise and interests. Please feel
+  free to contact me if you are aware of any positions or opportunities. I
+  would be delighted to discuss how my skills and experiences can contribute
+  to your team or institution:
+
+  <hlink|<with|font-series|bold|[Curriculum Vitae]>|résumé_yansong.pdf>
+  <hlink|<with|font-series|bold|[Research
+  Statement]>|research_statement_yansong.pdf><hlink|<with|font-series|bold|[Teaching
+  Statement]>|teaching_statement_jack.pdf>
 
   <section*|Notes>
 
@@ -144,7 +153,6 @@
     <associate|auto-6|<tuple|<with|mode|<quote|math>|\<bullet\>>|2>>
     <associate|auto-7|<tuple|1|2>>
     <associate|auto-8|<tuple|1|2>>
-    <associate|auto-9|<tuple|1|?>>
   </collection>
 </references>
 
