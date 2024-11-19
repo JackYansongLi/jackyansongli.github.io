@@ -45,7 +45,8 @@
 
   <hlink|<with|font-series|bold|[Curriculum Vitae]>|résumé_yansong.pdf>
   <hlink|<with|font-series|bold|[Research
-  Statement]>|research_statement_yansong.pdf><hlink|<with|font-series|bold|[Teaching
+  Statement]>|research_statement_yansong.pdf>
+  <hlink|<with|font-series|bold|[Teaching
   Statement]>|teaching_statement_jack.pdf>
 
   <section*|Notes>
@@ -149,7 +150,7 @@
     <associate|auto-2|<tuple|?|1>>
     <associate|auto-3|<tuple|?|1>>
     <associate|auto-4|<tuple|?|1>>
-    <associate|auto-5|<tuple|?|1>>
+    <associate|auto-5|<tuple|?|2>>
     <associate|auto-6|<tuple|<with|mode|<quote|math>|\<bullet\>>|2>>
     <associate|auto-7|<tuple|1|2>>
     <associate|auto-8|<tuple|1|2>>
