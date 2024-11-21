@@ -43,11 +43,14 @@
   would be delighted to discuss how my skills and experiences can contribute
   to your team or institution:
 
-  <hlink|<with|font-series|bold|[Curriculum Vitae]>|résumé_yansong.pdf>
+  <hlink|<with|font-series|bold|[Curriculum Vitae]>|résumé_yansong.pdf>\ 
+
   <hlink|<with|font-series|bold|[Research
   Statement]>|research_statement_yansong.pdf>
   <hlink|<with|font-series|bold|[Teaching
   Statement]>|teaching_statement_jack.pdf>
+  <hlink|<with|font-series|bold|[Diversity
+  Statement]>|diversity_statement_jack.pdf><with|font-series|bold|>
 
   <section*|Notes>
 
