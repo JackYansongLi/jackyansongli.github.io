@@ -43,10 +43,10 @@
   would be delighted to discuss how my skills and experiences can contribute
   to your team or institution:
 
-  <hlink|<with|font-series|bold|[Curriculum Vitae]>|résumé_yansong.pdf>\ 
-
+  <hlink|<with|font-series|bold|[Curriculum Vitae]>|résumé_yansong.pdf>
   <hlink|<with|font-series|bold|[Research
-  Statement]>|research_statement_yansong.pdf>
+  Statement]>|research_statement_yansong.pdf>\ 
+
   <hlink|<with|font-series|bold|[Teaching
   Statement]>|teaching_statement_jack.pdf>
   <hlink|<with|font-series|bold|[Diversity
@@ -67,9 +67,9 @@
 
   <\itemize>
     <item><hlink|GNU <TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>: I
-    am one of the maintainers of GNU <TeXmacs>/Mogan: a WYSIWYG editor that
-    can help users type equations 10 times faster than <LaTeX>. See
-    \P<hlink|A quick tour of TeXmacs|https://www.youtube.com/watch?v=H46ON2FB30U>\Q
+    am one of the maintainers of GNU <TeXmacs>/Mogan: a WYSIWYG <TeX>-like
+    editor that can help users type equations 10 times faster than <LaTeX>.
+    See \P<hlink|A quick tour of TeXmacs|https://www.youtube.com/watch?v=H46ON2FB30U>\Q
     for a 3 mins short introduction.
 
     <item><hlink|Goldfish Scheme|https://github.com/LiiiLabs/goldfish>: I am
