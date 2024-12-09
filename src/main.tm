@@ -1,4 +1,4 @@
-<TeXmacs|2.1.2>
+<TeXmacs|2.1.4>
 
 <style|notes>
 
@@ -62,8 +62,7 @@
 
   <section*|Contributions to Open Source Projects>
 
-  I am a co-founder and the CEO of <hlink|LIII
-  NETWORK|https://mogan.app/guide/Contact.html>
+  I am a co-founder of <hlink|LIII NETWORK|https://mogan.app/guide/Contact.html>
   (\<#4E09\>\<#9CA4\>\<#7F51\>\<#7EDC\>), an open source company that
   developes:
 
