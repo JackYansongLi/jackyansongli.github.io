@@ -126,9 +126,11 @@
 
   <paragraph*|Preprint>
 
-  <tabular|<tformat|<table|<row|<cell|Nov 2024>|<cell|\P<hlink|EAPCR: A
-  Universal Feature Extractor for Scientific Data without Explicit Feature
-  Relation Patterns|https://arxiv.org/abs/2411.08164>\Q>>|<row|<cell|Aug
+  <tabular|<tformat|<table|<row|<cell|Dec 2024>|<cell|\P<hlink|Renaissance of
+  Literate Programming in the Era of LLMs: EnhancingLLM-Based Code Generation
+  in Large-Scale Projects|icml_goldfish_2025.pdf>\Q>>|<row|<cell|Nov
+  2024>|<cell|\P<hlink|EAPCR: A Universal Feature Extractor for Scientific
+  Data without Explicit Feature Relation Patterns|https://arxiv.org/abs/2411.08164>\Q>>|<row|<cell|Aug
   2024>|<cell|\P<hlink|When to Trust Your Data: Enhancing Dyna-Style
   Model-Based Reinforcement Learning With Data
   Filter|https://arxiv.org/abs/2410.12160>\Q.>>|<row|<cell|Aug
@@ -157,7 +159,7 @@
     <associate|auto-1|<tuple|?|1>>
     <associate|auto-2|<tuple|?|1>>
     <associate|auto-3|<tuple|?|1>>
-    <associate|auto-4|<tuple|?|1>>
+    <associate|auto-4|<tuple|?|2>>
     <associate|auto-5|<tuple|?|2>>
     <associate|auto-6|<tuple|<with|mode|<quote|math>|\<bullet\>>|2>>
     <associate|auto-7|<tuple|1|2>>
