@@ -66,7 +66,7 @@
 
   <section*|Contributions to Open Source Projects>
 
-  I am a co-founder of <hlink|LIII NETWORK|https://mogan.app/guide/Contact.html>
+  I am a co-founder of <hlink|LIII NETWORK|https://liiistem.cn/guide/about-us.html>
   (\<#4E09\>\<#9CA4\>\<#7F51\>\<#7EDC\>), an open source company that
   developes:
 
@@ -159,7 +159,7 @@
     <associate|auto-1|<tuple|?|1>>
     <associate|auto-2|<tuple|?|1>>
     <associate|auto-3|<tuple|?|1>>
-    <associate|auto-4|<tuple|?|2>>
+    <associate|auto-4|<tuple|?|1>>
     <associate|auto-5|<tuple|?|2>>
     <associate|auto-6|<tuple|<with|mode|<quote|math>|\<bullet\>>|2>>
     <associate|auto-7|<tuple|1|2>>
