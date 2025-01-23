@@ -100,9 +100,14 @@
 
   <paragraph|Conference>
 
-  <tabular|<tformat|<table|<row|<cell|Sep 2024>|<cell|Manuscript:
-  \P<hlink|<hlink|Generalizing End-To-End Autonomous Driving In Real-World
-  Environments Using Zero-Shot LLMs|https://openreview.net/forum?id=s0vHSq5QEv>|https://openreview.net/pdf?id=s0vHSq5QEv>\Q.>>|<row|<cell|>|<cell|Accepted
+  <tabular|<tformat|<table|<row|<cell|Jan 2025>|<cell|Manuscript:
+  \P<hlink|<hlink|Learning to Help in Multi-Class
+  Settings|https://openreview.net/forum?id=s0vHSq5QEv>|https://openreview.net/forum?id=NCgTbt2j1F&referrer=%5Bthe%20profile%20of%20Yansong%20Li%5D(%2Fprofile%3Fid%3D~Yansong_Li2)>\Q.>>|<row|<cell|>|<cell|Accepted
+  for publication in the <with|font-shape|italic|Thirteenth International
+  Conference on Learning Representations>.>>|<row|<cell|Sep
+  2024>|<cell|Manuscript: \P<hlink|<hlink|Generalizing End-To-End Autonomous
+  Driving In Real-World Environments Using Zero-Shot
+  LLMs|https://openreview.net/forum?id=s0vHSq5QEv>|https://openreview.net/pdf?id=s0vHSq5QEv>\Q.>>|<row|<cell|>|<cell|Accepted
   for publication in the <with|font-shape|italic|8th Annual Conference on
   Robot Learning>.>>|<row|<cell|Mar 2024<space|1em>>|<cell|Extended abstract:
   \P<hlink|Efficient Collaboration with Unknown Agents: Ignoring Similar
