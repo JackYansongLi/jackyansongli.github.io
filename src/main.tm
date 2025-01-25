@@ -102,7 +102,7 @@
 
   <tabular|<tformat|<table|<row|<cell|Jan 2025>|<cell|Manuscript:
   \P<hlink|<hlink|Learning to Help in Multi-Class
-  Settings|https://openreview.net/forum?id=s0vHSq5QEv>|https://openreview.net/forum?id=NCgTbt2j1F&referrer=%5Bthe%20profile%20of%20Yansong%20Li%5D(%2Fprofile%3Fid%3D~Yansong_Li2)>\Q.>>|<row|<cell|>|<cell|Accepted
+  Settings|https://openreview.net/forum?id=NCgTbt2j1F&referrer=%5Bthe%20profile%20of%20Yansong%20Li%5D(%2Fprofile%3Fid%3D~Yansong_Li2)>|https://openreview.net/forum?id=NCgTbt2j1F&referrer=%5Bthe%20profile%20of%20Yansong%20Li%5D(%2Fprofile%3Fid%3D~Yansong_Li2)>\Q.>>|<row|<cell|>|<cell|Accepted
   for publication in the <with|font-shape|italic|Thirteenth International
   Conference on Learning Representations> (ICLR 2025).>>|<row|<cell|Sep
   2024>|<cell|Manuscript: \P<hlink|<hlink|Generalizing End-To-End Autonomous
@@ -207,3 +207,11 @@
     </associate>
   </collection>
 </auxiliary>
+
+<\links>
+  <\collection>
+    <id|+1ACNUzo3vONLMfx>
+    <target|+1ACNUzo3vONLMfw|tmfs://aux/Link page>
+    <locator|+1ACNUzo3vONLMft|<id|+1ACNUzo3vONLMfw>>
+  </collection>
+</links>
