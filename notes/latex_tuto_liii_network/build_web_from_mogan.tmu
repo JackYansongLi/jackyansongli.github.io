@@ -1,0 +1,32 @@
+<TMU|<tuple|1.1.0|2025.0.7>>
+
+<style|generic>
+
+<\body>
+  <\enumerate>
+    <item>创建一个Github仓库，forked from <hlink|<TeXmacs> Notes|https://github.com/texmacs/notes>.
+
+    <item>命名这个仓库为: YOURNAME.github.io
+
+    <item>在 src 这个文件夹里编辑
+
+    <\itemize>
+      <item>每个新开的.tm文件（分页）都要加 <with|font-family|tt|\\notes-header>，方便跳转到主页。
+    </itemize>
+
+    <item>Tools <math|\<rightarrow\>> Create Web Site <math|\<rightarrow\>> source选择src文件夹，destination选择docs文件夹
+
+    <\itemize>
+      <item>create之前删除docs文件夹里所有内容\ 
+    </itemize>
+
+    <item>传到Github上
+  </enumerate>
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
