@@ -1,4 +1,4 @@
-<TeXmacs|2.1.2>
+<TeXmacs|2.1.4>
 
 <style|notes>
 
@@ -20,15 +20,18 @@
 
   <section*|About Me>
 
-  I am a Ph.D. candidate in the Electrical and Computer Engineering
+  I am the COO and co-founder of <hlink|LIII
+  NETWORK|https://liiistem.cn/guide/about-us.html>
+  (\<#4E09\>\<#9CA4\>\<#7F51\>\<#7EDC\>), an open source company. Before
+  this, I obtained my Ph.D. in the Electrical and Computer Engineering
   Department at the University of Illinois Chicago. I am very fortunate to be
   advised by Prof. <hlink|Shuo Han|https://hanshuo.people.uic.edu/site/>. I
   received my bachelors in Department of Mathematics at the <hlink|Southern
   University of Science and Technology|https://www.sustech.edu.cn/en/>.
 
   My primary research interests lie in reinforcement learning and game
-  theory. Currently, I am working on combining model-based RL with model-free
-  RL. Previously, I have worked on projects that examines optimization
+  theory. During my Ph.D., I worked on combining model-based RL with
+  model-free RL. I also worked on projects that examines optimization
   techniques for Stackelberg games.
 
   This website is built in <hlink|GNU <TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>
@@ -36,25 +39,12 @@
   <hlink|Mogan|https://github.com/XmacsLabs/mogan> and
   <hlink|texmacs-notes|https://github.com/texmacs/notes>.\ 
 
-  I am currently seeking a Post-Doctoral position or an Assistant Professor
-  position. Below, I have attached my CV and statements outlining. I welcome
-  any opportunities that align with my expertise and interests. Please feel
-  free to contact me if you are aware of any positions or opportunities. I
-  would be delighted to discuss how my skills and experiences can contribute
-  to your team or institution:
+  Below, I have attached my CV. I welcome any opportunities that align with
+  my expertise and interests. Please feel free to contact me if you are
+  interested on our product or even myself. I would be delighted to discuss
+  how our product can help your research and learning:
 
   <hlink|<with|font-series|bold|[Curriculum Vitae]>|résumé_yansong.pdf>\ 
-
-  <hlink|<with|font-series|bold|[Research Statement (more
-  theoretical)]>|research_statement_yansong.pdf>\ 
-
-  <hlink|<with|font-series|bold|[Research Statement (more on
-  engineering)]>|research_statement_yansong_hkust.pdf>\ 
-
-  <hlink|<with|font-series|bold|[Teaching
-  Statement]>|teaching_statement_jack.pdf>
-  <hlink|<with|font-series|bold|[Diversity
-  Statement]>|diversity_statement_jack.pdf><with|font-series|bold|>
 
   <section*|Notes>
 
@@ -68,7 +58,7 @@
 
   I am a co-founder of <hlink|LIII NETWORK|https://liiistem.cn/guide/about-us.html>
   (\<#4E09\>\<#9CA4\>\<#7F51\>\<#7EDC\>), an open source company that
-  developes:
+  developed:
 
   <\itemize>
     <item><hlink|GNU <TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>: I
@@ -207,11 +197,3 @@
     </associate>
   </collection>
 </auxiliary>
-
-<\links>
-  <\collection>
-    <id|+1ACNUzo3vONLMfx>
-    <target|+1ACNUzo3vONLMfw|tmfs://aux/Link page>
-    <locator|+1ACNUzo3vONLMft|<id|+1ACNUzo3vONLMfw>>
-  </collection>
-</links>

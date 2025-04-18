@@ -1,0 +1,167 @@
+<TMU|<tuple|1.1.0|2025.0.6>>
+
+<style|generic>
+
+<\body>
+  <doc-data|<doc-title|<LaTeX> Tutorial Lecture 2>|<doc-author|<author-data|<author-name|Yansong Li>|<author-email|yansong@liii.pro>|<\author-affiliation>
+    Liii Network
+  </author-affiliation>>>>
+
+  <section|How to write mathematical equations correctly>
+
+  <subsection|Inline and displayed formulas>
+
+  This is an inline <math|\<alpha\>\<neq\>\<beta\>>. This is a text. The following is a displayed formula:
+
+  <\equation>
+    \<alpha\>\<neq\>\<beta\>.
+  </equation>
+
+  <subsection|Aligned formula>
+
+  By using the command <with|font-family|tt|\<backslash\>align>:
+
+  <\align>
+    <tformat|<table|<row|<cell|f<around*|(|x|)>\<leq\>>|<cell|<around*|\<\|\|\>|g<around*|(|x|)>-h<around*|(|x|)>|\<\|\|\>>>>|<row|<cell|\<leq\>>|<cell|<around*|\<\|\|\>|g<around*|(|x|)>-z<around*|(|x|)>|\<\|\|\>>+<around*|\<\|\|\>|z<around*|(|x|)>-h<around*|(|x|)>|\<\|\|\>>.>>|<row|<cell|>|<cell|>>>>
+  </align>
+
+  Note that the command <with|font-family|tt|\<backslash\>eqnarray> is abandoned by AMS.
+
+  <subsection|Equation reference>
+
+  By using the command <with|font-family|tt|\<backslash\>label> and <with|font-family|tt|\<backslash\>eqref>:
+
+  <\equation>
+    a<rsup|2>+b<rsup|2>=c<rsup|2><label|eq:tri-pd>
+  </equation>
+
+  Equation<nbsp><eqref|eq:tri-pd> is the Pythagoras equation!\ 
+
+  Note that if we use the command <with|font-family|tt|\<backslash\>ref>, we get Equation<nbsp><reference|eq:tri-pd>.
+
+  <section|Shortcuts of Liii STEM>
+
+  <subsection|Lego symbols>
+
+  <with|font-family|tt|\<gtr\>> and <with|font-family|tt|\<less\>> is important\ 
+
+  <\equation*>
+    \<rightarrow\>\<Rightarrow\>\<Leftrightarrow\>
+  </equation*>
+
+  <with|font-family|tt|@> represents circle
+
+  <\equation*>
+    \<infty\>\<oplus\>\<otimes\>
+  </equation*>
+
+  \;
+
+  <subsection|Tab Cycling>
+
+  \;
+
+  Using <with|font-family|tt|Tab> to switch between similar symbols
+
+  <\equation>
+    \<less\>
+  </equation>
+
+  <\equation>
+    \<in\>
+  </equation>
+
+  <\equation>
+    \<subset\>
+  </equation>
+
+  <\equation>
+    \<prec\>
+  </equation>
+
+  Greek letters
+
+  <\equation>
+    \<alpha\>\<beta\>\<gamma\>\<lambda\>\<theta\>\<psi\>\<varphi\>\<eta\>\<pi\>\<omicron\>\<iota\>\<mu\>\<nu\>\<phi\>\<delta\>\<sigma\>\<omega\>\<chi\>\<varepsilon\>\<xi\>\<zeta\>\<rho\>\<tau\>
+  </equation>
+
+  <\equation>
+    \<leqslant\>
+  </equation>
+
+  <\equation>
+    \<leq\>
+  </equation>
+
+  <\equation*>
+    a\<neq\>\<beta\>,<space|1em><text|and><space|1em>\<gamma\>\<neq\>\<theta\>.
+  </equation*>
+
+  <\equation>
+    <below|minimize|x\<in\>X><space|1em>f<around*|(|x|)>
+  </equation>
+
+  <\equation>
+    s.t.<space|1em>x-y\<leq\>z.
+  </equation>
+
+  \;
+
+  <\align>
+    <tformat|<table|<row|<cell|<below|minimize|x\<in\>X>>|<cell|<space|1em>f<around*|(|x|)>>>|<row|<cell|s.t.>|<cell|<space|1em>x-y\<leq\>z.>>>>
+  </align>
+
+  The following decuction
+
+  <\equation*>
+    p\<rightarrow\>q,<space|1em>q\<rightarrow\>r
+  </equation*>
+
+  imples
+
+  <\equation*>
+    p\<rightarrow\>r.
+  </equation*>
+
+  \;
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|auto-1|<tuple|1|1|../../../Library/Application Support/liiilabs/texts/scratch/no_name_77.tm>>
+    <associate|auto-2|<tuple|1.1|1|../../../Library/Application Support/liiilabs/texts/scratch/no_name_77.tm>>
+    <associate|auto-3|<tuple|1.2|1|../../../Library/Application Support/liiilabs/texts/scratch/no_name_77.tm>>
+    <associate|auto-4|<tuple|1.3|1|../../../Library/Application Support/liiilabs/texts/scratch/no_name_77.tm>>
+    <associate|auto-5|<tuple|2|1|../../../Library/Application Support/liiilabs/texts/scratch/no_name_77.tm>>
+    <associate|auto-6|<tuple|2.1|1|../../../Library/Application Support/liiilabs/texts/scratch/no_name_77.tm>>
+    <associate|auto-7|<tuple|2.2|1|../../../Library/Application Support/liiilabs/texts/scratch/no_name_77.tm>>
+    <associate|eq:tri-pd|<tuple|2|1|../../../Library/Application Support/liiilabs/texts/scratch/no_name_77.tm>>
+  </collection>
+</references>
+
+<\auxiliary>
+  <\collection>
+    <\associate|toc>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>How to write mathematical equations correctly> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-1><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|1.1<space|2spc>Inline and displayed formulas <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-2>>
+
+      <with|par-left|<quote|1tab>|1.2<space|2spc>Aligned formula <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-3>>
+
+      <with|par-left|<quote|1tab>|1.3<space|2spc>Equation reference <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-4>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Shortcuts of Liii STEM> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-5><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|2.1<space|2spc>Lego symbols <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-6>>
+
+      <with|par-left|<quote|1tab>|2.2<space|2spc>Tab Cycling <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-7>>
+    </associate>
+  </collection>
+</auxiliary>

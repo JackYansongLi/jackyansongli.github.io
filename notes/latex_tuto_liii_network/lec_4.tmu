@@ -1,0 +1,46 @@
+<TMU|<tuple|1.1.0|2025.0.6>>
+
+<style|generic>
+
+<\body>
+  <\itemize>
+    <item>Zotero + Zotero网页端插件
+
+    <item>Betterbibtex (Zotero 插件)
+  </itemize>
+
+  \;
+
+  Rudin et al.<nbsp><cite|rudin_principles_1953>
+
+  <\bibliography|bib|tm-plain|../../../auto_citation/liii_latex_lec_4>
+    <\bib-list|1>
+      <bibitem*|1><label|bib-rudin_principles_1953>Walter Rudin. <newblock><with|font-shape|italic|Principles of Mathematical Analysis>. <newblock>McGraw-Hill, 1953.<newblock>
+    </bib-list>
+  </bibliography>
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|auto-1|<tuple|<with|mode|<quote|math>|\<bullet\>>|1>>
+    <associate|bib-rudin_principles_1953|<tuple|1|1>>
+  </collection>
+</references>
+
+<\auxiliary>
+  <\collection>
+    <\associate|bib>
+      rudin_principles_1953
+    </associate>
+    <\associate|toc>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-1><vspace|0.5fn>
+    </associate>
+  </collection>
+</auxiliary>

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:x="https://www.texmacs.org/2002/extensions" xmlns:m="http://www.w3.org/1998/Math/MathML">
   <head>
     <title>ML Theory Week 1</title>
-    <meta content="MoganSTEMSuite 1.2.9.7" name="generator" />
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" content="TeXmacs 2.1.4" name="generator"></meta>
     <style type="text/css">
       body { text-align: justify } h5 { display: inline; padding-right: 1em }
       h6 { display: inline; padding-right: 1em } table { border-collapse:
@@ -29,33 +29,15 @@
       white-space: nowrap; } .underline { text-decoration: underline; }
       .overline { text-decoration: overline; } .strike-through {
       text-decoration: line-through; } del { text-decoration: line-through
-      wavy red; } .fill-out { text-decoration: underline dotted; } math {
-      font-family: cmr, times, verdana } 
+      wavy red; } .fill-out { text-decoration: underline dotted; } 
     </style>
-    <script type="text/javascript">(function () {"use strict"; window.addEventListener("load",
-    function () { var box, div, link, namespaceURI; namespaceURI =
-    'http://www.w3.org/1998/Math/MathML'; if
-    (document.body.getElementsByTagNameNS(namespaceURI, 'math')[0]) {
-    document.body.insertAdjacentHTML('afterbegin', '<div style=\"border: 0;
-    clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding:
-    0; position: absolute; width: 1px;\"><math xmlns=\"' + namespaceURI +
-    '\"><mspace height=\"23px\" width=\"77px\"></mspace></math></div>'); div =
-    document.body.firstChild; box =
-    div.firstChild.firstChild.getBoundingClientRect();
-    document.body.removeChild(div); if (Math.abs(box.height - 23) > 1 ||
-    Math.abs(box.width - 77) > 1) { link = document.createElement('link');
-    link.href = 'https://fred-wang.github.io/mathml.css/mathml.css'; link.rel
-    = 'stylesheet'; document.head.appendChild(link); } } }); })();</script>
   </head>
   <body>
-    <script type="text/javascript"></script>
-    <script>document.querySelectorAll('style').forEach(style =>
-    style.remove());</script>
     <table class="title-block" style="margin-bottom: 2em">
       <tr>
         <td><table class="title-block" style="margin-top: 0.5em; margin-bottom: 0.5em">
           <tr>
-            <td><strong>ML Theory Week 1</strong></td>
+            <td><font style="font-size: 168.2%"><strong>ML Theory Week 1</strong></font></td>
           </tr>
         </table><div class="compact-block" style="margin-top: 1em; margin-bottom: 1em">
           <table class="title-block">
@@ -109,48 +91,40 @@
     <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
-import torch</pre></span>
-          </p></td>
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
+import torch</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
-import torch.nn as nn</pre></span>
-          </p></td>
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
+import torch.nn as nn</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
-import torch.optim as optim</pre></span>
-          </p></td>
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
+import torch.optim as optim</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
-</pre></span>
-          </p></td>
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
+</pre></font></td>
         </tr></tbody>
       </table>
     </div>
@@ -160,38 +134,32 @@ import torch.optim as optim</pre></span>
     <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
 def xor(a,b):
-    return a ^ b</pre></span>
-          </p></td>
+    return a ^ b</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
 inputs = [(0, 0), (0, 1), (1, 0), (1, 1)]
-outputs = [xor(x[0], x[1]) for x in inputs]</pre></span>
-          </p></td>
+outputs = [xor(x[0], x[1]) for x in inputs]</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
-</pre></span>
-          </p></td>
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
+</pre></font></td>
         </tr></tbody>
       </table>
     </div>
@@ -202,10 +170,9 @@ outputs = [xor(x[0], x[1]) for x in inputs]</pre></span>
     <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
 class XORNet(nn.Module):
     def __init__(self):
         super(XORNet, self).__init__()
@@ -214,64 +181,55 @@ class XORNet(nn.Module):
     def forward(self, x):
         x = torch.relu(self.layer1(x))
         x = self.layer2(x)
-        return x</pre></span>
-          </p></td>
+        return x</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
-model = XORNet()</pre></span>
-          </p></td>
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
+model = XORNet()</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
 # Define the loss function and optimizer
 loss_func = nn.MSELoss()  # Mean Squared Error Loss
-optimizer = optim.SGD(model.parameters(), lr=0.01)  # Stochastic Gradient Descent</pre></span>
-          </p></td>
+optimizer = optim.SGD(model.parameters(), lr=0.01)  # Stochastic Gradient Descent</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
 def weights_init(model):
     for m in model.modules():
         if isinstance(m, nn.Linear):
             # initialize the weight tensor, here we use a normal distribution
             m.weight.data.normal_(0, 1)
 
-weights_init(model)</pre></span>
-          </p></td>
+weights_init(model)</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
-</pre></span>
-          </p></td>
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
+</pre></font></td>
         </tr></tbody>
       </table>
     </div>
@@ -281,27 +239,23 @@ weights_init(model)</pre></span>
     <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
-X = torch.tensor(inputs, dtype=torch.float32)</pre></span>
-          </p></td>
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
+X = torch.tensor(inputs, dtype=torch.float32)</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
 Y = torch.tensor([y for y in outputs], dtype=torch.float32).view(-1,1)
 print(&quot;Inputs:&quot;, X)
 print(&quot;Outputs:&quot;, Y)
-#print(model(X))</pre></span>
-          </p></td>
+#print(model(X))</pre></font></td>
         </tr></tbody>
       </table>
     </div>
@@ -380,10 +334,9 @@ print(&quot;Outputs:&quot;, Y)
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
 epochs = 2000  # Increased epochs
 for epoch in range(epochs):
     Y_pred = model(X)
@@ -393,8 +346,7 @@ for epoch in range(epochs):
 
     optimizer.zero_grad()
     loss.backward()
-    optimizer.step()</pre></span>
-          </p></td>
+    optimizer.step()</pre></font></td>
         </tr></tbody>
       </table>
     </div>
@@ -437,16 +389,14 @@ for epoch in range(epochs):
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
 # Test the model
 with torch.no_grad():
     test_pred = model(X)
     print(&quot;Predicted outputs:&quot;)
-    print(test_pred.round())</pre></span>
-          </p></td>
+    print(test_pred.round())</pre></font></td>
         </tr></tbody>
       </table>
     </div>
@@ -498,12 +448,10 @@ with torch.no_grad():
     <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
-</pre></span>
-          </p></td>
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
+</pre></font></td>
         </tr></tbody>
       </table>
     </div>
@@ -514,66 +462,57 @@ with torch.no_grad():
     <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
 class XORNetSingleLayer(nn.Module):
     def __init__(self):
         super(XORNetSingleLayer, self).__init__()
         self.layer1 = nn.Linear(2,1)
     def forward(self, x):
         x = torch.relu(self.layer1(x))
-        return x</pre></span>
-          </p></td>
+        return x</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
-model_single_layer = XORNetSingleLayer()</pre></span>
-          </p></td>
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
+model_single_layer = XORNetSingleLayer()</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
 # Define the loss function and optimizer
 loss_func = nn.MSELoss()  # Mean Squared Error Loss
-optimizer = optim.SGD(model.parameters(), lr=0.01)  # Stochastic Gradient Descent</pre></span>
-          </p></td>
+optimizer = optim.SGD(model.parameters(), lr=0.01)  # Stochastic Gradient Descent</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
-weights_init(model)</pre></span>
-          </p></td>
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
+weights_init(model)</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
 epochs = 2000  # Increased epochs
 for epoch in range(epochs):
     Y_pred = model_single_layer(X)
@@ -583,8 +522,7 @@ for epoch in range(epochs):
 
     optimizer.zero_grad()
     loss.backward()
-    optimizer.step()</pre></span>
-          </p></td>
+    optimizer.step()</pre></font></td>
         </tr></tbody>
       </table>
     </div>
@@ -627,16 +565,14 @@ for epoch in range(epochs):
     <div class="compact-block" style="text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
 # Test the model
 with torch.no_grad():
     test_pred = model_single_layer(X)
     print(&quot;Predicted outputs:&quot;)
-    print(test_pred.round())</pre></span>
-          </p></td>
+    print(test_pred.round())</pre></font></td>
         </tr></tbody>
       </table>
     </div>
@@ -688,33 +624,32 @@ with torch.no_grad():
     <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
       <table style="width: 100%">
         <tbody><tr>
-          <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
-&gt;&gt;&gt; </pre></span></td>
-          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><p>
-            <span style="color: #000080"><pre class="verbatim" xml:space="preserve">
-</pre></span>
-          </p></td>
+          <td style="padding-left: 0em; padding-right: 0em"><font color="#401000"><pre class="verbatim" xml:space="preserve">
+&gt;&gt;&gt; </pre></font></td>
+          <td style="width: 100%; padding-left: 0em; padding-right: 0em"><font color="#000080"><pre class="verbatim" xml:space="preserve">
+</pre></font></td>
         </tr></tbody>
       </table>
     </div>
     <h2 id="auto-2">2<span style="margin-left: 1em"></span>Homework<span style="margin-left: 1em"></span></h2>
     <div style="margin-top: 0.5em; margin-bottom: 0.5em; margin-left: 35.145870328812px">
       <p>
-        <strong>Problem <class style="font-style: normal">1</class>. </strong>Formally state and
-        prove that a single layer neural network (also known as perceptron)
-        cannot approximate the <tt>XOR</tt> gate. Verify your result
-        empirically. <em>Hint: derive a lower bound of the approximation
-        error. Verify your bound by drawing the approximation error w.r.t.
-        number of iterations.</em>
+        <font style="font-size: 84.1%"><strong>Problem <class style="font-style: normal">1</class>.
+        </strong>Formally state and prove that a single layer neural network
+        (also known as perceptron) cannot approximate the <tt>XOR</tt> gate.
+        Verify your result empirically. <em>Hint: derive a lower bound of the
+        approximation error. Verify your bound by drawing the approximation
+        error w.r.t. number of iterations.</em></font>
       </p>
     </div>
     <div style="margin-top: 0.5em; margin-bottom: 0.5em; margin-left: 35.145870328812px">
       <p>
-        <strong>Problem <class style="font-style: normal">2</class>. </strong>Formally state and
-        prove that a two-layer neural network with more than <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn></math>
-        neurons in the hidden layer can approximate the <tt>XOR</tt> gate.
-        <em>Hint: Manually construct a neural network that gives the same
-        outputs as <tt>XOR</tt> gate and computes its parameters by hand.</em>
+        <font style="font-size: 84.1%"><strong>Problem <class style="font-style: normal">2</class>.
+        </strong>Formally state and prove that a two-layer neural network with
+        more than <img src="xorgate-1.png" style="margin-left: -0.0124121212121212em; margin-bottom: -0.0124121212121212em; margin-right: -0.0124121212121212em; margin-top: -0.034739393939394em; vertical-align: 0em; height: 0.71369696969697em"></img> neurons in the hidden layer can
+        approximate the <tt>XOR</tt> gate. <em>Hint: Manually construct a
+        neural network that gives the same outputs as <tt>XOR</tt> gate and
+        computes its parameters by hand.</em></font>
       </p>
     </div>
   </body>

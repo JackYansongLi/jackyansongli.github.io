@@ -1,32 +1,18 @@
-<!DOCTYPE html>
-<html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:x="https://www.texmacs.org/2002/extensions" xmlns:m="http://www.w3.org/1998/Math/MathML">
   <head>
     <title>Jack Yansong Li's Website</title>
-    <meta content="MoganSTEMSuite 1.2.9.7" name="generator" />
-    <meta charset="UTF-8" />
-    <link href="../resources/notes-base.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript">(function () {"use strict"; window.addEventListener("load",
-    function () { var box, div, link, namespaceURI; namespaceURI =
-    'http://www.w3.org/1998/Math/MathML'; if
-    (document.body.getElementsByTagNameNS(namespaceURI, 'math')[0]) {
-    document.body.insertAdjacentHTML('afterbegin', '<div style=\"border: 0;
-    clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding:
-    0; position: absolute; width: 1px;\"><math xmlns=\"' + namespaceURI +
-    '\"><mspace height=\"23px\" width=\"77px\"></mspace></math></div>'); div =
-    document.body.firstChild; box =
-    div.firstChild.firstChild.getBoundingClientRect();
-    document.body.removeChild(div); if (Math.abs(box.height - 23) > 1 ||
-    Math.abs(box.width - 77) > 1) { link = document.createElement('link');
-    link.href = 'https://fred-wang.github.io/mathml.css/mathml.css'; link.rel
-    = 'stylesheet'; document.head.appendChild(link); } } }); })();</script>
+    <meta charset="utf-8" content="TeXmacs 2.1.4" name="generator"></meta>
+    <link href="../resources/notes-base.css" type="text/css" rel="stylesheet"></link>
+    <link href="../resources/blog-icon.png" rel="icon"></link>
+    <script src="../resources/highlight.pack.js" language="javascript" defer></script>
+    <script src="../resources/notes-base.js" language="javascript" defer></script>
   </head>
   <body>
-    <script type="text/javascript"></script>
-    <script>document.querySelectorAll('style').forEach(style =>
-    style.remove());</script>
     <div class="notes-header">
       <p>
-        <img src="../resources/texmacs-blog-transparent.png" class="image" width="28.116784" /><span style="margin-left: 2pt"></span><a href="./main.html">[main]</a><em
+        <img class="image" src="../resources/texmacs-blog-transparent.png" width="28.116784"></img><span style="margin-left: 2pt"></span><a href="./main.html">[main]</a><em
         class="notes-header-name">Jack Yansong Li's Website</em>
       </p>
     </div>
@@ -44,131 +30,78 @@
     <h2 id="auto-2">1.<span style="margin-left: 1em"></span>Worst-case cost and worst-case regret
     cost<span style="margin-left: 1em"></span></h2>
     <p>
-      Consider the function <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math> defined as <math
-      xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>g</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow><mo>≜</mo><munder><mrow><mo>max</mo><mi>.</mi><mo>&ApplyFunction;</mo></mrow><mi>y</mi></munder><mi>f</mi><mrow><mo
-      form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo form="postfix">)</mo></mrow></mrow></math>,
-      where <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math> is an arbitrary function. The
-      optimization problem defined as
+      Consider the function <img src="regret_ol-1.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0154949494949495em; margin-right: -0.0465454545454546em; margin-top: -0.0103434343434343em; vertical-align: -0.248222222222222em; height: 0.698181818181818em"></img> defined as <span class="no-breaks"><img
+      src="regret_ol-2.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0103232323232323em; margin-right: 0em; margin-top: -0.0111919191919192em; vertical-align: -0.837737373737374em; height: 1.68074747474747em"></img>,</span> where <img src="regret_ol-3.png" style="margin-left: -0.0775757575757576em; margin-bottom: 0.0154949494949495em; margin-right: -0.222383838383838em; margin-top: 0em; vertical-align: -0.248222222222222em; height: 0.956767676767677em"></img> is an arbitrary
+      function. The optimization problem defined as
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mrow><munder><mrow><mo>min</mo><mi>.</mi></mrow><mi>x</mi></munder><mi>g</mi><mrow><mo
-        form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow><mo>≡</mo><munder><mrow><mo>min</mo><mi>.</mi></mrow><mi>x</mi></munder><munder><mrow><mo>max</mo><mi>.</mi></mrow><mi>y</mi></munder><mi>f</mi><mrow><mo
-        form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo form="postfix">)</mo></mrow></mrow></mstyle></math></td>
+        <td width="100%" align="center"><img src="regret_ol-4.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0103232323232323em; margin-right: 0em; margin-top: 0em; vertical-align: -0.837737373737374em; height: 1.55145454545455em"></img></td>
         <td align="right">(1)</td>
       </tr>
     </table>
     <p>
-      can be viewed as a worst-case optimization problem, and <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>g</mi><mrow><mo
-      form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow></mrow></math> is called
-      <i>worst-case cost</i>.
+      can be viewed as a worst-case optimization problem, and <img src="regret_ol-5.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0154949494949495em; margin-right: 0em; margin-top: -0.00711111111111107em; vertical-align: -0.248222222222222em; height: 0.956767676767677em"></img>
+      is called <i>worst-case cost</i>.
     </p>
     <p>
-      Let's consider a scenario where we have <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi><mrow><mo
-      form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo form="postfix">)</mo></mrow></mrow></math>
-      that represents the time required to drive a car from one location to
-      another given policy <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math> and environment
-      <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math>. In this context, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math>
+      Let's consider a scenario where we have <img src="regret_ol-6.png" style="margin-left: -0.0775757575757576em; margin-bottom: 0.0154949494949495em; margin-right: 0em; margin-top: 0em; vertical-align: -0.248222222222222em; height: 0.956767676767677em"></img> that
+      represents the time required to drive a car from one location to another
+      given policy <img src="regret_ol-7.png" style="margin-left: -0.0103434343434343em; margin-bottom: -2.0202020202021e-5em; margin-right: -0.0724040404040404em; margin-top: -0.0103434343434343em; vertical-align: -0.0103232323232323em; height: 0.47579797979798em"></img> and environment <span class="no-breaks"><img
+      src="regret_ol-8.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0154949494949495em; margin-right: -0.0517171717171717em; margin-top: -0.0103434343434343em; vertical-align: -0.248222222222222em; height: 0.698181818181818em"></img>.</span> In this context, <img src="regret_ol-7.png" style="margin-left: -0.0103434343434343em; margin-bottom: -2.0202020202021e-5em; margin-right: -0.0724040404040404em; margin-top: -0.0103434343434343em; vertical-align: -0.0103232323232323em; height: 0.47579797979798em"></img>
       represents the driver's driving pattern, which encompass decisions like
       adjusting speed, selecting lanes (left or right), and other driving
-      strategies. On the other hand, <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math> represents
-      a binary condition indicating whether it's currently raining (<math
-      xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>y</mi><mo>&ApplyFunction;</mo><mo>=</mo><mo>&ApplyFunction;</mo><mn>1</mn></mrow></math>)
-      or not (<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>y</mi><mo>&ApplyFunction;</mo><mo>=</mo><mo>&ApplyFunction;</mo><mn>0</mn></mrow></math>).
+      strategies. On the other hand, <img src="regret_ol-8.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0154949494949495em; margin-right: -0.0517171717171717em; margin-top: -0.0103434343434343em; vertical-align: -0.248222222222222em; height: 0.698181818181818em"></img> represents a
+      binary condition indicating whether it's currently raining (<span class="no-breaks"><img
+      src="regret_ol-9.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0154949494949495em; margin-right: -0.0103434343434343em; margin-top: -0.0155151515151516em; vertical-align: -0.248222222222222em; height: 0.879191919191919em"></img>)</span> or not (<span class="no-breaks"><img src="regret_ol-10.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0154949494949495em; margin-right: -0.0103434343434343em; margin-top: -0.0155151515151516em; vertical-align: -0.248222222222222em; height: 0.879191919191919em"></img>).</span>
       Together, this function captures how the driver's decisions and weather
       conditions collectively impact the time it takes for the journey.
     </p>
     <p>
       It's a widely acknowledged fact that driving takes more time on days
-      when it's raining. Thus, <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><munder><mrow><mo>max</mo><mi>.</mi></mrow><mi>y</mi></munder><mi>f</mi><mrow><mo
-      form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo form="postfix">)</mo></mrow><mo>=</mo><mi>f</mi><mrow><mo
-      form="prefix">(</mo><mi>x</mi><mo>,</mo><mn>1</mn><mo form="postfix">)</mo></mrow></mrow></math>.
-      By definition, the function <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>g</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo
-      form="postfix">)</mo></mrow></mrow></math> currently represents the time required
-      for driving on rainy days.
+      when it's raining. Thus, <span class="no-breaks"><img src="regret_ol-11.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0103232323232323em; margin-right: 0em; margin-top: 0em; vertical-align: -0.837737373737374em; height: 1.55145454545455em"></img>.</span> By
+      definition, the function <img src="regret_ol-5.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0154949494949495em; margin-right: 0em; margin-top: -0.00711111111111107em; vertical-align: -0.248222222222222em; height: 0.956767676767677em"></img> currently represents
+      the time required for driving on rainy days.
     </p>
     <p>
-      Now, define <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>g</mi><mi>'</mi></msup><mrow><mo
-      form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow><mo>≜</mo><munder><mo>max</mo><mi>y</mi></munder><mrow><mo
-      form="prefix">(</mo><mi>f</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo
-      form="postfix">)</mo></mrow><mo>-</mo><munder><mo>min</mo><msup><mi>x</mi><mi>'</mi></msup></munder><mi>f</mi><mrow><mo
-      form="prefix">(</mo><msup><mi>x</mi><mi>'</mi></msup><mo>,</mo><mi>y</mi><mo
-      form="postfix">)</mo></mrow><mo form="postfix">)</mo></mrow></mrow></math>. We call <math
-      xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>g</mi><mi>'</mi></msup><mrow><mo form="prefix">(</mo><mi>x</mi><mo
-      form="postfix">)</mo></mrow></mrow></math> the <i>worst-case regret cost</i>.
-      Unlike worst-case cost, the regret cost measures the maximum achievement
-      <b>it can be improved</b> in the past days. For example, if a driver
-      cannot drive in the rainy day due to rheumatoid arthritis. Then there is
-      no difference between <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>rain</mi><mo
-      form="postfix">)</mo></mrow></mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi><mrow><mo
-      form="prefix">(</mo><msup><mi>x</mi><mi>'</mi></msup><mo>,</mo><mi>rain</mi><mo
-      form="postfix">)</mo></mrow></mrow></math> for any <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math>
-      and <math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>x</mi><mi>'</mi></msup></math>, which makes
-      <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>g</mi><mi>'</mi></msup><mrow><mo form="prefix">(</mo><mi>x</mi><mo
-      form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow></math>. No regret at all!
-      Because nothing can be improved in the worst-case.
+      Now, define <span class="no-breaks"><img src="regret_ol-12.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0103232323232323em; margin-right: 0em; margin-top: -0.0212929292929294em; vertical-align: -0.837737373737374em; height: 1.88436363636364em"></img>.</span> We call <img
+      src="regret_ol-13.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0154949494949495em; margin-right: 0em; margin-top: -0.00517171717171716em; vertical-align: -0.248222222222222em; height: 1.02054545454545em"></img> the <i>worst-case regret cost</i>. Unlike worst-case
+      cost, the regret cost measures the maximum achievement <b>it can be
+      improved</b> in the past days. For example, if a driver cannot drive in
+      the rainy day due to rheumatoid arthritis. Then there is no difference
+      between <img src="regret_ol-14.png" style="margin-left: -0.0775757575757576em; margin-bottom: 0.0154949494949495em; margin-right: 0em; margin-top: 0em; vertical-align: -0.248222222222222em; height: 0.956767676767677em"></img> and <img src="regret_ol-15.png" style="margin-left: -0.0775757575757576em; margin-bottom: 0.0154949494949495em; margin-right: 0em; margin-top: -0.00517171717171716em; vertical-align: -0.248222222222222em; height: 1.02054545454545em"></img> for any <img
+      src="regret_ol-7.png" style="margin-left: -0.0103434343434343em; margin-bottom: -2.0202020202021e-5em; margin-right: -0.0724040404040404em; margin-top: -0.0103434343434343em; vertical-align: -0.0103232323232323em; height: 0.47579797979798em"></img> and <span class="no-breaks"><img src="regret_ol-16.png" style="margin-left: -0.0103434343434343em; margin-bottom: -2.0202020202021e-5em; margin-right: -0.0103434343434343em; margin-top: -0.00517171717171716em; vertical-align: -0.0103232323232323em; height: 0.798161616161616em"></img>,</span>
+      which makes <span class="no-breaks"><img src="regret_ol-17.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0154949494949495em; margin-right: -0.0103434343434343em; margin-top: -0.00517171717171716em; vertical-align: -0.248222222222222em; height: 1.02054545454545em"></img>.</span> No regret at
+      all! Because nothing can be improved in the worst-case.
     </p>
     <h2 id="auto-3">2.<span style="margin-left: 1em"></span>An example that minimizes regret cost
     results in a better policy<span style="margin-left: 1em"></span></h2>
     <p>
-      Consider the function <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>f</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo
-      form="postfix">)</mo></mrow></mrow></math> as follows:
+      Consider the function <img src="regret_ol-6.png" style="margin-left: -0.0775757575757576em; margin-bottom: 0.0154949494949495em; margin-right: 0em; margin-top: 0em; vertical-align: -0.248222222222222em; height: 0.956767676767677em"></img> as follows:
     </p>
     <center>
-      <math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mrow><mtable columnalign="center center center center">
-        <mtr>
-          <mtd><mrow></mrow></mtd>
-          <mtd><mrow></mrow></mtd>
-          <mtd><mi>x</mi></mtd>
-          <mtd><mi>y</mi></mtd>
-        </mtr>
-        <mtr>
-          <mtd><mrow></mrow></mtd>
-          <mtd></mtd>
-          <mtd><mn>0</mn></mtd>
-          <mtd><mn>1</mn></mtd>
-        </mtr>
-        <mtr>
-          <mtd><mi>x</mi></mtd>
-          <mtd><mn>0</mn></mtd>
-          <mtd><mn>100</mn></mtd>
-          <mtd><mn>0</mn></mtd>
-        </mtr>
-        <mtr>
-          <mtd><mi>y</mi></mtd>
-          <mtd><mn>1</mn></mtd>
-          <mtd><mn>100</mn></mtd>
-          <mtd><mn>99</mn></mtd>
-        </mtr>
-      </mtable><mi>.</mi></mrow></mstyle></math>
+      <img src="regret_ol-18.png" style="margin-left: -0.0465454545454546em; margin-bottom: -0.0465454545454542em; margin-right: -0.0103434343434339em; margin-top: -0.0465454545454547em; vertical-align: -2.23923232323232em; height: 5.05769696969697em"></img>
     </center>
     <p>
       
     </p>
     <p>
-      The worst-case cost <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mi>g</mi><mrow><mo form="prefix">(</mo><mi>x</mi><mo
-      form="postfix">)</mo></mrow></mrow></math> in this example is <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><munder><mo>max</mo><mi>y</mi></munder><mi>.</mi><mo>&ApplyFunction;</mo><mi>f</mi><mrow><mo
-      form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo form="postfix">)</mo></mrow><mo>=</mo><mi>f</mi><mrow><mo
-      form="prefix">(</mo><mi>x</mi><mo>,</mo><mn>0</mn><mo form="postfix">)</mo></mrow><mo>=</mo><mn>100</mn></mrow></math>
-      for any <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math>. Thus,
+      The worst-case cost <img src="regret_ol-5.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0154949494949495em; margin-right: 0em; margin-top: -0.00711111111111107em; vertical-align: -0.248222222222222em; height: 0.956767676767677em"></img> in this example is <img src="regret_ol-19.png"
+      style="margin-left: -0.0103434343434343em; margin-bottom: 0.0103232323232323em; margin-right: -0.0103434343434348em; margin-top: 0em; vertical-align: -0.837737373737374em; height: 1.55145454545455em"></img> for any <span class="no-breaks"><img src="regret_ol-7.png" style="margin-left: -0.0103434343434343em; margin-bottom: -2.0202020202021e-5em; margin-right: -0.0724040404040404em; margin-top: -0.0103434343434343em; vertical-align: -0.0103232323232323em; height: 0.47579797979798em"></img>.</span> Thus,
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mrow><mi>arg</mi><munder><mo>min</mo><mi>x</mi></munder><mo>&ApplyFunction;</mo><mi>g</mi><mrow><mo
-        form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mo>∨</mo><mn>1</mn><mi>.</mi></mrow></mstyle></math></td>
+        <td width="100%" align="center"><img src="regret_ol-20.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0103232323232324em; margin-right: -0.0103434343434348em; margin-top: -0.00711111111111107em; vertical-align: -0.672262626262626em; height: 1.3859797979798em"></img></td>
         <td align="right">(2)</td>
       </tr>
     </table>
     <p>
-      But for the worst-case regret cost, <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>g</mi><mi>'</mi></msup><mrow><mo
-      form="prefix">(</mo><mn>0</mn><mo form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow></math>
-      and <math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>g</mi><mi>'</mi></msup><mrow><mo form="prefix">(</mo><mn>1</mn><mo
-      form="postfix">)</mo></mrow><mo>=</mo><mn>99</mn></mrow></math>. Thus
+      But for the worst-case regret cost, <img src="regret_ol-21.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0154949494949495em; margin-right: -0.0103434343434343em; margin-top: -0.00517171717171716em; vertical-align: -0.248222222222222em; height: 1.02054545454545em"></img> and <span
+      class="no-breaks"><img src="regret_ol-22.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0154949494949495em; margin-right: -0.0103434343434343em; margin-top: -0.00517171717171716em; vertical-align: -0.248222222222222em; height: 1.02054545454545em"></img>.</span> Thus
     </p>
     <table width="100%">
       <tr>
-        <td width="100%" align="center"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="true"><mrow><mi>arg</mi><munder><mo>min</mo><mi>x</mi></munder><mo>&ApplyFunction;</mo><msup><mi>g</mi><mi>'</mi></msup><mrow><mo
-        form="prefix">(</mo><mi>x</mi><mo form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mi>.</mi></mrow></mstyle></math></td>
+        <td width="100%" align="center"><img src="regret_ol-23.png" style="margin-left: -0.0103434343434343em; margin-bottom: 0.0103232323232324em; margin-right: -0.0103434343434348em; margin-top: -0.00517171717171716em; vertical-align: -0.672262626262626em; height: 1.44975757575758em"></img></td>
         <td align="right">(3)</td>
       </tr>
     </table>
@@ -182,15 +115,16 @@
       driver who refrains from driving on rainy days. In this case, data
       points (representing the time taken to travel between places) within a
       one-hour time-frame might have a probability of collection as low as
-      <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math>. Conversely, data points beyond one hour
-      might possess a probability of collection greater than <math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math>.
-      This implies that data collected on different dates adhere to distinct
-      distributions. This distinction underscores a crucial difference between
-      traditional offline learning and online learning.
+      <span class="no-breaks"><img src="regret_ol-24.png" style="margin-left: -0.0103434343434343em; margin-bottom: -2.0202020202021e-5em; margin-right: -0.0103434343434344em; margin-top: -0.0155151515151516em; vertical-align: -0.0103232323232323em; height: 0.656808080808081em"></img>.</span> Conversely, data points
+      beyond one hour might possess a probability of collection greater than
+      <span class="no-breaks"><img src="regret_ol-24.png" style="margin-left: -0.0103434343434343em; margin-bottom: -2.0202020202021e-5em; margin-right: -0.0103434343434344em; margin-top: -0.0155151515151516em; vertical-align: -0.0103232323232323em; height: 0.656808080808081em"></img>.</span> This implies that data
+      collected on different dates adhere to distinct distributions. This
+      distinction underscores a crucial difference between traditional offline
+      learning and online learning.
     </p>
     <h1 id="auto-5">Bibliography<span style="margin-left: 1em"></span></h1>
     <div class="compact-block" style="text-indent: 0em">
-      <dl>
+      <font style="font-size: 84.0%"><dl>
         <p>
           <dt>
             <strong>[1]  </strong>
@@ -215,7 +149,7 @@
             </p>
           </dd>
         </p>
-      </dl>
+      </dl></font>
     </div>
     <p>
       

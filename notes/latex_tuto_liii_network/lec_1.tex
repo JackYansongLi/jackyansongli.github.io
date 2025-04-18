@@ -1,0 +1,260 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,latexsym}
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\tmaffiliation}[1]{\\ #1}
+\newcommand{\tmemail}[1]{\\ \textit{Email:} \texttt{#1}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmstrong}[1]{\textbf{#1}}
+\newenvironment{proof}{\noindent\textbf{Proof\ }}{\hspace*{\fill}$\Box$\medskip}
+\newtheorem{theorem}{Theorem}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+\title{An example of uncountable set}
+
+\author{
+  Jack Yansong Li
+  \tmaffiliation{Liii Network}
+  \tmemail{yansong@liii.pro}
+}
+
+\maketitle
+
+{\tableofcontents}
+
+\section{Countable set}
+
+Are there differences in size between different infinities? Before we answer
+this question, what is the ``size'' of an infinity?
+
+{\def{A set is~{\tmstrong{countable}}~if it is either:
+\begin{enumerate}
+  \item {\tmstrong{Finite}}~(has a specific number of elements), or
+  
+  \item {\tmstrong{Countably infinite}}~(has the same "size" as the set of
+  natural numbers~$\mathbb{N}$, meaning its elements can be put into a
+  one-to-one correspondence with~$\mathbb{N}$).
+\end{enumerate}}}
+
+The answer is Yes if we can find a set that is uncountable.
+
+\section{An example of uncountable set}
+
+The following proof is insipired by Rudin et al.
+1953~{\cite{rudin_principles_1953}}
+
+\begin{theorem}
+  The set of real number $\mathbb{R}$ is uncountable
+\end{theorem}
+
+\begin{proof}
+  To prove that the set of real numbers is uncountable, we use Cantor's
+  diagonal argument. Here are the key steps:
+  \begin{enumerate}
+    \item {\tmstrong{Assume the contrary}}: Suppose the interval~$(0, 1)$~is
+    countable. Then, there exists a bijection~$f : \mathbb{N} \rightarrow (0,
+    1)$. This means we can list all real numbers in~$(0, 1)$~as a
+    sequence~$r_1, r_2, r_3, \ldots$.
+    
+    \item {\tmstrong{Decimal expansions}}: Each real number~$r_i$~in the list
+    can be written in decimal form as:
+    
+    \[ r_1 = 0. d_{11} d_{12} d_{13} \ldots \]
+    
+    \[ r_2 = 0. d_{21} d_{22} d_{23} \ldots \]
+    
+    \[ r_3 = 0. d_{31} d_{32} d_{33} \ldots \]
+    
+    and so on, where~$d_{\tmop{ij}}$~is the~$j$-th digit after the decimal
+    point of~$r_i$.
+    
+    \item {\tmstrong{Construct a new number}}: Create a new number~$x = 0. x_1
+    x_2 x_3 \ldots$~where each digit~$x_i$~is chosen such that~$x_i \neq
+    d_{\tmop{ii}}$. To avoid issues with dual decimal representations (e.g.,
+    0.999... = 1.000...), we can choose~$x_i$~to be 1 if~$d_{\tmop{ii}}$~is
+    not 1, and 2 if~$d_{\tmop{ii}}$~is 1. This ensures~$x$~has a unique
+    decimal expansion.
+    
+    \item {\tmstrong{Contradiction}}: The number~$x$~differs from
+    each~$r_i$~in the list at the~$i$-th digit. Therefore,~$x$~is not in the
+    list, contradicting the assumption that the list contains all real numbers
+    in~$(0, 1)$.
+    
+    \item {\tmstrong{Conclusion}}: Since our assumption leads to a
+    contradiction, the interval~$(0, 1)$~must be uncountable. As~$(0, 1)$~is a
+    subset of~$\mathbb{R}$, the set of all real numbers~$\mathbb{R}$~is also
+    uncountable.
+  \end{enumerate}
+  \[ \mathbb{R} \text{~is~uncountable} \]
+\end{proof}
+
+\bibliographystyle{tm-plain}\bibliography{../../../../../auto_citation/latex_tuto_liii_net}
+
+\
+
+\
+
+\end{document}
+
+%%%%%%%%%% Begin TeXmacs source
+% KGRvY3VtZW50IChUZVhtYWNzICIyLjEuNCIpIChzdHlsZSAodHVwbGUgImdlbmVyaWMiKSkgKGJvZHkg
+% KGRvY3VtZW50IChoaWRlLXByZWFtYmxlIChkb2N1bWVudCAobmV3LXJlbWFyayAiZGVmIiAoZG9jdW1l
+% bnQgIkRlZmluaXRpb24iKSkpKSAoZG9jLWRhdGEgKGRvYy10aXRsZSAiQW4gZXhhbXBsZSBvZiB1bmNv
+% dW50YWJsZSBzZXQiKSAoZG9jLWF1dGhvciAoYXV0aG9yLWRhdGEgKGF1dGhvci1uYW1lICJKYWNrIFlh
+% bnNvbmcgTGkiKSAoYXV0aG9yLWFmZmlsaWF0aW9uIChkb2N1bWVudCAiTGlpaSBOZXR3b3JrIikpIChh
+% dXRob3ItZW1haWwgInlhbnNvbmdAbGlpaS5wcm8iKSkpKSAodGFibGUtb2YtY29udGVudHMgInRvYyIg
+% KGRvY3VtZW50IChjb25jYXQgKHZzcGFjZSogIjFmbiIpICh3aXRoICJmb250LXNlcmllcyIgImJvbGQi
+% ICJtYXRoLWZvbnQtc2VyaWVzIiAiYm9sZCIgKGNvbmNhdCAiMSIgKHNwYWNlICIyc3BjIikgIkNvdW50
+% YWJsZSBzZXQiKSkgIiAiIChkYXRvbXMgKG1hY3JvICJ4IiAocmVwZWF0IChhcmcgIngiKSAod2l0aCAi
+% Zm9udC1zZXJpZXMiICJtZWRpdW0iICh3aXRoICJmb250LXNpemUiICIxIiAoY29uY2F0IChzcGFjZSAi
+% MC4yZm4iKSAiLiIgKHNwYWNlICIwLjJmbiIpKSkpKSkgKGh0YWIgIjVtbSIpKSAiICIgKG5vLWJyZWFr
+% KSAocGFnZXJlZiAiYXV0by0xIikgKHZzcGFjZSAiMC41Zm4iKSkgKGNvbmNhdCAodnNwYWNlKiAiMWZu
+% IikgKHdpdGggImZvbnQtc2VyaWVzIiAiYm9sZCIgIm1hdGgtZm9udC1zZXJpZXMiICJib2xkIiAoY29u
+% Y2F0ICIyIiAoc3BhY2UgIjJzcGMiKSAiQW4gZXhhbXBsZSBvZiB1bmNvdW50YWJsZSBzZXQiKSkgIiAi
+% IChkYXRvbXMgKG1hY3JvICJ4IiAocmVwZWF0IChhcmcgIngiKSAod2l0aCAiZm9udC1zZXJpZXMiICJt
+% ZWRpdW0iICh3aXRoICJmb250LXNpemUiICIxIiAoY29uY2F0IChzcGFjZSAiMC4yZm4iKSAiLiIgKHNw
+% YWNlICIwLjJmbiIpKSkpKSkgKGh0YWIgIjVtbSIpKSAiICIgKG5vLWJyZWFrKSAocGFnZXJlZiAiYXV0
+% by0yIikgKHZzcGFjZSAiMC41Zm4iKSkgKGNvbmNhdCAodnNwYWNlKiAiMWZuIikgKHdpdGggImZvbnQt
+% c2VyaWVzIiAiYm9sZCIgIm1hdGgtZm9udC1zZXJpZXMiICJib2xkIiAiQmlibGlvZ3JhcGh5IikgIiAi
+% IChkYXRvbXMgKG1hY3JvICJ4IiAocmVwZWF0IChhcmcgIngiKSAod2l0aCAiZm9udC1zZXJpZXMiICJt
+% ZWRpdW0iICh3aXRoICJmb250LXNpemUiICIxIiAoY29uY2F0IChzcGFjZSAiMC4yZm4iKSAiLiIgKHNw
+% YWNlICIwLjJmbiIpKSkpKSkgKGh0YWIgIjVtbSIpKSAiICIgKG5vLWJyZWFrKSAocGFnZXJlZiAiYXV0
+% by0zIikgKHZzcGFjZSAiMC41Zm4iKSkpKSAoc2VjdGlvbiAiQ291bnRhYmxlIHNldCIpICJBcmUgdGhl
+% cmUgZGlmZmVyZW5jZXMgaW4gc2l6ZSBiZXR3ZWVuIGRpZmZlcmVudCBpbmZpbml0aWVzPyBCZWZvcmUg
+% d2UgYW5zd2VyIHRoaXMgcXVlc3Rpb24sIHdoYXQgaXMgdGhlIBBzaXplESBvZiBhbiBpbmZpbml0eT8i
+% IChkZWYgKGRvY3VtZW50IChjb25jYXQgIkEgc2V0IGlzIiAobmJzcCkgKHN0cm9uZyAiY291bnRhYmxl
+% IikgKG5ic3ApICJpZiBpdCBpcyBlaXRoZXI6IikgKGVudW1lcmF0ZSAoZG9jdW1lbnQgKGNvbmNhdCAo
+% aXRlbSkgKHN0cm9uZyAiRmluaXRlIikgKG5ic3ApICIoaGFzIGEgc3BlY2lmaWMgbnVtYmVyIG9mIGVs
+% ZW1lbnRzKSwgb3IiKSAoY29uY2F0IChpdGVtKSAoc3Ryb25nICJDb3VudGFibHkgaW5maW5pdGUiKSAo
+% bmJzcCkgIihoYXMgdGhlIHNhbWUgXFxcInNpemVcXFwiIGFzIHRoZSBzZXQgb2YgbmF0dXJhbCBudW1i
+% ZXJzIiAobmJzcCkgKG1hdGggIjxiYmItTj4iKSAiLCBtZWFuaW5nIGl0cyBlbGVtZW50cyBjYW4gYmUg
+% cHV0IGludG8gYSBvbmUtdG8tb25lIGNvcnJlc3BvbmRlbmNlIHdpdGgiIChuYnNwKSAobWF0aCAiPGJi
+% Yi1OPiIpICIpLiIpKSkpKSAiVGhlIGFuc3dlciBpcyBZZXMgaWYgd2UgY2FuIGZpbmQgYSBzZXQgdGhh
+% dCBpcyB1bmNvdW50YWJsZS4iIChzZWN0aW9uICJBbiBleGFtcGxlIG9mIHVuY291bnRhYmxlIHNldCIp
+% IChjb25jYXQgIlRoZSBmb2xsb3dpbmcgcHJvb2YgaXMgaW5zaXBpcmVkIGJ5IFJ1ZGluIGV0IGFsLiAx
+% OTUzIiAobmJzcCkgKGNpdGUgInJ1ZGluX3ByaW5jaXBsZXNfMTk1MyIpKSAodGhlb3JlbSAoZG9jdW1l
+% bnQgKGNvbmNhdCAiVGhlIHNldCBvZiByZWFsIG51bWJlciAiIChtYXRoICI8YmJiLVI+IikgIiBpcyB1
+% bmNvdW50YWJsZSIpKSkgKHByb29mIChkb2N1bWVudCAiVG8gcHJvdmUgdGhhdCB0aGUgc2V0IG9mIHJl
+% YWwgbnVtYmVycyBpcyB1bmNvdW50YWJsZSwgd2UgdXNlIENhbnRvcidzIGRpYWdvbmFsIGFyZ3VtZW50
+% LiBIZXJlIGFyZSB0aGUga2V5IHN0ZXBzOiIgKGVudW1lcmF0ZSAoZG9jdW1lbnQgKGNvbmNhdCAoaXRl
+% bSkgKHN0cm9uZyAiQXNzdW1lIHRoZSBjb250cmFyeSIpICI6IFN1cHBvc2UgdGhlIGludGVydmFsIiAo
+% bmJzcCkgKG1hdGggKGFyb3VuZCogIigiICIwLDEiICIpIikpIChuYnNwKSAiaXMgY291bnRhYmxlLiBU
+% aGVuLCB0aGVyZSBleGlzdHMgYSBiaWplY3Rpb24iIChuYnNwKSAobWF0aCAoY29uY2F0ICJmOjxiYmIt
+% Tj48cmlnaHRhcnJvdz4iIChhcm91bmQqICIoIiAiMCwxIiAiKSIpKSkgIi4gVGhpcyBtZWFucyB3ZSBj
+% YW4gbGlzdCBhbGwgcmVhbCBudW1iZXJzIGluIiAobmJzcCkgKG1hdGggKGFyb3VuZCogIigiICIwLDEi
+% ICIpIikpIChuYnNwKSAiYXMgYSBzZXF1ZW5jZSIgKG5ic3ApIChtYXRoIChjb25jYXQgInIiIChyc3Vi
+% ICIxIikgIixyIiAocnN1YiAiMiIpICIsciIgKHJzdWIgIjMiKSAiLDxsZG90cz4iKSkgIi4iKSAoY29u
+% Y2F0IChpdGVtKSAoc3Ryb25nICJEZWNpbWFsIGV4cGFuc2lvbnMiKSAiOiBFYWNoIHJlYWwgbnVtYmVy
+% IiAobmJzcCkgKG1hdGggKGNvbmNhdCAiciIgKHJzdWIgImkiKSkpIChuYnNwKSAiaW4gdGhlIGxpc3Qg
+% Y2FuIGJlIHdyaXR0ZW4gaW4gZGVjaW1hbCBmb3JtIGFzOiIpIChlcXVhdGlvbiogKGNvbmNhdCAiciIg
+% KHJzdWIgIjEiKSAiPTAuZCIgKHJzdWIgIjExIikgImQiIChyc3ViICIxMiIpICJkIiAocnN1YiAiMTMi
+% KSAiPGxkb3RzPiIpKSAoZXF1YXRpb24qIChjb25jYXQgInIiIChyc3ViICIyIikgIj0wLmQiIChyc3Vi
+% ICIyMSIpICJkIiAocnN1YiAiMjIiKSAiZCIgKHJzdWIgIjIzIikgIjxsZG90cz4iKSkgKGVxdWF0aW9u
+% KiAoY29uY2F0ICJyIiAocnN1YiAiMyIpICI9MC5kIiAocnN1YiAiMzEiKSAiZCIgKHJzdWIgIjMyIikg
+% ImQiIChyc3ViICIzMyIpICI8bGRvdHM+IikpIChjb25jYXQgImFuZCBzbyBvbiwgd2hlcmUiIChuYnNw
+% KSAobWF0aCAoY29uY2F0ICJkIiAocnN1YiAiaWoiKSkpIChuYnNwKSAiaXMgdGhlIiAobmJzcCkgKG1h
+% dGggImoiKSAiLXRoIGRpZ2l0IGFmdGVyIHRoZSBkZWNpbWFsIHBvaW50IG9mIiAobmJzcCkgKG1hdGgg
+% KGNvbmNhdCAiciIgKHJzdWIgImkiKSkpICIuIikgKGNvbmNhdCAoaXRlbSkgKHN0cm9uZyAiQ29uc3Ry
+% dWN0IGEgbmV3IG51bWJlciIpICI6IENyZWF0ZSBhIG5ldyBudW1iZXIiIChuYnNwKSAobWF0aCAoY29u
+% Y2F0ICJ4PTAueCIgKHJzdWIgIjEiKSAieCIgKHJzdWIgIjIiKSAieCIgKHJzdWIgIjMiKSAiPGxkb3Rz
+% PiIpKSAobmJzcCkgIndoZXJlIGVhY2ggZGlnaXQiIChuYnNwKSAobWF0aCAoY29uY2F0ICJ4IiAocnN1
+% YiAiaSIpKSkgKG5ic3ApICJpcyBjaG9zZW4gc3VjaCB0aGF0IiAobmJzcCkgKG1hdGggKGNvbmNhdCAi
+% eCIgKHJzdWIgImkiKSAiPG5lcT5kIiAocnN1YiAiaWkiKSkpICIuIFRvIGF2b2lkIGlzc3VlcyB3aXRo
+% IGR1YWwgZGVjaW1hbCByZXByZXNlbnRhdGlvbnMgKGUuZy4sIDAuOTk5Li4uID0gMS4wMDAuLi4pLCB3
+% ZSBjYW4gY2hvb3NlIiAobmJzcCkgKG1hdGggKGNvbmNhdCAieCIgKHJzdWIgImkiKSkpIChuYnNwKSAi
+% dG8gYmUgMSBpZiIgKG5ic3ApIChtYXRoIChjb25jYXQgImQiIChyc3ViICJpaSIpKSkgKG5ic3ApICJp
+% cyBub3QgMSwgYW5kIDIgaWYiIChuYnNwKSAobWF0aCAoY29uY2F0ICJkIiAocnN1YiAiaWkiKSkpIChu
+% YnNwKSAiaXMgMS4gVGhpcyBlbnN1cmVzIiAobmJzcCkgKG1hdGggIngiKSAobmJzcCkgImhhcyBhIHVu
+% aXF1ZSBkZWNpbWFsIGV4cGFuc2lvbi4iKSAoY29uY2F0IChpdGVtKSAoc3Ryb25nICJDb250cmFkaWN0
+% aW9uIikgIjogVGhlIG51bWJlciIgKG5ic3ApIChtYXRoICJ4IikgKG5ic3ApICJkaWZmZXJzIGZyb20g
+% ZWFjaCIgKG5ic3ApIChtYXRoIChjb25jYXQgInIiIChyc3ViICJpIikpKSAobmJzcCkgImluIHRoZSBs
+% aXN0IGF0IHRoZSIgKG5ic3ApIChtYXRoICJpIikgIi10aCBkaWdpdC4gVGhlcmVmb3JlLCIgKG5ic3Ap
+% IChtYXRoICJ4IikgKG5ic3ApICJpcyBub3QgaW4gdGhlIGxpc3QsIGNvbnRyYWRpY3RpbmcgdGhlIGFz
+% c3VtcHRpb24gdGhhdCB0aGUgbGlzdCBjb250YWlucyBhbGwgcmVhbCBudW1iZXJzIGluIiAobmJzcCkg
+% KG1hdGggKGFyb3VuZCogIigiICIwLDEiICIpIikpICIuIikgKGNvbmNhdCAoaXRlbSkgKHN0cm9uZyAi
+% Q29uY2x1c2lvbiIpICI6IFNpbmNlIG91ciBhc3N1bXB0aW9uIGxlYWRzIHRvIGEgY29udHJhZGljdGlv
+% biwgdGhlIGludGVydmFsIiAobmJzcCkgKG1hdGggKGFyb3VuZCogIigiICIwLDEiICIpIikpIChuYnNw
+% KSAibXVzdCBiZSB1bmNvdW50YWJsZS4gQXMiIChuYnNwKSAobWF0aCAoYXJvdW5kKiAiKCIgIjAsMSIg
+% IikiKSkgKG5ic3ApICJpcyBhIHN1YnNldCBvZiIgKG5ic3ApIChtYXRoICI8YmJiLVI+IikgIiwgdGhl
+% IHNldCBvZiBhbGwgcmVhbCBudW1iZXJzIiAobmJzcCkgKG1hdGggIjxiYmItUj4iKSAobmJzcCkgImlz
+% IGFsc28gdW5jb3VudGFibGUuIikpKSAoZXF1YXRpb24qICh3aXRoICJtYXRoLWxldmVsIiAiMCIgIm1h
+% dGgtZGlzcGxheSIgImZhbHNlIiAod2l0aCAibWF0aC1sZXZlbCIgIjAiICJtYXRoLWRpc3BsYXkiICJm
+% YWxzZSIgKHdpdGggIm1hdGgtbGV2ZWwiICIwIiAibWF0aC1kaXNwbGF5IiAidHJ1ZSIgKGNvbmNhdCAi
+% PGJiYi1SPiIgKHdpdGggIm1vZGUiICJ0ZXh0IiAoY29uY2F0IChuYnNwKSAiaXMiIChuYnNwKSAidW5j
+% b3VudGFibGUiKSkpKSkpKSkpIChiaWJsaW9ncmFwaHkgImJpYiIgInRtLXBsYWluIiAiLi4vLi4vLi4v
+% Li4vLi4vYXV0b19jaXRhdGlvbi9sYXRleF90dXRvX2xpaWlfbmV0IiAoZG9jdW1lbnQgIiIpKSAiIiAi
+% IikpIChpbml0aWFsIChjb2xsZWN0aW9uIChhc3NvY2lhdGUgInBhZ2UtbWVkaXVtIiAicGFwZXIiKSAo
+% YXNzb2NpYXRlICJwYWdlLXNjcmVlbi1tYXJnaW4iICJmYWxzZSIpKSkpCiUgU2VwYXJhdGUgYXR0YWNo
+% bWVudHMKXGRvY3VtZW50Y2xhc3N7YXJ0aWNsZX0KXHVzZXBhY2thZ2VbZW5nbGlzaF17YmFiZWx9Clx1
+% c2VwYWNrYWdle2Ftc21hdGgsYW1zc3ltYixsYXRleHN5bX0KCiUlJSUlJSUlJSUgU3RhcnQgVGVYbWFj
+% cyBtYWNyb3MKXG5ld2NvbW1hbmR7XHRtYWZmaWxpYXRpb259WzFde1xcICMxfQpcbmV3Y29tbWFuZHtc
+% dG1lbWFpbH1bMV17XFwgXHRleHRpdHtFbWFpbDp9IFx0ZXh0dHR7IzF9fQpcbmV3Y29tbWFuZHtcdG1v
+% cH1bMV17XGVuc3VyZW1hdGh7XG9wZXJhdG9ybmFtZXsjMX19fQpcbmV3Y29tbWFuZHtcdG1zdHJvbmd9
+% WzFde1x0ZXh0YmZ7IzF9fQpcbmV3ZW52aXJvbm1lbnR7cHJvb2Z9e1xub2luZGVudFx0ZXh0YmZ7UHJv
+% b2ZcIH19e1xoc3BhY2Uqe1xmaWxsfSRcQm94JFxtZWRza2lwfQpcbmV3dGhlb3JlbXt0aGVvcmVtfXtU
+% aGVvcmVtfQolJSUlJSUlJSUlIEVuZCBUZVhtYWNzIG1hY3JvcwoKXGJlZ2lue2RvY3VtZW50fQoKe1xi
+% dG17MX19XHRpdGxle0FuIGV4YW1wbGUgb2YgdW5jb3VudGFibGUgc2V0fQoKXGF1dGhvcnsKICBKYWNr
+% IFlhbnNvbmcgTGkKICBcdG1hZmZpbGlhdGlvbnt7XGJ0bXsxLDEsMCwxLDAsMH19TGlpaSBOZXR3b3Jr
+% e1xldG17MSwxLDAsMSwwLDB9fX0KICBcdG1lbWFpbHt5YW5zb25nQGxpaWkucHJvfQp9CgpcbWFrZXRp
+% dGxle1xldG17MX19Cgp7XGJ0bXsyfX17XHRhYmxlb2Zjb250ZW50c317XGV0bXsyfX0KCntcYnRtezN9
+% fVxzZWN0aW9ue0NvdW50YWJsZSBzZXR9e1xldG17M319Cgp7XGJ0bXs0fX1BcmUgdGhlcmUgZGlmZmVy
+% ZW5jZXMgaW4gc2l6ZSBiZXR3ZWVuIGRpZmZlcmVudCBpbmZpbml0aWVzPyBCZWZvcmUgd2UgYW5zd2Vy
+% CnRoaXMgcXVlc3Rpb24sIHdoYXQgaXMgdGhlIGBgc2l6ZScnIG9mIGFuIGluZmluaXR5P3tcZXRtezR9
+% fQoKe1xidG17NX19e1xkZWZ7e1xidG17NSwwLDB9fUEgc2V0IGlzfntcdG1zdHJvbmd7Y291bnRhYmxl
+% fX1+aWYgaXQgaXMgZWl0aGVyOntcZXRtezUsMCwwfX0Ke1xidG17NSwwLDF9fVxiZWdpbntlbnVtZXJh
+% dGV9CiAge1xidG17NSwwLDEsMCwwfX1caXRlbSB7XHRtc3Ryb25ne0Zpbml0ZX19fihoYXMgYSBzcGVj
+% aWZpYyBudW1iZXIgb2YgZWxlbWVudHMpLCBvcntcZXRtezUsMCwxLDAsMH19CiAgCiAge1xidG17NSww
+% LDEsMCwxfX1caXRlbSB7XHRtc3Ryb25ne0NvdW50YWJseSBpbmZpbml0ZX19fihoYXMgdGhlIHNhbWUg
+% InNpemUiIGFzIHRoZSBzZXQgb2YKICBuYXR1cmFsIG51bWJlcnN+JFxtYXRoYmJ7Tn0kLCBtZWFuaW5n
+% IGl0cyBlbGVtZW50cyBjYW4gYmUgcHV0IGludG8gYQogIG9uZS10by1vbmUgY29ycmVzcG9uZGVuY2Ug
+% d2l0aH4kXG1hdGhiYntOfSQpLntcZXRtezUsMCwxLDAsMX19ClxlbmR7ZW51bWVyYXRlfXtcZXRtezUs
+% MCwxfX19fXtcZXRtezV9fQoKe1xidG17Nn19VGhlIGFuc3dlciBpcyBZZXMgaWYgd2UgY2FuIGZpbmQg
+% YSBzZXQgdGhhdCBpcyB1bmNvdW50YWJsZS57XGV0bXs2fX0KCntcYnRtezd9fVxzZWN0aW9ue0FuIGV4
+% YW1wbGUgb2YgdW5jb3VudGFibGUgc2V0fXtcZXRtezd9fQoKe1xidG17OH19VGhlIGZvbGxvd2luZyBw
+% cm9vZiBpcyBpbnNpcGlyZWQgYnkgUnVkaW4gZXQgYWwuCjE5NTN+e1xjaXRle3J1ZGluX3ByaW5jaXBs
+% ZXNfMTk1M319e1xldG17OH19Cgp7XGJ0bXs5fX1cYmVnaW57dGhlb3JlbX0KICB7XGJ0bXs5LDAsMH19
+% VGhlIHNldCBvZiByZWFsIG51bWJlciAkXG1hdGhiYntSfSQgaXMgdW5jb3VudGFibGV7XGV0bXs5LDAs
+% MH19ClxlbmR7dGhlb3JlbX17XGV0bXs5fX0KCntcYnRtezEwfX1cYmVnaW57cHJvb2Z9CiAge1xidG17
+% MTAsMCwwfX1UbyBwcm92ZSB0aGF0IHRoZSBzZXQgb2YgcmVhbCBudW1iZXJzIGlzIHVuY291bnRhYmxl
+% LCB3ZSB1c2UgQ2FudG9yJ3MKICBkaWFnb25hbCBhcmd1bWVudC4gSGVyZSBhcmUgdGhlIGtleSBzdGVw
+% czp7XGV0bXsxMCwwLDB9fQogIHtcYnRtezEwLDAsMX19XGJlZ2lue2VudW1lcmF0ZX0KICAgIHtcYnRt
+% ezEwLDAsMSwwLDB9fVxpdGVtIHtcdG1zdHJvbmd7QXNzdW1lIHRoZSBjb250cmFyeX19OiBTdXBwb3Nl
+% IHRoZSBpbnRlcnZhbH4kKDAsIDEpJH5pcwogICAgY291bnRhYmxlLiBUaGVuLCB0aGVyZSBleGlzdHMg
+% YSBiaWplY3Rpb25+JGYgOiBcbWF0aGJie059IFxyaWdodGFycm93ICgwLAogICAgMSkkLiBUaGlzIG1l
+% YW5zIHdlIGNhbiBsaXN0IGFsbCByZWFsIG51bWJlcnMgaW5+JCgwLCAxKSR+YXMgYQogICAgc2VxdWVu
+% Y2V+JHJfMSwgcl8yLCByXzMsIFxsZG90cyQue1xldG17MTAsMCwxLDAsMH19CiAgICAKICAgIHtcYnRt
+% ezEwLDAsMSwwLDF9fVxpdGVtIHtcdG1zdHJvbmd7RGVjaW1hbCBleHBhbnNpb25zfX06IEVhY2ggcmVh
+% bCBudW1iZXJ+JHJfaSR+aW4gdGhlIGxpc3QKICAgIGNhbiBiZSB3cml0dGVuIGluIGRlY2ltYWwgZm9y
+% bSBhczp7XGV0bXsxMCwwLDEsMCwxfX0KICAgIAogICAge1xidG17MTAsMCwxLDAsMn19XFsgcl8xID0g
+% MC4gZF97MTF9IGRfezEyfSBkX3sxM30gXGxkb3RzIFxde1xldG17MTAsMCwxLDAsMn19CiAgICAKICAg
+% IHtcYnRtezEwLDAsMSwwLDN9fVxbIHJfMiA9IDAuIGRfezIxfSBkX3syMn0gZF97MjN9IFxsZG90cyBc
+% XXtcZXRtezEwLDAsMSwwLDN9fQogICAgCiAgICB7XGJ0bXsxMCwwLDEsMCw0fX1cWyByXzMgPSAwLiBk
+% X3szMX0gZF97MzJ9IGRfezMzfSBcbGRvdHMgXF17XGV0bXsxMCwwLDEsMCw0fX0KICAgIAogICAge1xi
+% dG17MTAsMCwxLDAsNX19YW5kIHNvIG9uLCB3aGVyZX4kZF97XHRtb3B7aWp9fSR+aXMgdGhlfiRqJC10
+% aCBkaWdpdCBhZnRlciB0aGUgZGVjaW1hbAogICAgcG9pbnQgb2Z+JHJfaSQue1xldG17MTAsMCwxLDAs
+% NX19CiAgICAKICAgIHtcYnRtezEwLDAsMSwwLDZ9fVxpdGVtIHtcdG1zdHJvbmd7Q29uc3RydWN0IGEg
+% bmV3IG51bWJlcn19OiBDcmVhdGUgYSBuZXcgbnVtYmVyfiR4ID0gMC4geF8xCiAgICB4XzIgeF8zIFxs
+% ZG90cyR+d2hlcmUgZWFjaCBkaWdpdH4keF9pJH5pcyBjaG9zZW4gc3VjaCB0aGF0fiR4X2kgXG5lcQog
+% ICAgZF97XHRtb3B7aWl9fSQuIFRvIGF2b2lkIGlzc3VlcyB3aXRoIGR1YWwgZGVjaW1hbCByZXByZXNl
+% bnRhdGlvbnMgKGUuZy4sCiAgICAwLjk5OS4uLiA9IDEuMDAwLi4uKSwgd2UgY2FuIGNob29zZX4keF9p
+% JH50byBiZSAxIGlmfiRkX3tcdG1vcHtpaX19JH5pcwogICAgbm90IDEsIGFuZCAyIGlmfiRkX3tcdG1v
+% cHtpaX19JH5pcyAxLiBUaGlzIGVuc3VyZXN+JHgkfmhhcyBhIHVuaXF1ZQogICAgZGVjaW1hbCBleHBh
+% bnNpb24ue1xldG17MTAsMCwxLDAsNn19CiAgICAKICAgIHtcYnRtezEwLDAsMSwwLDd9fVxpdGVtIHtc
+% dG1zdHJvbmd7Q29udHJhZGljdGlvbn19OiBUaGUgbnVtYmVyfiR4JH5kaWZmZXJzIGZyb20KICAgIGVh
+% Y2h+JHJfaSR+aW4gdGhlIGxpc3QgYXQgdGhlfiRpJC10aCBkaWdpdC4gVGhlcmVmb3JlLH4keCR+aXMg
+% bm90IGluIHRoZQogICAgbGlzdCwgY29udHJhZGljdGluZyB0aGUgYXNzdW1wdGlvbiB0aGF0IHRoZSBs
+% aXN0IGNvbnRhaW5zIGFsbCByZWFsIG51bWJlcnMKICAgIGlufiQoMCwgMSkkLntcZXRtezEwLDAsMSww
+% LDd9fQogICAgCiAgICB7XGJ0bXsxMCwwLDEsMCw4fX1caXRlbSB7XHRtc3Ryb25ne0NvbmNsdXNpb259
+% fTogU2luY2Ugb3VyIGFzc3VtcHRpb24gbGVhZHMgdG8gYQogICAgY29udHJhZGljdGlvbiwgdGhlIGlu
+% dGVydmFsfiQoMCwgMSkkfm11c3QgYmUgdW5jb3VudGFibGUuIEFzfiQoMCwgMSkkfmlzIGEKICAgIHN1
+% YnNldCBvZn4kXG1hdGhiYntSfSQsIHRoZSBzZXQgb2YgYWxsIHJlYWwgbnVtYmVyc34kXG1hdGhiYntS
+% fSR+aXMgYWxzbwogICAgdW5jb3VudGFibGUue1xldG17MTAsMCwxLDAsOH19CiAgXGVuZHtlbnVtZXJh
+% dGV9e1xldG17MTAsMCwxfX0KICB7XGJ0bXsxMCwwLDJ9fVxbIFxtYXRoYmJ7Un0gXHRleHR7fmlzfnVu
+% Y291bnRhYmxlfSBcXXtcZXRtezEwLDAsMn19ClxlbmR7cHJvb2Z9e1xldG17MTB9fQoKe1xidG17MTF9
+% fVxiaWJsaW9ncmFwaHlzdHlsZXt0bS1wbGFpbn1cYmlibGlvZ3JhcGh5ey4uLy4uLy4uLy4uLy4uL2F1
+% dG9fY2l0YXRpb24vbGF0ZXhfdHV0b19saWlpX25ldH17XGV0bXsxMX19Cgp7XGJ0bXsxMn19e1xldG17
+% MTJ9fVwKCntcYnRtezEzfX17XGV0bXsxM319XAoKXGVuZHtkb2N1bWVudH0K
+%%%%%%%%%% End TeXmacs source

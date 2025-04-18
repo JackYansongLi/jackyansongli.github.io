@@ -1,0 +1,22 @@
+<TMU|<tuple|1.1.0|2025.0.5>>
+
+<style|generic>
+
+<\body>
+  <\itemize>
+    <item>Market defined by <with|font-series|bold|Paying> customers
+
+    <item>市场分割 mandatory
+
+    <item>胆子小的跑美国，胆子大的回中国
+
+    <item>
+  </itemize>
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>

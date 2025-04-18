@@ -1,0 +1,401 @@
+<TMU|<tuple|1.1.0|2025.0.5>>
+
+<style|<tuple|generic|llm>>
+
+<\body>
+  <\hide-preamble>
+    <\new-remark|def>
+      Definition
+    </new-remark>
+  </hide-preamble>
+
+  <doc-data|<doc-title|An example of uncountable set>|<doc-author|<author-data|<author-name|Jack Yansong Li>|<\author-affiliation>
+    Liii Network
+  </author-affiliation>|<author-email|yansong@liii.pro>>>>
+
+  <\theorem>
+    The set of real number <math|\<bbb-R\>> is uncountable
+  </theorem>
+
+  <\proof>
+    To prove that the set of real numbers <math|\<bbb-R\>> is uncountable, one classic method is to use Cantor's diagonal argument. This proof demonstrates that there is no bijection (one-to-one correspondence) between the set of natural numbers <math|\<bbb-N\>> and the set of real numbers <math|\<bbb-R\>>.
+
+    <subsubsection|Cantor's Diagonal Argument><label|cantors-diagonal-argument>
+
+    <\enumerate>
+      <assign|labelenumi|<macro|<number|<enumi-nr>|arabic>.>>
+
+      <item><with|font-series|bold|Assumption for Contradiction>: Assume, for the sake of contradiction, that <math|\<bbb-R\>> is countable. This would mean that there is a bijection between <math|\<bbb-N\>> and <math|\<bbb-R\>>. We can then list all the real numbers in <math|<around|[|0,1|)>> as an enumeration, <math|r<rsub|1>,r<rsub|2>,r<rsub|3>,\<ldots\>>, where each <math|r<rsub|i>> is a real number in the interval <math|<around|[|0,1|)>>.
+
+      <item><with|font-series|bold|Formal Representation>: Each <math|r<rsub|i>> can be represented as an infinite decimal expansion <math|r<rsub|i>=0.*a<rsub|i*1>*a<rsub|i*2>*a<rsub|i*3>*\<ldots\>>, where each <math|a<rsub|i*j>> is a digit from 0 to 9.
+
+      <item><with|font-series|bold|Construct a New Number>: Construct a new number <math|x> in <math|<around|[|0,1|)>> by ensuring that, for each digit <math|j>, the digit in the <math|j>-th position of <math|x> is different from the <math|j>-th digit of <math|r<rsub|j>>. To avoid any ambiguity, we can choose <math|d<rsub|j>> such that <math|a<rsub|j*j>\<neq\>d<rsub|j>>. For instance, if <math|a<rsub|j*j>\<neq\>5>, we could set <math|d<rsub|j>=a<rsub|j*j>>, otherwise we could set <math|d<rsub|j>=5>.
+
+      <item><with|font-series|bold|Contradiction>: The number <math|x=0.*d<rsub|1>*d<rsub|2>*d<rsub|3>*\<ldots\>> constructed in this manner differs from every <math|r<rsub|i>> at least in the <math|i>-th decimal place. Therefore, <math|x> cannot be in the list of <math|r<rsub|1>,r<rsub|2>,r<rsub|3>,\<ldots\>>.
+
+      <item><with|font-series|bold|Conclusion>: Since <math|x> is a real number in <math|<around|[|0,1|)>> but cannot be included in our original list, our assumption that <math|\<bbb-R\>> is countable must be false. Therefore, <math|\<bbb-R\>> is uncountable.
+    </enumerate>
+
+    This proof shows that the set of real numbers <math|\<bbb-R\>> has a strictly greater cardinality than the set of natural numbers <math|\<bbb-N\>>.
+
+    <\session|llm|Pro-DeepSeek-V3@SiliconFlow>
+      <\folded-io>
+        V3\<gtr\>\ 
+      <|folded-io>
+        Prove that the set of real number <math|\<bbb-R\>> is uncountable
+      <|folded-io>
+        Here is a concise proof that the real numbers <math|\<bbb-R\>> are uncountable, using <with|font-series|bold|Cantor's diagonal argument>:
+
+        <subsubsection|Proof by Diagonalization (Cantor's Argument)><label|proof-by-diagonalization-cantors-argument>
+
+        <\enumerate>
+          <assign|labelenumi|<macro|<number|<enumi-nr>|arabic>.>>
+
+          <item><with|font-series|bold|Assumption for Contradiction><next-line>Assume <math|\<bbb-R\>> is countable. Then, in particular, the interval <math|<around|(|0,1|)>\<subset\>\<bbb-R\>> must also be countable since subsets of countable sets are countable.
+
+          <item><with|font-series|bold|Listing All Elements><next-line>If <math|<around|(|0,1|)>> were countable, we could list all its elements as an infinite sequence:
+
+          <\equation*>
+            r<rsub|1>,<space|0.17em>r<rsub|2>,<space|0.17em>r<rsub|3>,\<ldots\>
+          </equation*>
+
+          where each <math|r<rsub|i>\<in\><around|(|0,1|)>>.
+
+          <item><with|font-series|bold|Decimal Expansions><next-line>Represent each <math|r<rsub|i>> as a unique decimal expansion (avoiding infinite trailing <math|9>s for uniqueness):
+
+          <\equation*>
+            <\aligned>
+              <tformat|<table|<row|<cell|r<rsub|1>>|<cell|=0.*a<rsub|11>*a<rsub|12>*a<rsub|13>*\<ldots\>>>|<row|<cell|r<rsub|2>>|<cell|=0.*a<rsub|21>*a<rsub|22>*a<rsub|23>*\<ldots\>>>|<row|<cell|r<rsub|3>>|<cell|=0.*a<rsub|31>*a<rsub|32>*a<rsub|33>*\<ldots\>>>|<row|<cell|>|<cell|<space|0.27em><space|0.27em>\<vdots\>>>>>
+            </aligned>
+          </equation*>
+
+          where each <math|a<rsub|i*j>> is a digit from <math|0> to <math|9>.
+
+          <item><with|font-series|bold|Constructing a New Real Number><next-line>Define a new real number <math|x\<in\><around|(|0,1|)>> by modifying the diagonal elements:
+
+          <\equation*>
+            x=0.*b<rsub|1>*b<rsub|2>*b<rsub|3>*\<ldots\>*<space|1em><text|where><space|1em>b<rsub|n>=<choice|<tformat|<table|<row|<cell|1>|<cell|<text|if >a<rsub|n*n>\<neq\>1,>>|<row|<cell|2>|<cell|<text|if >a<rsub|n*n>=1.>>>>>
+          </equation*>
+
+          <item><with|font-series|bold|Contradiction><next-line>By construction, <math|x> differs from every <math|r<rsub|n>> in the <math|n>-th decimal place (<math|b<rsub|n>\<neq\>a<rsub|n*n>>). Hence, <math|x> cannot appear anywhere in the supposedly complete list, leading to a contradiction.
+        </enumerate>
+
+        <subsubsection|Conclusion><label|conclusion>
+
+        Since the assumption that <math|\<bbb-R\>> is countable leads to a contradiction, we conclude:
+
+        <\equation*>
+          \<bbb-R\>*<text|is **uncountable** (its cardinality exceeds that of >\<bbb-N\>).
+        </equation*>
+
+        <subsubsection|Additional Remarks><label|additional-remarks>
+
+        <\itemize>
+          <item>This proof shows that no bijection exists between <math|\<bbb-N\>> and <math|\<bbb-R\>>.
+
+          <item>The cardinality of <math|\<bbb-R\>> is <math|\<frak-c\>> (the continuum), which is strictly greater than <math|\<aleph\><rsub|0>> (the cardinality of <math|\<bbb-N\>>).
+
+          <item>This method extends to other uncountable sets, proving that many infinite collections (e.g., the power set of <math|\<bbb-N\>>) are also uncountable.
+        </itemize>
+
+        Thus, <math|\<bbb-R\>> cannot be put into a one-to-one correspondence with the natural numbers, confirming its uncountability.
+      </folded-io>
+
+      <\input>
+        V3\<gtr\>\ 
+      <|input>
+        \;
+      </input>
+
+      \;
+
+      <\session|llm|Qwen2.5-7B@SiliconFlow>
+        <\output>
+          LLM session v2025021015 by LiiiLabs
+
+          Using Qwen/Qwen2.5-7B-Instruct provided by siliconflow.cn with max_tokens 4096
+
+          Help docs：Help-\<gtr\>Plugins-\<gtr\>LLM
+        </output>
+
+        <\unfolded-io>
+          7B\<gtr\>\ 
+        <|unfolded-io>
+          Prove that the set of real number <math|\<bbb-R\>> is uncountable
+        <|unfolded-io>
+          To prove that the set of real numbers <math|\<bbb-R\>> is uncountable, we can use Cantor's diagonal argument. Here is the step-by-step proof:
+
+          <\enumerate>
+            <assign|labelenumi|<macro|<number|<enumi-nr>|arabic>.>>
+
+            <item><with|font-series|bold|Assume Countability>: Suppose, for the sake of contradiction, that the set of real numbers <math|\<bbb-R\>> is countable. This means that we can list all the real numbers between 0 and 1 in a sequence:
+
+            <\equation*>
+              r<rsub|1>=0.*a<rsub|11>*a<rsub|12>*a<rsub|13>*\<ldots\>
+            </equation*>
+
+            <\equation*>
+              r<rsub|2>=0.*a<rsub|21>*a<rsub|22>*a<rsub|23>*\<ldots\>
+            </equation*>
+
+            <\equation*>
+              r<rsub|3>=0.*a<rsub|31>*a<rsub|32>*a<rsub|33>*\<ldots\>
+            </equation*>
+
+            and so on, where each <math|r<rsub|i>> is a real number in the interval <math|<around|(|0,1|)>>, and each <math|a<rsub|i*j>> is a digit from 0 to 9.
+
+            <item><with|font-series|bold|Construct a New Real Number>: We will construct a new real number <math|x> in the interval <math|<around|(|0,1|)>> that differs from each <math|r<rsub|i>> in at least one decimal place. Define <math|x> as:
+
+            <\equation*>
+              x=0.*b<rsub|1>*b<rsub|2>*b<rsub|3>*\<ldots\>
+            </equation*>
+
+            where each decimal place <math|b<rsub|i>> is chosen such that <math|b<rsub|i>\<neq\>a<rsub|i*i>>. To ensure <math|x> is well-defined, we can set <math|b<rsub|i>> to be 1 if <math|a<rsub|i*i>\<neq\>1>, and 2 if <math|a<rsub|i*i>=1>. This guarantees that <math|b<rsub|i>\<neq\>a<rsub|i*i>> and <math|b<rsub|i>> is a valid digit (0 to 9).
+
+            <item><with|font-series|bold|Diagonal Argument>: By construction, the number <math|x> differs from <math|r<rsub|i>> in the <math|i>-th decimal place for every <math|i>:
+
+            <\equation*>
+              x\<neq\>r<rsub|i>*<space|1em><text|for all><space|1em>i\<in\>\<bbb-N\>.
+            </equation*>
+
+            This means <math|x> cannot be the same as any number in our original list.
+
+            <item><with|font-series|bold|Contradiction>: Since <math|x> is a real number in the interval <math|<around|(|0,1|)>> but is not in our list, our assumption that <math|\<bbb-R\>> is countable must be false.
+
+            <item><with|font-series|bold|Conclusion>: Therefore, the set of real numbers <math|\<bbb-R\>> is uncountable.
+          </enumerate>
+
+          Thus, we have shown that the set of real numbers <math|\<bbb-R\>> is uncountable.
+        </unfolded-io>
+
+        <\unfolded-io>
+          7B\<gtr\>\ 
+        <|unfolded-io>
+          <with|font-series|bold|Assume Countability>: Suppose, for the sake of contradiction, that the set of real numbers <math|\<bbb-R\>> is countable. This means that we can list all the real numbers between 0 and 1 in a sequence:
+
+          <\equation*>
+            r<rsub|1>=0.*a<rsub|11>*a<rsub|12>*a<rsub|13>*\<ldots\>
+          </equation*>
+
+          <\equation*>
+            r<rsub|2>=0.*a<rsub|21>*a<rsub|22>*a<rsub|23>*\<ldots\>
+          </equation*>
+
+          <\equation*>
+            r<rsub|3>=0.*a<rsub|31>*a<rsub|32>*a<rsub|33>*\<ldots\>
+          </equation*>
+
+          and so on, where each <math|r<rsub|i>> is a real number in the interval <math|<around|(|0,1|)>>, and each <math|a<rsub|i*j>> is a digit from 0 to 9.
+
+          I still don't understand this part, explain it for me
+        <|unfolded-io>
+          Certainly! Let's break down the part where we assume the set of real numbers <math|\<bbb-R\>> between 0 and 1 is countable, and then explain the subsequent steps in detail.
+
+          <subsubsection|Step-by-Step Explanation><label|step-by-step-explanation>
+
+          <\enumerate>
+            <assign|labelenumi|<macro|<number|<enumi-nr>|arabic>.>>
+
+            <item><with|font-series|bold|Assume Countability>:
+
+            <\itemize>
+              <item><with|font-series|bold|Suppose, for the sake of contradiction, that the set of real numbers <math|\<bbb-R\>> is countable.>
+
+              <item>This means that all real numbers between 0 and 1 can be listed in a sequence. We can represent these real numbers as infinite decimal expansions.
+            </itemize>
+
+            <item><with|font-series|bold|List Real Numbers>:
+
+            <\itemize>
+              <item><with|font-series|bold|We can list all the real numbers between 0 and 1 in a sequence:>
+
+              <\equation*>
+                r<rsub|1>=0.*a<rsub|11>*a<rsub|12>*a<rsub|13>*\<ldots\>
+              </equation*>
+
+              <\equation*>
+                r<rsub|2>=0.*a<rsub|21>*a<rsub|22>*a<rsub|23>*\<ldots\>
+              </equation*>
+
+              <\equation*>
+                r<rsub|3>=0.*a<rsub|31>*a<rsub|32>*a<rsub|33>*\<ldots\>
+              </equation*>
+
+              and so on, where each <math|r<rsub|i>> is a real number in the interval <math|<around|(|0,1|)>>.
+            </itemize>
+
+            <item><with|font-series|bold|Structure of Decimal Expansions>:
+
+            <\itemize>
+              <item>Each <math|r<rsub|i>> is represented as an infinite decimal expansion.
+
+              <item>The digit <math|a<rsub|i*j>> represents the <math|j>-th decimal place of the <math|i>-th real number <math|r<rsub|i>>.
+
+              <item>Each <math|a<rsub|i*j>> is a digit from 0 to 9.
+            </itemize>
+          </enumerate>
+
+          <subsubsection|Example><label|example>
+
+          <\itemize>
+            <item>Suppose we have the following list:
+
+            <\equation*>
+              r<rsub|1>=0.123456*\<ldots\>
+            </equation*>
+
+            <\equation*>
+              r<rsub|2>=0.234567*\<ldots\>
+            </equation*>
+
+            <\equation*>
+              r<rsub|3>=0.345678*\<ldots\>
+            </equation*>
+
+            <\equation*>
+              r<rsub|4>=0.456789*\<ldots\>
+            </equation*>
+
+            <\equation*>
+              \<vdots\>
+            </equation*>
+
+            <item>Here, the first digit after the decimal point of <math|r<rsub|1>> is 1, the second digit of <math|r<rsub|1>> is 2, and so on.
+          </itemize>
+
+          <subsubsection|Construct a New Number><label|construct-a-new-number>
+
+          <\itemize>
+            <item>We will construct a new real number <math|x> in the interval <math|<around|(|0,1|)>> that differs from each <math|r<rsub|i>> in at least one decimal place.
+
+            <item>Let <math|x=0.*b<rsub|1>*b<rsub|2>*b<rsub|3>*\<ldots\>>, where <math|b<rsub|i>\<neq\>a<rsub|i*i>> for each <math|i>.
+
+            <item>To ensure <math|x> is well-defined, we can set <math|b<rsub|i>> as follows:
+
+            <\itemize>
+              <item>If <math|a<rsub|i*i>\<neq\>1>, set <math|b<rsub|i>=1>.
+
+              <item>If <math|a<rsub|i*i>=1>, set <math|b<rsub|i>=2>.
+            </itemize>
+          </itemize>
+
+          <subsubsection|Example Construction><label|example-construction>
+
+          <\itemize>
+            <item>If our list is:
+
+            <\equation*>
+              r<rsub|1>=0.123456*\<ldots\>
+            </equation*>
+
+            <\equation*>
+              r<rsub|2>=0.234567*\<ldots\>
+            </equation*>
+
+            <\equation*>
+              r<rsub|3>=0.345678*\<ldots\>
+            </equation*>
+
+            <\equation*>
+              r<rsub|4>=0.456789*\<ldots\>
+            </equation*>
+
+            <item>The new number <math|x> would be:
+
+            <\equation*>
+              x=0.1221*\<ldots\>
+            </equation*>
+
+            <\itemize>
+              <item>Here, <math|b<rsub|1>=1\<neq\>1>
+
+              <item><math|b<rsub|2>=2\<neq\>2>
+
+              <item><math|b<rsub|3>=2\<neq\>3>
+
+              <item><math|b<rsub|4>=1\<neq\>4>
+
+              <item>And so on.
+            </itemize>
+          </itemize>
+
+          <subsubsection|Contradiction><label|contradiction>
+
+          <\itemize>
+            <item>By construction, <math|x> differs from <math|r<rsub|1>> in the first decimal place, <math|r<rsub|2>> in the second decimal place, <math|r<rsub|3>> in the third decimal place, and so on.
+
+            <item>Therefore, <math|x> cannot be in our original list of <math|r<rsub|1>,r<rsub|2>,r<rsub|3>,\<ldots\>>.
+          </itemize>
+
+          <subsubsection|Conclusion><label|conclusion>
+
+          <\itemize>
+            <item>Since <math|x> is a real number in the interval <math|<around|(|0,1|)>> but is not in our list, our assumption that <math|\<bbb-R\>> is countable must be false.
+          </itemize>
+
+          Thus, the set of real numbers <math|\<bbb-R\>> is uncountable.
+        </unfolded-io>
+
+        <\input>
+          7B\<gtr\>\ 
+        <|input>
+          \;
+        </input>
+      </session>
+    </session>
+  </proof>
+
+  \;
+
+  <\equation*>
+    <big|int><rsub|a><rsup|b>lim<rsub|x\<rightarrow\>\<infty\>>f<around*|(|x|)>
+  </equation*>
+
+  <\equation*>
+    <matrix|<tformat|<table|<row|<cell|1>|<cell|>|<cell|>>|<row|<cell|>|<cell|1>|<cell|>>|<row|<cell|>|<cell|>|<cell|1>>>>>
+  </equation*>
+
+  <\align>
+    <tformat|<table|<row|<cell|f<around*|(|x|)>\<leq\>>|<cell|<around*|\<\|\|\>|g<around*|(|x|)>-h<around*|(|x|)>|\<\|\|\>>>>|<row|<cell|\<leq\>>|<cell|<around*|\<\|\|\>|g<around*|(|x|)>-z<around*|(|x|)>|\<\|\|\>>+<around*|\<\|\|\>|z<around*|(|x|)>-h<around*|(|x|)>|\<\|\|\>>>>>>
+  </align>
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|additional-remarks|<tuple|4|?>>
+    <associate|alternative-proofs|<tuple|6|?>>
+    <associate|auto-1|<tuple|1|?>>
+    <associate|auto-10|<tuple|10|?>>
+    <associate|auto-2|<tuple|2|?>>
+    <associate|auto-3|<tuple|3|?>>
+    <associate|auto-4|<tuple|4|?>>
+    <associate|auto-5|<tuple|5|?>>
+    <associate|auto-6|<tuple|6|?>>
+    <associate|auto-7|<tuple|7|?>>
+    <associate|auto-8|<tuple|8|?>>
+    <associate|auto-9|<tuple|9|?>>
+    <associate|cantors-diagonal-argument|<tuple|1|?>>
+    <associate|conclusion|<tuple|7|?>>
+    <associate|construct-a-new-number|<tuple|4|?>>
+    <associate|contradiction|<tuple|6|?>>
+    <associate|example|<tuple|3|?>>
+    <associate|example-construction|<tuple|5|?>>
+    <associate|final-answer|<tuple|3|?>>
+    <associate|initial-thoughts-and-approaches|<tuple|2|?>>
+    <associate|introduction-to-the-problem|<tuple|1|?>>
+    <associate|potential-issues-and-clarifications|<tuple|5|?>>
+    <associate|proof-by-cantors-diagonal-argument|<tuple|1|?>>
+    <associate|proof-by-diagonalization-cantors-argument|<tuple|2|?>>
+    <associate|remark-on-cardinality|<tuple|2|?>>
+    <associate|step-by-step-explanation|<tuple|2|?>>
+    <associate|understanding-cantors-diagonal-argument|<tuple|3|?>>
+    <associate|verifying-the-proof|<tuple|4|?>>
+  </collection>
+</references>
