@@ -38,7 +38,9 @@
   This website is built in <hlink|GNU <TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>
   with the notes plugin, you can access the source repository by clicking:
   <hlink|Mogan|https://github.com/XmacsLabs/mogan> and
-  <hlink|texmacs-notes|https://github.com/texmacs/notes>.\ 
+  <hlink|texmacs-notes|https://github.com/texmacs/notes>. The AI-version of
+  Mogan is in <math|\<beta\>>-test now! You can access in <hlink|Liii STEM
+  Website|https://liiistem.com/>.
 
   Below, I have attached my CV. I welcome any opportunities that align with
   my expertise and interests. Please feel free to contact me if you are
