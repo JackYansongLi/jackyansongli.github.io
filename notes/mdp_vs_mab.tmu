@@ -1,0 +1,69 @@
+<TMU|<tuple|1.1.0|2025.1.0>>
+
+<style|<tuple|generic|number-europe|relate|smart-ref|preview-ref>>
+
+<\body>
+  <doc-data|<doc-title|Multi-armed bandit and Markov decision process>|<doc-author|<author-data|<author-name|Jack Yansong Li>|<author-email|yansong@liii.pro>|<\author-affiliation>
+    Liii Network
+  </author-affiliation>>>>
+
+  <abstract-data|<abstract|This short note is a proof of the equivalence between Multi-armed bandit and finite state-action discounted Markov decision process>>
+
+  We first introduce the definition of multi-armed bandit:
+
+  <\definition>
+    <label|def:mab><em|(Multi-armed bandit)> A Multi-Armed Bandit (MAB) is a tuple <math|<around*|(|A,r|)>>, where <math|A> is the set of actions/arms and\ 
+
+    <\equation*>
+      r:A\<rightarrow\>\<Delta\><around*|(|\<bbb-R\><rsub|+>|)>
+    </equation*>
+
+    is a stochastic reward function that maps an action to a distribution over <math|\<bbb-R\><rsub|+>\<triangleq\><around*|[|0,\<infty\>|)>>.
+  </definition>
+
+  By extending <smart-ref|def:mab> to multi-states, we have a Markov decision process.
+
+  <\definition>
+    <label|def:mdp><em|(Markov Decision Process)> A Markov Decision Process (MDP) is a tuple <math|<around*|(|S,A,\<bbb-P\>,r,\<gamma\>|)>>, where <math|S\<times\>A> is the set of state-action pairs and\ 
+
+    <\equation*>
+      r:S\<times\>A\<rightarrow\>\<Delta\><around*|(|<around*|[|0,1|]>|)>
+    </equation*>
+
+    is a stochastic reward function that maps a state-action pair to a distribution over <math|<around*|[|0,1|]>>. Similarly, the transition kernel <math|\<bbb-P\>> is a stochastic function that maps a state-action pair to a distribution over next state, formally defined as
+
+    <\equation*>
+      \<bbb-P\>:S\<times\>A\<rightarrow\>\<Delta\><around*|(|S|)>.
+    </equation*>
+  </definition>
+
+  We now prove that a finite state and finite action MDP can be reduced to a MAB.
+
+  <\theorem>
+    Consider a MDP defined in <smart-ref|def:mdp> that satisfies <math|<around*|\||S|\|>\<less\>\<infty\>>, <math|<around*|\||A|\|>\<less\>\<infty\>>, and <math|\<gamma\>\<less\>1>. Then, the MDP <math|<around*|(|S,A,r,\<bbb-P\>,\<gamma\>|)>> can be reduced to a MAB.
+  </theorem>
+
+  <\proof>
+    For any state-action pair <math|<around*|(|s,a|)>>, we can define expected cumulative reward <math|r<rsub|cum>> as
+
+    <\equation*>
+      r<rsub|cum><around*|(|s,a|)>\<triangleq\>\<bbb-E\><rsub|s<rsub|t+1>\<sim\>\<bbb-P\><around*|(|s<rsub|t>,a<rsub|t>|)>><around*|(|<big|sum><rsub|t=1><rsup|\<infty\>>\<gamma\><rsup|t>r<around*|(|s<rsub|t>,a<rsub|t>|)><mid|\|>s<rsub|1>=s,a<rsub|1>=a|)>.
+    </equation*>
+
+    The limit for <math|<big|sum><rsub|t=1><rsup|\<infty\>>\<gamma\><rsup|t>r<around*|(|s<rsub|t>,a<rsub|t>|)>> exists since <math|\<gamma\>\<less\>1> and <math|r<around*|(|s,a|)>\<leq\>1>. Therefor, the MDP <math|<around*|(|S,A,r,\<bbb-P\>,\<gamma\>|)>> can be reduced to a MAB with set of actions/arms be <math|<around*|(|S\<times\>A|)>> and reward function be <math|r<rsub|cum>>.
+  </proof>
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|def:mab|<tuple|1|1|../../Library/Application Support/moganlab/texts/scratch/no_name_1.tm>>
+    <associate|def:mdp|<tuple|2|1|../../Library/Application Support/moganlab/texts/scratch/no_name_1.tm>>
+  </collection>
+</references>
