@@ -1,0 +1,260 @@
+<TMU|<tuple|1.1.0|2025.0.14>>
+
+<style|<tuple|generic|number-europe|preview-ref|smart-ref|llm|doc|comment>>
+
+<\body>
+  <\hide-preamble>
+    <assign|potential|<macro|<math|V<around*|(|\<b-r\>,t|)>>>>
+  </hide-preamble>
+
+  <doc-data|<doc-title|Compensation Notes for Cohen Quantum Mechanics>|<doc-author|<author-data|<author-name|Jack Yansong Li>|<author-email|yansong@liii.pro>|<\author-affiliation>
+    Liii Network
+  </author-affiliation>>>>
+
+  If a particle (with mass <math|m>) has potential <potential>, then, it's wave function <math|\<psi\><around*|(|\<b-r\>,t|)>> satisfies the Schrödinger equation\ 
+
+  <\equation>
+    <frame|\<mathi\>\<hbar\><frac|\<partial\>|\<partial\>t>\<psi\><around*|(|\<b-r\>,t|)>=-<frac|\<hbar\><rsup|2>|2m>\<Delta\>\<psi\><around*|(|\<b-r\>,t|)>+<potential>\<psi\><around*|(|\<b-r\>,t|)>.><label|eq:sch-eq-with-potential>
+  </equation>
+
+  <paragraph|Case: zero potential>If <math|<potential>=0>, Eq.<nbsp><smart-ref|eq:sch-eq-with-potential> becomes\ 
+
+  <\equation>
+    \<mathi\>\<hbar\><frac|\<partial\>|\<partial\>t>\<psi\><around*|(|\<b-r\>,t|)>=-<frac|\<hbar\><rsup|2>|2m>\<Delta\>\<psi\><around*|(|\<b-r\>,t|)>.<label|eq:sch-without-potential>
+  </equation>
+
+  <\lemma>
+    The <with|font-series|bold|general solution> to the free-particle Schrödinger equation<nbsp><smart-ref|eq:sch-without-potential> is:
+
+    <\equation*>
+      <boxed|\<psi\><around|(|<math-bf|r>,t|)>=<big|int>A<around|(|<math-bf|k>|)>*e<rsup|<math-up|i><around|(|<math-bf|k>\<cdot\><math-bf|r>-\<hbar\>*k<rsup|2>*t/2*m|)>>*\<mathd\><rsup|3>k,>
+    </equation*>
+
+    representing a <with|font-series|bold|wave packet> (superposition of plane waves). For a single plane wave, the solution is:
+
+    <\equation*>
+      <boxed|\<psi\><rsub|<math-bf|k>><around|(|<math-bf|r>,t|)>=A<around*|(|<math-bf|k>|)> e<rsup|<math-up|i><around|(|<math-bf|k>\<cdot\><math-bf|r>-\<hbar\>*k<rsup|2>*t/2*m|)>>.>
+    </equation*>
+
+    This describes a particle with definite momentum <math|<math-bf|p>=\<hbar\><math-bf|k>> and energy <math|E=\<hbar\>*\<omega\>=\<hbar\><rsup|2>*k<rsup|2>/2*m>.
+  </lemma>
+
+  <\proof>
+    Assume the solution can be written as a product of a spatial part and a temporal part:
+
+    <\equation*>
+      \<psi\><around|(|<math-bf|r>,t|)>=\<phi\><around|(|<math-bf|r>|)>*T<around|(|t|)>.
+    </equation*>
+
+    Substitute into the Schrödinger equation:
+
+    <\equation*>
+      <math-up|i>\<hbar\>*\<phi\><around|(|<math-bf|r>|)><frac|\<mathd\>T|\<mathd\>t>=-<frac|\<hbar\><rsup|2>|2*m>*T<around|(|t|)>*\<Delta\>\<phi\><around|(|<math-bf|r>|)>.
+    </equation*>
+
+    Divide both sides by <math|\<phi\><around|(|<math-bf|r>|)>*T<around|(|t|)>>:
+
+    <\equation*>
+      <frac|<math-up|i>\<hbar\>|T<around|(|t|)>>*<frac|\<mathd\>T|\<mathd\>t>=-<frac|\<hbar\><rsup|2>|2*m>*<frac|\<Delta\>\<phi\><around|(|<math-bf|r>|)>|\<phi\><around|(|<math-bf|r>|)>>.
+    </equation*>
+
+    The left side depends only on <math|t>, and the right side only on <math|<math-bf|r>>. Since they are equal for all <math|<math-bf|r>> and <math|t>, both sides must equal a constant, say <math|E> (the energy):
+
+    <\equation*>
+      <frac|<math-up|i>\<hbar\>|T<around|(|t|)>>*<frac|\<mathd\>T|\<mathd\>t>=E,<space|1em>-<frac|\<hbar\><rsup|2>|2m>*<frac|\<Delta\>\<phi\><around|(|<math-bf|r>|)>|\<phi\><around|(|<math-bf|r>|)>>=E.
+    </equation*>
+
+    <hrule>
+
+    From the time equation:
+
+    <\equation*>
+      <frac|\<mathd\>T|\<mathd\>t>=-<frac|<math-up|i>E|\<hbar\>>*T<around|(|t|)>.
+    </equation*>
+
+    This is a first-order ODE with solution:
+
+    <\equation*>
+      T<around|(|t|)>=e<rsup|-<math-up|i>E*t/\<hbar\>>.
+    </equation*>
+
+    <hrule>
+
+    From the spatial equation:
+
+    <\equation*>
+      -<frac|\<hbar\><rsup|2>|2*m>*\<Delta\>\<phi\><around|(|<math-bf|r>|)>=E*\<phi\><around|(|<math-bf|r>|)>,
+    </equation*>
+
+    or equivalently:
+
+    <\equation*>
+      \<Delta\>\<phi\><around|(|<math-bf|r>|)>+k<rsup|2>*\<phi\><around|(|<math-bf|r>|)>=0,<space|1em><text|where><space|1em>k<rsup|2>=<frac|2*m E|\<hbar\><rsup|2>>.
+    </equation*>
+
+    This is the <with|font-series|bold|Helmholtz equation>, whose solutions are <with|font-series|bold|plane waves>:
+
+    <\equation*>
+      \<phi\><around|(|<math-bf|r>|)>=e<rsup|<math-up|i><math-bf|k>\<cdot\><math-bf|r>>,
+    </equation*>
+
+    where <math|<math-bf|k>> is the wavevector, and <math|<around|\||<math-bf|k>|\|>=k=<sqrt|2*m E>/\<hbar\>>.
+
+    <hrule>
+
+    Combining the time and spatial parts, the general solution is a <with|font-series|bold|superposition of plane waves>:
+
+    <\equation*>
+      \<psi\><around|(|<math-bf|r>,t|)>=<big|int>A<around|(|<math-bf|k>|)>*e<rsup|<math-up|i><around|(|<math-bf|k>\<cdot\><math-bf|r>-\<omega\>*t|)>>*d<rsup|3>*k,
+    </equation*>
+
+    where:\ 
+
+    - <math|A<around|(|<math-bf|k>|)>> is an amplitude determined by initial conditions,\ 
+
+    - The <with|font-series|bold|dispersion relation> is <math|\<omega\>=<frac|E|\<hbar\>>=<frac|\<hbar\>*k<rsup|2>|2*m>>.
+
+    <hrule>
+
+    Check that this satisfies the original equation:
+
+    <\equation*>
+      <frac|\<partial\>*\<psi\>|\<partial\>*t>=-<math-up|i>\<omega\>*\<psi\>,<space|1em>\<Delta\>\<psi\>=-k<rsup|2>*\<psi\>.
+    </equation*>
+
+    Substitute:
+
+    <\equation*>
+      <math-up|i>\<hbar\>*<around|(|-<math-up|i>\<omega\>\<psi\>|)>=-<frac|\<hbar\><rsup|2>|2*m>*<around|(|-k<rsup|2>*\<psi\>|)>,
+    </equation*>
+
+    which simplifies to:
+
+    <\equation*>
+      \<hbar\>*\<omega\>*\<psi\>=<frac|\<hbar\><rsup|2>k<rsup|2>|2*m>*\<psi\>,
+    </equation*>
+
+    true by the dispersion relation <math|\<omega\>=\<hbar\>k<rsup|2>/2*m>.
+
+    <hrule><label|summary>
+
+    The <with|font-series|bold|general solution> to the free-particle Schrödinger equation is:
+
+    <\equation*>
+      <boxed|\<psi\><around|(|<math-bf|r>,t|)>=<big|int>A<around|(|<math-bf|k>|)>*e<rsup|<math-up|i><around|(|<math-bf|k>\<cdot\><math-bf|r>-\<hbar\>*k<rsup|2>*t/2*m|)>>*\<mathd\><rsup|3>k,>
+    </equation*>
+
+    representing a <with|font-series|bold|wave packet> (superposition of plane waves). For a single plane wave, the solution is:
+
+    <\equation*>
+      <boxed|\<psi\><rsub|<math-bf|k>><around|(|<math-bf|r>,t|)>=A<around|(|<math-bf|k>|)>e<rsup|<math-up|i><around|(|<math-bf|k>\<cdot\><math-bf|r>-\<hbar\>*k<rsup|2>*t/2*m|)>>.>
+    </equation*>
+
+    This describes a particle with definite momentum <math|<math-bf|p>=\<hbar\><math-bf|k>> and energy <math|E=\<hbar\>*\<omega\>=\<hbar\><rsup|2>*k<rsup|2>/2*m>.
+  </proof>
+
+  <appendix|Helmholtz equation>
+
+  Helmholtz equation (time–independent part for a free particle):
+
+  <\equation*>
+    \<Delta\>\<phi\><around|(|<math-bf|r>|)>+k<rsup|2>*\<phi\><around|(|<math-bf|r>|)>=0,<space|2em>k=<frac|<sqrt|2*m*E>|\<hbar\>>.
+  </equation*>
+
+  Cartesian Laplacian:
+
+  <\equation*>
+    \<Delta\>=<frac|\<partial\><rsup|2>|\<partial\>*x<rsup|2>>+<frac|\<partial\><rsup|2>|\<partial\>*y<rsup|2>>+<frac|\<partial\><rsup|2>|\<partial\>*z<rsup|2>>.
+  </equation*>
+
+  Because the operator has constant coefficients, its eigenfunctions are exponentials. Therefore, try
+
+  <\equation*>
+    \<phi\><around|(|<math-bf|r>|)>=e<rsup|i<math-bf|k>\<cdot\><math-bf|r>>=e<rsup|i*<around|(|k<rsub|x>*x+k<rsub|y>*y+k<rsub|z>*z|)>>.
+  </equation*>
+
+  Compute derivatives:
+
+  <\equation*>
+    <frac|\<partial\><rsup|2>|\<partial\>*x<rsup|2>>*e<rsup|i*k<rsub|x>*x>=<around|(|i*k<rsub|x>|)><rsup|2>*e<rsup|i*k<rsub|x>*x>=-k<rsub|x><rsup|2>*e<rsup|i*k<rsub|x>*x>,
+  </equation*>
+
+  and similarly for <math|y,z>. Hence
+
+  <\equation*>
+    \<Delta\>\<phi\><around|(|<math-bf|r>|)>=-<around|(|k<rsub|x><rsup|2>+k<rsub|y><rsup|2>+k<rsub|z><rsup|2>|)>*\<phi\><around|(|<math-bf|r>|)>=-<around|\||<math-bf|k>|\|><rsup|2>*\<phi\><around|(|<math-bf|r>|)>.
+  </equation*>
+
+  Substitute into the Helmholtz equation:
+
+  <\equation*>
+    <around*|(|-<around|\||<math-bf|k>|\|><rsup|2>+k<rsup|2>|)>*\<phi\><around|(|<math-bf|r>|)>=0<space|1em>\<Rightarrow\><space|1em><around|\||<math-bf|k>|\|>=k.
+  </equation*>
+
+  Fix any scalar <math|C>. The set of points <math|\<b-r\>> that satisfirs
+
+  <\equation*>
+    <boxed|<math-bf|k>\<cdot\><math-bf|r>=C>
+  </equation*>
+
+  form a <with|font-series|bold|plane> perpendicular to <math|<math-bf|k>>. The phase of <math|\<phi\><around|(|<math-bf|r>|)>> is constant on this plane, and all such planes are parallel and equally spaced by <math|2\<pi\>/<around|\||<math-bf|k>|\|>>. The wavefronts are flat planes, so the function is called a <with|font-series|bold|plane wave>.
+
+  <\remark>
+    The wave function is
+
+    <equation*|\<phi\><around*|(|<with|math-font-series|bold|r>|)>=e<rsup|i<with|math-font-series|bold|k>\<cdot\><with|math-font-series|bold|r>>.>
+
+    Its<nbsp><strong|phase><nbsp>is the argument of the exponential:
+
+    <equation*|\<theta\><around*|(|<with|math-font-series|bold|r>|)>=<with|math-font-series|bold|k>\<cdot\><with|math-font-series|bold|r>.>
+
+    This phase depends on the position vector<nbsp><math|<with|math-font-series|bold|r>>. Consider a surface where the phase is constant:
+
+    <equation*|<with|math-font-series|bold|k>\<cdot\><with|math-font-series|bold|r>=C,>
+
+    where<nbsp><math|C><nbsp>is a constant. This equation defines a<nbsp><strong|plane><nbsp>perpendicular to the vector<nbsp><math|<with|math-font-series|bold|k>>, since<nbsp><math|<with|math-font-series|bold|k>><nbsp>is the normal vector to the plane.
+
+    On this plane, the phase<nbsp><math|\<theta\><around*|(|<with|math-font-series|bold|r>|)>=C><nbsp>is constant. Therefore, the wave function<nbsp><math|\<phi\><around*|(|<with|math-font-series|bold|r>|)>><nbsp>has the same value (up to a complex phase factor) everywhere on the plane. Now consider two parallel planes where the phases differ by<nbsp><math|2\<pi\>>:
+
+    <equation*|<with|math-font-series|bold|k>\<cdot\><with|math-font-series|bold|r>=C<with|mode|text| \ and \ ><with|math-font-series|bold|k>\<cdot\><with|math-font-series|bold|r>=C+2\<pi\>.>
+
+    The<nbsp><strong|distance><nbsp>between these planes along the direction of<nbsp><math|<with|math-font-series|bold|k>><nbsp>is found by projecting the difference onto the unit vector<nbsp><math|<wide|<with|math-font-series|bold|k>|^>=<with|math-font-series|bold|k>/\<mid\><with|math-font-series|bold|k>\<mid\>>:
+
+    <equation*|\<Delta\>r=<frac|2\<pi\>|\<mid\><with|math-font-series|bold|k>\<mid\>>.>
+
+    Thus, the planes of constant phase are<nbsp><strong|equally spaced><nbsp>by a distance<nbsp><math|2\<pi\>/\<mid\><with|math-font-series|bold|k>\<mid\>>. In wave theory, a<nbsp><strong|wavefront><nbsp>is a surface of constant phase. Here, the wavefronts are<nbsp><strong|flat planes><nbsp>perpendicular to<nbsp><math|<with|math-font-series|bold|k>>, and they are equally spaced. Because these wavefronts are planes, the wave is called a<nbsp><strong|plane wave>. The phase<nbsp><math|\<theta\><around*|(|<with|math-font-series|bold|r>|)>=<with|math-font-series|bold|k>\<cdot\><with|math-font-series|bold|r>><nbsp>is constant on the planes<nbsp><math|<with|math-font-series|bold|k>\<cdot\><with|math-font-series|bold|r>=C>, which are perpendicular to<nbsp><math|<with|math-font-series|bold|k>>. These planes are parallel and equally spaced by<nbsp><math|2\<pi\>/\<mid\><with|math-font-series|bold|k>\<mid\>>, forming flat wavefronts. Hence,<nbsp><math|\<phi\><around*|(|<with|math-font-series|bold|r>|)>><nbsp>is a<nbsp><strong|plane wave>.
+
+    <equation*|<frame|<with|math-level|0|math-display|false|<with|math-level|0|math-display|false|<with|math-level|0|math-display|true|<frac|2\<pi\>|\<mid\><with|math-font-series|bold|k>\<mid\>>>>>>>
+  </remark>
+
+  \;
+
+  \;
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-2|<tuple|A|3>>
+    <associate|eq:sch-eq-with-potential|<tuple|1|1>>
+    <associate|eq:sch-without-potential|<tuple|2|1>>
+    <associate|summary|<tuple|1|2>>
+  </collection>
+</references>
+
+<\auxiliary>
+  <\collection>
+    <\associate|toc>
+      <with|par-left|<quote|3tab>|Case: zero potential <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-1>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix A<space|2spc>Helmholtz equation> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-2><vspace|0.5fn>
+    </associate>
+  </collection>
+</auxiliary>
