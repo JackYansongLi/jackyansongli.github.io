@@ -1,4 +1,4 @@
-<TeXmacs|2.1.2>
+<TeXmacs|2.1.4>
 
 <style|notes>
 
@@ -9,6 +9,18 @@
 
   <notes-abstract|A list of all the articles in the website, ordered by the
   most recent modification time.>
+
+  <section|Mogan/Liii STEM Tutorial>
+
+  <hrule>
+
+  <\notes-entry|../liii_tuto/calculus_symbol.tmu>
+    How to type formulas used in Calculus?
+  </notes-entry|(No abstract)|<date|>>
+
+  <hrule>
+
+  <section|Notes>
 
   <hrule>
 
@@ -31,6 +43,8 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|?|?>>
+    <associate|auto-2|<tuple|1|?>>
+    <associate|auto-3|<tuple|2|?>>
   </collection>
 </references>
 
