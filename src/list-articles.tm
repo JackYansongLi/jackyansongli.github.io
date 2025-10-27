@@ -14,7 +14,7 @@
 
   <hrule>
 
-  <\notes-entry|../liii_tuto/calculus_symbol.tmu>
+  <\notes-entry|calculus_symbol.pdf>
     How to type formulas used in Calculus?
   </notes-entry|(No abstract)|<date|>>
 
