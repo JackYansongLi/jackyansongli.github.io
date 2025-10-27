@@ -1,0 +1,178 @@
+<TMU|<tuple|1.1.0|2025.1.5>>
+
+<style|<tuple|generic|number-europe|preview-ref|smart-ref>>
+
+<\body>
+  <section|Derivation of the Quaternion-to-Matrix Correspondence>
+
+  The matrix representations of quaternions are not guessed but are derived systematically. The core idea is to<nbsp><strong|view quaternion multiplication as a linear transformation and find the matrix representation of this transformation with respect to a specific basis.>
+
+  We will use the most common<nbsp><strong|2x2 complex matrix representation><nbsp>for this derivation.
+
+  <subsubsection*|<strong|Step 1: Treat a Quaternion as an Operator>>
+
+  Consider the set of<nbsp><strong|pure quaternions>, which have the form<nbsp><math|p=x<with|math-font-series|bold|i>+y<with|math-font-series|bold|j>+z<with|math-font-series|bold|k>><nbsp>(no real part). We can view an ordinary quaternion<nbsp><math|q=a+b<with|math-font-series|bold|i>+c<with|math-font-series|bold|j>+d<with|math-font-series|bold|k>><nbsp>as an<nbsp><strong|operator><nbsp>that acts on a pure quaternion<nbsp><math|p><nbsp>via quaternion multiplication.
+
+  However, there's a more elegant method. Consider the<nbsp><strong|left-multiplication><nbsp>operation of a quaternion<nbsp><math|q><nbsp>on another quaternion<nbsp><math|v>:
+
+  <equation*|L<rsub|q><around*|(|v|)>=q\<cdot\>v>
+
+  Here,<nbsp><math|L<rsub|q>><nbsp>is a<nbsp><strong|linear transformation><nbsp>because quaternion multiplication satisfies the distributive and associative laws:
+
+  <equation*|L<rsub|q><around*|(|\<alpha\>u+\<beta\>v|)>=q\<cdot\><around*|(|\<alpha\>u+\<beta\>v|)>=\<alpha\><around*|(|q\<cdot\>u|)>+\<beta\><around*|(|q\<cdot\>v|)>>
+
+  Our goal is to find the matrix for the linear transformation<nbsp><math|L<rsub|q>>.
+
+  <subsubsection*|<strong|Step 2: Choose a Suitable Vector Space (Representation Space)>>
+
+  To obtain <math|2\<times\>2> matrices, we need a 2-dimensional representation space. A clever choice is to use the set of all quaternions of the form<nbsp><math|\<alpha\>+\<beta\><with|math-font-series|bold|j>>, where<nbsp><math|\<alpha\>,\<beta\>><nbsp>are<nbsp><strong|complex numbers><nbsp>(here, we identify the ordinary imaginary unit<nbsp><math|i><nbsp>with the quaternion<nbsp><math|<with|math-font-series|bold|i>>).
+
+  Why does this work?
+
+  <\itemize>
+    <item>Note that any quaternion<nbsp><math|v><nbsp>can be uniquely written as<nbsp><math|v=<around*|(|w+z<with|math-font-series|bold|i>|)>+<around*|(|x+y<with|math-font-series|bold|i>|)><with|math-font-series|bold|j>>.
+
+    <item>Let's verify:
+
+    <equation*|<around*|(|x+y<with|math-font-series|bold|i>|)><with|math-font-series|bold|j>=x<with|math-font-series|bold|j>+y<with|math-font-series|bold|i><with|math-font-series|bold|j>=x<with|math-font-series|bold|j>+y<with|math-font-series|bold|k>>
+
+    <equation*|<around*|(|w+z<with|math-font-series|bold|i>|)>+<around*|(|x+y<with|math-font-series|bold|i>|)><with|math-font-series|bold|j>=w+z<with|math-font-series|bold|i>+x<with|math-font-series|bold|j>+y<with|math-font-series|bold|k>>
+
+    This is precisely the quaternion<nbsp><math|v=w+z<with|math-font-series|bold|i>+x<with|math-font-series|bold|j>+y<with|math-font-series|bold|k>>.
+  </itemize>
+
+  Thus, we establish an isomorphism:
+
+  <equation*|<with|mode|text|<with|font-series|bold|Quaternion><nbsp>>v=w+z<with|math-font-series|bold|i>+x<with|math-font-series|bold|j>+y<with|math-font-series|bold|k>\<longleftrightarrow\><with|mode|text|<with|font-series|bold|2D<nbsp>Complex<nbsp>Vector><nbsp>><around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|\<alpha\>>>>|<row|<cell|<with|math-level|0|math-display|false|\<beta\>>>>>>>|)>=<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|w+zi>>>|<row|<cell|<with|math-level|0|math-display|false|x+yi>>>>>>|)>>
+
+  Our representation space now consists of these two-dimensional complex vectors.
+
+  <subsubsection*|<strong|Step 3: Derive the Action (Matrix) of the Basis Elements>>
+
+  We now examine what happens when we left-multiply a vector<nbsp><math|v=\<alpha\>+\<beta\><with|math-font-series|bold|j>><nbsp>by the quaternion basis elements<nbsp><math|<around*|{|1,<with|math-font-series|bold|i>,<with|math-font-series|bold|j>,<with|math-font-series|bold|k>|}>>. Our goal is to express the result as<nbsp><math|\<alpha\><rsup|\<prime\>>+\<beta\><rsup|\<prime\>><with|math-font-series|bold|j>><nbsp>and read off the matrix.
+
+  <\enumerate>
+    <item><strong|Basis Element<nbsp><math|1>>:
+
+    <equation*|1\<cdot\><around*|(|\<alpha\>+\<beta\><with|math-font-series|bold|j>|)>=\<alpha\>+\<beta\><with|math-font-series|bold|j>>
+
+    So<nbsp><math|\<alpha\><rsup|\<prime\>>=\<alpha\>>,<nbsp><math|\<beta\><rsup|\<prime\>>=\<beta\>>. The corresponding matrix is:
+
+    <equation*|<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|\<alpha\><rsup|\<prime\>>>>>|<row|<cell|<with|math-level|0|math-display|false|\<beta\><rsup|\<prime\>>>>>>>>|)>=<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|1>>|<cell|<with|math-level|0|math-display|false|0>>>|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|1>>>>>>|)><around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|\<alpha\>>>>|<row|<cell|<with|math-level|0|math-display|false|\<beta\>>>>>>>|)>>
+
+    ✅<nbsp><math|1\<rightarrow\><around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|1>>|<cell|<with|math-level|0|math-display|false|0>>>|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|1>>>>>>|)>>
+
+    <item><strong|Basis Element<nbsp><math|<with|math-font-series|bold|i>>>:
+
+    <equation*|<with|math-font-series|bold|i>\<cdot\><around*|(|\<alpha\>+\<beta\><with|math-font-series|bold|j>|)>=<with|math-font-series|bold|i>\<alpha\>+<with|math-font-series|bold|i>\<beta\><with|math-font-series|bold|j>>
+
+    Note that<nbsp><math|\<alpha\>=w+zi>, and here<nbsp><math|i><nbsp>is<nbsp><math|<with|math-font-series|bold|i>>, so<nbsp><math|<with|math-font-series|bold|i>\<alpha\>=<with|math-font-series|bold|i><around*|(|w+z<with|math-font-series|bold|i>|)>=<with|math-font-series|bold|i>w+<with|math-font-series|bold|i>z<with|math-font-series|bold|i>=w<with|math-font-series|bold|i>+z<with|math-font-series|bold|i><rsup|2>=w<with|math-font-series|bold|i>-z>.<next-line>This is still of the form<nbsp><math|<around*|(|w<with|math-font-series|bold|i>-z|)>>, which can be written as<nbsp><math|<around*|(|-z+w<with|math-font-series|bold|i>|)>=i\<alpha\>><nbsp>(here<nbsp><math|i><nbsp>is the complex unit, acting on<nbsp><math|\<alpha\>><nbsp>by multiplication by<nbsp><math|i>).<next-line>Now look at the second term<nbsp><math|<with|math-font-series|bold|i>\<beta\><with|math-font-series|bold|j>>. Using<nbsp><math|<with|math-font-series|bold|i><with|math-font-series|bold|j>=<with|math-font-series|bold|k>><nbsp>and<nbsp><math|<with|math-font-series|bold|k>=-<with|math-font-series|bold|j><with|math-font-series|bold|i>>, we get:
+
+    <equation*|<with|math-font-series|bold|i>\<beta\><with|math-font-series|bold|j>=\<beta\><around*|(|<with|math-font-series|bold|i><with|math-font-series|bold|j>|)>=\<beta\><with|math-font-series|bold|k>=\<beta\><around*|(|-<with|math-font-series|bold|j><with|math-font-series|bold|i>|)>=-<with|math-font-series|bold|j><around*|(|\<beta\><with|math-font-series|bold|i>|)>>
+
+    Here,<nbsp><math|\<beta\><with|math-font-series|bold|i>><nbsp>is the complex number<nbsp><math|\<beta\>><nbsp>multiplied by<nbsp><math|i><nbsp>(since<nbsp><math|<with|math-font-series|bold|i>><nbsp>is identified with<nbsp><math|i>).<next-line>So,<nbsp><math|<with|math-font-series|bold|i>\<beta\><with|math-font-series|bold|j>=-<with|math-font-series|bold|j><around*|(|i\<beta\>|)>>.
+
+    Putting it all together:
+
+    <equation*|<with|math-font-series|bold|i>\<cdot\><around*|(|\<alpha\>+\<beta\><with|math-font-series|bold|j>|)>=<around*|(|i\<alpha\>|)>+<around*|(|-i\<beta\>|)><with|math-font-series|bold|j>>
+
+    So<nbsp><math|\<alpha\><rsup|\<prime\>>=i\<alpha\>>,<nbsp><math|\<beta\><rsup|\<prime\>>=-i\<beta\>>. The corresponding matrix is:
+
+    <equation*|<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|\<alpha\><rsup|\<prime\>>>>>|<row|<cell|<with|math-level|0|math-display|false|\<beta\><rsup|\<prime\>>>>>>>>|)>=<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|i>>|<cell|<with|math-level|0|math-display|false|0>>>|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-i>>>>>>|)><around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|\<alpha\>>>>|<row|<cell|<with|math-level|0|math-display|false|\<beta\>>>>>>>|)>>
+
+    ✅<nbsp><math|<with|math-font-series|bold|i>\<rightarrow\><around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|i>>|<cell|<with|math-level|0|math-display|false|0>>>|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-i>>>>>>|)>>
+
+    <item><strong|Basis Element<nbsp><math|<with|math-font-series|bold|j>>>:
+
+    <equation*|<with|math-font-series|bold|j>\<cdot\><around*|(|\<alpha\>+\<beta\><with|math-font-series|bold|j>|)>=<with|math-font-series|bold|j>\<alpha\>+<with|math-font-series|bold|j>\<beta\><with|math-font-series|bold|j>>
+
+    Let's determine the result more directly. We know how<nbsp><math|<with|math-font-series|bold|j>><nbsp>multiplies the quaternion basis: it sends<nbsp><math|1><nbsp>to<nbsp><math|<with|math-font-series|bold|j>>,<nbsp><math|<with|math-font-series|bold|i>><nbsp>to<nbsp><math|<with|math-font-series|bold|k>>,<nbsp><math|<with|math-font-series|bold|j>><nbsp>to<nbsp><math|-1>, and<nbsp><math|<with|math-font-series|bold|k>><nbsp>to<nbsp><math|-<with|math-font-series|bold|i>>.<next-line>In our representation<nbsp><math|v=\<alpha\>+\<beta\><with|math-font-series|bold|j>>:
+
+    <\itemize>
+      <item>The<nbsp><math|\<alpha\>><nbsp>part (containing<nbsp><math|1><nbsp>and<nbsp><math|<with|math-font-series|bold|i>>) when multiplied by<nbsp><math|<with|math-font-series|bold|j>><nbsp>becomes<nbsp><math|<with|math-font-series|bold|j>><nbsp>and<nbsp><math|<with|math-font-series|bold|k>>.
+
+      <item>The<nbsp><math|\<beta\><with|math-font-series|bold|j>><nbsp>part (containing<nbsp><math|<with|math-font-series|bold|j>><nbsp>and<nbsp><math|<with|math-font-series|bold|k>>) when multiplied by<nbsp><math|<with|math-font-series|bold|j>><nbsp>becomes<nbsp><math|-1><nbsp>and<nbsp><math|-<with|math-font-series|bold|i>>.<next-line>Specifically:
+    </itemize>
+
+    <equation*|<with|math-font-series|bold|j>\<cdot\><around*|(|\<alpha\>+\<beta\><with|math-font-series|bold|j>|)>=<around*|(|-<wide|\<beta\>|\<wide-bar\>>|)>+<around*|(|<wide|\<alpha\>|\<wide-bar\>>|)><with|math-font-series|bold|j>>
+
+    Let's verify with<nbsp><math|\<alpha\>=w+zi,\<beta\>=x+yi>.
+
+    <\itemize>
+      <item><math|-<wide|\<beta\>|\<wide-bar\>>=-x+yi>
+
+      <item><math|<wide|\<alpha\>|\<wide-bar\>>=w-zi><next-line>From the quaternion perspective:<next-line><math|<with|math-font-series|bold|j>\<cdot\><around*|(|w+z<with|math-font-series|bold|i>+x<with|math-font-series|bold|j>+y<with|math-font-series|bold|k>|)>=w<with|math-font-series|bold|j>+z<with|math-font-series|bold|j><with|math-font-series|bold|i>+x<with|math-font-series|bold|j><with|math-font-series|bold|j>+y<with|math-font-series|bold|j><with|math-font-series|bold|k>=w<with|math-font-series|bold|j>-z<with|math-font-series|bold|k>-x+y<with|math-font-series|bold|i>=<around*|(|-x+y<with|math-font-series|bold|i>|)>+<around*|(|w<with|math-font-series|bold|j>-z<with|math-font-series|bold|k>|)>><next-line>And<nbsp><math|w<with|math-font-series|bold|j>-z<with|math-font-series|bold|k>=<around*|(|w-z<with|math-font-series|bold|i>|)><with|math-font-series|bold|j>=<wide|\<alpha\>|\<wide-bar\>><with|math-font-series|bold|j>>.<next-line>It is correct.
+    </itemize>
+
+    So<nbsp><math|\<alpha\><rsup|\<prime\>>=-<wide|\<beta\>|\<wide-bar\>>>,<nbsp><math|\<beta\><rsup|\<prime\>>=<wide|\<alpha\>|\<wide-bar\>>>. In the complex vector space, this corresponds to the matrix:
+
+    <equation*|<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|\<alpha\><rsup|\<prime\>>>>>|<row|<cell|<with|math-level|0|math-display|false|\<beta\><rsup|\<prime\>>>>>>>>|)>=<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-1>>>|<row|<cell|<with|math-level|0|math-display|false|1>>|<cell|<with|math-level|0|math-display|false|0>>>>>>|)><around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|\<alpha\>>>>|<row|<cell|<with|math-level|0|math-display|false|\<beta\>>>>>>>|)>>
+
+    (Note that matrix multiplication is linear, and complex conjugation is handled separately; in this specific representation, the matrix for<nbsp><math|<with|math-font-series|bold|j>><nbsp>happens to be real).<next-line>✅<nbsp><math|<with|math-font-series|bold|j>\<rightarrow\><around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-1>>>|<row|<cell|<with|math-level|0|math-display|false|1>>|<cell|<with|math-level|0|math-display|false|0>>>>>>|)>>
+
+    <item><strong|Basis Element<nbsp><math|<with|math-font-series|bold|k>>>:<next-line>We know<nbsp><math|<with|math-font-series|bold|k>=<with|math-font-series|bold|i><with|math-font-series|bold|j>>. Therefore, the matrix for<nbsp><math|<with|math-font-series|bold|k>><nbsp>is the product of the matrices for<nbsp><math|<with|math-font-series|bold|i>><nbsp>and<nbsp><math|<with|math-font-series|bold|j>>:
+
+    <equation*|<around*|[|<with|math-font-series|bold|k>|]>=<around*|[|<with|math-font-series|bold|i>|]><around*|[|<with|math-font-series|bold|j>|]>=<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|i>>|<cell|<with|math-level|0|math-display|false|0>>>|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-i>>>>>>|)><around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-1>>>|<row|<cell|<with|math-level|0|math-display|false|1>>|<cell|<with|math-level|0|math-display|false|0>>>>>>|)>=<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-i>>>|<row|<cell|<with|math-level|0|math-display|false|-i>>|<cell|<with|math-level|0|math-display|false|0>>>>>>|)>>
+
+    This is typically written as<nbsp><math|<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-i>>>|<row|<cell|<with|math-level|0|math-display|false|-i>>|<cell|<with|math-level|0|math-display|false|0>>>>>>|)>>. It differs from<nbsp><math|<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|i>>>|<row|<cell|<with|math-level|0|math-display|false|i>>|<cell|<with|math-level|0|math-display|false|0>>>>>>|)>><nbsp>by a global sign, which depends on the convention used. The initial answer gave<nbsp><math|<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|i>>>|<row|<cell|<with|math-level|0|math-display|false|i>>|<cell|<with|math-level|0|math-display|false|0>>>>>>|)>>, which corresponds to<nbsp><math|<with|math-font-series|bold|k>=<with|math-font-series|bold|j><with|math-font-series|bold|i>><nbsp>(note the order!). According to our derivation<nbsp><math|<with|math-font-series|bold|k>=<with|math-font-series|bold|i><with|math-font-series|bold|j>>,<nbsp><math|<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-i>>>|<row|<cell|<with|math-level|0|math-display|false|-i>>|<cell|<with|math-level|0|math-display|false|0>>>>>>|)>><nbsp>is more direct. Both conventions are valid as long as one is consistent.<next-line>✅<nbsp><math|<with|math-font-series|bold|k>\<rightarrow\><around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-i>>>|<row|<cell|<with|math-level|0|math-display|false|-i>>|<cell|<with|math-level|0|math-display|false|0>>>>>>|)>>
+  </enumerate>
+
+  <hrule>
+
+  <subsection*|<strong|Summary of the Derivation>>
+
+  By realizing the left-multiplication operation<nbsp><math|L<rsub|q>><nbsp>of a quaternion as a linear transformation on the<nbsp><strong|two-dimensional complex space><nbsp>spanned by<nbsp><math|<around*|{|1,<with|math-font-series|bold|j>|}>>, we systematically derived the matrices corresponding to the four basis elements.
+
+  Finally, the matrix for any quaternion<nbsp><math|q=a+b<with|math-font-series|bold|i>+c<with|math-font-series|bold|j>+d<with|math-font-series|bold|k>><nbsp>is the linear combination of these basis matrices:
+
+  <equation*|q\<rightarrow\>a<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|1>>|<cell|<with|math-level|0|math-display|false|0>>>|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|1>>>>>>|)>+b<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|i>>|<cell|<with|math-level|0|math-display|false|0>>>|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-i>>>>>>|)>+c<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-1>>>|<row|<cell|<with|math-level|0|math-display|false|1>>|<cell|<with|math-level|0|math-display|false|0>>>>>>|)>+d<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|0>>|<cell|<with|math-level|0|math-display|false|-i>>>|<row|<cell|<with|math-level|0|math-display|false|-i>>|<cell|<with|math-level|0|math-display|false|0>>>>>>|)>=<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|a+bi>>|<cell|<with|math-level|0|math-display|false|-c-di>>>|<row|<cell|<with|math-level|0|math-display|false|c-di>>|<cell|<with|math-level|0|math-display|false|a-bi>>>>>>|)>>
+
+  By redefining the sign of<nbsp><math|d><nbsp>(or adjusting the sign convention for<nbsp><math|<with|math-font-series|bold|k>>), this matrix can be transformed into the more common form<nbsp><math|<around*|(|<tabular|<tformat|<cwith|1|-1|1|1|cell-halign|c>|<cwith|1|-1|2|2|cell-halign|c>|<table|<row|<cell|<with|math-level|0|math-display|false|a+bi>>|<cell|<with|math-level|0|math-display|false|c+di>>>|<row|<cell|<with|math-level|0|math-display|false|-c+di>>|<cell|<with|math-level|0|math-display|false|a-bi>>>>>>|)>>.<nbsp><strong|The key point is that this correspondence preserves all the algebraic rules of quaternion arithmetic.>
+
+  \;
+
+  \;
+
+  \;
+
+  \;
+
+  \;
+
+  \;
+
+  \;
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|auto-1|<tuple|1|1|../../../Library/Application Support/liiilabs/texts/scratch/no_name_409.tm>>
+    <associate|auto-2|<tuple|1|1|../../../Library/Application Support/liiilabs/texts/scratch/no_name_409.tm>>
+    <associate|auto-3|<tuple|1|1|../../../Library/Application Support/liiilabs/texts/scratch/no_name_409.tm>>
+    <associate|auto-4|<tuple|<with|mode|<quote|math>|\<bullet\>>|1|../../../Library/Application Support/liiilabs/texts/scratch/no_name_409.tm>>
+    <associate|auto-5|<tuple|4|3|../../../Library/Application Support/liiilabs/texts/scratch/no_name_409.tm>>
+  </collection>
+</references>
+
+<\auxiliary>
+  <\collection>
+    <\associate|toc>
+      <with|par-left|<quote|1tab>|<with|font-series|<quote|bold>|math-font-series|<quote|bold>|Derivation of the Quaternion-to-Matrix Correspondence> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-1>>
+
+      <with|par-left|<quote|2tab>|<with|font-series|<quote|bold>|math-font-series|<quote|bold>|Step 1: Treat a Quaternion as an Operator> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-2>>
+
+      <with|par-left|<quote|2tab>|<with|font-series|<quote|bold>|math-font-series|<quote|bold>|Step 2: Choose a Suitable Vector Space (Representation Space)> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-3>>
+
+      <with|par-left|<quote|2tab>|<with|font-series|<quote|bold>|math-font-series|<quote|bold>|Step 3: Derive the Action (Matrix) of the Basis Elements> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-4>>
+
+      <with|par-left|<quote|1tab>|<with|font-series|<quote|bold>|math-font-series|<quote|bold>|Summary of the Derivation> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-5>>
+    </associate>
+  </collection>
+</auxiliary>

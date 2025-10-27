@@ -1,0 +1,327 @@
+<TMU|<tuple|1.1.0|2025.1.3-rc1>>
+
+<style|<tuple|generic|number-europe|llm>>
+
+<\body>
+  <doc-data|<doc-title|Lecture Notes on OOP>|<doc-author|<author-data|<author-name|Yuqun Zhang>>>>
+
+  <section|Requirement engineering >
+
+  Requirement engineering is one element of the <with|font-shape|italic|Waterful model>.\ 
+
+  <\itemize>
+    <item>Requirement engineering
+
+    <item>Design
+
+    <item>Implementation
+
+    <item>Testing (Verification)
+
+    <item>Maintenance
+  </itemize>
+
+  <subsection|Waterfall model (AI generated)>
+
+  <subsubsection*|The Big Picture: The Waterfall Model><label|the-big-picture-the-waterfall-model>
+
+  The Waterfall Model is a <with|font-series|bold|linear and sequential> approach to software development. The name “waterfall” comes from the idea that progress flows steadily downwards (like a waterfall) through these phases.\ 
+
+  The key characteristic is that each phase must be <with|font-series|bold|100% complete> and its output (documentation, design specs, code) approved before the next phase can begin. There is no going back to a previous phase easily; if a mistake is found late, it is very costly and disruptive to fix.\ 
+
+  <hrule>
+
+  <subsubsection*|Explanation of Each Phase in the List><label|explanation-of-each-phase-in-the-list>
+
+  Your list outlines the five core phases of the traditional Waterfall Model:\ 
+
+  <with|font-series|bold|1. Requirement Engineering (a.k.a. Requirements Gathering & Analysis)>\ 
+
+  <\itemize>
+    <item><with|font-series|bold|What it is:> This is the <with|font-series|bold|first and most crucial phase>. The development team works with the client and end-users to understand, document, and define <with|font-series|bold|exactly what the software must do>. The goal is to capture all functional requirements (features) and non-functional requirements (performance, security, etc.).
+
+    <item><with|font-series|bold|Output:> A detailed <with|font-series|bold|Software Requirements Specification (SRS)> document. This document is the foundation for all subsequent phases and is signed off by all stakeholders.
+  </itemize>
+
+  <\session|llm|DeepSeek-V3.1>
+    <\folded-io-text>
+      V3.1\<gtr\>\ 
+    <|folded-io-text>
+      Requirement engineering is one element of the <with|font-series|bold|Waterful model>.\ 
+
+      <\itemize>
+        <item>Requirement engineering
+
+        <item>Design
+
+        <item>Implementation
+
+        <item>Testing (Verification)
+
+        <item>Maintenance
+      </itemize>
+
+      explain this
+    <|folded-io-text>
+      \;
+
+      <subsubsection*|The Big Picture: The Waterfall Model><label|the-big-picture-the-waterfall-model>
+
+      The Waterfall Model is a <with|font-series|bold|linear and sequential> approach to software development. The name “waterfall” comes from the idea that progress flows steadily downwards (like a waterfall) through these phases.\ 
+
+      The key characteristic is that each phase must be <with|font-series|bold|100% complete> and its output (documentation, design specs, code) approved before the next phase can begin. There is no going back to a previous phase easily; if a mistake is found late, it is very costly and disruptive to fix.\ 
+
+      <hrule>
+
+      <subsubsection*|Explanation of Each Phase in the List><label|explanation-of-each-phase-in-the-list>
+
+      Your list outlines the five core phases of the traditional Waterfall Model:\ 
+
+      <with|font-series|bold|1. Requirement Engineering (a.k.a. Requirements Gathering & Analysis)>\ 
+
+      <\itemize>
+        <item><with|font-series|bold|What it is:> This is the <with|font-series|bold|first and most crucial phase>. The development team works with the client and end-users to understand, document, and define <with|font-series|bold|exactly what the software must do>. The goal is to capture all functional requirements (features) and non-functional requirements (performance, security, etc.).
+
+        <item><with|font-series|bold|Output:> A detailed <with|font-series|bold|Software Requirements Specification (SRS)> document. This document is the foundation for all subsequent phases and is signed off by all stakeholders.
+      </itemize>
+
+      <with|font-series|bold|2. Design>\ 
+
+      <\itemize>
+        <item><with|font-series|bold|What it is:> Using the SRS document from the previous phase, system architects and designers create the <with|font-series|bold|blueprint for the system>. This phase defines <em|how> the system will be built. It involves:
+
+        <\itemize>
+          <item><with|font-series|bold|System Design:> Defining the overall system architecture, hardware setup, and software components.
+
+          <item><with|font-series|bold|Detailed Design:> Defining the logic of each module, database structure, algorithms, and user interfaces.
+        </itemize>
+
+        <item><with|font-series|bold|Output:> <with|font-series|bold|Design Document Specification (DDS)>. This is the roadmap for the programmers.
+      </itemize>
+
+      <with|font-series|bold|3. Implementation (a.k.a. Coding & Development)>\ 
+
+      <\itemize>
+        <item><with|font-series|bold|What it is:> Programmers and developers start writing the <with|font-series|bold|actual code> for the system based on the design documents created in the previous phase. This is where the software is physically built.
+
+        <item><with|font-series|bold|Output:> The <with|font-series|bold|source code> and the executable program (the software itself).
+      </itemize>
+
+      <with|font-series|bold|4. Testing (Verification & Validation)>\ 
+
+      <\itemize>
+        <item><with|font-series|bold|What it is:> The software built in the implementation phase is rigorously tested against the requirements defined in the <em|first> phase (the SRS). Testers check for bugs, errors, and any mismatches between the requirement and the implemented feature.
+
+        <\itemize>
+          <item><with|font-series|bold|Verification:> “Are we building the product <with|font-series|bold|right>?” (Does the code meet the design specs?)
+
+          <item><with|font-series|bold|Validation:> “Are we building the <with|font-series|bold|right product>?” (Does the final product meet the user's needs from the SRS?)
+        </itemize>
+
+        <item><with|font-series|bold|Output:> <with|font-series|bold|Test reports, bug reports>, and a stable, tested version of the software ready for release.
+      </itemize>
+
+      <with|font-series|bold|5. Maintenance>\ 
+
+      <\itemize>
+        <item><with|font-series|bold|What it is:> After the software is deployed and being used by customers, the <with|font-series|bold|long-term phase> begins. The development team handles issues that arise, provides support, and releases updates. This includes:
+
+        <\itemize>
+          <item>Fixing newly discovered bugs.
+
+          <item>Adapting the software to new environments (e.g., a new operating system).
+
+          <item>Adding new features or enhancements requested by the user.
+        </itemize>
+
+        <item><with|font-series|bold|This phase continues for the entire lifespan of the software.>
+      </itemize>
+
+      <hrule>
+    </folded-io-text>
+
+    <\folded-io-text>
+      V3.1\<gtr\>\ 
+    <|folded-io-text>
+      why do we call it waterful model?
+    <|folded-io-text>
+      Excellent question! The name “Waterfall Model” is a very intentional metaphor. It's called that because of the way the development process is visualized and how it ideally functions.\ 
+
+      Here's the breakdown of why the name fits so well:\ 
+
+      <subsubsection*|1. The Visual Metaphor: Flowing Downward><label|the-visual-metaphor-flowing-downward>
+
+      Imagine a multi-tiered waterfall. The water flows from one pool at the top down to the next pool below it, then to the next, and so on. It doesn't naturally flow back up.\ 
+
+      The Waterfall Model is drawn and conceptualized in the same way:\ 
+
+      Each phase represents a distinct pool or level. The output (documentation, code, etc.) from one phase “flows down” and becomes the input for the next phase.\ 
+
+      <subsubsection*|2. The Sequential and Non-Overlapping Nature><label|the-sequential-and-non-overlapping-nature>
+
+      Just like water can't easily flow back up a waterfall, the classic Waterfall Model is designed to be <with|font-series|bold|sequential and non-iterative>. This means:\ 
+
+      <\itemize>
+        <item>You must <with|font-series|bold|100% complete> one phase before you begin the next.
+
+        <item>There is <with|font-series|bold|no going back>. Once you are in the Design phase, you shouldn't still be discovering new requirements. Once you are Coding, you shouldn't be redesigning the core system.
+      </itemize>
+
+      This rigid, one-way direction is the core reason for the “waterfall” name. The process is meant to march steadily forward in one direction only.\ 
+
+      <subsubsection*|3. The “Freeze” and Documentation><label|the-freeze-and-documentation>
+
+      Each phase in the waterfall ends with a formal review and approval (often called a “freeze”). For example:\ 
+
+      <\itemize>
+        <item>The <with|font-series|bold|Requirements phase> ends when the Requirements Specification document is finalized and signed off by the client.
+
+        <item>The <with|font-series|bold|Design phase> ends when the Design Document is approved.
+      </itemize>
+
+      This approved document then “cascades” down to the next team. This formal hand-off of documentation from one team to the next is another part of the flowing-downward metaphor.\ 
+
+      <hrule>
+
+      <subsubsection*|Who Coined the Term?><label|who-coined-the-term>
+
+      It's important to know that the term “Waterfall” wasn't originally a positive one.\ 
+
+      <\itemize>
+        <item>The sequential model was first formally described in a 1970 paper by <with|font-series|bold|Winston W. Royce>. However, Royce <em|did not call it the “Waterfall Model.”> In fact, he presented it as an example of a flawed, risky model that needed iteration to be successful.
+
+        <item>The term <with|font-series|bold|“Waterfall”> was later popularized in a 1976 paper by T.E. Bell and T.A. Thayer. They used the term to describe this sequential, documentation-driven approach that had become common in government and large-scale software contracts.
+      </itemize>
+
+      <subsubsection*|Key Takeaway><label|key-takeaway>
+
+      We call it the <with|font-series|bold|Waterfall Model> because it visualizes software development as a steady, <with|font-series|bold|one-way, cascading flow> of work from one distinct phase to the next, much like water flowing down a series of rocky tiers.\ 
+
+      This is in direct contrast to <with|font-series|bold|Agile> or <with|font-series|bold|Iterative> models, which are more like a <with|font-series|bold|spiral> or a series of rapid cycles, where you constantly revisit and refine earlier phases.\ 
+    </folded-io-text>
+
+    <\unfolded-io-text>
+      V3.1\<gtr\>\ 
+    <|unfolded-io-text>
+      who is Frederick Brooks?
+    <|unfolded-io-text>
+      Of course. <with|font-series|bold|Frederick Phillips Brooks Jr.> (often called <with|font-series|bold|Fred Brooks>) is one of the most influential figures in the history of computing and software engineering. He is best known for his seminal work, <em|The Mythical Man-Month>, and his leadership on the groundbreaking IBM System/360 project.\ 
+
+      Here's a breakdown of who he is and why he matters:\ 
+
+      <hrule>
+
+      <subsubsection*|1. Project Lead for IBM System/360><label|project-lead-for-ibm-system360>
+
+      Before his famous writing, Brooks was a top-level hardware and software architect at IBM. In the early 1960s, he was appointed the <with|font-series|bold|project manager> for the development of the <with|font-series|bold|IBM System/360> family of computers and its <with|font-series|bold|OS/360> operating system.\ 
+
+      <\itemize>
+        <item><with|font-series|bold|Why it was revolutionary:> The System/360 was the first family of computers designed to cover a complete range of applications, from small to large, both commercial and scientific. They were all compatible with each other, meaning software written for a small model would run on a large one. This concept of “architecture” separating hardware from software was a paradigm shift.
+
+        <item><with|font-series|bold|The challenge:> The project was massively complex, hugely over budget, and behind schedule. The experience of managing this monumental effort led directly to his most famous insights.
+      </itemize>
+
+      <hrule>
+
+      <subsubsection*|2. Author of <em|The Mythical Man-Month> (1975)><label|author-of-the-mythical-man-month-1975>
+
+      This book is a collection of essays based on his experiences on the System/360 project. It is arguably the most famous book on software project management ever written. Its central ideas are now foundational to the field:\ 
+
+      <\itemize>
+        <item><with|font-series|bold|Brooks's Law:> The book's most famous assertion is <with|font-series|bold|“Adding manpower to a late software project makes it later.”>
+
+        <\itemize>
+          <item><with|font-series|bold|Reasoning:> The reasoning is that new team members require time for existing members to train them, which diverts resources from actual development. Communication overhead increases exponentially with the number of people (<with|font-family|tt|n(n-1)/2> communication paths), leading to more complexity and more potential for miscommunication and error.
+        </itemize>
+      </itemize>
+
+      <\itemize>
+        <item><with|font-series|bold|The “Man-Month” is a Mythical Unit:> The title criticizes the common mistake of equating person-power with time. He argues that effort (man-months) and calendar time are not interchangeable in the world of software design. You cannot, for example, assume that nine women can produce a baby in one month.
+      </itemize>
+
+      <\itemize>
+        <item><with|font-series|bold|The Second-System Effect:> The tendency of an architect, after a first successful, simple system, to design a second system that is overloaded with features and baroque complexity, often leading to failure.
+      </itemize>
+
+      <\itemize>
+        <item><with|font-series|bold|Conceptual Integrity:> He argued that for a system to be truly great, it must have a unified and coherent design vision, preferably from one or a very small number of minds. This is more important than adding countless features suggested by many people.
+      </itemize>
+
+      <\itemize>
+        <item><with|font-series|bold|“No Silver Bullet” (1986):> In a later, equally famous essay added to the book, he made the provocative claim that <with|font-series|bold|“There is no single development, in either technology or management technique, which by itself promises even one order-of-magnitude improvement in productivity, in reliability, in simplicity.”> He argued that the essence of software work—the complexity of conceptualizing and designing the system—is inherently difficult and cannot be solved by any single technological magic bullet (like object-oriented programming or AI, though he has updated his views slightly over time).
+      </itemize>
+
+      <hrule>
+
+      <subsubsection*|3. Academic and Educator><label|academic-and-educator>
+
+      After his time at IBM, Brooks moved to the <with|font-series|bold|University of North Carolina at Chapel Hill> in 1964. There, he founded the university's computer science department and chaired it for 20 years. He was a beloved professor and a pioneer in computer graphics and virtual reality research long before they were mainstream fields.\ 
+
+      <hrule>
+
+      <subsubsection*|Summary: His Legacy><label|summary-his-legacy>
+
+      Fred Brooks is revered not just as a manager or an author, but as a <with|font-series|bold|deep thinker> who articulated the fundamental, human-centric challenges of software engineering that are just as relevant today as they were 50 years ago.\ 
+
+      <\itemize>
+        <item><with|font-series|bold|Key Work:> <em|The Mythical Man-Month>
+
+        <item><with|font-series|bold|Famous Law:> “Adding manpower to a late software project makes it later.”
+
+        <item><with|font-series|bold|Famous Essay:> “No Silver Bullet”
+
+        <item><with|font-series|bold|Major Project:> Manager of IBM System/360 and OS/360.
+
+        <item><with|font-series|bold|Role:> Computer architect, project manager, author, and educator.
+      </itemize>
+
+      He received the highest honors in computing, including the <with|font-series|bold|Turing Award> (1999) and the <with|font-series|bold|National Medal of Technology> (1985). He passed away on November 17, 2022, leaving behind a legacy that continues to shape how we think about building complex systems.\ 
+    </unfolded-io-text>
+
+    <\input-text>
+      V3.1\<gtr\>\ 
+    <|input-text>
+      \;
+    </input-text>
+  </session>
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|academic-and-educator|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|author-of-the-mythical-man-month-1975|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-2|<tuple|1.1|1>>
+    <associate|auto-3|<tuple|1.1|1>>
+    <associate|auto-4|<tuple|1.1|1>>
+    <associate|auto-5|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-6|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-7|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-8|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|explanation-of-each-phase-in-the-list|<tuple|<with|mode|<quote|math>|\<bullet\>>|1>>
+    <associate|project-lead-for-ibm-system360|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|summary-his-legacy|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|the-big-picture-the-waterfall-model|<tuple|<with|mode|<quote|math>|\<bullet\>>|1>>
+  </collection>
+</references>
+
+<\auxiliary>
+  <\collection>
+    <\associate|toc>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Requirement engineering > <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-1><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|1.1<space|2spc>Waterfall model (AI generated) <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-2>>
+
+      <with|par-left|<quote|2tab>|The Big Picture: The Waterfall Model <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-3>>
+
+      <with|par-left|<quote|2tab>|Explanation of Each Phase in the List <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-4>>
+    </associate>
+  </collection>
+</auxiliary>
