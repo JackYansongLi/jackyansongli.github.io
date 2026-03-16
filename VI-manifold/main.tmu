@@ -1,0 +1,558 @@
+<TMU|<tuple|1.1.0|2025.2.2>>
+
+<style|<tuple|generic|number-europe|preview-ref|smart-ref|comment|doc-tmu|goldfish|llm>>
+
+<\body>
+  <\hide-preamble>
+    <\new-remark|idef>
+      Informal Definition
+    </new-remark>
+
+    <assign|stiefel|<macro|<math|<math-up|St><around|(|n,p|)>>>><assign|manifold|<macro|<math|\<cal-M\>>>><assign|tangent|<macro|1|<math|T<rsub|<arg|1>>*\<cal-M\>>>><assign|inner|<macro|1|2|<math|<around|\<langle\>|<arg|1>,<arg|2>|\<rangle\>>>>><assign|metric|<macro|1|2|3|<math|<around|\<langle\>|<arg|1>,<arg|2>|\<rangle\>><rsub|<arg|3>>>>><assign|Retr|<macro|<math|R>>><assign|invRetr|<macro|<math|R<rsup|-1>>>>
+  </hide-preamble>
+
+  \;
+
+  <section|Manifold and optimization>
+
+  <\idef>
+    <with|font-series|bold|(Manifold)> A manifold is a set that “looks” like a Euclidean space locally.
+  </idef>
+
+  <\example>
+    The earth!
+  </example>
+
+  <with|gr-mode|<tuple|edit|cline>|gr-frame|<tuple|scale|2.05912cm|<tuple|0.5gw|0.440011gh>>|gr-geometry|<tuple|geometry|1par|0.6par>|gr-grid|<tuple|cartesian|<point|0|0>|1>|gr-edit-grid-aspect|<tuple|<tuple|axes|none>|<tuple|1|none>|<tuple|10|none>>|gr-edit-grid|<tuple|cartesian|<point|0|0>|1>|magnify|2.058604473286984|gr-color|blue|gr-line-width|2ln|gr-opacity|40%|<graphics||<with|line-width|2ln|<circle|<point|0|0>|<point|0.6000000000000002|-0.8>>>|<with|arrow-end|\<gtr\>|<line|<point|0|0>|<point|-0.6999999999999998|0.7>>>|<math-at|x|<point|-1|0.7>>|<point|0|0>|<point|0|0>|<with|arrow-end|\<gtr\>|<line|<point|-0.714143|0.7>|<point|0.09999999999999992|1.5>>>|<math-at|x-\<eta\>\<nabla\>f<around*|(|x|)>|<point|-0.2|1.6>>|<with|color|blue|dash-style|1111010|<line|<point|0.1|1.5>|<point|0.1|1.0>>>|<with|color|blue|line-width|2ln|opacity|40%|<line|<point|-0.7|0.714143>|<point|-2.7|-1.5>>>|<with|color|blue|line-width|2ln|opacity|40%|<line|<point|-0.7|0.7>|<point|1.0|2.4>>>|<with|color|blue|opacity|40%|<math-at|T<rsub|x>S<rsup|1>|<point|-2.8|-0.8>>>|<with|color|blue|opacity|40%|<math-at|y|<point|0.3|1.1>>>|<with|color|blue|line-width|2ln|opacity|40%|<cline|<point|0.714143|-0.7>|<point|2.7|1.4>|<point|0.714142842854285|-0.7>|<point|-0.5|-1.8>>>>>
+
+  Problem:
+
+  <\equation*>
+    min<rsub|x\<in\>S<rsup|1>> f<around*|(|x|)>,<space|1em>S<rsup|1>\<triangleq\><around*|{|<around*|(|x,y|)>\|x<rsup|2>+y<rsup|2>=1|}>
+  </equation*>
+
+  Issue:
+
+  <\equation*>
+    \<nabla\>f<around*|(|x|)>\<nin\>S<rsup|1>.
+  </equation*>
+
+  Retraction of <math|x-\<eta\>\<nabla\>f<around*|(|x|)>> onto <math|S<rsup|1>>:
+
+  <\equation*>
+    <frac|x-\<eta\>\<nabla\>f<around*|(|x|)>|<around*|\<\|\|\>|x-\<eta\>\<nabla\>f<around*|(|x|)>|\<\|\|\>>>
+  </equation*>
+
+  <\idef>
+    A retraction mapping on <math|S<rsup|1>> is
+
+    <\equation*>
+      R<rsub|x><around*|(|v|)>\<triangleq\><frac|x+v|<around*|\<\|\|\>|x+v|\<\|\|\>>>.
+    </equation*>
+  </idef>
+
+  Algorithm:
+
+  <\equation*>
+    x<rsub|k+1>\<leftarrow\>x<rsub|k>-R<rsub|x<rsub|k>><around*|(|x+v|)>,
+  </equation*>
+
+  where <math|v> can be <math|\<eta\>\<nabla\>f<around*|(|x|)>>.
+
+  <\idef>
+    A tangent space <math|T<rsub|x>\<cal-M\>> is the set of vectors that tangent to the point <math|x> on manifold <math|\<cal-M\>>.
+  </idef>
+
+  <\idef>
+    A tangent bundle <math|T\<cal-M\>> is the set <math|<around*|{|<around*|(|x,v|)>\|x\<in\>\<cal-M\>,v\<in\>T<rsub|x>\<cal-M\>|}>>.
+  </idef>
+
+  <\question>
+    How to define <math|<around*|\||x<rsup|k+1>-x<rsup|k>|\|>>?\ 
+  </question>
+
+  <\example>
+    The Stiefel manifold is defined as <math|\<cal-M\>=<around|{|X\<in\>\<bbb-R\><rsup|n\<times\>p>:X<rsup|T>*X=I<rsub|p>|}>>. It is a non-convex embedded sub-manifold of <math|\<bbb-R\><rsup|n\<times\>p>>.
+  </example>
+
+  <section|Variational inequality on Euclidean space>
+
+  <\definition>
+    A variational inequality (VI) is
+
+    <\equation>
+      <around*|\<langle\>|F<around*|(|x|)>,y-x|\<rangle\>>\<geq\>0<label|eq:variational-inequality>
+    </equation>
+
+    The set of points <math|x<rsup|\<ast\>>> that satisfies <smart-ref|eq:variational-inequality> is called the solution set, denoted by <math|\<cal-X\><rsup|\<ast\>>>.
+  </definition>
+
+  <\theorem>
+    For a convex differentiable function <math|f> defined in a convex set <math|\<cal-X\>>, the following two conditions are equivalent:
+
+    <\enumerate>
+      <item><math|x<rsup|\<ast\>>\<in\>argmin<around*|{|f<around*|(|x|)>\|x\<in\>\<cal-X\>|}>>.
+
+      <item><math|x<rsup|\<ast\>>\<in\>\<cal-X\>>,<space|1em><math|<around*|\<langle\>|\<nabla\>f<around*|(|x<rsup|\<ast\>>|)>,y-x<rsup|\<ast\>>|\<rangle\>>\<geq\>0>.
+    </enumerate>
+  </theorem>
+
+  <\proof>
+    See <hlink|http://maths.nju.edu.cn/~hebma/|http://maths.nju.edu.cn/~hebma/>.
+  </proof>
+
+  <\remark>
+    A variational inequality is equivalent to a project mapping.
+  </remark>
+
+  <\remark>
+    See the proof of PPA.
+
+    <\equation*>
+      x<rsub|k+1>=argmin<around*|{|f<around*|(|x|)>+<frac|1|2>r<around*|\<\|\|\>|x-x<rsub|k>|\<\|\|\>><rsup|2>|}>
+    </equation*>
+
+    By VI, we can easily prove the Fejer monotone property of PPA algorithm.
+
+    <\equation*>
+      <around*|\<\|\|\>|x<rsup|k+1>-x<rsup|\<ast\>>|\<\|\|\>>\<leq\><around*|\<\|\|\>|x<rsup|k>-x<rsup|\<ast\>>|\<\|\|\>>.
+    </equation*>
+  </remark>
+
+  <section|Variational inequality on manifold>
+
+  Let <math|\<cal-M\>> be a Riemannian manifold. The tangent space at a point <math|x\<in\>\<cal-M\>> is denoted by <math|T<rsub|x>*\<cal-M\>>, and the Riemannian metric at <math|x> is denoted by <math|<around|\<langle\>|\<cdummy\>,\<cdummy\>|\<rangle\>><rsub|x>>.\ 
+
+  <\definition>
+    <label|def:retraction><with|font-series|bold|(Retraction) >A retraction is a smooth map <math|R:T*\<cal-M\>\<to\>\<cal-M\>>. For any <math|x\<in\>\<cal-M\>>, the restriction <math|R<rsub|x>:T<rsub|x>*\<cal-M\>\<to\>\<cal-M\>> satisfies:\ 
+
+    <\itemize>
+      <item><math|R<rsub|x><around|(|0<rsub|x>|)>=x>, where <math|0<rsub|x>> is the origin of the tangent space <math|T<rsub|x>*\<cal-M\>>.
+
+      <item><math|<math-up|D>R<rsub|x><around|(|0<rsub|x>|)>=<text|id><rsub|T<rsub|x>*\<cal-M\>>>, meaning its differential at the origin is the identity map on <math|T<rsub|x>*\<cal-M\>>.
+    </itemize>
+  </definition>
+
+  <\definition>
+    <label|inverse-retraction><with|font-series|bold|(Inverse Retraction)> For <math|x,y\<in\>\<cal-M\>>, the inverse retraction <math|R<rsub|x><rsup|-1><around|(|y|)>\<in\>T<rsub|x>*\<cal-M\>> is defined as the tangent vector <math|v> satisfying <math|R<rsub|x><around|(|v|)>=y>. This definition assumes <math|y> is within the local diffeomorphism neighborhood of <math|R<rsub|x>>.\ 
+  </definition>
+
+  <\definition>
+    <with|font-series|bold|(<math|R>-Convex Function)> A function <math|f:\<cal-M\>\<to\>\<bbb-R\>> is said to be <math|R>-convex on an <math|R>-convex set <math|K\<subseteq\>\<cal-M\>> if for any <math|x,y\<in\>K>, the composition <math|g<around|(|t|)>=f*<around|(|R<rsub|x>*<around|(|t*R<rsub|x><rsup|-1><around|(|y|)>|)>|)>> is convex for <math|t\<in\><around|[|0,1|]>>.
+  </definition>
+
+  <with|font-series|bold|Setup:> Let <math|\<cal-M\>> be a Riemannian manifold, <math|K\<subseteq\>\<cal-M\>> be an <math|R>-convex set, and <math|R> be a retraction. Let <math|f\<in\>\<cal-C\><rsup|1><around|(|\<cal-M\>|)>>. Also note that <math|f> is a scalar field, i.e., <math|f<around*|(|x|)>\<in\>\<bbb-R\>>.
+
+  <\remark>
+    For the smooth extension <math|<wide|f|\<bar\>>> of <math|f>, the differential <math|\<mathd\><wide|f|\<bar\>><around*|(|x|)>:T<rsub|x>\<cal-M\>\<rightarrow\>\<bbb-R\>> of <math|<wide|f|\<bar\>>> is defined as
+
+    <\equation*>
+      \<mathd\>f<around*|(|x|)><around*|[|v|]>\<triangleq\><around*|\<langle\>|\<nabla\>f<around*|(|x|)>,v|\<rangle\>>.
+    </equation*>
+  </remark>
+
+  <\remark>
+    The notations <math|\<mathd\>> and <math|\<mathD\>> are both used for differential operators. Specifically, <math|\<mathd\>> is used for scalar field, that is <math|f:\<cal-M\>\<rightarrow\>\<bbb-R\>>. By definition, we have
+
+    <\equation*>
+      \<mathd\>f:\<cal-M\>\<rightarrow\>\<cal-L\><around*|(|\<cal-M\>,\<bbb-R\>|)>,
+    </equation*>
+
+    where <math|\<cal-L\><around*|(|\<cal-M\>,\<bbb-R\>|)>> denotes the set of linear operators from <math|\<cal-M\>> to <math|\<bbb-R\>>. Therefore,
+
+    <\equation*>
+      \<mathd\>f<around*|(|x|)>:\<cal-M\>\<rightarrow\>\<bbb-R\>,<space|1em>\<mathd\>f<around*|(|x|)>\<in\>\<cal-L\><around*|(|\<cal-M\>,\<bbb-R\>|)>,<space|1em>and<space|1em>\<mathd\>f<around*|(|x|)><around*|[|v|]>\<in\>\<bbb-R\>.
+    </equation*>
+  </remark>
+
+  <\lemma>
+    <label|lem:first-order-r-convex><dueto|First-order Characterization of <math|R>-convexity><math|f> is <math|R>-convex on <math|K> if and only if for any <math|x,y\<in\>K>:
+
+    <\equation>
+      f<around|(|y|)>\<ge\>f<around|(|x|)>+<around|\<langle\>|grad f<around|(|x|)>,R<rsub|x><rsup|-1><around|(|y|)>|\<rangle\>><rsub|x>,
+    </equation>
+
+    where <math|grad f<around*|(|x|)>> is the Riemannian gradient defined as the projection from <math|\<nabla\>f<around*|(|x|)>> to <math|T<rsub|x>\<cal-M\>>, i.e.,
+
+    <\equation*>
+      grad f<around*|(|x|)>\<triangleq\>Proj<rsub|T<rsub|x>\<cal-M\>><around*|(|\<nabla\>f<around*|(|x|)>|)>.
+    </equation*>
+  </lemma>
+
+  <\proof>
+    Let <math|v=R<rsub|x><rsup|-1><around|(|y|)>\<in\>T<rsub|x>*\<cal-M\>>. Consider the <math|R>-path <math|\<gamma\><around|(|t|)>=R<rsub|x>*<around|(|t*v|)>> for <math|t\<in\><around|[|0,1|]>>. By the definition of <math|R>-convexity, the composition <math|g<around|(|t|)>=f<around|(|\<gamma\><around|(|t|)>|)>> is a classic convex function on <math|<around|[|0,1|]>>. From standard convex analysis in <math|\<bbb-R\>>, we know <math|g<around|(|1|)>\<ge\>g<around|(|0|)>+g<rprime|'><around|(|0|)>>.
+
+    <\enumerate>
+      <item><math|g<around|(|1|)>=f<around|(|\<gamma\><around|(|1|)>|)>=f<around|(|R<rsub|x><around|(|v|)>|)>=f<around|(|y|)>>.
+
+      <item><math|g<around|(|0|)>=f<around|(|\<gamma\><around|(|0|)>|)>=f<around|(|R<rsub|x><around|(|0|)>|)>=f<around|(|x|)>>.
+
+      <item>To compute <math|g<rprime|'><around|(|0|)>>, we apply the chain rule:
+
+      <\equation*>
+        g<rprime|'><around|(|t|)>=<frac|\<mathd\>|\<mathd\>t>*f*<around|(|R<rsub|x>*<around|(|t v|)>|)>=\<mathd\>f*<around|(|R<rsub|x>*<around|(|t v|)>|)>*<around*|[|<frac|\<mathd\>|\<mathd\>t>*R<rsub|x>*<around|(|t v|)>|]>
+      </equation*>
+
+      At <math|t=0>, we have:
+
+      <\equation*>
+        g<rprime|'><around|(|0|)>=\<mathd\>f<around|(|x|)>*<around*|[|\<mathD\>R<rsub|x><around|(|0|)><around|[|v|]>|]>
+      </equation*>
+
+      By the definition of a retraction, <math|\<mathD\>R<rsub|x><around|(|0|)>=<text|id><rsub|T<rsub|x>*\<cal-M\>>>. Thus, <math|\<mathD\>R<rsub|x><around|(|0|)><around|[|v|]>=v>. Using the definition of the Riemannian gradient <math|<around|\<langle\>|<text|grad >f<around|(|x|)>,\<xi\>|\<rangle\>><rsub|x>=\<mathd\>f<around|(|x|)><around|[|\<xi\>|]>>, we obtain:
+
+      <\equation*>
+        g<rprime|'><around|(|0|)>=<around|\<langle\>|<text|grad >f<around|(|x|)>,v|\<rangle\>><rsub|x>=<around|\<langle\>|<text|grad >f<around|(|x|)>,R<rsub|x><rsup|-1><around|(|y|)>|\<rangle\>><rsub|x>
+      </equation*>
+    </enumerate>
+
+    Substituting these into <math|g<around|(|1|)>\<ge\>g<around|(|0|)>+g<rprime|'><around|(|0|)>> yields the desired inequality.
+  </proof>
+
+  <\theorem>
+    Under the assumption of <math|R>-convexity, <math|x<rsup|\<ast\>>\<in\>K> is a global minimizer of <math|f> over <math|K> if and only if:
+
+    <\equation>
+      <around|\<langle\>|grad f<around|(|x<rsup|\<ast\>>|)>,R<rsub|x<rsup|\<ast\>>><rsup|-1><around|(|y|)>|\<rangle\>><rsub|x<rsup|\<ast\>>>\<ge\>0,<space|1em>\<forall\>y\<in\>K<label|eq:rvi>.
+    </equation>
+
+    Equation <smart-ref|eq:rvi> is called the retraction variational inequality.
+  </theorem>
+
+  <\proof>
+    <with|font-series|bold|Necessity (<math|\<Rightarrow\>>):>
+
+    Suppose <math|x<rsup|\<ast\>>> is a global minimizer. For any <math|y\<in\>K>, define the path <math|\<gamma\><around|(|t|)>=R<rsub|x<rsup|\<ast\>>>*<around|(|t*R<rsub|x<rsup|\<ast\>>><rsup|-1><around|(|y|)>|)>>. Since <math|x<rsup|\<ast\>>> is a minimizer and <math|\<gamma\><around|(|t|)>> is a feasible path in <math|K> for <math|t\<in\><around|[|0,1|]>>, the function <math|g<around|(|t|)>=f<around|(|\<gamma\><around|(|t|)>|)>> must satisfy:
+
+    <\equation*>
+      <frac|g<around|(|t|)>-g<around|(|0|)>|t>\<ge\>0,<space|1em>\<forall\>t\<in\><around|(|0,1|]>
+    </equation*>
+
+    Taking the limit as <math|t\<to\>0<rsup|+>>:
+
+    <\equation*>
+      g<rprime|'><around|(|0|)>=lim<rsub|t\<to\>0<rsup|+>> <frac|f*<around|(|R<rsub|x<rsup|\<ast\>>>*<around|(|t*R<rsub|x<rsup|\<ast\>>><rsup|-1><around|(|y|)>|)>|)>-f<around|(|x<rsup|\<ast\>>|)>|t>\<ge\>0
+    </equation*>
+
+    As derived in <smart-ref|lem:first-order-r-convex>, <math|g<rprime|'><around|(|0|)>=<around|\<langle\>|<text|grad >f<around|(|x<rsup|\<ast\>>|)>,R<rsub|x<rsup|\<ast\>>><rsup|-1><around|(|y|)>|\<rangle\>><rsub|x<rsup|\<ast\>>>>. Thus, the RVI holds.
+
+    <with|font-series|bold|Sufficiency (<math|\<Leftarrow\>>):>
+
+    Assume the RVI holds: <math|<around|\<langle\>|<text|grad >f<around|(|x<rsup|\<ast\>>|)>,R<rsub|x<rsup|\<ast\>>><rsup|-1><around|(|y|)>|\<rangle\>><rsub|x<rsup|\<ast\>>>\<ge\>0> for all <math|y\<in\>K>. By the <math|R>-convexity of <math|f>, we apply <smart-ref|lem:first-order-r-convex> at point <math|x<rsup|\<ast\>>>:
+
+    <\equation*>
+      f<around|(|y|)>\<ge\>f<around|(|x<rsup|\<ast\>>|)>+<around|\<langle\>|<text|grad >f<around|(|x<rsup|\<ast\>>|)>,R<rsub|x<rsup|\<ast\>>><rsup|-1><around|(|y|)>|\<rangle\>><rsub|x<rsup|\<ast\>>>,<space|1em>\<forall\>y\<in\>K
+    </equation*>
+
+    Since the second term on the right-hand side is non-negative by the RVI assumption, we have:
+
+    <\equation*>
+      f<around|(|y|)>\<ge\>f<around|(|x<rsup|\<ast\>>|)>,<space|1em>\<forall\>y\<in\>K
+    </equation*>
+
+    This proves that <math|x<rsup|\<ast\>>> is a global minimizer.
+  </proof>
+
+  <section|Local stationarity and RVI>
+
+  <smart-ref|lem:first-order-r-convex> does not hold for Stiefel manifold because of the nonconvexity.
+
+  <\theorem>
+    <dueto|Necessary Condition for Local Optimality>If <math|x<rsup|\<ast\>>\<in\>K> is a local minimizer of <math|f> over <math|K>, then <math|x<rsup|\<ast\>>> satisfies the Riemannian Variational Inequality (RVI):
+
+    <\equation>
+      <around|\<langle\>|grad f<around|(|x<rsup|\<ast\>>|)>,v|\<rangle\>><rsub|x<rsup|\<ast\>>>\<ge\>0,<space|1em>\<forall\>v\<in\>T<rsub|x<rsup|\<ast\>>>*K
+    </equation>
+
+    Equivalently, using the retraction <math|R> for any <math|y\<in\>K> in a neighborhood of <math|x<rsup|\<ast\>>>:
+
+    <\equation>
+      <around|\<langle\>|grad f<around|(|x<rsup|\<ast\>>|)>,R<rsub|x<rsup|\<ast\>>><rsup|-1><around|(|y|)>|\<rangle\>><rsub|x<rsup|\<ast\>>>\<ge\>0
+    </equation>
+  </theorem>
+
+  <\proof>
+    Let <math|x<rsup|\<ast\>>\<in\>K> be a local minimizer. For any <math|y\<in\>K> in a sufficiently small neighborhood of <math|x<rsup|\<ast\>>>, let <math|v=R<rsub|x<rsup|\<ast\>>><rsup|-1><around|(|y|)>>. By the definition of the neighborhood and the properties of the retraction, the curve <math|\<gamma\><around|(|t|)>=R<rsub|x<rsup|\<ast\>>>*<around|(|t v|)>> is a feasible path in <math|K> for <math|t\<in\><around|[|0,1|]>> (or at least for <math|t\<in\><around|[|0,\<epsilon\>|]>>).
+
+    <with|font-shape|italic|Note: We do not require <math|K> to be <math|R>-convex. We only require that the specific path <math|\<gamma\><around|(|t|)>> connecting <math|x<rsup|\<ast\>>> to <math|y> via the retraction <math|R> stays within <math|K>. If <math|K> is the entire Stiefel manifold <math|\<cal-M\>>, this is satisfied by definition of the retraction mapping to <math|\<cal-M\>>.>
+
+    By the definition of a local minimizer, the scalar function <math|g<around|(|t|)>=f<around|(|\<gamma\><around|(|t|)>|)>> must satisfy <math|g<around|(|t|)>\<ge\>g<around|(|0|)>> for all <math|t> where <math|\<gamma\><around|(|t|)>\<in\>K>. Thus, the first-order necessary condition is:
+
+    <\equation*>
+      g<rprime|'><around|(|0|)>=lim<rsub|t\<to\>0<rsup|+>> <frac|f*<around|(|R<rsub|x<rsup|\<ast\>>>*<around|(|t*v|)>|)>-f<around|(|x<rsup|\<ast\>>|)>|t>\<ge\>0
+    </equation*>
+
+    Applying the chain rule:
+
+    <\equation*>
+      g<rprime|'><around|(|0|)>=<math-up|d>f<around|(|x<rsup|\<ast\>>|)><around|[|<math-up|D>R<rsub|x<rsup|\<ast\>>><around|(|0|)><around|[|v|]>|]>
+    </equation*>
+
+    Using the identity property <math|<math-up|D>R<rsub|x<rsup|\<ast\>>><around|(|0|)>=<text|id><rsub|T<rsub|x<rsup|\<ast\>>>*\<cal-M\>>>:
+
+    <\equation*>
+      g<rprime|'><around|(|0|)>=<math-up|d>f<around|(|x<rsup|\<ast\>>|)><around|[|v|]>=<around|\<langle\>|<text|grad>f<around|(|x<rsup|\<ast\>>|)>,v|\<rangle\>><rsub|x<rsup|\<ast\>>>
+    </equation*>
+
+    Substituting <math|v=R<rsub|x<rsup|\<ast\>>><rsup|-1><around|(|y|)>>, we obtain the RVI:
+
+    <\equation*>
+      <around|\<langle\>|<text|grad>f<around|(|x<rsup|\<ast\>>|)>,R<rsub|x<rsup|\<ast\>>><rsup|-1><around|(|y|)>|\<rangle\>><rsub|x<rsup|\<ast\>>>\<ge\>0
+    </equation*>
+
+    This holds for all <math|y\<in\>K> such that the retraction path from <math|x<rsup|\<ast\>>> to <math|y> is feasible.
+  </proof>
+
+  <\framed>
+    <\warning>
+      以下部分的内容是AI生成且未经检验的
+    </warning>
+  </framed>
+
+  <\example>
+    The Stiefel manifold is defined as <math|\<cal-M\>=<around|{|X\<in\>\<bbb-R\><rsup|n\<times\>p>:X<rsup|T>*X=I<rsub|p>|}>>. It is a non-convex embedded sub-manifold of <math|\<bbb-R\><rsup|n\<times\>p>>.
+
+    For a function <math|F> defined on the ambient Euclidean space <math|\<bbb-R\><rsup|n\<times\>p>>, the Riemannian gradient on St<math|<around|(|n,p|)>> is the orthogonal projection of the Euclidean gradient <math|\<nabla\>F<around|(|X|)>> onto the tangent space <math|T<rsub|X>*\<cal-M\>>:
+
+    <\equation*>
+      <text|grad >f<around|(|X|)>=\<nabla\>F<around|(|X|)>-X<around*|(|<frac|X<rsup|\<top\>>*\<nabla\>F<around|(|X|)>+\<nabla\>F<around|(|X|)><rsup|\<top\>>*X|2>|)>
+    </equation*>
+
+    If <math|X<rsup|\<ast\>>> is a local minimizer on the unconstrained Stiefel manifold (<math|K=\<cal-M\>>), the RVI implies <math|<around|\<langle\>|grad f<around|(|X<rsup|\<ast\>>|)>,\<xi\>|\<rangle\>>=0> for all <math|\<xi\>\<in\>T<rsub|X<rsup|\<ast\>>>*\<cal-M\>>, leading to <math|grad f<around|(|X<rsup|\<ast\>>|)>=0>. This results in the following algebraic characterization:
+
+    <\equation>
+      \<nabla\>F<around|(|X<rsup|\<ast\>>|)><around|(|X<rsup|\<ast\>>|)><rsup|\<top\>>=X<rsup|\<ast\>>*<around|(|\<nabla\>F<around|(|X<rsup|\<ast\>>|)>|)><rsup|\<top\>>
+    </equation>
+
+    This confirms that at a stationary point, the product of the Euclidean gradient and the transpose of the point must be a symmetric matrix.
+  </example>
+
+  \;
+
+  <section|Riemannian Proximal Point Algorithm on Stiefel Manifold>
+
+  We consider the optimization problem on the Stiefel manifold <math|<manifold>=<stiefel>>:
+
+  <\equation*>
+    min<rsub|x\<in\><manifold>> f<around|(|x|)>
+  </equation*>
+
+  where <math|f:<manifold>\<to\>\<bbb-R\>> is a smooth, locally <math|R>-convex function.
+
+  <subsection|Riemannian Proximal Point Algorithm>
+
+  The Riemannian Proximal Point Algorithm (PPA) generates a sequence <math|<around|{|x<rsub|k>|}>\<subset\><manifold>> using a retraction-based regularization.
+
+  <\definition>
+    <dueto|Riemannian PPA Update><label|def:ppa>Given the current iterate <math|x<rsub|k>\<in\><manifold>> and a sequence of step sizes <math|<around|{|\<lambda\><rsub|k>|}>> with <math|\<lambda\><rsub|k>\<gtr\>0>, the next iterate <math|x<rsub|k+1>> is determined by solving the following subproblem:
+
+    <\equation>
+      x<rsub|k+1>=argmin<rsub|x\<in\><manifold>>*<around*|{|\<Phi\><rsub|k><around|(|x|)>\<triangleq\>f<around|(|x|)>+<frac|1|2*\<lambda\><rsub|k>><around|\<\|\|\>|<invRetr><rsub|x><around|(|x<rsub|k>|)>|\<\|\|\>><rsup|2>|}><label|eq:ppa_update>
+    </equation>
+
+    Here, <math|<around|\<\|\|\>|<invRetr><rsub|x><around|(|x<rsub|k>|)>|\<\|\|\>>> represents the retraction-based distance from a candidate <math|x> back to <math|x<rsub|k>>. On the Stiefel manifold, we typically use the <with|font-series|bold|QR Retraction> or <with|font-series|bold|Polar Retraction> for computational efficiency.
+  </definition>
+
+  <subsection|First-Order Optimality of the Subproblem>
+
+  Since <math|x<rsub|k+1>> is a minimizer of <math|\<Phi\><rsub|k><around|(|x|)>>, it must satisfy the first-order necessary condition <math|grad \<Phi\><rsub|k><around|(|x<rsub|k+1>|)>=0>.
+
+  Computing the gradient of the regularization term <math|h<around|(|x|)>=<frac|1|2><around|\<\|\|\>|<invRetr><rsub|x><around|(|x<rsub|k>|)>|\<\|\|\>><rsup|2>> requires care. Assuming the retraction behaves similarly to the exponential map (locally), the gradient with respect to the first argument is:
+
+  <\equation*>
+    grad h<around|(|x|)>\<approx\>-<invRetr><rsub|x><around|(|x<rsub|k>|)>
+  </equation*>
+
+  Thus, the stationarity condition for <localize|Equation><nbsp>(<reference|eq:ppa_update>) is:
+
+  <\equation>
+    grad f<around|(|x<rsub|k+1>|)>-<frac|1|\<lambda\><rsub|k>><invRetr><rsub|x<rsub|k+1>><around|(|x<rsub|k>|)>=0
+  </equation>
+
+  Rearranging gives the explicit inclusion for the step direction:
+
+  <\equation>
+    <invRetr><rsub|x<rsub|k+1>><around|(|x<rsub|k>|)>=\<lambda\><rsub|k> grad f<around|(|x<rsub|k+1>|)><label|eq:ppa_inclusion>
+  </equation>
+
+  <subsection|Verification of Fejér Monotonicity via RVI>
+
+  Strict Fejér monotonicity implies that the sequence <math|<around|{|x<rsub|k>|}>> gets closer to the solution set <math|\<cal-X\><rsup|\<ast\>>> at every step. Because the Stiefel manifold has positive curvature, standard global inequalities do not hold. We strictly verify monotonicity under <with|font-series|bold|local assumptions> valid in a neighborhood of the solution.
+
+  <\assumption>
+    <with|font-series|bold|<label|ass:convexity>(Local R-convexity of <math|f>)> The function <math|f> satisfies the RVI monotonicity property locally. For <math|x,y> in a neighborhood of <math|x<rsup|\<ast\>>>:
+
+    <\equation*>
+      <around|\<langle\>|<math-up|grad>f<around|(|x|)>-<math-up|grad>f<around|(|y|)>,<invRetr><rsub|x><around|(|y|)>|\<rangle\>><rsub|x>\<ge\>0
+    </equation*>
+
+    Specifically, since <math|<math-up|grad>f<around|(|x<rsup|\<ast\>>|)>=0> (or satisfies the RVI), this implies:
+
+    <\equation>
+      <around|\<langle\>|<math-up|grad>f<around|(|x|)>,<invRetr><rsub|x><around|(|x<rsup|\<ast\>>|)>|\<rangle\>><rsub|x>\<le\>0<label|eq:monotone_cond>
+    </equation>
+  <|assumption>
+    <label|ass:convexity>The function <math|f> satisfies the RVI monotonicity property locally. For <math|x,y> in a neighborhood of <math|x<rsup|\<ast\>>>:
+
+    <\equation*>
+      <around|\<langle\>|<math-up|grad>f<around|(|x|)>-<math-up|grad>f<around|(|y|)>,<invRetr><rsub|x><around|(|y|)>|\<rangle\>><rsub|x>\<ge\>0
+    </equation*>
+
+    Specifically, since <math|<math-up|grad>f<around|(|x<rsup|\<ast\>>|)>=0> (or satisfies the RVI), this implies:
+
+    <\equation>
+      <around|\<langle\>|<math-up|grad>f<around|(|x|)>,<invRetr><rsub|x><around|(|x<rsup|\<ast\>>|)>|\<rangle\>><rsub|x>\<le\>0<label|eq:monotone_cond>
+    </equation>
+  </assumption>
+
+  <\assumption>
+    <with|font-series|bold|(<label|ass:cosine>Riemannian Law of Cosines Inequality)> In the local neighborhood, the retraction metric satisfies the following distance inequality (which holds strictly for Hadamard manifolds and locally for Stiefel):
+
+    <\equation>
+      <around|\<\|\|\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsup|\<ast\>>|)>|\<\|\|\>><rsup|2>\<le\><around|\<\|\|\>|<invRetr><rsub|x<rsub|k>><around|(|x<rsup|\<ast\>>|)>|\<\|\|\>><rsup|2>-<around|\<\|\|\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsub|k>|)>|\<\|\|\>><rsup|2>+2*<around|\<langle\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsub|k>|)>,<invRetr><rsub|x<rsub|k+1>><around|(|x<rsup|\<ast\>>|)>|\<rangle\>><rsub|x<rsub|k+1>>
+    </equation>
+  <|assumption>
+    <label|ass:cosine>In the local neighborhood, the retraction metric satisfies the following distance inequality (which holds strictly for Hadamard manifolds and locally for Stiefel):
+
+    <\equation>
+      <around|\<\|\|\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsup|\<ast\>>|)>|\<\|\|\>><rsup|2>\<le\><around|\<\|\|\>|<invRetr><rsub|x<rsub|k>><around|(|x<rsup|\<ast\>>|)>|\<\|\|\>><rsup|2>-<around|\<\|\|\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsub|k>|)>|\<\|\|\>><rsup|2>+2*<around|\<langle\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsub|k>|)>,<invRetr><rsub|x<rsub|k+1>><around|(|x<rsup|\<ast\>>|)>|\<rangle\>><rsub|x<rsub|k+1>>
+    </equation>
+  </assumption>
+
+  <\theorem>
+    <dueto|Local Fejér Monotonicity>Let <math|x<rsup|\<ast\>>> be a local minimizer satisfying the RVI. Under <localize|Convention><nbsp><reference|ass:convexity> and <nbsp><reference|ass:cosine>, the sequence <math|<around|{|x<rsub|k>|}>> generated by the Riemannian PPA is locally Fejér monotone with respect to <math|x<rsup|\<ast\>>>:
+
+    <\equation>
+      <around|\<\|\|\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsup|\<ast\>>|)>|\<\|\|\>><rsup|2>\<le\><around|\<\|\|\>|<invRetr><rsub|x<rsub|k>><around|(|x<rsup|\<ast\>>|)>|\<\|\|\>><rsup|2>-<around|\<\|\|\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsub|k>|)>|\<\|\|\>><rsup|2>
+    </equation>
+  </theorem>
+
+  <\proof>
+    We start with the expansion provided by <nbsp><reference|ass:cosine>:
+
+    <\equation>
+      <around|\<\|\|\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsup|\<ast\>>|)>|\<\|\|\>><rsup|2>\<le\><around|\<\|\|\>|<invRetr><rsub|x<rsub|k>><around|(|x<rsup|\<ast\>>|)>|\<\|\|\>><rsup|2>-<around|\<\|\|\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsub|k>|)>|\<\|\|\>><rsup|2>+2<wide*|<around|\<langle\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsub|k>|)>,<invRetr><rsub|x<rsub|k+1>><around|(|x<rsup|\<ast\>>|)>|\<rangle\>><rsub|x<rsub|k+1>>|\<wide-underbrace\>><rsub|\<cal-T\>>
+    </equation>
+
+    We analyze the cross-term <math|\<cal-T\>>. Using the optimality condition from <localize|Equation><nbsp>(<reference|eq:ppa_inclusion>), we substitute <math|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsub|k>|)>=\<lambda\><rsub|k><math-up|grad>f<around|(|x<rsub|k+1>|)>>:
+
+    <\equation*>
+      \<cal-T\>=\<lambda\><rsub|k><around|\<langle\>|<math-up|grad>f<around|(|x<rsub|k+1>|)>,<invRetr><rsub|x<rsub|k+1>><around|(|x<rsup|\<ast\>>|)>|\<rangle\>><rsub|x<rsub|k+1>>
+    </equation*>
+
+    Since <math|x<rsub|k+1>> is in the local neighborhood where <math|f> is <math|R>-convex (Assumption <reference|ass:convexity>), we apply inequality <eqref|eq:monotone_cond>:
+
+    <\equation*>
+      <around|\<langle\>|<math-up|grad>f<around|(|x<rsub|k+1>|)>,<invRetr><rsub|x<rsub|k+1>><around|(|x<rsup|\<ast\>>|)>|\<rangle\>><rsub|x<rsub|k+1>>\<le\>0
+    </equation*>
+
+    Consequently:
+
+    <\equation*>
+      \<cal-T\>\<le\>0
+    </equation*>
+
+    Substituting this back into the distance inequality:
+
+    <\equation>
+      <around|\<\|\|\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsup|\<ast\>>|)>|\<\|\|\>><rsup|2>\<le\><around|\<\|\|\>|<invRetr><rsub|x<rsub|k>><around|(|x<rsup|\<ast\>>|)>|\<\|\|\>><rsup|2>-<around|\<\|\|\>|<invRetr><rsub|x<rsub|k+1>><around|(|x<rsub|k>|)>|\<\|\|\>><rsup|2>
+    </equation>
+
+    This proves that the distance to the optimum <math|x<rsup|\<ast\>>> strictly decreases as long as <math|x<rsub|k+1>\<neq\>x<rsub|k>>.
+  </proof>
+
+  <appendix|Resources>
+
+  <subsection|Variational inequality>
+
+  <\itemize>
+    <item>Bingsheng He's personal page: <hlink|http://maths.nju.edu.cn/~hebma/|http://maths.nju.edu.cn/~hebma/>
+  </itemize>
+
+  <subsection|Optimization on manifold>
+
+  <\itemize>
+    <item>Book, course, and exercise of “<hlink|<with|font-shape|italic|An introduction to optimization on smooth manifolds>|https://www.nicolasboumal.net/book/?list=smoothdiff01,EmbedManif01,spherester03,QRstiefel02,Polarstiefel03,ExpSOn01#book>”
+
+    <\itemize>
+      <item>Week 3 and Week 5 exercises are very important! Please watch all videos and do the exercise.
+    </itemize>
+  </itemize>
+
+  <subsection|Optimization on Stiefel manifold>
+
+  <\itemize>
+    <item><hlink|Computing geodesics on the Stiefel manifold|https://www.youtube.com/watch?v=gbtWcmoNCOo&t=648s>
+
+    <item><hlink|Optimization on matrix manifold and application to image segmentation on the Stiefel manifold|https://www.youtube.com/watch?v=4iICN63IFHg>
+  </itemize>
+
+  \;
+
+  \;
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|ass:convexity|<tuple|10|?>>
+    <associate|ass:cosine|<tuple|11|?>>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-10|<tuple|<with|mode|<quote|math>|\<bullet\>>|7>>
+    <associate|auto-11|<tuple|<with|mode|<quote|math>|\<bullet\>>|7>>
+    <associate|auto-12|<tuple|<with|mode|<quote|math>|\<bullet\>>|7>>
+    <associate|auto-2|<tuple|1|2>>
+    <associate|auto-3|<tuple|2|2>>
+    <associate|auto-4|<tuple|3|4>>
+    <associate|auto-5|<tuple|5|5>>
+    <associate|auto-6|<tuple|5|6>>
+    <associate|auto-7|<tuple|8|6>>
+    <associate|auto-8|<tuple|1|6>>
+    <associate|auto-9|<tuple|A|7>>
+    <associate|def:ppa|<tuple|7|6>>
+    <associate|def:retraction|<tuple|2|2>>
+    <associate|eq:monotone_cond|<tuple|2|?>>
+    <associate|eq:ppa_inclusion|<tuple|9|6>>
+    <associate|eq:ppa_update|<tuple|7|6>>
+    <associate|eq:rvi|<tuple|4|4>>
+    <associate|eq:variational-inequality|<tuple|1|2>>
+    <associate|inverse-retraction|<tuple|4|3>>
+    <associate|lem:first-order-r-convex|<tuple|2|3>>
+  </collection>
+</references>
+
+<\auxiliary>
+  <\collection>
+    <\associate|toc>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Manifold and optimization><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|.>>>>|<htab|5mm>><no-break><pageref|auto-1><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Variational inequality on Euclidean space><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|.>>>>|<htab|5mm>><no-break><pageref|auto-2><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Variational inequality on manifold><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|.>>>>|<htab|5mm>><no-break><pageref|auto-3><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Local stationarity and RVI><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|.>>>>|<htab|5mm>><no-break><pageref|auto-4><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Riemannian Proximal Point Algorithm on Stiefel Manifold><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|.>>>>|<htab|5mm>><no-break><pageref|auto-5><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|5.1<space|2spc>Algorithm Definition<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|.>>>>|<htab|5mm>><no-break><pageref|auto-6>>
+
+      <with|par-left|<quote|1tab>|5.2<space|2spc>First-Order Optimality of the Subproblem<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|.>>>>|<htab|5mm>><no-break><pageref|auto-7>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>Verification of Fejér Monotonicity via RVI><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|.>>>>|<htab|5mm>><no-break><pageref|auto-8><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix A<space|2spc>Resources><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|.>>>>|<htab|5mm>><no-break><pageref|auto-9><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|A.1<space|2spc>Variational inequality<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|.>>>>|<htab|5mm>><no-break><pageref|auto-10>>
+
+      <with|par-left|<quote|1tab>|A.2<space|2spc>Optimization on manifold<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|.>>>>|<htab|5mm>><no-break><pageref|auto-11>>
+
+      <with|par-left|<quote|1tab>|A.3<space|2spc>Optimization on Stiefel manifold<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|.>>>>|<htab|5mm>><no-break><pageref|auto-12>>
+    </associate>
+  </collection>
+</auxiliary>

@@ -23,23 +23,24 @@
 
   I am the COO and co-founder of <hlink|LIII
   NETWORK|https://liiistem.cn/guide/about-us.html>
-  (\<#4E09\>\<#9CA4\>\<#7F51\>\<#7EDC\>), an open source company. Before
-  this, I obtained my Ph.D. in the Electrical and Computer Engineering
+  (\<#4E09\>\<#9CA4\>\<#7F51\>\<#7EDC\>), an open source company. I am also
+  an Adjunct Research Assistant Professor in <hlink|Shiyi
+  Chen|https://faculty.eitech.edu.cn/engineering/csy1/main.htm>'s group at
+  <hlink|Eastern Institute of Technology|https://www.eitech.edu.cn/>.\ 
+
+  Before this, I obtained my Ph.D. in the Electrical and Computer Engineering
   Department at the University of Illinois Chicago. I am very fortunate to be
   advised by Prof. <hlink|Shuo Han|https://hanshuo.people.uic.edu/site/>. I
   received my bachelors in Department of Mathematics at the <hlink|Southern
-  University of Science and Technology|https://www.sustech.edu.cn/en/>.
+  University of Science and Technology|https://www.sustech.edu.cn/en/>, where
+  I received many helps from Prof. <hlink|Andy Luchuan
+  Liu|https://staff.uic.edu.cn/andylcliu/en>.
 
-  My primary research interests lie in reinforcement learning and game
-  theory. During my Ph.D., I worked on combining model-based RL with
-  model-free RL. I also worked on projects that examines optimization
-  techniques for Stackelberg games.
-
-  This website is built in <hlink|GNU <TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>
+  This website is built in <hlink|Mogan STEM|https://github.com/XmacsLabs/mogan>
   with the notes plugin, you can access the source repository by clicking:
   <hlink|Mogan|https://github.com/XmacsLabs/mogan> and
-  <hlink|texmacs-notes|https://github.com/texmacs/notes>. The AI-version of
-  Mogan is in <math|\<beta\>>-test now! You can access in <hlink|Liii STEM
+  <hlink|texmacs-notes|https://github.com/texmacs/notes>. The
+  commercial-version of Mogan is released! You can access in <hlink|Liii STEM
   Website|https://liiistem.com/>.
 
   Below, I have attached my CV. I welcome any opportunities that align with
@@ -64,11 +65,11 @@
   developed:
 
   <\itemize>
-    <item><hlink|GNU <TeXmacs>/Mogan|https://github.com/XmacsLabs/mogan>: I
-    am one of the maintainers of GNU <TeXmacs>/Mogan: a WYSIWYG <TeX>-like
-    editor that can help users type equations 10 times faster than <LaTeX>.
-    See \P<hlink|A quick tour of TeXmacs|https://www.youtube.com/watch?v=H46ON2FB30U>\Q
-    for a 3 mins short introduction.
+    <item><hlink|Mogan STEM|https://github.com/XmacsLabs/mogan>: I am one of
+    the maintainers of Mogan: a WYSIWYG <TeX>-style editor that can help
+    users type equations 10 times faster than <LaTeX>. See \P<hlink|A quick
+    tour of TeXmacs|https://www.youtube.com/watch?v=H46ON2FB30U>\Q for a 3
+    mins short introduction.
 
     <item><hlink|Goldfish Scheme|https://github.com/LiiiLabs/goldfish>: I am
     one of the maintainers of <with|font-family|tt|Goldfish Scheme>, a Scheme
@@ -91,10 +92,13 @@
   Feel free to email me if you have any questions for my work or seek for
   collaboration. I am open to all collaboration opportunities.
 
-  <paragraph|Conference>
+  <paragraph|Conference & Journal>
 
-  <tabular|<tformat|<table|<row|<cell|Jan 2025>|<cell|Manuscript:
-  \P<hlink|<hlink|Learning to Help in Multi-Class
+  <tabular|<tformat|<table|<row|<cell|Nov 2025>|<cell|<hlink|StarWhisper
+  Telescope: an AI framework for automating end-to-end astronomical
+  observations|https://www.nature.com/articles/s44172-025-00520-4>>>|<row|<cell|>|<cell|Accepted
+  for publication in Communications Engineering.>>|<row|<cell|Jan
+  2025>|<cell|Manuscript: \P<hlink|<hlink|Learning to Help in Multi-Class
   Settings|https://openreview.net/forum?id=NCgTbt2j1F&referrer=%5Bthe%20profile%20of%20Yansong%20Li%5D(%2Fprofile%3Fid%3D~Yansong_Li2)>|https://openreview.net/forum?id=NCgTbt2j1F&referrer=%5Bthe%20profile%20of%20Yansong%20Li%5D(%2Fprofile%3Fid%3D~Yansong_Li2)>\Q.>>|<row|<cell|>|<cell|Accepted
   for publication in the <with|font-shape|italic|Thirteenth International
   Conference on Learning Representations> (ICLR 2025).>>|<row|<cell|Sep
@@ -124,16 +128,13 @@
 
   <paragraph*|Preprint>
 
-  <tabular|<tformat|<table|<row|<cell|Dec 2024>|<cell|\P<hlink|Renaissance of
-  Literate Programming in the Era of LLMs: Enhancing LLM-Based Code
-  Generation in Large-Scale Projects|icml_goldfish_2025.pdf>\Q>>|<row|<cell|Nov
+  <tabular|<tformat|<table|<row|<cell|Mar 2026>|<cell|\P<hlink|LaTeX
+  Compilation: Challenges in the Era of LLMs|https://arxiv.org/abs/2603.02873>\Q.>>|<row|<cell|Nov
   2024>|<cell|\P<hlink|EAPCR: A Universal Feature Extractor for Scientific
   Data without Explicit Feature Relation Patterns|https://arxiv.org/abs/2411.08164>\Q>>|<row|<cell|Aug
   2024>|<cell|\P<hlink|When to Trust Your Data: Enhancing Dyna-Style
   Model-Based Reinforcement Learning With Data
-  Filter|https://arxiv.org/abs/2410.12160>\Q.>>|<row|<cell|Aug
-  2024>|<cell|\P<hlink|Goldfish Scheme: A Scheme Interpreter with Python-Like
-  Standard Library|goldfish.pdf>\Q >>|<row|<cell|Mar
+  Filter|https://arxiv.org/abs/2410.12160>\Q.>>|<row|<cell|Mar
   2024>|<cell|\P<hlink|Bayes-Optimal, Robust, and Distributionally Robust
   Policies for Uncertain MDPs|https://indigo.uic.edu/articles/preprint/Bayes-Optimal_Robust_and_Distributionally_Robust_Policies_for_Uncertain_MDPs/27138990?file=49515501>\Q.>>|<row|<cell|Jan
   2024<space|1em>>|<cell|\P<hlink|Removing Redundant Partner Policies May Be
@@ -173,30 +174,20 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Jack
-      Yansong Li \<#674E\>\<#5CA9\>\<#677E\>>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <pageref|auto-1><vspace|0.5fn>
+      Yansong Li \<#674E\>\<#5CA9\>\<#677E\>><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><pageref|auto-1><vspace|0.5fn>
 
-      About Me <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-3>
+      <with|par-left|<quote|1tab>|About Me<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-3>>
 
-      Notes <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4>
+      <with|par-left|<quote|1tab>|Notes<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-4>>
 
-      Contributions to Open Source Projects
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5>
+      <with|par-left|<quote|1tab>|Contributions to Open Source
+      Projects<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-5>>
 
-      Publications <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-6>
+      <with|par-left|<quote|1tab>|Publications<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-6>>
 
-      <with|par-left|<quote|3tab>|Conference
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7>>
+      <with|par-left|<quote|3tab>|Conference<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-7>>
 
-      <with|par-left|<quote|3tab>|Preprint
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-8>>
+      <with|par-left|<quote|3tab>|Preprint<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-8>>
     </associate>
   </collection>
 </auxiliary>

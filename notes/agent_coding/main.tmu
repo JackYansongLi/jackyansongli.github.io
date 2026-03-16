@@ -1,4 +1,4 @@
-<TMU|<tuple|1.1.0|2025.1.4-rc2>>
+<TMU|<tuple|1.1.0|2026.1.5>>
 
 <style|<tuple|generic|number-europe|llm|elvish|preview-ref|smart-ref|python>>
 
@@ -81,7 +81,7 @@
     </answer>
   </unfolded>
 
-  <big-figure|<with|gr-mode|<tuple|edit|cline>|gr-frame|<tuple|scale|1cm|<tuple|0.509999gw|0.509997gh>>|gr-geometry|<tuple|geometry|1par|0.6par>|gr-grid|<tuple|cartesian|<point|0|0>|1>|gr-edit-grid-aspect|<tuple|<tuple|axes|none>|<tuple|1|none>|<tuple|10|none>>|gr-edit-grid|<tuple|cartesian|<point|0|0>|1>|gr-color|dark brown|gr-line-width|5ln|gr-grid-old|<tuple|cartesian|<point|0|0>|1>|gr-edit-grid-old|<tuple|cartesian|<point|0|0>|1>|<graphics||<with|color|red|line-width|5ln|<circle|<point|0|0>|<point|0.7999999999999996|-0.7>>>|<with|color|red|line-width|5ln|<circle|<point|0|0>|<point|1.2999999999999996|-1.4>>>|<with|color|blue|line-width|5ln|<circle|<point|0|0>|<point|2.2|-2.2>>>|<with|magnify|0.9236277434070885|color|blue|line-width|5ln|<circle|<point|-0.029241067466682202|0.0885048192462004>|<point|3.4805443574802544|-2.4052900879529386>>>|<with|color|dark brown|<text-at|Hardware|<point|-0.5|0.0>>>|<with|color|dark brown|<text-at|Systems|<point|-0.5|1.3>>>|<with|color|dark brown|<text-at|GUI|<point|-0.3999999999999998|3.7>>>|<with|color|dark brown|<text-at|Shell|<point|-0.3999999999999998|2.4>>>>>|Different level of computer interactions<label|figure:level-of-comp-interactions>>
+  <big-figure|<with|gr-mode|<tuple|edit|math-at>|gr-frame|<tuple|scale|1cm|<tuple|0.509999gw|0.509997gh>>|gr-geometry|<tuple|geometry|1par|0.6par>|gr-grid|<tuple|cartesian|<point|0|0>|1>|gr-edit-grid-aspect|<tuple|<tuple|axes|none>|<tuple|1|none>|<tuple|10|none>>|gr-edit-grid|<tuple|cartesian|<point|0|0>|1>|gr-color|dark brown|gr-line-width|5ln|gr-grid-old|<tuple|cartesian|<point|0|0>|1>|gr-edit-grid-old|<tuple|cartesian|<point|0|0>|1>|<graphics||<with|color|red|line-width|5ln|<circle|<point|0|0>|<point|0.7999999999999996|-0.7>>>|<with|color|red|line-width|5ln|<circle|<point|0|0>|<point|1.2999999999999996|-1.4>>>|<with|color|blue|line-width|5ln|<circle|<point|0|0>|<point|2.2|-2.2>>>|<with|magnify|0.9236277434070885|color|blue|line-width|5ln|<circle|<point|-0.029241067466682202|0.0885048192462004>|<point|3.4805443574802544|-2.4052900879529386>>>|<with|color|dark brown|<text-at|Hardware|<point|-0.5|0.0>>>|<with|color|dark brown|<text-at|Systems|<point|-0.5|1.3>>>|<with|color|dark brown|<text-at|GUI|<point|-0.3999999999999998|3.7>>>|<with|color|dark brown|<text-at|Shell|<point|-0.3999999999999998|2.4>>>>>|Different level of computer interactions<label|figure:level-of-comp-interactions>>
 
   <\remark>
     For a more tutorials on shell commands and command line tools, I highly recommend the <em|Missing Semester> Course provided by MIT: <hlink|https://missing.csail.mit.edu/|https://missing.csail.mit.edu/>
@@ -302,8 +302,6 @@
   Claude Code lives in Shell (recall <smart-ref|figure:level-of-comp-interactions>), so the tool is your shell commands! Learn some terminal commands!\ 
 
   <section|ReAct>
-
-  \;
 
   <subsection|ReAct v.s. workflow>
 
@@ -818,57 +816,57 @@
     <\associate|figure>
       <tuple|normal|QQ Group QR Code|<pageref|auto-1>>
 
-      <tuple|normal|<surround|<hidden-binding|<tuple>|1>||Different level of computer interactions>|<pageref|auto-3>>
+      <tuple|normal|<surround|<hidden-binding|<tuple|auto-3>|1>||Different level of computer interactions>|<pageref|auto-3>>
 
-      <tuple|normal|<surround|<hidden-binding|<tuple>|2>||Universal Agent Pattern>|<pageref|auto-18>>
+      <tuple|normal|<surround|<hidden-binding|<tuple|auto-18>|2>||Universal Agent Pattern>|<pageref|auto-18>>
 
-      <tuple|normal|<surround|<hidden-binding|<tuple>|3>||1 React flow>|<pageref|auto-21>>
+      <tuple|normal|<surround|<hidden-binding|<tuple|auto-21>|3>||1 React flow>|<pageref|auto-21>>
     </associate>
     <\associate|table>
-      <tuple|normal|<surround|<hidden-binding|<tuple>|1>||Technology Stack Overview>|<pageref|auto-15>>
+      <tuple|normal|<surround|<hidden-binding|<tuple|auto-15>|1>||Technology Stack Overview>|<pageref|auto-15>>
     </associate>
     <\associate|toc>
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>What is a LLM Agent?> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-2><vspace|0.5fn>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>What is a LLM Agent?><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-2><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|1.1<space|2spc>Workflow <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-4>>
+      <with|par-left|<quote|1tab>|1.1<space|2spc>Workflow<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-4>>
 
-      <with|par-left|<quote|3tab>|Workflow products: <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-5>>
+      <with|par-left|<quote|3tab>|Workflow products:<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-5>>
 
-      <with|par-left|<quote|1tab>|1.2<space|2spc>Coding Agent <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-6>>
+      <with|par-left|<quote|1tab>|1.2<space|2spc>Coding Agent<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-6>>
 
-      <with|par-left|<quote|3tab>|Coding agent products: <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-7>>
+      <with|par-left|<quote|3tab>|Coding agent products:<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-7>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>ReAct> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-8><vspace|0.5fn>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>ReAct><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-8><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|2.1<space|2spc>ReAct v.s. workflow <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-9>>
+      <with|par-left|<quote|1tab>|2.1<space|2spc>ReAct v.s. workflow<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-9>>
 
-      <with|par-left|<quote|3tab>|What is ReAct? <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-10>>
+      <with|par-left|<quote|3tab>|What is ReAct?<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-10>>
 
-      <with|par-left|<quote|3tab>|ReAct vs. <no-break><specific|screen|<resize|<move|<with|color|<quote|#A0A0FF>|->|-0.3em|>|0em||0em|>>Workflow: The Key Difference <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-11>>
+      <with|par-left|<quote|3tab>|ReAct vs. <no-break><specific|screen|<resize|<move|<with|color|<quote|white>|->|-0.3em|>|0em||0em|>>Workflow: The Key Difference<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-11>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Demo: local agent server> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-12><vspace|0.5fn>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Demo: local agent server><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-12><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|3.1<space|2spc>Project Overview <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-13>>
+      <with|par-left|<quote|1tab>|3.1<space|2spc>Project Overview<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-13>>
 
-      <with|par-left|<quote|1tab>|3.2<space|2spc>Technology Stack <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-14>>
+      <with|par-left|<quote|1tab>|3.2<space|2spc>Technology Stack<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-14>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Architecture and Design Patterns> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-16><vspace|0.5fn>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Architecture and Design Patterns><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-16><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|4.1<space|2spc>High-Level Architecture <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-17>>
+      <with|par-left|<quote|1tab>|4.1<space|2spc>High-Level Architecture<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-17>>
 
-      <with|par-left|<quote|1tab>|4.2<space|2spc>Streaming Architecture <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-19>>
+      <with|par-left|<quote|1tab>|4.2<space|2spc>Streaming Architecture<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-19>>
 
-      <with|par-left|<quote|2tab>|4.2.1<space|2spc>Multi-Type Streaming System <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-20>>
+      <with|par-left|<quote|2tab>|4.2.1<space|2spc>Multi-Type Streaming System<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-20>>
 
-      <with|par-left|<quote|2tab>|4.2.2<space|2spc>Streaming Implementation <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-22>>
+      <with|par-left|<quote|2tab>|4.2.2<space|2spc>Streaming Implementation<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-22>>
 
-      <with|par-left|<quote|2tab>|4.2.3<space|2spc>Registry Pattern: Tool Management <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-23>>
+      <with|par-left|<quote|2tab>|4.2.3<space|2spc>Registry Pattern: Tool Management<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-23>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix A<space|2spc>Homework> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-24><vspace|0.5fn>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix A<space|2spc>Homework><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-24><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix B<space|2spc>Shell command basics> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-25><vspace|0.5fn>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix B<space|2spc>Shell command basics><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-25><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix C<space|2spc>Version Control> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-26><vspace|0.5fn>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix C<space|2spc>Version Control><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-26><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>

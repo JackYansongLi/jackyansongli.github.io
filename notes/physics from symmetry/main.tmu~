@@ -1,0 +1,560 @@
+<TMU|<tuple|1.1.0|2025.1.5>>
+
+<style|<tuple|generic|number-europe|preview-ref|smart-ref|llm>>
+
+<\body>
+  <\session|llm|DeepSeek>
+    <\output>
+      LLM session v20251024 by LiiiLabs
+
+      Using deepseek-chat provided by deepseek.com with max_tokens 8192
+
+      Help docs：Help-\<gtr\>Plugins-\<gtr\>LLM
+    </output>
+
+    <\unfolded-io-text>
+      \<gtr\>\ 
+    <|unfolded-io-text>
+      What is the meaning of <math|u <rsup|-1>v u > for <math|u,v\<in\>\<cal-M\><rsub|2\<times\>2>> in geometry?\ 
+    <|unfolded-io-text>
+      <section*|Geometric Interpretation of <math|u<rsup|-1>*v*u> for <math|2\<times\>2> Matrices><label|geometric-interpretation-of-u-1-v-u-for-2-times-2-matrices>
+
+      <subsection*|Conjugation as Change of Basis><label|conjugation-as-change-of-basis>
+
+      The expression <math|u<rsup|-1>*v*u> represents conjugation of the matrix <math|v> by the invertible matrix <math|u>. Geometrically, this corresponds to applying a change of coordinates.\ 
+
+      <subsection*|Linear Transformation Interpretation><label|linear-transformation-interpretation>
+
+      If we interpret <math|v> as representing a linear transformation in some coordinate system, then <math|u<rsup|-1>*v*u> represents the same transformation but expressed in a different coordinate system, where <math|u> provides the change of basis.\ 
+
+      <subsection*|Special Cases><label|special-cases>
+
+      <subsubsection*|Rotation Matrices><label|rotation-matrices>
+
+      When <math|u> and <math|v> are rotation matrices in <math|\<bbb-R\><rsup|2>>, the conjugation <math|u<rsup|-1>*v*u> represents composing rotations: first rotate by angle <math|\<theta\><rsub|u>> (via <math|u>), then apply rotation <math|v>, then undo the initial rotation.\ 
+
+      <subsubsection*|Scaling and Shearing><label|scaling-and-shearing>
+
+      \;
+
+      For diagonal matrices representing scaling, conjugation can transform scaling directions. For shear matrices, conjugation can rotate the direction of shearing.\ 
+
+      <subsection*|Geometric Invariants><label|geometric-invariants>
+
+      The conjugation preserves several geometric properties:\ 
+
+      <\itemize>
+        <item>Determinant: <math|det <around|(|u<rsup|-1>*v*u|)>=det <around|(|v|)>>
+
+        <item>Trace: <math|<math-up|tr><around|(|u<rsup|-1>*v*u|)>=<math-up|tr><around|(|v|)>>
+
+        <item>Eigenvalues (and thus the type of transformation: rotation, scaling, etc.)
+      </itemize>
+
+      <subsection*|Coordinate Transformation><label|coordinate-transformation>
+
+      If <math|v> transforms vectors as <math|w=v*x>, then in the coordinate system transformed by <math|u>, the same transformation appears as <math|u<rsup|-1>*v*u>. This is the geometric essence of similarity transformations in linear algebra.\ 
+    </unfolded-io-text>
+
+    <\unfolded-io-text>
+      \<gtr\>\ 
+    <|unfolded-io-text>
+      <subsubsection*|Rotation Matrices><label|rotation-matrices>
+
+      When <math|u> and <math|v> are rotation matrices in <math|\<bbb-R\><rsup|2>>, the conjugation <math|u<rsup|-1>*v*u> represents composing rotations: first rotate by angle <math|\<theta\><rsub|u>> (via <math|u>), then apply rotation <math|v>, then undo the initial rotation.\ 
+
+      explain this in more detail
+    <|unfolded-io-text>
+      <subsection*|Rotation Matrix Conjugation><label|rotation-matrix-conjugation>
+
+      Let <math|u> and <math|v> be rotation matrices in <math|\<bbb-R\><rsup|2>>:\ 
+
+      <\equation*>
+        u=<matrix|<tformat|<table|<row|<cell|cos \<theta\><rsub|u>>|<cell|-sin \<theta\><rsub|u>>>|<row|<cell|sin \<theta\><rsub|u>>|<cell|cos \<theta\><rsub|u>>>>>>,<space|1em>v=<matrix|<tformat|<table|<row|<cell|cos \<theta\><rsub|v>>|<cell|-sin \<theta\><rsub|v>>>|<row|<cell|sin \<theta\><rsub|v>>|<cell|cos \<theta\><rsub|v>>>>>>
+      </equation*>
+
+      <subsubsection*|Step-by-Step Geometric Interpretation><label|step-by-step-geometric-interpretation>
+
+      The transformation <math|u<rsup|-1>*v*u> applied to a vector <math|x> proceeds as follows:\ 
+
+      <\enumerate>
+        <assign|labelenumi|<macro|<number|<enumi-nr>|arabic>.>>
+
+        <item><with|font-series|bold|mode|math|u*x>: Rotate <math|x> by angle <math|\<theta\><rsub|u>> in the standard coordinate system
+
+        <item><with|font-series|bold|mode|math|v*<around|(|u*x|)>>: Apply rotation <math|v> to the result, rotating by angle <math|\<theta\><rsub|v>>
+
+        <item><with|font-series|bold|mode|math|u<rsup|-1>*<around|(|v*u*x|)>>: Apply the inverse rotation <math|u<rsup|-1>>, which rotates by <math|-\<theta\><rsub|u>>
+      </enumerate>
+
+      <subsubsection*|Net Effect><label|net-effect>
+
+      The composition <math|u<rsup|-1>*v*u> represents a rotation by angle <math|\<theta\><rsub|v>> about a different axis. Specifically, it rotates by <math|\<theta\><rsub|v>> around the direction that was originally rotated by <math|u>.\ 
+
+      <subsubsection*|Algebraic Verification><label|algebraic-verification>
+
+      Since rotation matrices commute, we have:\ 
+
+      <\equation*>
+        u<rsup|-1>*v*u=u<rsup|-1>*u*v=v
+      </equation*>
+
+      This shows that for rotation matrices in <math|\<bbb-R\><rsup|2>>, conjugation doesn't change the transformation - it remains a rotation by <math|\<theta\><rsub|v>>. The geometric interpretation becomes more meaningful in higher dimensions or with non-commuting transformations.\ 
+
+      <subsubsection*|Key Insight><label|key-insight>
+
+      The conjugation <math|u<rsup|-1>*v*u> expresses the same rotation <math|v> but in a coordinate system that has been rotated by <math|u>. The net rotation angle remains <math|\<theta\><rsub|v>>, but the “frame of reference” for describing the rotation has changed.\ 
+    </unfolded-io-text>
+
+    <\unfolded-io-text>
+      \<gtr\>\ 
+    <|unfolded-io-text>
+      but in 3D space, rotation matrices does not commute, how to understand that?
+    <|unfolded-io-text>
+      <section*|Non-Commutativity of 3D Rotations and Conjugation><label|non-commutativity-of-3d-rotations-and-conjugation>
+
+      <subsection*|Fundamental Difference from 2D><label|fundamental-difference-from-2d>
+
+      In 3D space, rotation matrices do <with|font-series|bold|not> commute, making the geometric interpretation of <math|u<rsup|-1>*v*u> much richer and more complex than in 2D.\ 
+
+      <subsection*|Geometric Interpretation in 3D><label|geometric-interpretation-in-3d>
+
+      <subsubsection*|Step-by-Step Transformation><label|step-by-step-transformation>
+
+      For a vector <math|x\<in\>\<bbb-R\><rsup|3>>, the transformation <math|u<rsup|-1>*v*u*x> proceeds as:\ 
+
+      <\enumerate>
+        <assign|labelenumi|<macro|<number|<enumi-nr>|arabic>.>>
+
+        <item><with|font-series|bold|mode|math|u*x>: Rotate <math|x> by rotation <math|u> in the original coordinate system
+
+        <item><with|font-series|bold|mode|math|v*<around|(|u*x|)>>: Apply rotation <math|v> to the result
+
+        <item><with|font-series|bold|mode|math|u<rsup|-1>*<around|(|v*u*x|)>>: Apply the inverse of rotation <math|u>
+      </enumerate>
+
+      <subsubsection*|Key Geometric Insight><label|key-geometric-insight>
+
+      The conjugation <math|u<rsup|-1>*v*u> represents applying rotation <math|v> <with|font-series|bold|in the coordinate system that has been rotated by <math|u>>.\ 
+
+      <subsection*|Concrete Example><label|concrete-example>
+
+      Let <math|v> be a rotation about the z-axis, and <math|u> be a rotation about the x-axis:\ 
+
+      <\equation*>
+        v=R<rsub|z><around|(|\<theta\>|)>,<space|1em>u=R<rsub|x><around|(|\<phi\>|)>
+      </equation*>
+
+      Then <math|u<rsup|-1>*v*u=R<rsub|x>*<around|(|-\<phi\>|)>*R<rsub|z><around|(|\<theta\>|)>*R<rsub|x><around|(|\<phi\>|)>> represents:\ 
+
+      <\itemize>
+        <item>A rotation about the z-axis <with|font-series|bold|after the coordinate system has been tilted by rotation <math|u>>
+
+        <item>This is equivalent to rotating about a <with|font-series|bold|different axis> in the original coordinate system
+      </itemize>
+
+      <subsection*|Axis Transformation><label|axis-transformation>
+
+      The most important geometric interpretation:\ 
+
+      <with|font-series|bold|If <math|v> rotates about axis <math|<math-bf|a>> by angle <math|\<theta\>>, then <math|u<rsup|-1>*v*u> rotates about axis <math|u<rsup|-1><math-bf|a>> by the same angle <math|\<theta\>>.>\ 
+
+      <subsubsection*|Mathematical Foundation><label|mathematical-foundation>
+
+      This follows from the fact that for rotation matrices:\ 
+
+      <\equation*>
+        u<rsup|-1>*R<around|(|<math-bf|a>,\<theta\>|)>*u=R<around|(|u<rsup|-1><math-bf|a>,\<theta\>|)>
+      </equation*>
+
+      where <math|R<around|(|<math-bf|a>,\<theta\>|)>> denotes rotation about axis <math|<math-bf|a>> by angle <math|\<theta\>>.\ 
+
+      <subsection*|Physical Interpretation><label|physical-interpretation>
+
+      <subsubsection*|Changing Reference Frames><label|changing-reference-frames>
+
+      Think of <math|u> as changing your viewpoint or coordinate system:\ 
+
+      <\itemize>
+        <item><with|font-series|bold|Original frame>: You see rotation <math|v> happening
+
+        <item><with|font-series|bold|Transformed frame>: After applying <math|u>, you're in a new orientation
+
+        <item><with|font-series|bold|In transformed frame>: You see what looks like rotation <math|v>
+
+        <item><with|font-series|bold|Return to original>: When you apply <math|u<rsup|-1>>, you see the net effect
+      </itemize>
+
+      <subsubsection*|Everyday Analogy><label|everyday-analogy>
+
+      If you:\ 
+
+      <\enumerate>
+        <assign|labelenumi|<macro|<number|<enumi-nr>|arabic>.>>
+
+        <item>Turn your head (rotation <math|u>)
+
+        <item>Watch someone spin an object (rotation <math|v>)
+
+        <item>Turn your head back to original position (<math|u<rsup|-1>>)
+      </enumerate>
+
+      The object appears to have rotated about a different axis than if you had kept your head still.\ 
+
+      <subsection*|Mathematical Consequences><label|mathematical-consequences>
+
+      <subsubsection*|Non-Commutation Proof><label|non-commutation-proof>
+
+      For <math|u=R<rsub|x><around|(|90<rsup|\<circ\>>|)>> and <math|v=R<rsub|y><around|(|90<rsup|\<circ\>>|)>>:\ 
+
+      <\equation*>
+        u<rsup|-1>*v*u\<neq\>v<rsup|-1>*u*v\<neq\>u*v
+      </equation*>
+
+      This demonstrates that the order matters fundamentally in 3D.\ 
+
+      <subsubsection*|Eigenvalue Preservation><label|eigenvalue-preservation>
+
+      While the rotation axis changes, the conjugation preserves:\ 
+
+      <\itemize>
+        <item>Rotation angle (modulo periodicity)
+
+        <item>Determinant (<math|=1> for rotations)
+
+        <item>Trace (related to rotation angle)
+      </itemize>
+
+      <subsection*|Summary><label|summary>
+
+      The geometric meaning of <math|u<rsup|-1>*v*u> in 3D is: <with|font-series|bold|Take the rotation <math|v> and apply it in a coordinate system that has been transformed by <math|u>>. This changes the effective rotation axis while preserving the rotation angle, explaining why 3D rotations don't commute and demonstrating the rich structure of 3D rotational geometry.\ 
+    </unfolded-io-text>
+
+    <\unfolded-io-text>
+      \<gtr\>\ 
+    <|unfolded-io-text>
+      <subsection*|Conjugation as Change of Basis><label|conjugation-as-change-of-basis>
+
+      The expression <math|u<rsup|-1>*v*u> represents conjugation of the matrix <math|v> by the invertible matrix <math|u>. Geometrically, this corresponds to applying a change of coordinates.\ 
+
+      explain with examples
+    <|unfolded-io-text>
+      Of course. Let's break down the concept of conjugation as a change of basis with concrete examples.\ 
+
+      <subsubsection*|The Core Idea><label|the-core-idea>
+
+      Think of a matrix <math|v> as a set of instructions for a transformation (like rotation or scaling) <with|font-series|bold|in a specific language> (the standard coordinate system). The matrix <math|u> contains the dictionary to translate into a new language (a new coordinate system).\ 
+
+      The operation <math|u<rsup|-1>*v*u> does the following:\ 
+
+      <\enumerate>
+        <assign|labelenumi|<macro|<number|<enumi-nr>|arabic>.>>
+
+        <item><math|u>: <with|font-series|bold|Translate> a vector from the new language back to the standard language.
+
+        <item><math|v>: <with|font-series|bold|Apply the transformation> in the standard language.
+
+        <item><math|u<rsup|-1>>: <with|font-series|bold|Translate> the result back into the new language.
+      </enumerate>
+
+      The result is that <math|u<rsup|-1>*v*u> represents the <with|font-series|bold|same transformation> as <math|v>, but its instructions are now written in the “new language” defined by the basis given by <math|u>.\ 
+
+      <hrule>
+
+      <subsubsection*|Example 1: Scaling in a Rotated Frame><label|example-1-scaling-in-a-rotated-frame>
+
+      Let's say <math|v> is a matrix that stretches space along the x-axis.\ 
+
+      <\equation*>
+        v=<matrix|<tformat|<table|<row|<cell|2>|<cell|0>>|<row|<cell|0>|<cell|1>>>>><space|1em><text|(Stretch by 2 in the x-direction)>
+      </equation*>
+
+      Now, let <math|u> be a <math|45<rsup|\<circ\>>> rotation matrix. Its columns form a new basis: the first basis vector points in the direction (1, 1) and the second in (-1, 1).\ 
+
+      <\equation*>
+        u=<matrix|<tformat|<table|<row|<cell|cos 45<rsup|\<circ\>>>|<cell|-sin 45<rsup|\<circ\>>>>|<row|<cell|sin 45<rsup|\<circ\>>>|<cell|cos 45<rsup|\<circ\>>>>>>>=<frac|1|<sqrt|2>><matrix|<tformat|<table|<row|<cell|1>|<cell|-1>>|<row|<cell|1>|<cell|1>>>>>
+      </equation*>
+
+      The conjugate <math|u<rsup|-1>*v*u> tells us what the “x-axis scaling” transformation <math|v> looks like in this rotated coordinate system.\ 
+
+      <\equation*>
+        u<rsup|-1>*v*u=<frac|1|<sqrt|2>><matrix|<tformat|<table|<row|<cell|1>|<cell|1>>|<row|<cell|-1>|<cell|1>>>>><matrix|<tformat|<table|<row|<cell|2>|<cell|0>>|<row|<cell|0>|<cell|1>>>>><frac|1|<sqrt|2>><matrix|<tformat|<table|<row|<cell|1>|<cell|-1>>|<row|<cell|1>|<cell|1>>>>>=<frac|1|2><matrix|<tformat|<table|<row|<cell|3>|<cell|-1>>|<row|<cell|-1>|<cell|3>>>>>
+      </equation*>
+
+      <with|font-series|bold|Interpretation:>\ 
+
+      <\itemize>
+        <item><with|font-series|bold|Original <math|v>>: A pure scaling along the x-axis. It has a simple diagonal form.
+
+        <item><with|font-series|bold|Conjugated <math|u<rsup|-1>*v*u>>: This is no longer a simple scaling. It's a transformation that stretches space along the direction (1, 1) and squishes it along the perpendicular direction (1, -1). Geometrically, it's the same action—stretching along the original x-axis—but <with|font-series|bold|described from the point of view of the rotated coordinate system>, it looks like a different kind of stretch.
+      </itemize>
+
+      <subsubsection*|Example 2: Reflection in a New Basis><label|example-2-reflection-in-a-new-basis>
+
+      Let <math|v> be a reflection across the line <math|y=x>.\ 
+
+      <\equation*>
+        v=<matrix|<tformat|<table|<row|<cell|0>|<cell|1>>|<row|<cell|1>|<cell|0>>>>><space|1em><text|(Swap x and y coordinates)>
+      </equation*>
+
+      Now, let's choose a new basis <math|u> where the first basis vector is already on the line of reflection (1, 1) and the second is perpendicular to it (1, -1).\ 
+
+      <\equation*>
+        u=<matrix|<tformat|<table|<row|<cell|1>|<cell|1>>|<row|<cell|1>|<cell|-1>>>>>
+      </equation*>
+
+      Let's compute the conjugate. First, find <math|u<rsup|-1>>:\ 
+
+      <\equation*>
+        u<rsup|-1>=<frac|1|-2><matrix|<tformat|<table|<row|<cell|-1>|<cell|-1>>|<row|<cell|-1>|<cell|1>>>>>=<frac|1|2><matrix|<tformat|<table|<row|<cell|1>|<cell|1>>|<row|<cell|1>|<cell|-1>>>>>
+      </equation*>
+
+      Now compute <math|u<rsup|-1>*v*u>:\ 
+
+      <\equation*>
+        u<rsup|-1>*v*u=<frac|1|2><matrix|<tformat|<table|<row|<cell|1>|<cell|1>>|<row|<cell|1>|<cell|-1>>>>><matrix|<tformat|<table|<row|<cell|0>|<cell|1>>|<row|<cell|1>|<cell|0>>>>><matrix|<tformat|<table|<row|<cell|1>|<cell|1>>|<row|<cell|1>|<cell|-1>>>>>
+      </equation*>
+
+      First, <math|v*u>:\ 
+
+      <\equation*>
+        v*u=<matrix|<tformat|<table|<row|<cell|0>|<cell|1>>|<row|<cell|1>|<cell|0>>>>><matrix|<tformat|<table|<row|<cell|1>|<cell|1>>|<row|<cell|1>|<cell|-1>>>>>=<matrix|<tformat|<table|<row|<cell|1>|<cell|-1>>|<row|<cell|1>|<cell|1>>>>>
+      </equation*>
+
+      Now, <math|u<rsup|-1>*<around|(|v*u|)>>:\ 
+
+      <\equation*>
+        u<rsup|-1>*<around|(|v*u|)>=<frac|1|2><matrix|<tformat|<table|<row|<cell|1>|<cell|1>>|<row|<cell|1>|<cell|-1>>>>><matrix|<tformat|<table|<row|<cell|1>|<cell|-1>>|<row|<cell|1>|<cell|1>>>>>=<frac|1|2><matrix|<tformat|<table|<row|<cell|2>|<cell|0>>|<row|<cell|0>|<cell|-2>>>>>=<matrix|<tformat|<table|<row|<cell|1>|<cell|0>>|<row|<cell|0>|<cell|-1>>>>>
+      </equation*>
+
+      <with|font-series|bold|Interpretation:>\ 
+
+      <\itemize>
+        <item><with|font-series|bold|Original <math|v>>: A reflection that swaps coordinates. Its matrix is not diagonal.
+
+        <item><with|font-series|bold|Conjugated <math|u<rsup|-1>*v*u>>: In the new, “natural” basis <math|u>, the reflection simply becomes <math|<matrix|<tformat|<table|<row|<cell|1>|<cell|0>>|<row|<cell|0>|<cell|-1>>>>>>. This is a <with|font-series|bold|pure reflection> across the first basis vector. It leaves the first coordinate unchanged and flips the sign of the second coordinate. The transformation is the same, but in this well-chosen basis, its description becomes dramatically simpler.
+      </itemize>
+
+      <subsubsection*|Summary><label|summary>
+
+      <tabular|<tformat|<twith|table-hmode|min>|<twith|table-width|1par>|<cwith|1|-1|1|-1|cell-hyphen|t>|<table|<row|<cell|Step in ( u^{-1} v u )>|<cell|Geometric Action>|<cell|“Language” Analogy>>|<row|<cell|( u )>|<cell|Takes a vector from the <strong|new basis> and expresses it in the <strong|standard basis>.>|<cell|Translate from “New Language” to “Standard Language”.>>|<row|<cell|( v )>|<cell|Performs the transformation in the <strong|standard basis>.>|<cell|Follow the instructions written in “Standard Language”.>>|<row|<cell|( u^{-1} )>|<cell|Takes the result back to the <strong|new basis>.>|<cell|Translate the result back into “New Language”.>>>>>
+
+      The power of conjugation is that it allows us to understand a complex-looking transformation by finding a basis (<math|u>) in which its description (<math|u<rsup|-1>*v*u>) becomes simple (often diagonal). This is the fundamental idea behind diagonalization and many other techniques in linear algebra.\ 
+    </unfolded-io-text>
+
+    <\unfolded-io-text>
+      \<gtr\>\ 
+    <|unfolded-io-text>
+      Similarly, how to interp <math|u v u<rsup|-1>>? compare with <math|u <rsup|-1>v u>.
+    <|unfolded-io-text>
+      Of course. This is an excellent question because it highlights a crucial subtlety in the geometric interpretation.\ 
+
+      The expressions <math|u*v*u<rsup|-1>> and <math|u<rsup|-1>*v*u> are closely related, and the difference boils down to a single question: <with|font-series|bold|Are we transforming the object, or are we transforming the observer (the coordinate system)?>\ 
+
+      Let's use the “language” analogy from before, where a matrix represents a transformation in a specific coordinate system.\ 
+
+      <hrule>
+
+      <subsubsection*|Interpretation of <math|u<rsup|-1>*v*u>: Transforming the Object><label|interpretation-of-u-1-v-u-transforming-the-object>
+
+      This is the “<with|font-series|bold|alias>” interpretation (from the Latin for “other name”). Here, the <with|font-series|bold|vector gets a new name> (alias) in the original coordinate system.\ 
+
+      <\enumerate>
+        <assign|labelenumi|<macro|<number|<enumi-nr>|arabic>.>>
+
+        <item><math|u>: Take a vector from the <with|font-series|bold|new coordinate system> and express its coordinates in the <with|font-series|bold|original system>.
+
+        <item><math|v>: Apply the transformation <math|v> in the <with|font-series|bold|original coordinate system>.
+
+        <item><math|u<rsup|-1>>: Take the result and express its coordinates back in the <with|font-series|bold|new system>.
+      </enumerate>
+
+      <with|font-series|bold|In short:> <math|u<rsup|-1>*v*u> is the transformation <math|v> <with|font-series|bold|as seen from the new coordinate system> defined by <math|u>. The object (the transformation <math|v>) is the same, but we are describing it using a different set of rulers and protractors (the new basis).\ 
+
+      <with|font-series|bold|Analogy:> You have a recipe (transformation <math|v>) written in English (original basis). <math|u> is the French-to-English dictionary. <math|u<rsup|-1>*v*u> is the process of translating the recipe into French (new basis) so a French chef can follow it. The recipe itself (the transformation) hasn't changed.\ 
+
+      <hrule>
+
+      <subsubsection*|Interpretation of <math|u*v*u<rsup|-1>>: Transforming the Observer><label|interpretation-of-u-v-u-1-transforming-the-observer>
+
+      This is the “<with|font-series|bold|alibi>” interpretation (from the Latin for “elsewhere”). Here, the <with|font-series|bold|vector is moved to a new place> (alibi).\ 
+
+      <\enumerate>
+        <assign|labelenumi|<macro|<number|<enumi-nr>|arabic>.>>
+
+        <item><math|u<rsup|-1>>: Take a vector from the <with|font-series|bold|original coordinate system> and express its coordinates in the <with|font-series|bold|new system>.
+
+        <item><math|v>: Apply the transformation <math|v> in the <with|font-series|bold|new coordinate system>.
+
+        <item><math|u>: Take the result and express its coordinates back in the <with|font-series|bold|original system>.
+      </enumerate>
+
+      <with|font-series|bold|In short:> <math|u*v*u<rsup|-1>> is the transformation that <with|font-series|bold|acts like <math|v>, but in the new coordinate system>, and then we interpret the final result back in the original system. It's as if we've <em|moved the entire universe> by <math|u>, performed <math|v>, and then moved everything back.\ 
+
+      <with|font-series|bold|Analogy:> You are standing still (original frame). You command someone: “First, rotate the entire room around me by <math|u<rsup|-1>> (so now <em|I> am in a new orientation relative to the room), now perform the spin <math|v>, and finally, rotate the entire room back to its original orientation (<math|u>).” The final position of the object is what <math|u*v*u<rsup|-1>> does.\ 
+
+      <hrule>
+
+      <subsubsection*|Direct Comparison with a Concrete Example><label|direct-comparison-with-a-concrete-example>
+
+      Let's use the same scaling example from before.\ 
+
+      <\itemize>
+        <item><with|font-series|bold|Transformation <math|v>>: Scale by 2 along the x-axis.
+      </itemize>
+
+      <\equation*>
+        v=<matrix|<tformat|<table|<row|<cell|2>|<cell|0>>|<row|<cell|0>|<cell|1>>>>>
+      </equation*>
+
+      <\itemize>
+        <item><with|font-series|bold|Basis Change <math|u>>: A 45\<degree\> rotation.
+      </itemize>
+
+      <\equation*>
+        u=<frac|1|<sqrt|2>><matrix|<tformat|<table|<row|<cell|1>|<cell|-1>>|<row|<cell|1>|<cell|1>>>>>
+      </equation*>
+
+      We already computed:\ 
+
+      <\equation*>
+        u<rsup|-1>*v*u=<frac|1|2><matrix|<tformat|<table|<row|<cell|3>|<cell|-1>>|<row|<cell|-1>|<cell|3>>>>>
+      </equation*>
+
+      This is the scaling-by-2-along-x <with|font-series|bold|described in the rotated coordinate system>.\ 
+
+      Now let's compute the other order:\ 
+
+      <\equation*>
+        u*v*u<rsup|-1>=<frac|1|<sqrt|2>><matrix|<tformat|<table|<row|<cell|1>|<cell|-1>>|<row|<cell|1>|<cell|1>>>>><matrix|<tformat|<table|<row|<cell|2>|<cell|0>>|<row|<cell|0>|<cell|1>>>>><frac|1|<sqrt|2>><matrix|<tformat|<table|<row|<cell|1>|<cell|1>>|<row|<cell|-1>|<cell|1>>>>>=<frac|1|2><matrix|<tformat|<table|<row|<cell|3>|<cell|1>>|<row|<cell|1>|<cell|3>>>>>
+      </equation*>
+
+      <with|font-series|bold|Geometric Interpretation:>\ 
+
+      <\itemize>
+        <item><math|u<rsup|-1>*v*u=<frac|1|2><matrix|<tformat|<table|<row|<cell|3>|<cell|-1>>|<row|<cell|-1>|<cell|3>>>>>>: This is a stretch along the original x-axis (direction (1,0)), but its matrix looks complicated because our “reporting” frame (the basis <math|u>) is tilted.
+
+        <item><math|u*v*u<rsup|-1>=<frac|1|2><matrix|<tformat|<table|<row|<cell|3>|<cell|1>>|<row|<cell|1>|<cell|3>>>>>>: This is a stretch along the <em|new> x-axis (the first column of <math|u>, which is direction (1,1)), described in the <em|original> coordinate system.
+      </itemize>
+
+      Notice that <math|<around|(|u*v*u<rsup|-1>|)><rsup|T>=u<rsup|-1>*v*u>. They are related by a transpose, which in this orthogonal case corresponds to an inverse (a rotation in the opposite direction).\ 
+
+      <hrule>
+
+      <subsubsection*|The “Active” vs.<nbsp>“Passive” Duality><label|the-active-vs.-passive-duality>
+
+      This is a classic instance of the <with|font-series|bold|active vs.<nbsp>passive> duality in linear algebra and physics.\ 
+
+      <tabular|<tformat|<twith|table-hmode|min>|<twith|table-width|1par>|<cwith|1|-1|1|-1|cell-hyphen|t>|<table|<row|<cell|Aspect>|<cell|( u^{-1} v u ) (Alias / Passive)>|<cell|( u v u^{-1} ) (Alibi / Active)>>|<row|<cell|<strong|What changes?>>|<cell|The <strong|coordinate system> (the description).>|<cell|The <strong|vectors themselves> (the objects).>>|<row|<cell|<strong|Perspective>>|<cell|The observer moves. The object is fixed.>|<cell|The object moves. The observer is fixed.>>|<row|<cell|<strong|Action of ( u )>>|<cell|( u ) is the <strong|change of basis> matrix.>|<cell|( u ) is the <strong|transformation> matrix.>>|<row|<cell|<strong|Result>>|<cell|The transformation ( v ) <strong|looks different>.>|<cell|A <strong|new transformation> is created that mimics ( v ) in a transformed space.>>>>>
+
+      <subsubsection*|Summary and Key Relationship><label|summary-and-key-relationship>
+
+      The most concise way to relate them is this:\ 
+
+      <with|font-series|bold|If <math|u<rsup|-1>*v*u> represents transformation <math|v> in the new coordinate system defined by <math|u>, then <math|u*v*u<rsup|-1>> represents the <em|inverse> of that idea.>\ 
+
+      In fact, they are inverses of each other in a specific sense:\ 
+
+      <\equation*>
+        <around|(|u*v*u<rsup|-1>|)><rsup|-1>=u*v<rsup|-1>*u<rsup|-1>
+      </equation*>
+
+      But more intuitively, if you define <math|w=u<rsup|-1>*v*u>, then the “active” transformation that does the same physical action as <math|w> but in the original frame is <math|u*w*u<rsup|-1>=v>.\ 
+
+      <with|font-series|bold|The takeaway:> They are two sides of the same coin. One describes how the same transformation appears from a different viewpoint (<math|u<rsup|-1>*v*u>), while the other uses a transformation to create a new, related transformation in the original viewpoint (<math|u*v*u<rsup|-1>>).\ 
+    </unfolded-io-text>
+
+    <\input-text>
+      \<gtr\>\ 
+    <|input-text>
+      \;
+    </input-text>
+  </session>
+</body>
+
+<\initial>
+  <\collection>
+    <associate|page-medium|paper>
+    <associate|page-screen-margin|false>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|algebraic-verification|<tuple|3|?>>
+    <associate|auto-1|<tuple|?|?>>
+    <associate|auto-10|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-11|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-12|<tuple|3|?>>
+    <associate|auto-13|<tuple|3|?>>
+    <associate|auto-14|<tuple|3|?>>
+    <associate|auto-15|<tuple|3|?>>
+    <associate|auto-16|<tuple|3|?>>
+    <associate|auto-17|<tuple|3|?>>
+    <associate|auto-18|<tuple|3|?>>
+    <associate|auto-19|<tuple|3|?>>
+    <associate|auto-2|<tuple|?|?>>
+    <associate|auto-20|<tuple|3|?>>
+    <associate|auto-21|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-22|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-23|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-24|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-25|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-26|<tuple|3|?>>
+    <associate|auto-27|<tuple|3|?>>
+    <associate|auto-28|<tuple|3|?>>
+    <associate|auto-29|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-3|<tuple|?|?>>
+    <associate|auto-30|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-31|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-32|<tuple|3|?>>
+    <associate|auto-33|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-34|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-35|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-36|<tuple|3|?>>
+    <associate|auto-37|<tuple|3|?>>
+    <associate|auto-38|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-39|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-4|<tuple|?|?>>
+    <associate|auto-5|<tuple|?|?>>
+    <associate|auto-6|<tuple|?|?>>
+    <associate|auto-7|<tuple|?|?>>
+    <associate|auto-8|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|auto-9|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|axis-transformation|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|changing-reference-frames|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|concrete-example|<tuple|3|?>>
+    <associate|conjugation-as-change-of-basis|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|coordinate-transformation|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|direct-comparison-with-a-concrete-example|<tuple|3|?>>
+    <associate|eigenvalue-preservation|<tuple|3|?>>
+    <associate|everyday-analogy|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|example-1-scaling-in-a-rotated-frame|<tuple|3|?>>
+    <associate|example-2-reflection-in-a-new-basis|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|fundamental-difference-from-2d|<tuple|3|?>>
+    <associate|geometric-interpretation-in-3d|<tuple|3|?>>
+    <associate|geometric-interpretation-of-u-1-v-u-for-2-times-2-matrices|<tuple|?|?>>
+    <associate|geometric-invariants|<tuple|?|?>>
+    <associate|interpretation-of-u-1-v-u-transforming-the-object|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|interpretation-of-u-v-u-1-transforming-the-observer|<tuple|3|?>>
+    <associate|key-geometric-insight|<tuple|3|?>>
+    <associate|key-insight|<tuple|3|?>>
+    <associate|linear-transformation-interpretation|<tuple|?|?>>
+    <associate|mathematical-consequences|<tuple|3|?>>
+    <associate|mathematical-foundation|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|net-effect|<tuple|3|?>>
+    <associate|non-commutation-proof|<tuple|3|?>>
+    <associate|non-commutativity-of-3d-rotations-and-conjugation|<tuple|3|?>>
+    <associate|physical-interpretation|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|rotation-matrices|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|rotation-matrix-conjugation|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|scaling-and-shearing|<tuple|?|?>>
+    <associate|special-cases|<tuple|?|?>>
+    <associate|step-by-step-geometric-interpretation|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|step-by-step-transformation|<tuple|3|?>>
+    <associate|summary|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|summary-and-key-relationship|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|the-active-vs.-passive-duality|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+    <associate|the-core-idea|<tuple|<with|mode|<quote|math>|\<bullet\>>|?>>
+  </collection>
+</references>

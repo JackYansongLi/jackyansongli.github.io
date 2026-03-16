@@ -1,4 +1,4 @@
-<TMU|<tuple|1.1.0|2025.1.4-rc2>>
+<TMU|<tuple|1.1.0|2025.2.2-rc1>>
 
 <style|<tuple|generic|number-europe|preview-ref|smart-ref|python|doc|framed-theorems|physics>>
 
@@ -298,8 +298,6 @@
       E<rsub|n,\<ell\>>=E<rsub|n>+E<rsub|r><rsup|<around*|(|1|)>>=-<frac|13.6|h<rsup|2>>eV+<frac|E<rsub|n><rsup|2>|2 m c<rsup|2>><around*|(|3-<frac|4n|\<ell\>+<frac|1|2>>|)>
     </equation*>
   </framed>
-
-  \;
 </body>
 
 <\initial>
@@ -313,9 +311,9 @@
   <\collection>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|1|1>>
-    <associate|auto-3|<tuple|1|1>>
-    <associate|auto-4|<tuple|1|3>>
-    <associate|eq:comm-hydro|<tuple|2|2>>
+    <associate|auto-3|<tuple|1|2>>
+    <associate|auto-4|<tuple|1|4>>
+    <associate|eq:comm-hydro|<tuple|2|3>>
     <associate|eq:non-dege|<tuple|1|2>>
     <associate|question:non-dege|<tuple|1|2>>
   </collection>
@@ -324,7 +322,7 @@
 <\auxiliary>
   <\collection>
     <\associate|table>
-      <tuple|normal|<surround|<hidden-binding|<tuple>|1>||>|<pageref|auto-2>>
+      <tuple|normal|<surround|<hidden-binding|<tuple|auto-2>|1>||>|<pageref|auto-2>>
     </associate>
     <\associate|toc>
       <with|par-left|<quote|3tab>|Recap Chapter 4.2 Hydrogen Atom <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>> <no-break><pageref|auto-1>>
