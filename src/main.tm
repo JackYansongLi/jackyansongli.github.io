@@ -24,9 +24,8 @@
   I am the COO and co-founder of <hlink|LIII
   NETWORK|https://liiistem.cn/guide/about-us.html>
   (\<#4E09\>\<#9CA4\>\<#7F51\>\<#7EDC\>), an open source company. I am also
-  an Adjunct Research Assistant Professor in <hlink|Shiyi
-  Chen|https://faculty.eitech.edu.cn/engineering/csy1/main.htm>'s group at
-  <hlink|Eastern Institute of Technology|https://www.eitech.edu.cn/>.\ 
+  an Adjunct Research Assistant Professor at <hlink|Eastern Institute of
+  Technology|https://www.eitech.edu.cn/>.\ 
 
   Before this, I obtained my Ph.D. in the Electrical and Computer Engineering
   Department at the University of Illinois Chicago. I am very fortunate to be
@@ -174,20 +173,30 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-shape|<quote|small-caps>|Jack
-      Yansong Li \<#674E\>\<#5CA9\>\<#677E\>><datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><pageref|auto-1><vspace|0.5fn>
+      Yansong Li \<#674E\>\<#5CA9\>\<#677E\>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <pageref|auto-1><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|About Me<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-3>>
+      About Me <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3>
 
-      <with|par-left|<quote|1tab>|Notes<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-4>>
+      Notes <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4>
 
-      <with|par-left|<quote|1tab>|Contributions to Open Source
-      Projects<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-5>>
+      Contributions to Open Source Projects
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-5>
 
-      <with|par-left|<quote|1tab>|Publications<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-6>>
+      Publications <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-6>
 
-      <with|par-left|<quote|3tab>|Conference<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-7>>
+      <with|par-left|<quote|3tab>|Conference & Journal
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-7>>
 
-      <with|par-left|<quote|3tab>|Preprint<datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.05fn>.<space|0.05fn>>>>>|<htab|5mm>><no-break><pageref|auto-8>>
+      <with|par-left|<quote|3tab>|Preprint
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-8>>
     </associate>
   </collection>
 </auxiliary>
