@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>ML Theory Week 1</title>
-    <meta name="generator" content="MoganSTEMSuite 2025.1.5" />
+    <meta content="MoganSTEMSuite 2026.1.6" name="generator" />
     <meta charset="UTF-8" />
     <style type="text/css">
       body { text-align: justify } h5 { display: inline; padding-right: 1em }
@@ -34,13 +34,13 @@
     </style>
   </head>
   <body>
-    <table class="title-block" style="margin-bottom: 2em">
+    <table style="margin-bottom: 2em" class="title-block">
       <tr>
-        <td><table class="title-block" style="margin-top: 0.5em; margin-bottom: 0.5em">
+        <td><table style="margin-top: 0.5em; margin-bottom: 0.5em" class="title-block">
           <tr>
             <td><strong>ML Theory Week 1</strong></td>
           </tr>
-        </table><div class="compact-block" style="margin-top: 1em; margin-bottom: 1em">
+        </table><div style="margin-top: 1em; margin-bottom: 1em" class="compact-block">
           <table class="title-block">
             <tr>
               <td><p style="margin-top: 0.5em; margin-bottom: 0.5em">
@@ -89,7 +89,7 @@
       </tr>
     </table>
     <h2 id="auto-1">1<span style="margin-left: 1em"></span>A tutorial on PyTorch<span style="margin-left: 1em"></span></h2>
-    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+    <div style="margin-top: 0.5em; text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -101,7 +101,7 @@ import torch</pre></span>
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -113,7 +113,7 @@ import torch.nn as nn</pre></span>
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -125,7 +125,7 @@ import torch.optim as optim</pre></span>
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+    <div style="margin-bottom: 0.5em; text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -140,7 +140,7 @@ import torch.optim as optim</pre></span>
     <p>
       The goal is to approximate the <tt>XOR</tt> gate defined as follows:
     </p>
-    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+    <div style="margin-top: 0.5em; text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -153,7 +153,7 @@ def xor(a,b):
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -166,7 +166,7 @@ outputs = [xor(x[0], x[1]) for x in inputs]</pre></span>
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+    <div style="margin-bottom: 0.5em; text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -182,7 +182,7 @@ outputs = [xor(x[0], x[1]) for x in inputs]</pre></span>
       The <tt>XOR</tt> gate is approximated by a single layer neural net
       defined as:
     </p>
-    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+    <div style="margin-top: 0.5em; text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -202,7 +202,7 @@ class XORNet(nn.Module):
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -214,7 +214,7 @@ model = XORNet()</pre></span>
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -228,7 +228,7 @@ optimizer = optim.SGD(model.parameters(), lr=0.01)  # Stochastic Gradient Descen
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -246,7 +246,7 @@ weights_init(model)</pre></span>
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+    <div style="margin-bottom: 0.5em; text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -261,7 +261,7 @@ weights_init(model)</pre></span>
     <p>
       Convert inputs and outputs data to torch tensors for training
     </p>
-    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+    <div style="margin-top: 0.5em; text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -273,7 +273,7 @@ X = torch.tensor(inputs, dtype=torch.float32)</pre></span>
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -288,7 +288,7 @@ print(&quot;Outputs:&quot;, Y)
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+    <div style="margin-top: 0.5em; text-indent: 0em" class="compact-block">
       <p style="margin-top: 0.5em">
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -297,7 +297,7 @@ print(&quot;Outputs:&quot;, Y)
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -306,7 +306,7 @@ print(&quot;Outputs:&quot;, Y)
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -315,7 +315,7 @@ print(&quot;Outputs:&quot;, Y)
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -324,7 +324,7 @@ print(&quot;Outputs:&quot;, Y)
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -333,7 +333,7 @@ print(&quot;Outputs:&quot;, Y)
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -342,7 +342,7 @@ print(&quot;Outputs:&quot;, Y)
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -351,7 +351,7 @@ print(&quot;Outputs:&quot;, Y)
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+    <div style="margin-bottom: 0.5em; text-indent: 0em" class="compact-block">
       <p style="margin-bottom: 0.5em">
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -360,7 +360,7 @@ print(&quot;Outputs:&quot;, Y)
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -381,7 +381,7 @@ for epoch in range(epochs):
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+    <div style="margin-top: 0.5em; text-indent: 0em" class="compact-block">
       <p style="margin-top: 0.5em">
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -390,7 +390,7 @@ for epoch in range(epochs):
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -399,7 +399,7 @@ for epoch in range(epochs):
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -408,7 +408,7 @@ for epoch in range(epochs):
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+    <div style="margin-bottom: 0.5em; text-indent: 0em" class="compact-block">
       <p style="margin-bottom: 0.5em">
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -417,7 +417,7 @@ for epoch in range(epochs):
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -433,7 +433,7 @@ with torch.no_grad():
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+    <div style="margin-top: 0.5em; text-indent: 0em" class="compact-block">
       <p style="margin-top: 0.5em">
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -442,7 +442,7 @@ with torch.no_grad():
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -451,7 +451,7 @@ with torch.no_grad():
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -460,7 +460,7 @@ with torch.no_grad():
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -469,7 +469,7 @@ with torch.no_grad():
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+    <div style="margin-bottom: 0.5em; text-indent: 0em" class="compact-block">
       <p style="margin-bottom: 0.5em">
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -478,7 +478,7 @@ with torch.no_grad():
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+    <div style="margin-bottom: 0.5em; text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -494,7 +494,7 @@ with torch.no_grad():
       However, if we only use a single layer network defined below, it cannot
       approximate the <tt>XOR</tt> gate:
     </p>
-    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+    <div style="margin-top: 0.5em; text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -512,7 +512,7 @@ class XORNetSingleLayer(nn.Module):
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -524,7 +524,7 @@ model_single_layer = XORNetSingleLayer()</pre></span>
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -538,7 +538,7 @@ optimizer = optim.SGD(model.parameters(), lr=0.01)  # Stochastic Gradient Descen
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -550,7 +550,7 @@ weights_init(model)</pre></span>
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -571,7 +571,7 @@ for epoch in range(epochs):
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+    <div style="margin-top: 0.5em; text-indent: 0em" class="compact-block">
       <p style="margin-top: 0.5em">
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -580,7 +580,7 @@ for epoch in range(epochs):
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -589,7 +589,7 @@ for epoch in range(epochs):
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -598,7 +598,7 @@ for epoch in range(epochs):
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+    <div style="margin-bottom: 0.5em; text-indent: 0em" class="compact-block">
       <p style="margin-bottom: 0.5em">
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -607,7 +607,7 @@ for epoch in range(epochs):
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
@@ -623,7 +623,7 @@ with torch.no_grad():
         </tr></tbody>
       </table>
     </div>
-    <div class="compact-block" style="margin-top: 0.5em; text-indent: 0em">
+    <div style="margin-top: 0.5em; text-indent: 0em" class="compact-block">
       <p style="margin-top: 0.5em">
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -632,7 +632,7 @@ with torch.no_grad():
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -641,7 +641,7 @@ with torch.no_grad():
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -650,7 +650,7 @@ with torch.no_grad():
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="text-indent: 0em">
+    <div style="text-indent: 0em" class="compact-block">
       <p>
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -659,7 +659,7 @@ with torch.no_grad():
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+    <div style="margin-bottom: 0.5em; text-indent: 0em" class="compact-block">
       <p style="margin-bottom: 0.5em">
         <tt class="verbatim"><tt><div style="margin-left: 35.145870328812px">
           <div align="justify">
@@ -668,7 +668,7 @@ with torch.no_grad():
         </div></tt></tt>
       </p>
     </div>
-    <div class="compact-block" style="margin-bottom: 0.5em; text-indent: 0em">
+    <div style="margin-bottom: 0.5em; text-indent: 0em" class="compact-block">
       <table style="width: 100%">
         <tbody><tr>
           <td style="padding-left: 0em; padding-right: 0em"><span style="color: #401000"><pre class="verbatim" xml:space="preserve">
