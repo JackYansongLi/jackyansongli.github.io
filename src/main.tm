@@ -46,7 +46,6 @@
   my expertise and interests. Please feel free to contact me if you are
   interested on our product or even myself. I would be delighted to discuss
   how our product can help your research and learning:
-
   <hlink|<with|font-series|bold|[Curriculum Vitae]>|résumé_yansong.pdf>\ 
 
   <section*|Notes>
@@ -95,49 +94,44 @@
 
   <tabular|<tformat|<table|<row|<cell|Nov 2025>|<cell|<hlink|StarWhisper
   Telescope: an AI framework for automating end-to-end astronomical
-  observations|https://www.nature.com/articles/s44172-025-00520-4>>>|<row|<cell|>|<cell|Accepted
-  for publication in Communications Engineering.>>|<row|<cell|Jan
-  2025>|<cell|Manuscript: \P<hlink|<hlink|Learning to Help in Multi-Class
-  Settings|https://openreview.net/forum?id=NCgTbt2j1F&referrer=%5Bthe%20profile%20of%20Yansong%20Li%5D(%2Fprofile%3Fid%3D~Yansong_Li2)>|https://openreview.net/forum?id=NCgTbt2j1F&referrer=%5Bthe%20profile%20of%20Yansong%20Li%5D(%2Fprofile%3Fid%3D~Yansong_Li2)>\Q.>>|<row|<cell|>|<cell|Accepted
-  for publication in the <with|font-shape|italic|Thirteenth International
-  Conference on Learning Representations> (ICLR 2025).>>|<row|<cell|Sep
-  2024>|<cell|Manuscript: \P<hlink|<hlink|Generalizing End-To-End Autonomous
-  Driving In Real-World Environments Using Zero-Shot
-  LLMs|https://openreview.net/forum?id=s0vHSq5QEv>|https://openreview.net/pdf?id=s0vHSq5QEv>\Q.>>|<row|<cell|>|<cell|Accepted
-  for publication in the <with|font-shape|italic|8th Annual Conference on
-  Robot Learning>.>>|<row|<cell|Mar 2024<space|1em>>|<cell|Extended abstract:
-  \P<hlink|Efficient Collaboration with Unknown Agents: Ignoring Similar
-  Agents without Checking Similarity|https://www.ifaamas.org/Proceedings/aamas2024/pdfs/p2363.pdf>\Q.>>|<row|<cell|>|<cell|Accepted
-  for publication as extended abstract in the
-  <with|font-shape|italic|<with|font-shape|italic|<with|font-shape|italic|Proc.
+  observations|https://www.nature.com/articles/s44172-025-00520-4>>>|<row|<cell|>|<cell|Communications
+  Engineering>>|<row|<cell|Jan 2025>|<cell|<hlink|<hlink|Learning to Help in
+  Multi-Class Settings|https://openreview.net/forum?id=NCgTbt2j1F&referrer=%5Bthe%20profile%20of%20Yansong%20Li%5D(%2Fprofile%3Fid%3D~Yansong_Li2)>|https://openreview.net/forum?id=NCgTbt2j1F&referrer=%5Bthe%20profile%20of%20Yansong%20Li%5D(%2Fprofile%3Fid%3D~Yansong_Li2)>>>|<row|<cell|>|<cell|The
+  <with|font-shape|italic|Thirteenth International Conference on Learning
+  Representations> (ICLR 2025)>>|<row|<cell|Sep
+  2024>|<cell|<hlink|<hlink|Generalizing End-To-End Autonomous Driving In
+  Real-World Environments Using Zero-Shot
+  LLMs|https://openreview.net/forum?id=s0vHSq5QEv>|https://openreview.net/pdf?id=s0vHSq5QEv>>>|<row|<cell|>|<cell|The
+  <with|font-shape|italic|8th Annual Conference on Robot
+  Learning>>>|<row|<cell|Mar 2024<space|1em>>|<cell|<hlink|Efficient
+  Collaboration with Unknown Agents: Ignoring Similar Agents without Checking
+  Similarity|https://www.ifaamas.org/Proceedings/aamas2024/pdfs/p2363.pdf>>>|<row|<cell|>|<cell|Extended
+  Abstract in the <with|font-shape|italic|<with|font-shape|italic|<with|font-shape|italic|Proc.
   of the 23rd International Conference on Autonomous Agents and Multiagent
-  Systems (AAMAS 2024)>>>.>>|<row|<cell|Mar
-  2023<space|1em>>|<cell|Manuscript: \P<hlink|Solving Strongly Convex and
-  Smooth Stackelberg Games Without Modeling the
-  Follower|https://arxiv.org/abs/2303.06192>\Q.>>|<row|<cell|>|<cell|Accepted
-  for publication in the <with|font-shape|italic|<with|font-shape|italic|<with|font-shape|italic|American
-  Control Conference (ACC)> 2023>>. <hlink|[IEEE
+  Systems (AAMAS 2024)>>>>>|<row|<cell|Mar
+  2023<space|1em>>|<cell|<hlink|Solving Strongly Convex and Smooth
+  Stackelberg Games Without Modeling the Follower|https://arxiv.org/abs/2303.06192>>>|<row|<cell|>|<cell|<with|font-shape|italic|<with|font-shape|italic|<with|font-shape|italic|American
+  Control Conference (ACC)> 2023>> <hlink|[IEEE
   Xplore]|https://ieeexplore.ieee.org/document/10156010>>>|<row|<cell|June
-  2022<space|1em>>|<cell|Manuscript: \P<hlink|Accelerating Model-Free Policy
-  Optimization Using Model-Based Gradient: A Composite Optimization
-  Perspective|https://arxiv.org/abs/2203.11424>\Q.>>|<row|<cell|>|<cell|Accepted
-  for publication in the <with|font-shape|italic|<with|font-shape|italic|Proceedings
-  of The 4th Annual Learning for Dynamics and Control Conference>>.
+  2022<space|1em>>|<cell|<hlink|Accelerating Model-Free Policy Optimization
+  Using Model-Based Gradient: A Composite Optimization
+  Perspective|https://arxiv.org/abs/2203.11424>>>|<row|<cell|>|<cell|<with|font-shape|italic|<with|font-shape|italic|Proceedings
+  of The 4th Annual Learning for Dynamics and Control Conference>>
   <hlink|[PMLR]|https://proceedings.mlr.press/v168/li22a.html>>>>>>
 
   <paragraph*|Preprint>
 
-  <tabular|<tformat|<table|<row|<cell|Mar 2026>|<cell|\P<hlink|LaTeX
-  Compilation: Challenges in the Era of LLMs|https://arxiv.org/abs/2603.02873>\Q.>>|<row|<cell|Nov
-  2024>|<cell|\P<hlink|EAPCR: A Universal Feature Extractor for Scientific
-  Data without Explicit Feature Relation Patterns|https://arxiv.org/abs/2411.08164>\Q>>|<row|<cell|Aug
-  2024>|<cell|\P<hlink|When to Trust Your Data: Enhancing Dyna-Style
+  <tabular|<tformat|<table|<row|<cell|Mar 2026>|<cell|<hlink|LaTeX
+  Compilation: Challenges in the Era of LLMs|https://arxiv.org/abs/2603.02873>>>|<row|<cell|Nov
+  2024>|<cell|<hlink|EAPCR: A Universal Feature Extractor for Scientific Data
+  without Explicit Feature Relation Patterns|https://arxiv.org/abs/2411.08164>>>|<row|<cell|Aug
+  2024>|<cell|<hlink|When to Trust Your Data: Enhancing Dyna-Style
   Model-Based Reinforcement Learning With Data
-  Filter|https://arxiv.org/abs/2410.12160>\Q.>>|<row|<cell|Mar
-  2024>|<cell|\P<hlink|Bayes-Optimal, Robust, and Distributionally Robust
-  Policies for Uncertain MDPs|https://indigo.uic.edu/articles/preprint/Bayes-Optimal_Robust_and_Distributionally_Robust_Policies_for_Uncertain_MDPs/27138990?file=49515501>\Q.>>|<row|<cell|Jan
-  2024<space|1em>>|<cell|\P<hlink|Removing Redundant Partner Policies May Be
-  Unnecessary for Ad Hoc Teamwork|https://indigo.uic.edu/articles/preprint/Removing_Redundant_Partner_Policies_May_Be_Unnecessary_for_Ad_Hoc_Teamwork/27139116?file=49516221>\Q.>>>>>
+  Filter|https://arxiv.org/abs/2410.12160>>>|<row|<cell|Mar
+  2024>|<cell|<hlink|Bayes-Optimal, Robust, and Distributionally Robust
+  Policies for Uncertain MDPs|https://indigo.uic.edu/articles/preprint/Bayes-Optimal_Robust_and_Distributionally_Robust_Policies_for_Uncertain_MDPs/27138990?file=49515501>>>|<row|<cell|Jan
+  2024<space|1em>>|<cell|<hlink|Removing Redundant Partner Policies May Be
+  Unnecessary for Ad Hoc Teamwork|https://indigo.uic.edu/articles/preprint/Removing_Redundant_Partner_Policies_May_Be_Unnecessary_for_Ad_Hoc_Teamwork/27139116?file=49516221>>>>>>
 
   \;
 
