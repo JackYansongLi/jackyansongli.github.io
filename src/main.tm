@@ -21,8 +21,7 @@
 
   <section*|About Me>
 
-  I am the COO and co-founder of <hlink|LIII
-  NETWORK|https://liiistem.cn/guide/about-us.html>
+  I am the COO and co-founder of <hlink|LIII NETWORK|https://liiistem.cn/>
   (\<#4E09\>\<#9CA4\>\<#7F51\>\<#7EDC\>), an open source company. I am also
   an Adjunct Research Assistant Professor at <hlink|Eastern Institute of
   Technology|https://www.eitech.edu.cn/>.\ 
@@ -32,7 +31,7 @@
   advised by Prof. <hlink|Shuo Han|https://hanshuo.people.uic.edu/site/>. I
   received my bachelors in Department of Mathematics at the <hlink|Southern
   University of Science and Technology|https://www.sustech.edu.cn/en/>, where
-  I received many helps from Prof. <hlink|Andy Luchuan
+  I was advised by (and received many helps from) Prof. <hlink|Andy Luchuan
   Liu|https://staff.uic.edu.cn/andylcliu/en>.
 
   This website is built in <hlink|Mogan STEM|https://github.com/XmacsLabs/mogan>
@@ -58,7 +57,7 @@
 
   <section*|Contributions to Open Source Projects>
 
-  I am a co-founder of <hlink|LIII NETWORK|https://liiistem.cn/guide/about-us.html>
+  I am a co-founder of <hlink|LIII NETWORK|https://liiistem.cn/>
   (\<#4E09\>\<#9CA4\>\<#7F51\>\<#7EDC\>), an open source company that
   developed:
 
