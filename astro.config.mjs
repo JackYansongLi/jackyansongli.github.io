@@ -7,15 +7,6 @@ import rehypeCitation from 'rehype-citation';
 import tailwind from '@astrojs/tailwind';
 import { visit } from 'unist-util-visit';
 
-// Suppress punycode deprecation warning
-const originalEmitWarning = process.emitWarning;
-process.emitWarning = function (warning, type, code, ...args) {
-  if (code === 'DEP0040' || (typeof warning === 'string' && warning.includes('punycode'))) {
-    return;
-  }
-  return originalEmitWarning.apply(process, [warning, type, code, ...args]);
-};
-
 function starlightDirectivesPlugin() {
   return (tree) => {
     visit(tree, (node) => {
@@ -41,7 +32,18 @@ export default defineConfig({
   srcDir: './docs',
   integrations: [
     starlight({
-      title: "Jack Yansong Li's Website",
+      title: "Jack Yansong Li 李岩松",
+      defaultLocale: 'root',
+      locales: {
+        root: {
+          label: 'English',
+          lang: 'en',
+        },
+        zh: {
+          label: '简体中文',
+          lang: 'zh-CN',
+        },
+      },
       social: {
         github: 'https://github.com/jackyansongli',
       },
@@ -49,9 +51,9 @@ export default defineConfig({
         './docs/styles/custom.css',
       ],
       sidebar: [
-        { label: 'Home', link: '/' },
-        { label: 'Articles', link: '/list-articles/' },
-        { label: 'Photos', link: '/photos/' },
+        { label: 'Home', translations: { 'zh-CN': '首页' }, link: '/' },
+        { label: 'Articles', translations: { 'zh-CN': '文章列表' }, link: '/list-articles/' },
+        { label: 'Photos', translations: { 'zh-CN': '相册' }, link: '/photos/' },
       ],
     }),
     tailwind(),
