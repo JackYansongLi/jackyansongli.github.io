@@ -8,12 +8,12 @@ import tailwind from '@astrojs/tailwind';
 import { visit } from 'unist-util-visit';
 
 // Suppress punycode deprecation warning
-const originalEmit = process.emit;
-process.emit = function (name, data, ...args) {
-  if (name === 'warning' && typeof data === 'object' && data.name === 'DeprecationWarning' && data.message.includes('punycode')) {
-    return false;
+const originalEmitWarning = process.emitWarning;
+process.emitWarning = function (warning, type, code, ...args) {
+  if (code === 'DEP0040' || (typeof warning === 'string' && warning.includes('punycode'))) {
+    return;
   }
-  return originalEmit.apply(process, [name, data, ...args]);
+  return originalEmitWarning.apply(process, [warning, type, code, ...args]);
 };
 
 function starlightDirectivesPlugin() {
@@ -38,6 +38,9 @@ function starlightDirectivesPlugin() {
 
 export default defineConfig({
   site: 'https://jackyansongli.github.io',
+  redirects: {
+    '/docs/main': '/',
+  },
   srcDir: './docs',
   integrations: [
     starlight({
