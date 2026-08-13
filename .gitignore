@@ -1,0 +1,11 @@
+.DS_Store
+update_website
+.sisyphus
+
+node_modules
+
+dist/
+.astro/
+playwright-report/
+test-results/
+test-results

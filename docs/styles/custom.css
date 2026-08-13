@@ -1,0 +1,160 @@
+/* Styling for MathJax formulas and rendering layout */
+/* Force inline MathJax formulas to remain inline with the text and respect MathJax baseline alignment */
+mjx-container {
+  display: inline-block !important;
+  max-width: 100%;
+}
+
+mjx-container svg {
+  display: inline !important;
+  margin: 0 !important;
+}
+
+/* Completely disable MathJax default error yellow highlight background */
+g[data-mml-node="merror"] rect,
+g[data-mml-node="merror"] rect[data-background] {
+  fill: transparent !important;
+}
+
+/* Force block MathJax formulas to display as block-level elements */
+mjx-container[display="true"] {
+  display: block !important;
+  text-align: center !important;
+  margin: 1.5rem 0 !important;
+}
+
+mjx-container[display="true"] svg {
+  display: inline-block !important;
+}
+
+/* Custom CSS Counters for Theorem & Definition environments */
+body {
+  counter-reset: theorem-counter definition-counter lemma-counter;
+}
+
+/* Theorem environment styling from remark-directive */
+.directive-theorem {
+  border-left: 4px solid var(--sl-color-accent);
+  background-color: var(--sl-color-bg-sidebar);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  counter-increment: theorem-counter;
+}
+.directive-theorem::before {
+  content: "Theorem " counter(theorem-counter) ". ";
+  font-weight: bold;
+}
+
+/* Definition environment styling */
+.directive-definition {
+  border-left: 4px solid #10b981; /* Tailwind emerald-500 */
+  background-color: var(--sl-color-bg-sidebar);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  counter-increment: definition-counter;
+}
+.directive-definition::before {
+  content: "Definition " counter(definition-counter) ". ";
+  font-weight: bold;
+}
+
+/* Proof environment styling */
+.directive-proof {
+  border-left: 4px solid #9ca3af; /* Gray-400 */
+  background-color: var(--sl-color-bg-sidebar);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+}
+.directive-proof::before {
+  content: "Proof. ";
+  font-weight: bold;
+  font-style: normal;
+}
+.directive-proof::after {
+  content: " ◼";
+  float: right;
+  font-style: normal;
+}
+
+
+/* Assumption environment styling */
+.directive-assumption {
+  border-left: 4px solid #3b82f6; /* Tailwind blue-500 */
+  background-color: var(--sl-color-bg-sidebar);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+}
+.directive-assumption::before {
+  content: "Assumption. ";
+  font-weight: bold;
+}
+
+/* Problem environment styling */
+.directive-problem {
+  border-left: 4px solid #f59e0b; /* Tailwind amber-500 */
+  background-color: var(--sl-color-bg-sidebar);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+}
+.directive-problem::before {
+  content: "Problem. ";
+  font-weight: bold;
+}
+
+/* Custom CSS to hide Starlight's generic header, sidebar, and footer on the homepage */
+[data-template="splash"] header.header {
+  display: none !important;
+}
+[data-template="splash"] .sidebar-pane {
+  display: none !important;
+}
+[data-template="splash"] .main-frame {
+  padding-inline-start: 0 !important;
+}
+[data-template="splash"] .content-panel {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+[data-template="splash"] .sl-container {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+[data-template="splash"] footer {
+  display: none !important;
+}
+[data-template="splash"] .hero {
+  display: none !important;
+}
+/* Style adjustments for the main academic landing container */
+[data-template="splash"] .main-pane {
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  padding: 2rem 1.5rem !important;
+  background-color: var(--sl-color-bg) !important;
+}
+
+/* Hide Starlight's default page title block on the splash homepage */
+[data-template="splash"] h1#_top,
+[data-template="splash"] .content-panel:has(h1#_top) {
+  display: none !important;
+}
+
+/* Ensure unordered lists show bullet discs and proper indentation */
+.sl-markdown-content ul,
+ul {
+  list-style-type: disc !important;
+  padding-left: 1.5rem !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.sl-markdown-content li,
+li {
+  display: list-item !important;
+  margin-bottom: 0.5rem !important;
+}
