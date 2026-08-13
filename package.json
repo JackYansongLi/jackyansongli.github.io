@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && npx linkinator dist --recurse --skip '^http'",
+    "build": "./build.sh",
     "preview": "astro preview",
     "astro": "astro"
   },
