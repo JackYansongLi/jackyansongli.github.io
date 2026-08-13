@@ -38,9 +38,6 @@ function starlightDirectivesPlugin() {
 
 export default defineConfig({
   site: 'https://jackyansongli.github.io',
-  redirects: {
-    '/docs/main': '/',
-  },
   srcDir: './docs',
   integrations: [
     starlight({
