@@ -1,0 +1,400 @@
+---
+interface Props {
+  locale?: 'zh' | 'en';
+}
+
+const { locale = 'zh' } = Astro.props;
+const isZh = locale === 'zh';
+---
+
+<div class="coord-container">
+  <canvas id="canvas7" class="coord-canvas"></canvas>
+  <div class="coord-legend">
+    <div class="legend-title">{isZh ? '图例' : 'Legend'}</div>
+    <div class="legend-items">
+      <div class="legend-item x1">● {isZh ? 'x₁ 轴' : 'x₁ Axis'}</div>
+      <div class="legend-item x2">● {isZh ? 'x₂ 轴' : 'x₂ Axis'}</div>
+      <div class="legend-item x3">● {isZh ? 'x³ 轴 (垂直于 Ox₁x₂ 平面)' : 'x³ Axis (Orthogonal to Ox₁x₂)'}</div>
+      <div class="legend-item boundary">● {isZh ? '虚线：Ox₁x₂ 平面边界' : 'Dashed: Ox₁x₂ Plane Boundary'}</div>
+    </div>
+    <div class="legend-hint">{isZh ? '💡 拖拽可旋转视角' : '💡 Drag to rotate view'}</div>
+  </div>
+</div>
+
+<style>
+  .coord-container {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    margin: 1.5rem 0;
+    border: 1px solid var(--sl-color-gray-5, #334155);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #0f172a;
+  }
+
+  .coord-canvas {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    display: block;
+  }
+
+  .coord-legend {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #f1f5f9;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    user-select: none;
+    max-width: 240px;
+  }
+
+  .legend-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #f8fafc;
+    margin-bottom: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 2px;
+  }
+
+  .legend-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .legend-item {
+    font-weight: 600;
+    font-size: 11px;
+  }
+
+  .legend-item.x1 { color: #4ade80; }
+  .legend-item.x2 { color: #f87171; }
+  .legend-item.x3 { color: #38bdf8; }
+  .legend-item.boundary { color: #c084fc; }
+
+  .legend-hint {
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    font-size: 10px;
+    color: #94a3b8;
+  }
+</style>
+
+<script>
+  interface Vector3D {
+    x: number;
+    y: number;
+    z: number;
+  }
+
+  interface Point2D {
+    x: number;
+    y: number;
+  }
+
+  function initCoordinateSystem(): void {
+    const canvas = document.getElementById('canvas7') as HTMLCanvasElement | null;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let width = 0;
+    let height = 0;
+
+    let rotX = 0.3;
+    let rotY = -0.2;
+    let isDragging = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    // Dynamic transform parameters
+    let currentScale = 1;
+    let currentCx = 0;
+    let currentCy = 0;
+
+    function resize(): void {
+      if (!canvas || !ctx) return;
+      const dpr = window.devicePixelRatio || 1;
+      width = canvas.offsetWidth;
+      height = canvas.offsetHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
+      draw();
+    }
+
+    function projectRaw(p: Vector3D): Point2D {
+      const y1 = p.y * Math.cos(rotX) - p.z * Math.sin(rotX);
+      const z1 = p.y * Math.sin(rotX) + p.z * Math.cos(rotX);
+      const x2 = p.x * Math.cos(rotY) + z1 * Math.sin(rotY);
+      return { x: x2, y: -y1 };
+    }
+
+    function project(p: Vector3D): Point2D {
+      const raw = projectRaw(p);
+      return {
+        x: currentCx + raw.x * currentScale,
+        y: currentCy + raw.y * currentScale,
+      };
+    }
+
+    function drawLine(p1: Vector3D, p2: Vector3D, color: string, lineWidth = 2, dash?: number[]): void {
+      if (!ctx) return;
+      const a = project(p1);
+      const b = project(p2);
+
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = lineWidth;
+      if (dash) {
+        ctx.setLineDash(dash);
+      } else {
+        ctx.setLineDash([]);
+      }
+      ctx.stroke();
+    }
+
+    function drawArrow(p: Vector3D, dir: Vector3D, color: string, label?: string): void {
+      if (!ctx) return;
+      const start = project(p);
+      const end = project({ x: p.x + dir.x, y: p.y + dir.y, z: p.z + dir.z });
+
+      ctx.beginPath();
+      ctx.moveTo(start.x, start.y);
+      ctx.lineTo(end.x, end.y);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 3;
+      ctx.setLineDash([]);
+      ctx.stroke();
+
+      const dx = end.x - start.x;
+      const dy = end.y - start.y;
+      const len = Math.sqrt(dx * dx + dy * dy);
+
+      if (len > 10) {
+        const ux = dx / len;
+        const uy = dy / len;
+        ctx.beginPath();
+        ctx.moveTo(end.x, end.y);
+        ctx.lineTo(end.x - 9 * ux - 4.5 * uy, end.y - 9 * uy + 4.5 * ux);
+        ctx.lineTo(end.x - 9 * ux + 4.5 * uy, end.y - 9 * uy - 4.5 * ux);
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+
+        if (label) {
+          ctx.fillStyle = color;
+          ctx.font = 'bold 15px sans-serif';
+          const textX = end.x + ux * 16 - 5;
+          const textY = end.y + uy * 16 + 5;
+          ctx.fillText(label, textX, textY);
+        }
+      }
+    }
+
+    function cross(a: Vector3D, b: Vector3D): Vector3D {
+      return {
+        x: a.y * b.z - a.z * b.y,
+        y: a.z * b.x - a.x * b.z,
+        z: a.x * b.y - a.y * b.x,
+      };
+    }
+
+    function vectorLen(v: Vector3D): number {
+      return Math.sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+    }
+
+    function scaleVector(v: Vector3D, s: number): Vector3D {
+      return { x: v.x * s, y: v.y * s, z: v.z * s };
+    }
+
+    function draw(): void {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, width, height);
+
+      // Base vectors
+      const e1: Vector3D = { x: -3.5, y: -3, z: -5 };
+      const e2: Vector3D = { x: 2, y: 0.65, z: 2 };
+
+      const e3Cross = cross(e1, e2);
+      let e3 = scaleVector(e3Cross, -1);
+      const e3Len = vectorLen(e3);
+      const targetLen = 3.5;
+      e3 = scaleVector(e3, targetLen / e3Len);
+
+      const O: Vector3D = { x: 0, y: 0, z: 0 };
+      const A: Vector3D = e1;
+      const B: Vector3D = e2;
+      const C: Vector3D = { x: e1.x + e2.x, y: e1.y + e2.y, z: e1.z + e2.z };
+
+      // Extended arrow tips for bounding box calculation
+      const arrowE1 = scaleVector(e1, 1.35);
+      const arrowE2 = scaleVector(e2, 1.35);
+      const arrowE3 = scaleVector(e3, 1.25);
+
+      // Calculate dynamic bounding box of all points in raw 2D coordinates
+      const pointsToFit = [O, A, B, C, arrowE1, arrowE2, arrowE3];
+      let minRawX = Infinity;
+      let maxRawX = -Infinity;
+      let minRawY = Infinity;
+      let maxRawY = -Infinity;
+
+      for (const p of pointsToFit) {
+        const raw = projectRaw(p);
+        if (raw.x < minRawX) minRawX = raw.x;
+        if (raw.x > maxRawX) maxRawX = raw.x;
+        if (raw.y < minRawY) minRawY = raw.y;
+        if (raw.y > maxRawY) maxRawY = raw.y;
+      }
+
+      const rawW = maxRawX - minRawX || 1;
+      const rawH = maxRawY - minRawY || 1;
+
+      // Available drawing space inside canvas (leaving margins for labels & legend)
+      const paddingX = 80;
+      const paddingY = 60;
+      const availW = Math.max(width - paddingX * 2, 100);
+      const availH = Math.max(height - paddingY * 2, 100);
+
+      // Calculate scale so ALL points fit safely inside canvas
+      currentScale = Math.min(availW / rawW, availH / rawH);
+
+      // Center the 3D drawing perfectly inside canvas
+      const midRawX = (minRawX + maxRawX) / 2;
+      const midRawY = (minRawY + maxRawY) / 2;
+      currentCx = width / 2 - midRawX * currentScale;
+      currentCy = height / 2 - midRawY * currentScale;
+
+      // Project key points
+      const pO = project(O);
+      const pA = project(A);
+      const pB = project(B);
+      const pC = project(C);
+
+      // Draw Ox1x2 plane fill
+      ctx.beginPath();
+      ctx.moveTo(pO.x, pO.y);
+      ctx.lineTo(pA.x, pA.y);
+      ctx.lineTo(pC.x, pC.y);
+      ctx.lineTo(pB.x, pB.y);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(155, 89, 182, 0.20)';
+      ctx.fill();
+
+      // Dashed boundary lines of plane
+      drawLine(O, A, '#c084fc', 1.5, [5, 5]);
+      drawLine(O, B, '#c084fc', 1.5, [5, 5]);
+      drawLine(A, C, '#c084fc', 1.5, [5, 5]);
+      drawLine(B, C, '#c084fc', 1.5, [5, 5]);
+
+      // Coordinate axes
+      drawArrow(O, scaleVector(e1, 1.2), '#f87171', 'x₂');
+      drawArrow(O, scaleVector(e2, 1.2), '#4ade80', 'x₁');
+      drawArrow(O, e3, '#38bdf8', 'x³');
+
+      // Origin text
+      ctx.fillStyle = '#f8fafc';
+      ctx.font = 'bold 16px sans-serif';
+      ctx.fillText('O', pO.x - 18, pO.y + 4);
+
+      // Plane label text inside the plane
+      ctx.fillStyle = '#c084fc';
+      ctx.font = '14px sans-serif';
+      const pmid = project({
+        x: (e1.x + e2.x) * 0.45,
+        y: (e1.y + e2.y) * 0.45,
+        z: (e1.z + e2.z) * 0.45,
+      });
+      ctx.fillText('Ox₁x₂', pmid.x - 20, pmid.y + 16);
+
+      // 3D Right-angle marks at origin O
+      const markSize = 0.4;
+      const u1 = scaleVector(e1, markSize / vectorLen(e1));
+      const u2 = scaleVector(e2, markSize / vectorLen(e2));
+      const u3 = scaleVector(e3, markSize / vectorLen(e3));
+
+      // Right-angle mark between e1 and e3
+      const p1 = u1;
+      const p3 = u3;
+      const p13 = { x: u1.x + u3.x, y: u1.y + u3.y, z: u1.z + u3.z };
+      drawLine(p1, p13, '#38bdf8', 1.5);
+      drawLine(p13, p3, '#38bdf8', 1.5);
+
+      // Right-angle mark between e2 and e3
+      const p2 = u2;
+      const p23 = { x: u2.x + u3.x, y: u2.y + u3.y, z: u2.z + u3.z };
+      drawLine(p2, p23, '#38bdf8', 1.5);
+      drawLine(p23, p3, '#38bdf8', 1.5);
+    }
+
+    // Event listeners
+    canvas.addEventListener('mousedown', (e: MouseEvent) => {
+      isDragging = true;
+      lastX = e.clientX;
+      lastY = e.clientY;
+      canvas.style.cursor = 'grabbing';
+    });
+
+    window.addEventListener('mousemove', (e: MouseEvent) => {
+      if (!isDragging) return;
+      rotY += (e.clientX - lastX) * 0.008;
+      rotX += (e.clientY - lastY) * 0.008;
+      lastX = e.clientX;
+      lastY = e.clientY;
+      draw();
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        canvas.style.cursor = 'grab';
+      }
+    });
+
+    canvas.addEventListener('touchstart', (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        lastX = e.touches[0].clientX;
+        lastY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e: TouchEvent) => {
+      if (!isDragging || e.touches.length !== 1) return;
+      rotY += (e.touches[0].clientX - lastX) * 0.008;
+      rotX += (e.touches[0].clientY - lastY) * 0.008;
+      lastX = e.touches[0].clientX;
+      lastY = e.touches[0].clientY;
+      draw();
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    resize();
+    window.addEventListener('resize', resize);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCoordinateSystem);
+  } else {
+    initCoordinateSystem();
+  }
+</script>

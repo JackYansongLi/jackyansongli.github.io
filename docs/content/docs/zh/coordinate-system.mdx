@@ -1,0 +1,41 @@
+---
+title: 坐标系
+description: 向量微积分与张量分析中的坐标系与基向量基础概念，包含三维交互坐标系演示。
+---
+
+import CoordinateSystem from '../../../components/CoordinateSystem.astro';
+
+在向量微积分与张量分析中，**坐标系** (Coordinate System) 是描述几何空间与物理量的基石。本文将介绍三维空间中基向量、坐标轴以及协变与逆变基向量的基本概念，并提供可交互的三维演示。
+
+## 1. 基本概念
+
+在三维欧式空间中，任意一点的位置都可以通过一组坐标 $(x^1, x^2, x^3)$ 来确定。为了描述向量，我们需要建立一组**基向量** (Basis Vectors)。
+
+- **切线基向量（协变基向量 $\boldsymbol{e}_i$）**：沿坐标线切线方向的向量。
+- **法线基向量（逆变基向量 $\boldsymbol{e}^i$）**：垂直于坐标曲面的向量。
+
+当坐标轴互相垂直且长度为 1 时，称为**笛卡尔直角坐标系**；而在一般斜坐标系或曲线坐标系中，基向量不一定正交，也不一定单位化。
+
+## 2. 交互展示：三维坐标系
+
+下面的交互式图示展示了一个三维坐标系。其中，向量 $\boldsymbol{e}_1$ ($x_1$ 轴) 与 $\boldsymbol{e}_2$ ($x_2$ 轴) 确定了 $Ox_1x_2$ 平面，而向量 $\boldsymbol{e}^3$ ($x^3$ 轴) 通过叉积 $\boldsymbol{e}_1 \times \boldsymbol{e}_2$ 计算，确保其严格垂直于 $Ox_1x_2$ 平面。
+
+> **操作提示**：用鼠标或触摸屏在下方画布上**拖拽**，即可旋转视角，全方位观察三维坐标系。
+
+<CoordinateSystem locale="zh" />
+
+## 3. 叉积与正交基向量
+
+在三维空间中，给定两个非共线基向量 $\boldsymbol{e}_1$ 与 $\boldsymbol{e}_2$，我们可以利用向量叉积 (Cross Product) 唯一确定一个垂直于这两个向量所构成平面的基向量 $\boldsymbol{e}^3$：
+
+$$
+\boldsymbol{e}^3 \propto \boldsymbol{e}_1 \times \boldsymbol{e}_2
+$$
+
+这种定义方式保证了 $\boldsymbol{e}^3$ 与 $Ox_1x_2$ 平面严格正交：
+
+$$
+\boldsymbol{e}^3 \cdot \boldsymbol{e}_1 = 0, \quad \boldsymbol{e}^3 \cdot \boldsymbol{e}_2 = 0
+$$
+
+这在一般的曲线坐标系与张量分析中，是构造对偶基（Dual Basis / Contravariant Basis）的关键步骤。

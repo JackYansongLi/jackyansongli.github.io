@@ -1,0 +1,41 @@
+---
+title: Coordinate Systems
+description: Fundamental concepts of coordinate systems and basis vectors in vector calculus and tensor analysis, featuring a 3D interactive demonstration.
+---
+
+import CoordinateSystem from '../../components/CoordinateSystem.astro';
+
+In vector calculus and tensor analysis, **coordinate systems** are foundational for describing geometric space and physical quantities. This note introduces basis vectors, coordinate axes, and covariant/contravariant bases in three-dimensional space, along with an interactive 3D visualization.
+
+## 1. Basic Concepts
+
+In 3D Euclidean space, any point's position can be identified by coordinates $(x^1, x^2, x^3)$. To describe vectors, we establish a set of **basis vectors**:
+
+- **Tangent Basis Vectors (Covariant Basis $\boldsymbol{e}_i$)**: Vectors tangent to coordinate curves.
+- **Normal Basis Vectors (Contravariant Basis $\boldsymbol{e}^i$)**: Vectors normal to coordinate surfaces.
+
+When coordinate axes are mutually perpendicular with unit length, they form a **Cartesian coordinate system**. In general curvilinear or oblique coordinates, basis vectors are not necessarily orthogonal or unit length.
+
+## 2. Interactive 3D Coordinate System Demonstration
+
+The interactive figure below displays a 3D coordinate system. Here, vectors $\boldsymbol{e}_1$ ($x_1$ axis) and $\boldsymbol{e}_2$ ($x_2$ axis) define the $Ox_1x_2$ plane, while vector $\boldsymbol{e}^3$ ($x^3$ axis) is calculated via cross product $\boldsymbol{e}_1 \times \boldsymbol{e}_2$ to ensure it is orthogonal to the $Ox_1x_2$ plane.
+
+> **Instruction**: **Drag** with your mouse or touch screen on the canvas below to rotate the camera view.
+
+<CoordinateSystem locale="en" />
+
+## 3. Cross Product and Orthogonal Basis
+
+Given two non-collinear basis vectors $\boldsymbol{e}_1$ and $\boldsymbol{e}_2$ in 3D space, we can uniquely determine a basis vector $\boldsymbol{e}^3$ orthogonal to the plane formed by $\boldsymbol{e}_1$ and $\boldsymbol{e}_2$ using the cross product:
+
+$$
+\boldsymbol{e}^3 \propto \boldsymbol{e}_1 \times \boldsymbol{e}_2
+$$
+
+This ensures that $\boldsymbol{e}^3$ is strictly perpendicular to the $Ox_1x_2$ plane:
+
+$$
+\boldsymbol{e}^3 \cdot \boldsymbol{e}_1 = 0, \quad \boldsymbol{e}^3 \cdot \boldsymbol{e}_2 = 0
+$$
+
+This construction is key in general curvilinear coordinates and tensor analysis for defining dual bases (contravariant bases).

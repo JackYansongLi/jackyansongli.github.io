@@ -52,7 +52,14 @@ export default defineConfig({
       ],
       sidebar: [
         { label: 'Home', translations: { 'zh-CN': '首页' }, link: '/' },
-        { label: 'Articles', translations: { 'zh-CN': '文章列表' }, link: '/list-articles/' },
+        { label: 'Articles', translations: { 'zh-CN': '杂文' }, link: '/list-articles/' },
+        {
+          label: 'Vector Calculus & Tensors',
+          translations: { 'zh-CN': '向量微积分与张量' },
+          items: [
+            { label: 'Coordinate Systems', translations: { 'zh-CN': '坐标系' }, link: '/coordinate-system/' },
+          ],
+        },
         { label: 'Photos', translations: { 'zh-CN': '相册' }, link: '/photos/' },
       ],
     }),
