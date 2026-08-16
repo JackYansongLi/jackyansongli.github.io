@@ -3,10 +3,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["docs/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   },
-  "exclude": ["node_modules", "src/notes.ts", "docs/notes.ts", "notes/algorithm-2e.ts", ".sisyphus"]
+  "exclude": ["node_modules", "docs/notes.ts", "notes/algorithm-2e.ts", ".sisyphus"]
 }
