@@ -5,6 +5,10 @@ description: 本网站发布的所有文章与笔记的完整索引。
 
 本网站发布的全部文章与笔记完整列表。
 
+## AI Agent 开发实操
+
+- [AI Agent 开发实操课：Subagent](/zh/subagent-tutorial/)
+
 ## 在线学习 (Online Learning)
 
 - [在线学习中为何使用悔值 (Regret)](/zh/regret-ol/)
