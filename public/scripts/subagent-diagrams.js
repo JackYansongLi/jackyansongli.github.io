@@ -12,6 +12,7 @@ const labels = [
   'Main Agent 调用 Subagent 的流程图',
   '三个 Subagent 的协作时序图',
   '错误传播及核对证据的流程图',
+  'Agent 的记忆、计划与互动循环',
 ];
 for (const [index, block] of blocks.entries()) {
   try {
