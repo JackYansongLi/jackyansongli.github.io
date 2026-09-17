@@ -8,6 +8,11 @@ mermaid.initialize({
   theme: document.documentElement.dataset.theme === 'dark' ? 'dark' : 'default',
 });
 await document.fonts.ready;
+const labels = [
+  'Main Agent 调用 Subagent 的流程图',
+  '三个 Subagent 的协作时序图',
+  '错误传播及核对证据的流程图',
+];
 for (const [index, block] of blocks.entries()) {
   try {
     // Expressive Code stores each source line in its own div, without newline characters.
@@ -17,10 +22,10 @@ for (const [index, block] of blocks.entries()) {
     const figure = document.createElement('figure');
     figure.className = 'subagent-diagram';
     figure.style.cssText = 'overflow-x:auto;margin:1.5rem 0;padding:1rem;background:var(--sl-color-bg);';
-    figure.setAttribute('aria-label', index === 0 ? 'Main Agent 调用 Subagent 的流程图' : '三个 Subagent 的协作时序图');
+    figure.setAttribute('aria-label', labels[index] ?? 'Subagent 流程图');
     figure.innerHTML = svg;
     const diagram = figure.querySelector('svg');
-    diagram.style.minWidth = index === 0 ? '420px' : '640px';
+    diagram.style.minWidth = index === 1 ? '640px' : '420px';
     (block.closest('.expressive-code') ?? block).replaceWith(figure);
   } catch (error) {
     // Keep the readable source if a diagram cannot be rendered.
