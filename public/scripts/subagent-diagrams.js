@@ -13,7 +13,6 @@ const labels = [
   '三个 Subagent 的协作时序图',
   '错误传播及核对证据的流程图',
   'Agent 的记忆、计划与互动循环',
-  'Paper2Agent 从论文代码生成工具、验证并供 Agent 调用的流程图',
 ];
 for (const [index, block] of blocks.entries()) {
   try {
