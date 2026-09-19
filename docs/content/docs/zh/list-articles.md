@@ -16,3 +16,7 @@ description: 本网站发布的所有文章与笔记的完整索引。
 ## 向量微积分与张量 (Vector Calculus and Tensors)
 
 - [坐标系](/zh/coordinate-system/)
+
+## 注塑成型仿真
+
+- [Moldflow 仿真阅读](/zh/moldflow-reading/)
