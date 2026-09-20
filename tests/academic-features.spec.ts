@@ -67,4 +67,16 @@ test.describe('Academic Website Features', () => {
     await page.getByRole('button', { name: '进入阅读区' }).click();
     await expect(page.getByRole('heading', { name: '5.1 概述' })).toBeVisible();
   });
+
+  test('encrypted flow-analysis chapter decrypts only with the configured password', async ({ page }) => {
+    await page.goto('/zh/flow-analysis/ch01-current-status/');
+
+    await expect(page.locator('#staticrypt-password')).toBeVisible();
+    await expect(page.getByRole('heading', { name: '第1章 绪论' })).toHaveCount(0);
+
+    await page.locator('#staticrypt-password').fill('761893');
+    await page.locator('.staticrypt-decrypt-button').click();
+
+    await expect(page.getByRole('heading', { name: '第1章 绪论' })).toBeVisible();
+  });
 });

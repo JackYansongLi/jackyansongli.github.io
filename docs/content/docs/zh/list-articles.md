@@ -20,3 +20,4 @@ description: 本网站发布的所有文章与笔记的完整索引。
 ## 注塑成型仿真
 
 - [Moldflow 仿真阅读](/zh/moldflow-reading/)
+- [《注塑模具流动分析》中文译文（加密）](/zh/flow-analysis/)
