@@ -1,5 +1,5 @@
 ---
-title: Moldflow 仿真阅读
+title: 注塑工艺简介
 description: 面向注塑成型仿真器实现的中文阅读路径。
 prev: false
 next: false
@@ -12,7 +12,7 @@ head:
 
 <div data-moldflow-protected-content>
 
-# Moldflow 仿真阅读
+# 注塑工艺简介
 
 本专区面向希望实现注塑成型仿真器的读者。阅读顺序按 Fill、Runner、Gate、Cool 和 Warp 的建模依赖安排。
 
