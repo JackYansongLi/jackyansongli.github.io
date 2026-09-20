@@ -50,6 +50,7 @@ export default defineConfig({
       components: {
         Header: './docs/components/Header.astro',
         Footer: './docs/components/Footer.astro',
+        PageFrame: './docs/components/PageFrame.astro',
       },
       customCss: [
         './docs/styles/custom.css',

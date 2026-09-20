@@ -59,6 +59,19 @@ test.describe('Academic Website Features', () => {
     ).toHaveAttribute('href', 'https://jackyansongli.github.io/zh/flow-analysis/');
   });
 
+  test('desktop sidebar can be collapsed and restores its saved state', async ({ page }) => {
+    await page.goto('/zh/list-articles/');
+
+    const toggle = page.getByRole('button', { name: '收起侧边栏' });
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await toggle.click();
+    await expect(page.locator('html')).toHaveAttribute('data-sidebar-collapsed', '');
+    await expect(page.getByRole('button', { name: '展开侧边栏' })).toHaveAttribute('aria-expanded', 'false');
+
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-sidebar-collapsed', '');
+  });
+
   test('Photos page renders successfully', async ({ page }) => {
     await page.goto('/photos');
     
