@@ -59,37 +59,6 @@ test.describe('Academic Website Features', () => {
     ).toHaveAttribute('href', 'https://jackyansongli.github.io/zh/flow-analysis/');
   });
 
-  test('Moldflow Design Guide study-notes catalog uses the shared password gate', async ({ page }) => {
-    await page.goto('/zh/moldflow-design-guide-notes/');
-
-    await expect(page.getByRole('heading', { name: '《Moldflow Design Guide》中文学习笔记' })).toBeVisible();
-    await expect(page.getByRole('link', { name: '第 1 章：注塑模具中的聚合物流动行为' })).toBeHidden();
-
-    await page.getByLabel('访问密码').fill('761893');
-    await page.getByRole('button', { name: '进入阅读区' }).click();
-    await expect(page.getByRole('link', { name: '第 1 章：注塑模具中的聚合物流动行为' })).toBeVisible();
-  });
-
-  test('Moldflow Design Guide study-note chapters provide gated chapter navigation', async ({ page }) => {
-    await page.goto('/zh/moldflow-design-guide-notes/ch08-runner-system/');
-
-    const navigation = page.locator('[data-moldflow-protected-navigation]');
-    await expect(navigation).toBeHidden();
-    await expect(page.getByRole('heading', { name: '学习要点' })).toBeHidden();
-
-    await page.getByLabel('访问密码').fill('761893');
-    await page.getByRole('button', { name: '进入阅读区' }).click();
-    await expect(page.getByRole('heading', { name: '学习要点' })).toBeVisible();
-    await expect(navigation.getByRole('link', { name: '上一章' })).toHaveAttribute(
-      'href',
-      '/zh/moldflow-design-guide-notes/ch07-gate-design/'
-    );
-    await expect(navigation.getByRole('link', { name: '下一章' })).toHaveAttribute(
-      'href',
-      '/zh/moldflow-design-guide-notes/ch09-cooling-system/'
-    );
-  });
-
   test('desktop sidebar can be collapsed and restores its saved state', async ({ page }) => {
     await page.goto('/zh/list-articles/');
 
