@@ -50,7 +50,7 @@ test.describe('Academic Website Features', () => {
   test('sidebar separates protected reading catalogs from articles', async ({ page }) => {
     await page.goto('/zh/list-articles/');
 
-    await expect(page.getByRole('navigation').getByRole('link', { name: 'Moldflow 仿真阅读' })).toHaveAttribute(
+    await expect(page.getByRole('navigation').getByRole('link', { name: '注塑工艺简介' })).toHaveAttribute(
       'href',
       'https://jackyansongli.github.io/zh/moldflow-reading/'
     );
