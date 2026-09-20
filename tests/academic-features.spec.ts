@@ -74,6 +74,48 @@ test.describe('Academic Website Features', () => {
     await expect(page.locator('html')).toHaveAttribute('data-sidebar-collapsed', '');
   });
 
+  test('desktop right table of contents can be collapsed and restores its saved state', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/zh/flow-analysis/ch04-governing-equations/');
+
+    const toggle = page.getByRole('button', { name: '收起本页目录' });
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await toggle.click();
+    await expect(page.locator('html')).toHaveAttribute('data-right-sidebar-collapsed', '');
+    await expect(page.locator('.right-sidebar-container')).toHaveCSS('display', 'none');
+    await expect(page.getByRole('button', { name: '展开本页目录' })).toHaveAttribute('aria-expanded', 'false');
+
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-right-sidebar-collapsed', '');
+  });
+
+  test('display equations stay within the main content column', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/zh/flow-analysis/ch04-governing-equations/');
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+
+    const overflowingEquations = await page.locator('mjx-container[display="true"]').evaluateAll((equations) =>
+      equations.flatMap((equation, index) => {
+        const formula = equation.getBoundingClientRect();
+        const content = equation.closest('.sl-markdown-content')?.getBoundingClientRect();
+        const isContained = !content || (
+          formula.left >= content.left &&
+          formula.right <= content.right &&
+          getComputedStyle(equation).overflowX === 'auto'
+        );
+        return isContained ? [] : [{
+          index,
+          formula: { left: formula.left, right: formula.right },
+          content: content && { left: content.left, right: content.right },
+          overflowX: getComputedStyle(equation).overflowX,
+        }];
+      })
+    );
+
+    expect(overflowingEquations).toEqual([]);
+  });
+
   test('Photos page renders successfully', async ({ page }) => {
     await page.goto('/photos');
     

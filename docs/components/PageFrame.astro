@@ -31,12 +31,26 @@ const { hasSidebar } = props;
     )
   }
   <div class="main-frame"><slot /></div>
+  <button
+    class="right-sidebar-toggle"
+    type="button"
+    aria-controls="starlight__right-sidebar"
+    aria-expanded="true"
+    aria-label="收起本页目录"
+    data-right-sidebar-toggle
+    hidden
+  >
+    <span aria-hidden="true">›</span>
+  </button>
 </div>
 
 <script is:inline>
   const storageKey = 'sidebar-collapsed';
+  const rightSidebarStorageKey = 'right-sidebar-collapsed';
   const root = document.documentElement;
   const toggle = document.querySelector('[data-sidebar-toggle]');
+  const rightSidebar = document.querySelector('.right-sidebar-container');
+  const rightSidebarToggle = document.querySelector('[data-right-sidebar-toggle]');
 
   const setCollapsed = (collapsed) => {
     root.toggleAttribute('data-sidebar-collapsed', collapsed);
@@ -53,6 +67,29 @@ const { hasSidebar } = props;
       localStorage.setItem(storageKey, String(collapsed));
     });
   }
+
+  if (rightSidebar && rightSidebarToggle && window.matchMedia('(min-width: 50rem)').matches) {
+    rightSidebar.id = 'starlight__right-sidebar';
+    rightSidebarToggle.hidden = false;
+
+    const setRightSidebarCollapsed = (collapsed) => {
+      root.toggleAttribute('data-right-sidebar-collapsed', collapsed);
+      rightSidebarToggle.setAttribute('aria-expanded', String(!collapsed));
+      rightSidebarToggle.setAttribute('aria-label', collapsed ? '展开本页目录' : '收起本页目录');
+      rightSidebarToggle.querySelector('span').textContent = collapsed ? '‹' : '›';
+    };
+
+    setRightSidebarCollapsed(localStorage.getItem(rightSidebarStorageKey) === 'true');
+    rightSidebarToggle.addEventListener('click', () => {
+      const collapsed = !root.hasAttribute('data-right-sidebar-collapsed');
+      setRightSidebarCollapsed(collapsed);
+      localStorage.setItem(rightSidebarStorageKey, String(collapsed));
+    });
+  }
+
+  document.querySelectorAll('mjx-container[display="true"]').forEach((equation) => {
+    equation.style.removeProperty('min-width');
+  });
 </script>
 
 <style>
@@ -106,6 +143,10 @@ const { hasSidebar } = props;
     display: none;
   }
 
+  .right-sidebar-toggle {
+    display: none;
+  }
+
   @media (min-width: 50rem) {
     .header {
       padding-inline-end: var(--sl-nav-pad-x);
@@ -136,6 +177,23 @@ const { hasSidebar } = props;
       transition: inset-inline-start 180ms ease;
     }
 
+    .right-sidebar-toggle {
+      display: grid;
+      position: fixed;
+      z-index: calc(var(--sl-z-index-menu) + 1);
+      inset-inline-end: calc(var(--sl-sidebar-width) - 0.8rem);
+      inset-block-start: calc(var(--sl-nav-height) + 1rem);
+      width: 1.6rem;
+      height: 2.5rem;
+      place-items: center;
+      border: 1px solid var(--sl-color-hairline-shade);
+      border-radius: 0.5rem 0 0 0.5rem;
+      background: var(--sl-color-bg-sidebar);
+      color: var(--sl-color-text);
+      cursor: pointer;
+      transition: inset-inline-end 180ms ease;
+    }
+
     :global(html[data-sidebar-collapsed]) .sidebar-pane {
       transform: translateX(-100%);
     }
@@ -146,6 +204,14 @@ const { hasSidebar } = props;
 
     :global(html[data-sidebar-collapsed]) .sidebar-toggle {
       inset-inline-start: 0;
+    }
+
+    :global(html[data-right-sidebar-collapsed]) :global(.right-sidebar-container) {
+      display: none;
+    }
+
+    :global(html[data-right-sidebar-collapsed]) .right-sidebar-toggle {
+      inset-inline-end: 0;
     }
   }
 </style>
