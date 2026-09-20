@@ -19,12 +19,22 @@ g[data-mml-node="merror"] rect[data-background] {
 /* Force block MathJax formulas to display as block-level elements */
 mjx-container[display="true"] {
   display: block !important;
+  box-sizing: border-box;
+  width: 100% !important;
+  min-width: 0 !important;
   text-align: center !important;
   margin: 1.5rem 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 mjx-container[display="true"] svg {
   display: inline-block !important;
+}
+
+.main-pane,
+.sl-markdown-content {
+  min-width: 0;
 }
 
 /* Custom CSS Counters for Theorem & Definition environments */
