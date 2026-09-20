@@ -3,11 +3,18 @@ title: 《注塑模具流动分析》中文译文
 description: 已加密的《Flow Analysis of Injection Molds》逐章中文译文。
 prev: false
 next: false
+head:
+  - tag: script
+    attrs:
+      type: module
+      src: /scripts/moldflow-reading-gate.js
 ---
+
+<div data-moldflow-protected-content>
 
 # 《注塑模具流动分析》中文译文
 
-以下译文仅含正文，已跳过图片、目录和参考文献。每章以加密静态文件发布；输入访问密码后可在浏览器中解密阅读。
+以下译文仅含正文，已跳过图片、目录和参考文献。输入访问密码后可阅读。
 
 1. [第 1 章：仿真现状](/zh/flow-analysis/ch01-current-status/)
 2. [第 2 章：流体力学中的应力与应变](/zh/flow-analysis/ch02-stress-strain/)
@@ -23,3 +30,5 @@ next: false
 12. [第 12 章：着色剂对结晶与收缩的影响](/zh/flow-analysis/ch12-colorants/)
 13. [第 13 章：成型后收缩与翘曲预测](/zh/flow-analysis/ch13-shrinkage-warpage/)
 14. [第 14 章：注塑成型仿真的其他问题](/zh/flow-analysis/ch14-additional-issues/)
+
+</div>
