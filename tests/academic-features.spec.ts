@@ -70,7 +70,7 @@ test.describe('Academic Website Features', () => {
   test('Moldflow reading catalog requires the correct password', async ({ page }) => {
     await page.goto('/zh/moldflow-reading/');
 
-    await expect(page.getByRole('heading', { name: 'Moldflow 仿真阅读' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: '注塑工艺简介' })).toBeVisible();
     await expect(page.getByRole('link', { name: '第5章：型腔充填分析与设计' })).toBeHidden();
 
     await page.getByLabel('访问密码').fill('wrong-password');
@@ -104,6 +104,43 @@ test.describe('Academic Website Features', () => {
     await page.getByRole('button', { name: '进入阅读区' }).click();
 
     await expect(page.getByRole('heading', { name: '第1章 绪论' })).toBeVisible();
+  });
+
+  test('protected chapters provide bottom chapter navigation after unlocking', async ({ page }) => {
+    await page.goto('/zh/moldflow-reading/ch02-plastic-part-design/');
+    const moldflowNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(moldflowNavigation).toBeHidden();
+
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(moldflowNavigation.getByRole('link', { name: '返回目录' })).toHaveAttribute(
+      'href',
+      '/zh/moldflow-reading/'
+    );
+    await expect(moldflowNavigation.getByRole('link', { name: '下一章' })).toHaveAttribute(
+      'href',
+      '/zh/moldflow-reading/ch05-cavity-filling/'
+    );
+    await expect(moldflowNavigation.getByRole('link', { name: '上一章' })).toHaveCount(0);
+
+    await page.goto('/zh/flow-analysis/ch07-fiber-orientation/');
+    const middleNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(middleNavigation.getByRole('link', { name: '上一章' })).toHaveAttribute(
+      'href',
+      '/zh/flow-analysis/ch06-numerical-methods/'
+    );
+    await expect(middleNavigation.getByRole('link', { name: '下一章' })).toHaveAttribute(
+      'href',
+      '/zh/flow-analysis/ch08-mechanical-properties/'
+    );
+
+    await page.goto('/zh/flow-analysis/ch14-additional-issues/');
+    const finalNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(finalNavigation.getByRole('link', { name: '上一章' })).toHaveAttribute(
+      'href',
+      '/zh/flow-analysis/ch13-shrinkage-warpage/'
+    );
+    await expect(finalNavigation.getByRole('link', { name: '下一章' })).toHaveCount(0);
   });
 
   test('flow-analysis equations do not contain MathJax rendering errors', async ({ page }) => {

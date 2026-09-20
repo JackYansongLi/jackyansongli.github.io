@@ -7,13 +7,15 @@ const hashPassword = async (password) => {
   return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
 };
 
-const unlock = (content, gate) => {
+const unlock = (protectedElements, gate) => {
   sessionStorage.setItem(accessKey, 'granted');
-  content.hidden = false;
+  protectedElements.forEach((element) => {
+    element.hidden = false;
+  });
   gate.remove();
 };
 
-const mountGate = (content) => {
+const mountGate = (protectedElements) => {
   const gate = document.createElement('section');
   gate.className = 'moldflow-access-gate';
   gate.innerHTML = `
@@ -35,7 +37,7 @@ const mountGate = (content) => {
     event.preventDefault();
     const hash = await hashPassword(input.value);
     if (hash === passwordHash) {
-      unlock(content, gate);
+      unlock(protectedElements, gate);
       return;
     }
 
@@ -44,21 +46,27 @@ const mountGate = (content) => {
     input.select();
   });
 
-  content.before(gate);
+  protectedElements[0].before(gate);
   input.focus();
 };
 
 const initializeGate = () => {
-  const content = document.querySelector('[data-moldflow-protected-content]');
-  if (!content) return;
+  const protectedElements = Array.from(
+    document.querySelectorAll('[data-moldflow-protected-content], [data-moldflow-protected-navigation]')
+  );
+  if (protectedElements.length === 0) return;
 
   if (sessionStorage.getItem(accessKey) === 'granted') {
-    content.hidden = false;
+    protectedElements.forEach((element) => {
+      element.hidden = false;
+    });
     return;
   }
 
-  content.hidden = true;
-  mountGate(content);
+  protectedElements.forEach((element) => {
+    element.hidden = true;
+  });
+  mountGate(protectedElements);
 };
 
 if (document.readyState === 'loading') {

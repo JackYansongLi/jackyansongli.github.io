@@ -1,0 +1,137 @@
+---
+import EditLink from '@astrojs/starlight/components/EditLink.astro';
+import LastUpdated from '@astrojs/starlight/components/LastUpdated.astro';
+import Pagination from '@astrojs/starlight/components/Pagination.astro';
+import type { Props } from '@astrojs/starlight/props';
+
+const props = Astro.props as Props;
+
+const collections = [
+  {
+    catalog: '/zh/moldflow-reading/',
+    chapters: [
+      'ch02-plastic-part-design',
+      'ch05-cavity-filling',
+      'ch06-feed-system-design',
+      'ch07-gating-design',
+      'ch08-venting',
+      'ch09-cooling-system-design',
+      'ch10-shrinkage-warpage',
+      'ch14-mold-commissioning',
+      'ch15-appendix',
+    ],
+  },
+  {
+    catalog: '/zh/flow-analysis/',
+    chapters: [
+      'ch01-current-status',
+      'ch02-stress-strain',
+      'ch03-polymer-properties',
+      'ch04-governing-equations',
+      'ch05-injection-molding-approximations',
+      'ch06-numerical-methods',
+      'ch07-fiber-orientation',
+      'ch08-mechanical-properties',
+      'ch09-long-fiber-materials',
+      'ch10-crystallization',
+      'ch11-crystallization-effects',
+      'ch12-colorants',
+      'ch13-shrinkage-warpage',
+      'ch14-additional-issues',
+    ],
+  },
+];
+
+const pathname = Astro.url.pathname;
+const collection = collections.find(({ catalog }) => pathname.startsWith(catalog));
+const chapterSlug = collection ? pathname.slice(collection.catalog.length).replace(/\/$/, '') : '';
+const chapterIndex = collection ? collection.chapters.indexOf(chapterSlug) : -1;
+const previousChapter = chapterIndex > 0 ? collection?.chapters[chapterIndex - 1] : undefined;
+const nextChapter = chapterIndex >= 0 && chapterIndex < (collection?.chapters.length ?? 0) - 1
+  ? collection?.chapters[chapterIndex + 1]
+  : undefined;
+---
+
+<footer class="sl-flex">
+  <div class="meta sl-flex">
+    <EditLink {...props} />
+    <LastUpdated {...props} />
+  </div>
+  <Pagination {...props} />
+
+  {
+    collection && chapterIndex >= 0 && (
+      <nav class="chapter-navigation" aria-label="章节导航" data-moldflow-protected-navigation>
+        {previousChapter && (
+          <a href={`${collection.catalog}${previousChapter}/`}>
+            <span aria-hidden="true">←</span> 上一章
+          </a>
+        )}
+        <a class="chapter-navigation__catalog" href={collection.catalog}>
+          返回目录
+        </a>
+        {nextChapter && (
+          <a href={`${collection.catalog}${nextChapter}/`}>
+            下一章 <span aria-hidden="true">→</span>
+          </a>
+        )}
+      </nav>
+    )
+  }
+
+</footer>
+
+<style>
+  footer {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .meta {
+    gap: 0.75rem 3rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-3);
+  }
+
+  .meta > :global(p:only-child) {
+    margin-inline-start: auto;
+  }
+
+  .chapter-navigation {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .chapter-navigation[hidden] {
+    display: none;
+  }
+
+  .chapter-navigation a {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    color: var(--sl-color-text);
+    font-weight: 600;
+    padding: 0.8rem 1rem;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .chapter-navigation a:hover {
+    border-color: var(--sl-color-text-accent);
+    color: var(--sl-color-text-accent);
+  }
+
+  .chapter-navigation__catalog {
+    background: var(--sl-color-gray-6);
+  }
+
+  @media (max-width: 35rem) {
+    .chapter-navigation {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
