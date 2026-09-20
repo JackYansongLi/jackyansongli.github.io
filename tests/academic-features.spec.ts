@@ -1,4 +1,6 @@
 import { test, expect } from '@playwright/test';
+import { readdir } from 'node:fs/promises';
+import { resolve } from 'node:path';
 
 test.describe('Academic Website Features', () => {
   test('MathJax renders equations with correct selectors', async ({ page }) => {
@@ -198,6 +200,132 @@ test.describe('Academic Website Features', () => {
       '/zh/flow-analysis/ch13-shrinkage-warpage/'
     );
     await expect(finalNavigation.getByRole('link', { name: '下一章' })).toHaveCount(0);
+  });
+
+  test('Moldflow Design Guide catalog rejects an incorrect password', async ({ page }) => {
+    await page.goto('/zh/moldflow-design-guide/');
+
+    const protectedContent = page.locator('[data-moldflow-protected-content]');
+    await expect(protectedContent).toBeHidden();
+
+    await page.getByLabel('访问密码').fill('wrong-password');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(page.getByText('密码不正确，请重试。')).toBeVisible();
+    await expect(protectedContent).toBeHidden();
+
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(protectedContent).toBeVisible();
+  });
+
+  test('Moldflow Design Guide chapter unlocks protected content', async ({ page }) => {
+    await page.goto('/zh/moldflow-design-guide/ch01-polymer-flow-behavior/');
+
+    const protectedContent = page.locator('[data-moldflow-protected-content]');
+    await expect(protectedContent).toBeHidden();
+
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(protectedContent).toBeVisible();
+  });
+
+  test('Moldflow Design Guide navigation uses the exact first, middle, and final hrefs', async ({ page }) => {
+    await page.goto('/zh/moldflow-design-guide/ch01-polymer-flow-behavior/');
+
+    const firstNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(firstNavigation).toBeHidden();
+
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(firstNavigation).toBeVisible();
+    await expect(firstNavigation.getByRole('link', { name: '返回目录' })).toHaveAttribute(
+      'href',
+      '/zh/moldflow-design-guide/'
+    );
+    await expect(firstNavigation.getByRole('link', { name: '上一章' })).toHaveCount(0);
+    await expect(firstNavigation.getByRole('link', { name: '下一章' })).toHaveAttribute(
+      'href',
+      '/zh/moldflow-design-guide/ch02-molding-conditions-pressure/'
+    );
+
+    await page.goto('/zh/moldflow-design-guide/ch06-product-design/');
+    const middleNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(middleNavigation.getByRole('link', { name: '上一章' })).toHaveAttribute(
+      'href',
+      '/zh/moldflow-design-guide/ch05-meshes-used-in-analyses/'
+    );
+    await expect(middleNavigation.getByRole('link', { name: '下一章' })).toHaveAttribute(
+      'href',
+      '/zh/moldflow-design-guide/ch07-gate-design/'
+    );
+
+    await page.goto('/zh/moldflow-design-guide/appendix-d-plastic-materials/');
+    const finalNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(finalNavigation.getByRole('link', { name: '上一章' })).toHaveAttribute(
+      'href',
+      '/zh/moldflow-design-guide/appendix-c-process-control/'
+    );
+    await expect(finalNavigation.getByRole('link', { name: '下一章' })).toHaveCount(0);
+  });
+
+  test('all 16 Moldflow Design Guide routes remain protected', async ({ page }) => {
+    const routes = [
+      'ch01-polymer-flow-behavior',
+      'ch02-molding-conditions-pressure',
+      'ch03-filling-pattern',
+      'ch04-design-principles',
+      'ch05-meshes-used-in-analyses',
+      'ch06-product-design',
+      'ch07-gate-design',
+      'ch08-runner-system-design',
+      'ch09-cooling-system-design',
+      'ch10-shrinkage-warpage',
+      'ch11-design-procedure',
+      'ch12-part-defects',
+      'appendix-a-injection-molding',
+      'appendix-b-machine-systems-operations',
+      'appendix-c-process-control',
+      'appendix-d-plastic-materials',
+    ];
+
+    for (const route of routes) {
+      await page.goto(`/zh/moldflow-design-guide/${route}/`);
+      await expect(page.getByLabel('访问密码')).toBeVisible();
+      await expect(page.locator('[data-moldflow-protected-content]')).toBeHidden();
+    }
+  });
+
+  test('Moldflow Design Guide publishes only the canonical 16 routes', async () => {
+    const routes = await readdir(resolve('docs/content/docs/zh/moldflow-design-guide'));
+    expect(routes.filter((route) => route.endsWith('.md')).sort()).toEqual([
+      'appendix-a-injection-molding.md',
+      'appendix-b-machine-systems-operations.md',
+      'appendix-c-process-control.md',
+      'appendix-d-plastic-materials.md',
+      'ch01-polymer-flow-behavior.md',
+      'ch02-molding-conditions-pressure.md',
+      'ch03-filling-pattern.md',
+      'ch04-design-principles.md',
+      'ch05-meshes-used-in-analyses.md',
+      'ch06-product-design.md',
+      'ch07-gate-design.md',
+      'ch08-runner-system-design.md',
+      'ch09-cooling-system-design.md',
+      'ch10-shrinkage-warpage.md',
+      'ch11-design-procedure.md',
+      'ch12-part-defects.md',
+    ]);
+  });
+
+  test('catalog-linked Moldflow Design Guide Chapter 5 reveals translated prose after unlocking', async ({ page }) => {
+    await page.goto('/zh/moldflow-design-guide/ch05-meshes-used-in-analyses/');
+
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+
+    await expect(
+      page.getByText('要运行 Moldflow 分析，必须在零件模型上建立合适的有限元网格。')
+    ).toBeVisible();
   });
 
   test('flow-analysis equations do not contain MathJax rendering errors', async ({ page }) => {
