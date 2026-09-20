@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "./build.sh",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "encrypt-flow-analysis": "node scripts/build-flow-analysis.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
@@ -26,6 +27,8 @@
     "@astrojs/markdown-remark": "^5.2.0",
     "@playwright/test": "^1.46.0",
     "linkinator": "^8.0.3",
+    "marked": "^18.0.9",
+    "staticrypt": "^3.5.4",
     "typescript": "^5.5.4"
   }
 }
