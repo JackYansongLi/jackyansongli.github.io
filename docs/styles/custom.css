@@ -21,6 +21,7 @@ mjx-container[display="true"] {
   display: block !important;
   box-sizing: border-box;
   width: 100% !important;
+  max-width: 100% !important;
   min-width: 0 !important;
   text-align: center !important;
   margin: 1.5rem 0 !important;

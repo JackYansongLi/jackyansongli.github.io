@@ -78,7 +78,7 @@ test.describe('Academic Website Features', () => {
 
   test('desktop right table of contents can be collapsed and restores its saved state', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto('/zh/flow-analysis/ch04-governing-equations/');
+    await page.goto('/zh/subagent-tutorial/');
 
     const toggle = page.getByRole('button', { name: '收起本页目录' });
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
