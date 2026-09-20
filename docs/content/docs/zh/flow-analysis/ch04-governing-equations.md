@@ -57,7 +57,7 @@ $$
 并将这种微分记为
 
 $$
-\frac{Df}{Dt} = \mathbf{v} \cdot \nabla f + \frac{\partial f}{\partial t}. \tag{4.1}
+\frac{Df}{Dt} = \mathbf{v} \cdot \nabla f + \frac{\partial f}{\partial t}. 
 $$
 
 我们称 $Df/Dt$ 为 $f$ 的随体导数（material derivative）。有些教材使用"实质导数"或"随流导数"等名称代替随体导数。在物理上，随体导数同时考虑了流体的运动以及流体微团的值随时间的变化。
@@ -141,8 +141,8 @@ $$
 $$
 \begin{aligned}
 \frac{dm}{dt} &= \frac{d}{dt}\int_{V(t)} \rho(\mathbf{x}, t)\, dv \\
-&= \int_{V(t)} \left(\frac{\partial \rho}{\partial t} + \nabla \cdot \rho\mathbf{v}\right) dV, \tag{4.11}
-\end{aligned}
+&= \int_{V(t)} \left(\frac{\partial \rho}{\partial t} + \nabla \cdot \rho\mathbf{v}\right) dV, 
+\end{aligned} \tag{4.11}
 $$
 
 其中使用了雷诺输运定理，即式 (4.7)。根据质量守恒原理，$m$ 对时间的变化率为零，即
@@ -192,8 +192,8 @@ $$
 $$
 \begin{aligned}
 \mathbf{F}_t &= \int_{S(t)} \mathbf{t}\, dS \\
-&= \int_{S(t)} \boldsymbol{\sigma} \cdot \mathbf{n}\, dS, \tag{4.18}
-\end{aligned}
+&= \int_{S(t)} \boldsymbol{\sigma} \cdot \mathbf{n}\, dS, 
+\end{aligned} \tag{4.18}
 $$
 
 其中 $S(t)$ 是 $V(t)$ 的边界表面，$\boldsymbol{\sigma}$ 是应力张量（见 2.2 节），$\mathbf{n}$ 是 $S(t)$ 的单位外法向量。应用散度定理（式 4.4），得到
@@ -208,8 +208,8 @@ $$
 \begin{aligned}
 \sum \mathbf{F}_{\mathrm{ext}} &= \mathbf{F}_b + \mathbf{F}_t \\
 &= \int_{V(t)} \rho\mathbf{g}\, dV + \int_{V(t)} \nabla \cdot \boldsymbol{\sigma}\, dV \\
-&= \int_{V(t)} (\rho\mathbf{g} + \nabla \cdot \boldsymbol{\sigma})\, dV. \tag{4.20}
-\end{aligned}
+&= \int_{V(t)} (\rho\mathbf{g} + \nabla \cdot \boldsymbol{\sigma})\, dV. 
+\end{aligned} \tag{4.20}
 $$
 
 将此结果代入式 (4.16)，得
@@ -235,8 +235,8 @@ $$
 $$
 \begin{aligned}
 \nabla \cdot (\rho\mathbf{v}\mathbf{v}) &= \rho\nabla \cdot \mathbf{v}\mathbf{v} + \nabla\rho \cdot \mathbf{v}\mathbf{v} \\
-&= \rho\left[\mathbf{v} \cdot \nabla\mathbf{v} + (\nabla \cdot \mathbf{v})\mathbf{v}\right] + \nabla\rho \cdot \mathbf{v}\mathbf{v}, \tag{4.24}
-\end{aligned}
+&= \rho\left[\mathbf{v} \cdot \nabla\mathbf{v} + (\nabla \cdot \mathbf{v})\mathbf{v}\right] + \nabla\rho \cdot \mathbf{v}\mathbf{v}, 
+\end{aligned} \tag{4.24}
 $$
 
 其中使用了式 (B.52)。再考虑式 (4.23) 的左端，同样利用微分的乘积法则：
@@ -256,8 +256,8 @@ $$
 $$
 \begin{aligned}
 \rho\left[\mathbf{v} \cdot \nabla\mathbf{v} + \frac{\partial \mathbf{v}}{\partial t}\right] &= -\left[\frac{\partial \rho}{\partial t} + \rho(\nabla \cdot \mathbf{v}) + \nabla\rho \cdot \mathbf{v}\right]\mathbf{v} + \rho\mathbf{g} + \nabla \cdot \boldsymbol{\sigma} \\
-&= -\left[\frac{\partial \rho}{\partial t} + \nabla \cdot \rho\mathbf{v}\right]\mathbf{v} + \rho\mathbf{g} + \nabla \cdot \boldsymbol{\sigma}. \tag{4.26}
-\end{aligned}
+&= -\left[\frac{\partial \rho}{\partial t} + \nabla \cdot \rho\mathbf{v}\right]\mathbf{v} + \rho\mathbf{g} + \nabla \cdot \boldsymbol{\sigma}. 
+\end{aligned} \tag{4.26}
 $$
 
 最后，我们注意到左端方括号中的项正是 4.2.1 节定义的 $\mathbf{v}$ 的随体导数；而右端方括号中的项由于连续性方程 (4.14) 恒等于零。因此，动量方程可写为
@@ -282,8 +282,8 @@ $$
 \begin{aligned}
 \int_{S(t)} \mathbf{t} \cdot \mathbf{v}\, dS &= \int_{S(t)} (\boldsymbol{\sigma} \cdot \mathbf{n}) \cdot \mathbf{v}\, dS \\
 &= \int_{S(t)} (\boldsymbol{\sigma} \cdot \mathbf{v}) \cdot \mathbf{n}\, dS \\
-&= \int_{V(t)} \nabla \cdot (\boldsymbol{\sigma} \cdot \mathbf{v})\, dV, \tag{4.29}
-\end{aligned}
+&= \int_{V(t)} \nabla \cdot (\boldsymbol{\sigma} \cdot \mathbf{v})\, dV, 
+\end{aligned} \tag{4.29}
 $$
 
 其中右端使用了应力向量 $\mathbf{t}$ 的定义（式 2.1 和式 2.3）以及散度定理（4.2.2 节）。
@@ -329,8 +329,8 @@ $$
 $$
 \begin{aligned}
 \frac{\partial}{\partial t}(\rho\mathbf{v} \cdot \mathbf{v}) &= \frac{\partial}{\partial t}(\rho\mathbf{v}) \cdot \mathbf{v} + \mathbf{v} \cdot \frac{\partial}{\partial t}(\rho\mathbf{v}) \\
-&= 2\frac{\partial}{\partial t}(\rho\mathbf{v}) \cdot \mathbf{v}, \tag{4.34}
-\end{aligned}
+&= 2\frac{\partial}{\partial t}(\rho\mathbf{v}) \cdot \mathbf{v}, 
+\end{aligned} \tag{4.34}
 $$
 
 因此，
@@ -338,8 +338,8 @@ $$
 $$
 \begin{aligned}
 \frac{\partial}{\partial t}(\rho\mathbf{v}) \cdot \mathbf{v} &= \frac{1}{2}\frac{\partial}{\partial t}(\rho\mathbf{v} \cdot \mathbf{v}) \\
-&= \frac{1}{2}\frac{\partial}{\partial t}(\rho v^2), \tag{4.35}
-\end{aligned}
+&= \frac{1}{2}\frac{\partial}{\partial t}(\rho v^2), 
+\end{aligned} \tag{4.35}
 $$
 
 其中 $v^2 = \mathbf{v} \cdot \mathbf{v}$。利用式 (B.56)，可将式 (4.33) 的第二项写为
@@ -365,8 +365,8 @@ $$
 $$
 \begin{aligned}
 \frac{d}{dt}\int_{V(t)} \frac{1}{2}\rho v^2\, dV &= \int_{V(t)} \frac{\partial}{\partial t}\left(\frac{1}{2}\rho v^2\right) dV + \int_{V(t)} \frac{1}{2}\nabla \cdot \rho v^2 \mathbf{v}\, dV \\
-&= \int_{V(t)} \frac{\partial}{\partial t}\left(\frac{1}{2}\rho v^2\right) dV + \int_{V(t)} \nabla \cdot \rho\mathbf{v}\mathbf{v} \cdot \mathbf{v}\, dV. \tag{4.39}
-\end{aligned}
+&= \int_{V(t)} \frac{\partial}{\partial t}\left(\frac{1}{2}\rho v^2\right) dV + \int_{V(t)} \nabla \cdot \rho\mathbf{v}\mathbf{v} \cdot \mathbf{v}\, dV. 
+\end{aligned} \tag{4.39}
 $$
 
 将上式代入式 (4.38)，得到
@@ -400,8 +400,8 @@ $$
 \frac{\partial}{\partial t}(\rho\hat{U}) + \nabla \cdot (\rho\hat{U}\mathbf{v}) &= \frac{\partial}{\partial t}(\rho\hat{U}) + \rho\hat{U}\nabla \cdot \mathbf{v} + \mathbf{v} \cdot \nabla\rho\hat{U} \\
 &= \frac{D}{Dt}(\rho\hat{U}) + \rho\hat{U}\nabla \cdot \mathbf{v} \\
 &= \rho\frac{D\hat{U}}{Dt} + \hat{U}\frac{D\rho}{Dt} + \rho\hat{U}\nabla \cdot \mathbf{v} \\
-&= \rho\frac{D\hat{U}}{Dt}, \tag{4.44}
-\end{aligned}
+&= \rho\frac{D\hat{U}}{Dt}, 
+\end{aligned} \tag{4.44}
 $$
 
 其中最后一行使用了连续性方程 (4.13)。将式 (4.44) 代入式 (4.43)，得到
@@ -462,8 +462,8 @@ $$
 \begin{aligned}
 \frac{\partial^2 \hat{S}}{\partial T \partial p} &= \left[\frac{\partial}{\partial T}\left(\frac{\partial \hat{S}}{\partial p}\right)_T\right]_p \\
 &= -\frac{1}{T^2}\left[\left(\frac{\partial \hat{H}}{\partial p}\right)_T - \hat{V}\right] + \frac{1}{T}\left(\left[\frac{\partial}{\partial T}\left(\frac{\partial \hat{H}}{\partial p}\right)_T\right]_p - \left(\frac{\partial \hat{V}}{\partial T}\right)_p\right) \\
-&= -\frac{1}{T^2}\left[\left(\frac{\partial \hat{H}}{\partial p}\right)_T - \hat{V}\right] + \frac{1}{T}\left(\frac{\partial^2 \hat{H}}{\partial T \partial p} - \left(\frac{\partial \hat{V}}{\partial T}\right)_p\right). \tag{4.53}
-\end{aligned}
+&= -\frac{1}{T^2}\left[\left(\frac{\partial \hat{H}}{\partial p}\right)_T - \hat{V}\right] + \frac{1}{T}\left(\frac{\partial^2 \hat{H}}{\partial T \partial p} - \left(\frac{\partial \hat{V}}{\partial T}\right)_p\right). 
+\end{aligned} \tag{4.53}
 $$
 
 对式 (4.52) 关于 $p$ 求导，得
@@ -472,8 +472,8 @@ $$
 \begin{aligned}
 \frac{\partial^2 \hat{S}}{\partial p \partial T} &= \left[\frac{\partial}{\partial p}\left(\frac{\partial \hat{S}}{\partial T}\right)_p\right]_T \\
 &= \frac{1}{T}\left[\frac{\partial}{\partial p}\left(\frac{\partial \hat{H}}{\partial T}\right)_p\right]_T \\
-&= \frac{1}{T}\frac{\partial^2 \hat{H}}{\partial T \partial p}. \tag{4.54}
-\end{aligned}
+&= \frac{1}{T}\frac{\partial^2 \hat{H}}{\partial T \partial p}. 
+\end{aligned} \tag{4.54}
 $$
 
 由于
@@ -517,8 +517,8 @@ $$
 $$
 \begin{aligned}
 d\hat{U} &= (1 - \beta T)\hat{V}\, dp + c_p\, dT - p\, d\hat{V} - \hat{V}\, dp \\
-&= c_p\, dT - \beta T\hat{V}\, dp - p\, d\hat{V}. \tag{4.58}
-\end{aligned}
+&= c_p\, dT - \beta T\hat{V}\, dp - p\, d\hat{V}. 
+\end{aligned} \tag{4.58}
 $$
 
 对上式关于时间求导，得
@@ -542,8 +542,8 @@ $$
 &= \frac{\partial}{\partial \rho}\left(\frac{1}{\rho}\right)\frac{\partial \rho}{\partial t} + \mathbf{v} \cdot \left[\frac{\partial}{\partial \rho}\left(\frac{1}{\rho}\right)\right]\nabla\rho \\
 &= -\frac{1}{\rho^2}\left(\frac{\partial \rho}{\partial t} + \mathbf{v} \cdot \nabla\rho\right) \\
 &= -\frac{1}{\rho^2}\frac{D\rho}{Dt} \\
-&= \frac{1}{\rho}\nabla \cdot \mathbf{v}, \tag{4.61}
-\end{aligned}
+&= \frac{1}{\rho}\nabla \cdot \mathbf{v}, 
+\end{aligned} \tag{4.61}
 $$
 
 其中最后一行使用了式 (4.15)。将式 (4.61) 代入式 (4.60)，两边乘以密度，得

@@ -137,8 +137,8 @@ $$
 $$
 \begin{aligned}
 \boldsymbol{\sigma} &= -(p_t + p_m)\mathbf{I} + 2\mu\mathbf{D} \\
-&= -p\mathbf{I} + 2\mu\mathbf{D}, \tag{2.14}
-\end{aligned}
+&= -p\mathbf{I} + 2\mu\mathbf{D}, 
+\end{aligned} \tag{2.14}
 $$
 
 其中 $p = p_t + p_m$ 是某种平均压力，同时涉及状态方程和流体的运动。
@@ -160,8 +160,8 @@ $$
 $$
 \begin{aligned}
 II_A &= \mathbf{A} : \mathbf{A} \\
-&= A_{ij} A_{ji}. \tag{2.16}
-\end{aligned}
+&= A_{ij} A_{ji}. 
+\end{aligned} \tag{2.16}
 $$
 
 方便起见，对所有流动定义广义应变速率：
@@ -170,8 +170,8 @@ $$
 \begin{aligned}
 \dot{\gamma} &= \sqrt{2 II_D} \\
 &= \sqrt{2\mathbf{D} : \mathbf{D}} \\
-&= \sqrt{2\,\mathrm{tr}\left(\mathbf{D}^{2}\right)}, \tag{2.17}
-\end{aligned}
+&= \sqrt{2\,\mathrm{tr}\left(\mathbf{D}^{2}\right)}, 
+\end{aligned} \tag{2.17}
 $$
 
 它可用来定义黏度函数。在剪切流动中，$\dot{\gamma}$ 是剪切速率的大小。

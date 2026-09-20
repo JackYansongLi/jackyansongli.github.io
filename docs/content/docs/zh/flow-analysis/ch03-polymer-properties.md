@@ -86,8 +86,8 @@ $$
 \begin{aligned}
 \tau_{zx} &= \eta \frac{v_x}{H} \\
 &= \eta \frac{d v_x}{d z} \\
-&= \eta \dot{\gamma}_{zx}, \tag{3.1}
-\end{aligned}
+&= \eta \dot{\gamma}_{zx}, 
+\end{aligned} \tag{3.1}
 $$
 
 其中 $\dot{\gamma}_{zx}$ 称为剪切速率。对于更复杂的流动，必须借助张量量，因此有
@@ -313,8 +313,8 @@ $$
 $$
 \begin{aligned}
 \frac{\Delta \hat{V}}{\Delta T} &= \frac{g(p_a, T_a + \Delta T) - g(p_a, T_a)}{\Delta T} \\
-&= \frac{\hat{V}(p_a, T_a + \Delta T) - \hat{V}(p_a, T_a)}{\Delta T}. \tag{3.21}
-\end{aligned}
+&= \frac{\hat{V}(p_a, T_a + \Delta T) - \hat{V}(p_a, T_a)}{\Delta T}. 
+\end{aligned} \tag{3.21}
 $$
 
 取极限 $\Delta T \to 0$，得到材料体积的瞬时变化，记为
@@ -338,8 +338,8 @@ $$
 $$
 \begin{aligned}
 \frac{\Delta \hat{V}}{\Delta p} &= \frac{g(p_a + \Delta p, T_b) - g(p_a, T_b)}{\Delta p} \\
-&= \frac{\hat{V}(p_a + \Delta p, T_b) - \hat{V}(p_a, T_b)}{\Delta p}. \tag{3.24}
-\end{aligned}
+&= \frac{\hat{V}(p_a + \Delta p, T_b) - \hat{V}(p_a, T_b)}{\Delta p}. 
+\end{aligned} \tag{3.24}
 $$
 
 同样，令 $\Delta p \to 0$，得到材料体积的瞬时变化，记为
