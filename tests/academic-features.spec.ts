@@ -97,6 +97,8 @@ test.describe('Academic Website Features', () => {
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
     await toggle.click();
     await expect(page.locator('html')).toHaveAttribute('data-sidebar-collapsed', '');
+    await expect(page.locator('.sidebar-pane')).toHaveCSS('transform', /matrix/);
+    await expect(page.locator('.main-frame')).toHaveCSS('padding-left', '0px');
     await expect(page.getByRole('button', { name: '展开侧边栏' })).toHaveAttribute('aria-expanded', 'false');
 
     await page.reload();

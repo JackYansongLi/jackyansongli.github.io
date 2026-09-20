@@ -136,15 +136,15 @@ const { hasSidebar } = props;
       transition: inset-inline-start 180ms ease;
     }
 
-    :global(html[data-sidebar-collapsed='true']) .sidebar-pane {
+    :global(html[data-sidebar-collapsed]) .sidebar-pane {
       transform: translateX(-100%);
     }
 
-    :global(html[data-sidebar-collapsed='true']) .main-frame {
+    :global(html[data-sidebar-collapsed]) .main-frame {
       padding-inline-start: 0;
     }
 
-    :global(html[data-sidebar-collapsed='true']) .sidebar-toggle {
+    :global(html[data-sidebar-collapsed]) .sidebar-toggle {
       inset-inline-start: 0;
     }
   }
