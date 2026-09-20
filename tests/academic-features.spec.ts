@@ -79,4 +79,13 @@ test.describe('Academic Website Features', () => {
 
     await expect(page.getByRole('heading', { name: '第1章 绪论' })).toBeVisible();
   });
+
+  test('flow-analysis equations do not contain MathJax rendering errors', async ({ page }) => {
+    await page.goto('/zh/flow-analysis/ch02-stress-strain/');
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+
+    await expect(page.locator('mjx-container')).not.toHaveCount(0);
+    await expect(page.locator('[data-mjx-error]')).toHaveCount(0);
+  });
 });
