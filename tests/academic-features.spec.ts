@@ -33,6 +33,32 @@ test.describe('Academic Website Features', () => {
     await expect(articleLink.first()).toBeVisible();
   });
 
+  test('header provides a localized link to the article index', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.getByRole('banner').getByRole('link', { name: 'Articles' })).toHaveAttribute(
+      'href',
+      '/list-articles/'
+    );
+
+    await page.goto('/zh/');
+    await expect(page.getByRole('banner').getByRole('link', { name: '杂文' })).toHaveAttribute(
+      'href',
+      '/zh/list-articles/'
+    );
+  });
+
+  test('sidebar separates protected reading catalogs from articles', async ({ page }) => {
+    await page.goto('/zh/list-articles/');
+
+    await expect(page.getByRole('navigation').getByRole('link', { name: 'Moldflow 仿真阅读' })).toHaveAttribute(
+      'href',
+      'https://jackyansongli.github.io/zh/moldflow-reading/'
+    );
+    await expect(
+      page.getByRole('navigation').getByRole('link', { name: '《注塑模具流动分析》中文译文' })
+    ).toHaveAttribute('href', 'https://jackyansongli.github.io/zh/flow-analysis/');
+  });
+
   test('Photos page renders successfully', async ({ page }) => {
     await page.goto('/photos');
     
