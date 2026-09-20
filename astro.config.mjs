@@ -60,7 +60,6 @@ export default defineConfig({
         { label: 'Articles', translations: { 'zh-CN': '杂文' }, link: '/list-articles/' },
         { label: 'Moldflow Simulation Reading', translations: { 'zh-CN': '注塑工艺简介' }, link: 'https://jackyansongli.github.io/zh/moldflow-reading/' },
         { label: 'Flow Analysis of Injection Molds (Chinese Translation)', translations: { 'zh-CN': '《注塑模具流动分析》中文译文' }, link: 'https://jackyansongli.github.io/zh/flow-analysis/' },
-        { label: 'Moldflow Design Guide Study Notes', translations: { 'zh-CN': '《Moldflow Design Guide》中文学习笔记' }, link: 'https://jackyansongli.github.io/zh/moldflow-design-guide-notes/' },
         {
           label: 'Vector Calculus & Tensors',
           translations: { 'zh-CN': '向量微积分与张量' },
