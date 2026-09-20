@@ -202,7 +202,9 @@ $$\dot{\gamma}\lambda_R > 1 \quad \text{且} \quad \int_0^{t_s}\eta[\dot{\gamma}
 
 Mykhaylyk 等人 [263] 发现，临界比功与剪切速率无关，但随长链浓度的增大而减小。这些观察结果进一步得到了 Housmans 等人 [161] 实验工作的支持。基于这些结果，Steenbakkers 和 Peters [341] 以及 Steenbakkers [340] 用最慢松弛模态分子拉伸的四次方依赖关系对流动增强成核速率（$\dot{N}_f$）进行了建模：
 
-$$\dot{N}_f = \begin{cases} g_n(\Lambda^4 - 1)\left(1 - \dfrac{N_f}{N_{f,max}}\right) & \text{若 } \dot{\gamma} > 0 \\[6pt] 0 & \text{若 } \dot{\gamma} = 0 \end{cases}, \tag{10.31}$$
+$$
+\dot{N}_f = \begin{cases} g_n(\Lambda^4 - 1)\left(1 - \dfrac{N_f}{N_{f,max}}\right) & \text{若 } \dot{\gamma} > 0 \\[6pt] 0 & \text{若 } \dot{\gamma} = 0 \end{cases}, \tag{10.31}
+$$
 
 其中 $g_n$ 是仅依赖于温度的缩放参数，$N_{f,max}$ 是饱和数密度，$\Lambda$ 是高分子量链的拉伸比，可由所选用的黏弹性本构方程确定。基于"需要超过临界比功才能从各向同性生长区转变为取向生长区"的实验证据，还引入了临界分子拉伸比 $\Lambda_{crit}$，作为一旦 $\Lambda > \Lambda_{crit}$ 即产生取向晶体形态的阈值。
 

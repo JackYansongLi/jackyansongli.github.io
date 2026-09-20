@@ -66,7 +66,9 @@ $$\zeta = \frac{2\pi}{\ln(H_f/d)}, \tag{9.6}$$
 
 其中 $H_f$ 是某根给定纤维到其最近邻纤维的平均横向间距：
 
-$$H_f = \begin{cases} \left[n l^{(i)}\right]^{-1} & \text{随机取向} \\ \left[n l^{(i)}\right]^{-1/2} & \text{完全取向}, \end{cases} \tag{9.7}$$
+$$
+H_f = \begin{cases} \left[n l^{(i)}\right]^{-1} & \text{随机取向} \\ \left[n l^{(i)}\right]^{-1/2} & \text{完全取向}, \end{cases} \tag{9.7}
+$$
 
 其中 $n$ 是单位体积内的颗粒数。在实际应用中，$\zeta$ 可以作为拟合参数处理。
 
@@ -104,7 +106,9 @@ $$\left(\frac{l_c}{d}\right) = \frac{\sigma^{(f,ult)}}{2\tau_y}, \tag{9.12}$$
 
 如果假设基体处于屈服起始状态，则距纤维端部 $x$ 处纤维内的拉伸应力可写为
 
-$$\sigma^{(f)} = \begin{cases} \dfrac{2x}{l_c}\sigma^{(f,ult)} & \text{当 } x < \dfrac{l_c}{2} \\[6pt] \sigma^{(f,ult)} & \text{当 } x \geq \dfrac{l_c}{2}. \end{cases} \tag{9.13}$$
+$$
+\sigma^{(f)} = \begin{cases} \dfrac{2x}{l_c}\sigma^{(f,ult)} & \text{当 } x < \dfrac{l_c}{2} \\[6pt] \sigma^{(f,ult)} & \text{当 } x \geq \dfrac{l_c}{2}. \end{cases} \tag{9.13}
+$$
 
 如果纤维长于 $l_c$，界面剪切应力会在纤维内积累起足以使纤维断裂的拉伸应力。如果纤维短于 $l_c$，纤维中的拉伸应力永远达不到其极限值，复合材料破坏时纤维将从基体中拔出。
 
@@ -114,7 +118,9 @@ $$\sigma^{(c,ult)} = \phi\bar{\sigma}^{(f)} + (1-\phi)\bar{\sigma}^{(m)}, \tag{9
 
 其中 $\bar{\sigma}^{(f)}$ 和 $\bar{\sigma}^{(m)}$ 分别为复合材料破坏时纤维和基体中的平均应力。我们可以令基体应力等于基体强度，即 $\bar{\sigma}^{(m)} = \sigma^{(m,ult)}$，然后 $\bar{\sigma}^{(f)}$ 由下式给出：
 
-$$\bar{\sigma}^{(f)} = \frac{2}{l}\int_0^{l/2}\sigma^{(f)}\,dx = \begin{cases} \dfrac{l}{2l_c}\sigma^{(f,ult)} & \text{当 } l < l_c \\[6pt] \left(1 - \dfrac{l_c}{2l}\right)\sigma^{(f,ult)} & \text{当 } l \geq l_c. \end{cases} \tag{9.15}$$
+$$
+\bar{\sigma}^{(f)} = \frac{2}{l}\int_0^{l/2}\sigma^{(f)}\,dx = \begin{cases} \dfrac{l}{2l_c}\sigma^{(f,ult)} & \text{当 } l < l_c \\[6pt] \left(1 - \dfrac{l_c}{2l}\right)\sigma^{(f,ult)} & \text{当 } l \geq l_c. \end{cases} \tag{9.15}
+$$
 
 上述简单模型可用于确定给定纤维增强复合材料的承载能力。
 
