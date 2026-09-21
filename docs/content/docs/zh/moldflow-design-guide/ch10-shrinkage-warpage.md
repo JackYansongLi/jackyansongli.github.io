@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 第10章：收缩与翘曲
-
 ## 10.1 注塑成型与收缩
 
 本节讨论加工与收缩的关系，特别说明保压压力对收缩的影响。
