@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 附录 D：塑料材料
-
 ## D.1 什么是塑料？
 
 ### D.1.1 聚合过程
