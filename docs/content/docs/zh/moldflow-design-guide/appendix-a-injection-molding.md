@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 附录 A：注塑成型
-
 ## A.1 注塑成型概述
 
 ### A.1.1 工艺

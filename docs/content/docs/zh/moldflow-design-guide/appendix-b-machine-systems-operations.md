@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 附录 B：注塑机：系统与操作
-
 ## B.1 注塑机
 
 ### B.1.1 组成部分
