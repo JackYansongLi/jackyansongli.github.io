@@ -24,6 +24,10 @@ const chapters = [
   ['ch14-additional-issues.md', 'ch14-additional-issues', '第 14 章：注塑成型仿真的其他问题'],
 ];
 
+function stripLeadingH1(content) {
+  return content.trim().replace(/^# [^\r\n]*(?:\r?\n)?/, '').trim();
+}
+
 function page(title, content) {
   return `---
 title: ${title}
@@ -39,7 +43,7 @@ head:
 
 <div data-moldflow-protected-content>
 
-${content.trim()}
+${stripLeadingH1(content)}
 
 </div>
 `;

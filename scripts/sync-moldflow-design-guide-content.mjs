@@ -26,6 +26,10 @@ const chapters = [
   ['appendix-d-plastic-materials.md', 'appendix-d-plastic-materials', '附录 D：塑料材料'],
 ];
 
+function stripLeadingH1(content) {
+  return content.trim().replace(/^# [^\r\n]*(?:\r?\n)?/, '').trim();
+}
+
 function page(title, content) {
   return `---
 title: ${title}
@@ -41,7 +45,7 @@ head:
 
 <div data-moldflow-protected-content>
 
-${content.trim()}
+${stripLeadingH1(content)}
 
 </div>
 `;

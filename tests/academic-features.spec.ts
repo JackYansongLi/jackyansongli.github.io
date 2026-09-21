@@ -157,12 +157,16 @@ test.describe('Academic Website Features', () => {
     await page.goto('/zh/flow-analysis/ch01-current-status/');
 
     await expect(page.getByLabel('访问密码')).toBeVisible();
-    await expect(page.getByRole('heading', { name: '第1章 绪论' })).toHaveCount(0);
+    await expect(
+      page.getByRole('heading', { level: 2, name: '1.1 注塑成型工艺' })
+    ).toBeHidden();
 
     await page.getByLabel('访问密码').fill('761893');
     await page.getByRole('button', { name: '进入阅读区' }).click();
 
-    await expect(page.getByRole('heading', { name: '第1章 绪论' })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { level: 2, name: '1.1 注塑成型工艺' })
+    ).toBeVisible();
   });
 
   test('protected chapters provide bottom chapter navigation after unlocking', async ({ page }) => {
@@ -292,6 +296,66 @@ test.describe('Academic Website Features', () => {
       await page.goto(`/zh/moldflow-design-guide/${route}/`);
       await expect(page.getByLabel('访问密码')).toBeVisible();
       await expect(page.locator('[data-moldflow-protected-content]')).toBeHidden();
+    }
+  });
+
+  test('protected Chinese book content never renders a body H1', async ({ page }) => {
+    const routes = [
+      '/zh/moldflow-reading/',
+      '/zh/flow-analysis/',
+      '/zh/moldflow-design-guide/',
+      ...[
+        'ch02-plastic-part-design',
+        'ch05-cavity-filling',
+        'ch06-feed-system-design',
+        'ch07-gating-design',
+        'ch08-venting',
+        'ch09-cooling-system-design',
+        'ch10-shrinkage-warpage',
+        'ch14-mold-commissioning',
+        'ch15-appendix',
+      ].map((route) => `/zh/moldflow-reading/${route}/`),
+      ...Array.from({ length: 14 }, (_, chapter) =>
+        `/zh/flow-analysis/ch${String(chapter + 1).padStart(2, '0')}-${[
+          'current-status',
+          'stress-strain',
+          'polymer-properties',
+          'governing-equations',
+          'injection-molding-approximations',
+          'numerical-methods',
+          'fiber-orientation',
+          'mechanical-properties',
+          'long-fiber-materials',
+          'crystallization',
+          'crystallization-effects',
+          'colorants',
+          'shrinkage-warpage',
+          'additional-issues',
+        ][chapter]}/`
+      ),
+      ...[
+        'ch01-polymer-flow-behavior',
+        'ch02-molding-conditions-pressure',
+        'ch03-filling-pattern',
+        'ch04-design-principles',
+        'ch05-meshes-used-in-analyses',
+        'ch06-product-design',
+        'ch07-gate-design',
+        'ch08-runner-system-design',
+        'ch09-cooling-system-design',
+        'ch10-shrinkage-warpage',
+        'ch11-design-procedure',
+        'ch12-part-defects',
+        'appendix-a-injection-molding',
+        'appendix-b-machine-systems-operations',
+        'appendix-c-process-control',
+        'appendix-d-plastic-materials',
+      ].map((route) => `/zh/moldflow-design-guide/${route}/`),
+    ];
+
+    for (const route of routes) {
+      await page.goto(route);
+      await expect(page.locator('[data-moldflow-protected-content] h1')).toHaveCount(0);
     }
   });
 
