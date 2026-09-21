@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 第1章：注塑模具中的聚合物流动行为
-
 - 注塑成型的阶段
 - 塑料如何流动？
 

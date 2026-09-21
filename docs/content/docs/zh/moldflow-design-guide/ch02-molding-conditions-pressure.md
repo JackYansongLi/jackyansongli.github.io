@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 第2章：成型条件与注射压力
-
 - 注射压力概述
 - 影响注射压力需求的因素
 - 方程

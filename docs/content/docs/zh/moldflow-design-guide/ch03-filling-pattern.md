@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 第3章：充填模式
-
 - 充填模式概述
 - 复杂模具中的流动
 - 流动前沿面积和流动前沿速度
