@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 《Moldflow Design Guide》中文译文
-
 以下译文仅含正文，已跳过图片、目录和参考文献。输入访问密码后可阅读。此处使用客户端 SHA-256/sessionStorage 访问门，并非真实加密或服务器级别的安全保护。
 
 1. [第1章：注塑模具中的聚合物流动行为](/zh/moldflow-design-guide/ch01-polymer-flow-behavior/)
