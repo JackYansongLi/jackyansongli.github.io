@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 第9章：冷却系统设计
-
 ## 9.1 模具冷却系统概述
 
 ### 9.1.1 冷却系统设计的重要性

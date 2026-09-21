@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 第8章：流道系统设计
-
 ## 8.1 定义
 
 ### 8.1.1 供料系统
