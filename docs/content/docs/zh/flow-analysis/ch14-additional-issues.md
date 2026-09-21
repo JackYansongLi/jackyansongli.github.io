@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 第 14 章：注塑成型仿真的其他问题
-
 14 注射成型模拟中的其他问题
 
 14.1 熔接线
