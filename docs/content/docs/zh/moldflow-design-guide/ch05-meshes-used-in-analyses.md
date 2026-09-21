@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 第5章：Moldflow 分析中使用的网格
-
 ## 5.1 Moldflow 使用的网格类型
 
 ### 5.1.1 Moldflow 中使用的有限元

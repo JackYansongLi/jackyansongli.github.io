@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 第4章：Moldflow 设计原则
-
 - 产品设计与 Moldflow
 - 分析顺序
 - Moldflow 流动概念
