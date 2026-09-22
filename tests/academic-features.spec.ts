@@ -81,10 +81,13 @@ test.describe('Academic Website Features', () => {
     await page.goto('/zh/subagent-tutorial/');
 
     const toggle = page.getByRole('button', { name: '收起本页目录' });
+    const mainPane = page.locator('.main-pane');
+    const widthBeforeCollapse = await mainPane.evaluate((element) => element.getBoundingClientRect().width);
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
     await toggle.click();
     await expect(page.locator('html')).toHaveAttribute('data-right-sidebar-collapsed', '');
     await expect(page.locator('.right-sidebar-container')).toHaveCSS('display', 'none');
+    expect(await mainPane.evaluate((element) => element.getBoundingClientRect().width)).toBeGreaterThan(widthBeforeCollapse);
     await expect(page.getByRole('button', { name: '展开本页目录' })).toHaveAttribute('aria-expanded', 'false');
 
     await page.reload();

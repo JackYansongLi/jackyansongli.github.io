@@ -47,6 +47,13 @@ html[data-right-sidebar-collapsed] body:has([data-moldflow-protected-content]) {
   --sl-content-width: clamp(45rem, calc(100vw - var(--sl-sidebar-width)), 60rem);
 }
 
+@media (min-width: 72rem) {
+  html[data-right-sidebar-collapsed][data-has-sidebar][data-has-toc] .main-pane {
+    width: 100%;
+    --sl-content-margin-inline: auto;
+  }
+}
+
 /* Custom CSS Counters for Theorem & Definition environments */
 body {
   counter-reset: theorem-counter definition-counter lemma-counter;
