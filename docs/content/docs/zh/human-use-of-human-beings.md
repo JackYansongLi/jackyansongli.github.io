@@ -12,7 +12,7 @@ head:
 
 <div data-moldflow-protected-content>
 
-以下为诺伯特·维纳《人有人的用处》中文译文。输入访问密码后可阅读。此处使用客户端 SHA-256/sessionStorage 访问门，并非真实加密或服务器级别的安全保护。
+以下为诺伯特·维纳《人有人的用处》中文译文。输入访问密码后可阅读。
 
 1. [第1章：什么是控制论？](/zh/human-use-of-human-beings/ch01-what-is-cybernetics/)
 2. [第2章：进步与熵](/zh/human-use-of-human-beings/ch02-progress-and-entropy/)
