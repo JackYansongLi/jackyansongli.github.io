@@ -38,6 +38,11 @@ mjx-container[display="true"] svg {
   min-width: 0;
 }
 
+/* Let protected long-form reading pages use their available desktop space. */
+body:has([data-moldflow-protected-content]) {
+  --sl-content-width: clamp(45rem, calc(100vw - var(--sl-sidebar-width) - 5rem), 60rem);
+}
+
 /* Custom CSS Counters for Theorem & Definition environments */
 body {
   counter-reset: theorem-counter definition-counter lemma-counter;
