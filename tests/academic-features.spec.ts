@@ -254,11 +254,12 @@ test.describe('Academic Website Features', () => {
     await page.getByLabel('访问密码').fill('761893');
     await page.getByRole('button', { name: '进入阅读区' }).click();
 
+    const protectedContent = page.locator('[data-moldflow-protected-content]');
     await expect(
-      page.locator('img[src="/images/human-use-of-human-beings/moth-or-bedbug.png"]')
+      protectedContent.getByRole('img', { name: '“飞蛾或臭虫”反馈机器（原书扫描图）' })
     ).toBeVisible();
     await expect(
-      page.locator('img[src="/images/human-use-of-human-beings/hearing-aid.png"]')
+      protectedContent.getByRole('img', { name: '供完全失聪者使用的助听器（原书扫描图）' })
     ).toBeVisible();
     await expect(
       page.locator('[data-moldflow-protected-navigation]').getByRole('link', { name: '下一章' })
