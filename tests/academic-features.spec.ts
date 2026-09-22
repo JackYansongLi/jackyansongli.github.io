@@ -233,6 +233,61 @@ test.describe('Academic Website Features', () => {
     await expect(protectedContent).toBeVisible();
   });
 
+  test('Human Use catalog requires the shared password', async ({ page }) => {
+    await page.goto('/zh/human-use-of-human-beings/');
+    const protectedContent = page.locator('[data-moldflow-protected-content]');
+
+    await expect(protectedContent).toBeHidden();
+    await page.getByLabel('访问密码').fill('wrong-password');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(page.getByText('密码不正确，请重试。')).toBeVisible();
+
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(protectedContent).toBeVisible();
+    await expect(page.getByRole('link', { name: '第1章：什么是控制论？' })).toBeVisible();
+  });
+
+  test('Human Use Chapter XI preserves both figures and links to Chapter XII', async ({ page }) => {
+    await page.goto('/zh/human-use-of-human-beings/ch11-communication-machines/');
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+
+    await expect(
+      page.locator('img[src="/images/human-use-of-human-beings/moth-or-bedbug.png"]')
+    ).toBeVisible();
+    await expect(
+      page.locator('img[src="/images/human-use-of-human-beings/hearing-aid.png"]')
+    ).toBeVisible();
+    await expect(
+      page.locator('[data-moldflow-protected-navigation]').getByRole('link', { name: '下一章' })
+    ).toHaveAttribute('href', '/zh/human-use-of-human-beings/ch12-voices-of-rigidity/');
+  });
+
+  test('Human Use boundary chapters omit unavailable navigation links', async ({ page }) => {
+    await page.goto('/zh/human-use-of-human-beings/ch01-what-is-cybernetics/');
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+
+    const firstNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(firstNavigation.getByRole('link', { name: '上一章' })).toHaveCount(0);
+    await expect(firstNavigation.getByRole('link', { name: '下一章' })).toHaveAttribute(
+      'href',
+      '/zh/human-use-of-human-beings/ch02-progress-and-entropy/'
+    );
+
+    await page.goto('/zh/human-use-of-human-beings/ch12-voices-of-rigidity/');
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+
+    const finalNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(finalNavigation.getByRole('link', { name: '上一章' })).toHaveAttribute(
+      'href',
+      '/zh/human-use-of-human-beings/ch11-communication-machines/'
+    );
+    await expect(finalNavigation.getByRole('link', { name: '下一章' })).toHaveCount(0);
+  });
+
   test('Moldflow Design Guide navigation uses the exact first, middle, and final hrefs', async ({ page }) => {
     await page.goto('/zh/moldflow-design-guide/ch01-polymer-flow-behavior/');
 
