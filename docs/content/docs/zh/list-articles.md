@@ -5,6 +5,10 @@ description: 本网站发布的所有文章与笔记的完整索引。
 
 本网站发布的全部文章与笔记完整列表。
 
+## 受保护阅读目录
+
+- [《人有人的用处》中文译文](/zh/human-use-of-human-beings/)
+
 ## AI Agent 开发实操
 
 - [AI Agent 开发实操课：Subagent](/zh/subagent-tutorial/)

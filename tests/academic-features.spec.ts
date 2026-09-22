@@ -272,6 +272,9 @@ test.describe('Academic Website Features', () => {
     await page.getByRole('button', { name: '进入阅读区' }).click();
 
     const firstNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(
+      page.locator('[data-moldflow-protected-content]').getByRole('img', { name: '典型的纸带系统（原书扫描图）' })
+    ).toBeVisible();
     await expect(firstNavigation.getByRole('link', { name: '上一章' })).toHaveCount(0);
     await expect(firstNavigation.getByRole('link', { name: '下一章' })).toHaveAttribute(
       'href',
@@ -279,6 +282,8 @@ test.describe('Academic Website Features', () => {
     );
 
     await page.goto('/zh/human-use-of-human-beings/ch12-voices-of-rigidity/');
+    await page.evaluate(() => sessionStorage.clear());
+    await page.reload();
     await page.getByLabel('访问密码').fill('761893');
     await page.getByRole('button', { name: '进入阅读区' }).click();
 
@@ -361,6 +366,7 @@ test.describe('Academic Website Features', () => {
       '/zh/moldflow-reading/',
       '/zh/flow-analysis/',
       '/zh/moldflow-design-guide/',
+      '/zh/human-use-of-human-beings/',
       ...[
         'ch02-plastic-part-design',
         'ch05-cavity-filling',
@@ -408,6 +414,20 @@ test.describe('Academic Website Features', () => {
         'appendix-c-process-control',
         'appendix-d-plastic-materials',
       ].map((route) => `/zh/moldflow-design-guide/${route}/`),
+      ...[
+        'ch01-what-is-cybernetics',
+        'ch02-progress-and-entropy',
+        'ch03-rigidity-and-learning',
+        'ch04-mechanism-of-language',
+        'ch05-history-of-language',
+        'ch06-individual-as-the-word',
+        'ch07-law-and-communication',
+        'ch08-communication-and-secrecy',
+        'ch09-role-of-intellectual-and-scientist',
+        'ch10-industrial-revolutions',
+        'ch11-communication-machines',
+        'ch12-voices-of-rigidity',
+      ].map((route) => `/zh/human-use-of-human-beings/${route}/`),
     ];
 
     for (const route of routes) {
@@ -435,6 +455,24 @@ test.describe('Academic Website Features', () => {
       'ch10-shrinkage-warpage.md',
       'ch11-design-procedure.md',
       'ch12-part-defects.md',
+    ]);
+  });
+
+  test('Human Use publishes only the canonical 12 routes', async () => {
+    const routes = await readdir(resolve('docs/content/docs/zh/human-use-of-human-beings'));
+    expect(routes.filter((route) => route.endsWith('.md')).sort()).toEqual([
+      'ch01-what-is-cybernetics.md',
+      'ch02-progress-and-entropy.md',
+      'ch03-rigidity-and-learning.md',
+      'ch04-mechanism-of-language.md',
+      'ch05-history-of-language.md',
+      'ch06-individual-as-the-word.md',
+      'ch07-law-and-communication.md',
+      'ch08-communication-and-secrecy.md',
+      'ch09-role-of-intellectual-and-scientist.md',
+      'ch10-industrial-revolutions.md',
+      'ch11-communication-machines.md',
+      'ch12-voices-of-rigidity.md',
     ]);
   });
 
