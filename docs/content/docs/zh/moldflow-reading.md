@@ -14,8 +14,6 @@ head:
 
 本专区面向希望实现注塑成型仿真器的读者。阅读顺序按 Fill、Runner、Gate、Cool 和 Warp 的建模依赖安排。
 
-> 本站是静态 GitHub Pages。密码门用于避免内容被随意浏览，并不构成服务器级别的访问控制；已发布的静态文件仍可能被直接获取。
-
 ## 核心阅读路径
 
 1. [第5章：型腔充填分析与设计](/zh/moldflow-reading/ch05-cavity-filling/)
