@@ -241,6 +241,7 @@ test.describe('Academic Website Features', () => {
     await page.getByLabel('访问密码').fill('wrong-password');
     await page.getByRole('button', { name: '进入阅读区' }).click();
     await expect(page.getByText('密码不正确，请重试。')).toBeVisible();
+    await expect(protectedContent).toBeHidden();
 
     await page.getByLabel('访问密码').fill('761893');
     await page.getByRole('button', { name: '进入阅读区' }).click();
