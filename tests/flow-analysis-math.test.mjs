@@ -147,3 +147,51 @@ test('chapters 7 and 14 separate screenshot-reported equations from prose', asyn
   assert.match(chapterFourteen, /质量守恒方程为：\n\n\$\$/);
   assert.match(chapterFourteen, /动量方程为：\n\n\$\$/);
 });
+
+test('chapters 11 and 13 place the affected equation ranges in standalone display blocks', async () => {
+  const [chapterEleven, chapterThirteen] = await Promise.all([
+    readFile(join(chapterDirectory.pathname, 'ch11-crystallization-effects.md'), 'utf8'),
+    readFile(join(chapterDirectory.pathname, 'ch13-shrinkage-warpage.md'), 'utf8'),
+  ]);
+
+  for (const equation of [
+    '11.11',
+    '11.12',
+    '11.13',
+    '11.14',
+    '11.15',
+    '11.16',
+    '11.17',
+    '11.18',
+    '11.19',
+    '11.20',
+  ]) {
+    assert.match(chapterEleven, new RegExp(`\\$\\$\\n[\\s\\S]*?\\(${equation.replace('.', '\\.') }\\)\\n\\$\\$`));
+  }
+
+  for (const equation of ['13.3', '13.4', '13.5', '13.6', '13.7', '13.8', '13.9', '13.10', '13.11', '13.12', '13.13', '13.14']) {
+    assert.match(chapterThirteen, new RegExp(`\\$\\$\\n[\\s\\S]*?\\(${equation.replace('.', '\\.') }\\)\\n\\$\\$`));
+  }
+
+  assert.match(chapterThirteen, /通过将式（13\.11）和式（13\.14）代入式（13\.9），我们得到\n\n\$\$/);
+});
+
+test('chapters 6 and 11 keep numbered equations out of prose and avoid empty display blocks', async () => {
+  const [chapterSix, chapterEleven] = await Promise.all([
+    readFile(join(chapterDirectory.pathname, 'ch06-numerical-methods.md'), 'utf8'),
+    readFile(join(chapterDirectory.pathname, 'ch11-crystallization-effects.md'), 'utf8'),
+  ]);
+
+  for (const [source, equation] of [
+    [chapterSix, '6.1'],
+    [chapterSix, '6.2'],
+    [chapterSix, '6.8'],
+    [chapterSix, '6.11'],
+    [chapterEleven, '11.21'],
+    [chapterEleven, '11.29'],
+  ]) {
+    assert.match(source, new RegExp(`\\$\\$\\n[\\s\\S]*?\\(${equation.replace('.', '\\.') }\\)\\n\\$\\$`));
+  }
+
+  assert.doesNotMatch(chapterEleven, /\$\$\n\$\$/);
+});

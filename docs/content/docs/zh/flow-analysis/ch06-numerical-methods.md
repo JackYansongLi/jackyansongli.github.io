@@ -75,24 +75,39 @@ head:
 所使用的约束取决于所选择的单元类型。在过去，3 节点三角形单元在整个单元内具有恒定应变，其性能较差。然而，由于对结构优化的兴趣，开发了许多改进的单元形式。例如，具有 18 个自由度（每个节点六个——三个位移和三个旋转）的平面三角形面壳单元。
 
 该单元通过叠加Bergan和Felippa [34]提出的局部膜公式与Batoz和Lardeur [28]提出的弯曲公式构建，并将结合方程转换到全局坐标系中。膜公式中使用了关于局部参考表面法线的钻孔旋转自由度，该自由度在局部单元坐标系中定义为：
-$ \theta_z = -\frac{1}{2} \left( \frac{\partial u_y}{\partial x} - \frac{\partial u_x}{\partial y} \right) $
-(6.1)
+
+$$
+\theta_z = -\frac{1}{2} \left( \frac{\partial u_y}{\partial x} - \frac{\partial u_x}{\partial y} \right) \quad (6.1)
+$$
 
 为了定义节点n与其匹配节点p之间的自由度关系（见图6.7），我们要求变形前中面的法线在变形后保持直线。采用单元的局部坐标系，我们分别表示节点n的三个位移自由度和三个旋转自由度为$u_{xn}$、$u_{yn}$、$u_{zn}$和$\theta_{xn}$、$\theta_{yn}$、$\theta_{zn}$。节点n与其匹配点p之间的自由度关系如下：
 
 *图 6.7：为双域分析配对的结构单元*
-$ u_{xn} = u_{xp} - \theta_{yp} h $
-(6.2)
-$ u_{yn} = u_{yp} + \theta_{xp} h $
-(6.3)
-$ u_{zn} = u_{zp} $
-(6.4)
-$ \theta_{xn} = \theta_{xp} $
-(6.5)
-$ \theta_{yn} = \theta_{yp} $
-(6.6)
-$ \theta_{zn} = \theta_{zp} + \frac{1}{2} \left( \frac{\partial \theta_{xp}}{\partial x} + \frac{\partial \theta_{yp}}{\partial y} \right) $
-(6.7)
+
+$$
+u_{xn} = u_{xp} - \theta_{yp} h \quad (6.2)
+$$
+
+$$
+u_{yn} = u_{yp} + \theta_{xp} h \quad (6.3)
+$$
+
+$$
+u_{zn} = u_{zp} \quad (6.4)
+$$
+
+$$
+\theta_{xn} = \theta_{xp} \quad (6.5)
+$$
+
+$$
+\theta_{yn} = \theta_{yp} \quad (6.6)
+$$
+
+$$
+\theta_{zn} = \theta_{zp} + \frac{1}{2} \left( \frac{\partial \theta_{xp}}{\partial x} + \frac{\partial \theta_{yp}}{\partial y} \right) \quad (6.7)
+$$
+
 其中，h是节点n与其匹配点p之间的距离。注意，式(6.7)中的关系是通过式(6.1)获得的，因此与所选择的单元类型有关。这种约束系统在模型底部（或顶部）表面上的所有节点上施加，但不包括边缘节点。
 
 板边缘的元素被分配相邻上下面元素厚度的六分之一。在这些约束条件下，复合结构的结构性能与原始板相同。此时，复合模型可以施加适当的边界条件和载荷进行结构分析，并用于分析3D几何的翘曲。通常，上面的网格与下面的网格不重合。因此，从下面表面节点n出发的法线通常不会与上面表面的节点重合。相反，法线更有可能在上面元素内某点p与上面元素相交（见下面元素节点n，该节点在上面元素内某点p处与上面元素相交）。在这种情况下，需要进行插值。
@@ -118,11 +133,31 @@ $ \theta_{zn} = \theta_{zp} + \frac{1}{2} \left( \frac{\partial \theta_{xp}}{\pa
 ### 6.2.2 半三维方法
 Nakano [265, 266] 开发了一种并非真正三维的方法，但允许直接分析三维几何结构。
 
-以笛卡尔坐标系中的连续性方程为例：$\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z} = 0$（6.8）
+以笛卡尔坐标系中的连续性方程为例：
 
-Nakano 对薄壁近似的二维情况进行了推广，并设定了以下速度分量：$v_x = -\frac{\partial p}{\partial x} S_3, \quad v_y = -\frac{\partial p}{\partial y} S_3, \quad v_z = -\frac{\partial p}{\partial z} S_3$（6.9）其中，$S_3$ 是三维流体性的类比，类似于方程 5.55 中的二维流体性。将方程 6.9 代入 6.8 中，可以得到压力的以下方程：$\frac{\partial^2 p}{\partial x^2} + \frac{\partial^2 p}{\partial y^2} + \frac{\partial^2 p}{\partial z^2} = 0$（6.10）
+$$
+\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z} = 0 \quad (6.8)
+$$
 
-需要注意的是，上述方程的右边为零。然而，如果假设材料是可压缩的，实际上它确实是可压缩的，那么右边不为零。因此，$S_3$ 不应被消去。Nakano 方法的最后一步是通过求解以下方程来确定 $S_3$ 的值：$\frac{\partial^2 S_3}{\partial x^2} + \frac{\partial^2 S_3}{\partial y^2} + \frac{\partial^2 S_3}{\partial z^2} = -\frac{1}{\eta}$（6.11）其中，$\eta$ 是材料的粘度。
+Nakano 对薄壁近似的二维情况进行了推广，并设定了以下速度分量：
+
+$$
+v_x = -\frac{\partial p}{\partial x} S_3, \quad v_y = -\frac{\partial p}{\partial y} S_3, \quad v_z = -\frac{\partial p}{\partial z} S_3 \quad (6.9)
+$$
+
+其中，$S_3$ 是三维流体性的类比，类似于方程 5.55 中的二维流体性。将方程 6.9 代入 6.8 中，可以得到压力的以下方程：
+
+$$
+\frac{\partial^2 p}{\partial x^2} + \frac{\partial^2 p}{\partial y^2} + \frac{\partial^2 p}{\partial z^2} = 0 \quad (6.10)
+$$
+
+需要注意的是，上述方程的右边为零。然而，如果假设材料是可压缩的，实际上它确实是可压缩的，那么右边不为零。因此，$S_3$ 不应被消去。Nakano 方法的最后一步是通过求解以下方程来确定 $S_3$ 的值：
+
+$$
+\frac{\partial^2 S_3}{\partial x^2} + \frac{\partial^2 S_3}{\partial y^2} + \frac{\partial^2 S_3}{\partial z^2} = -\frac{1}{\eta} \quad (6.11)
+$$
+
+其中，$\eta$ 是材料的粘度。
 
 Nakano 方法节省的经济性体现在每个节点需要确定的自由度（DOF）上。忽略约束条件，每个节点需要确定一个压力、一个温度和一个流体性 $S_3$。然后，三个速度分量可以从方程 6.9 中确定。虽然温度计算没有直接在 Nakano 的讨论中提及 [265, 266]，但可以使用有限元方法进行计算。
 

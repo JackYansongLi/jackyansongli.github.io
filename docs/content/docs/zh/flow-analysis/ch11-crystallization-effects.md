@@ -48,40 +48,61 @@ Doufas等人[87, 88]提出了一种两相模型，其中半结晶相被建模为
 
 让我们考虑当 $ u $ 接近等向平衡分布时模型的响应。在这种情况下，满足 $ u $ 空间中的福克-普朗克方程（方程 4.75 和 C.27）的分布函数的主要项为 $(4\pi)^{-1}$。根据 Brenner [45] 描述的积分定理，我们得到：
 
-$ 2D : \int u \otimes u \, du = D, \quad (11.11) $
-$ 2L \cdot \int u \, du + \int u \, du \cdot L^T = D. \quad (11.12) $
+$$
+2D : \int u \otimes u \, du = D, \quad (11.11)
+$$
+
+$$
+2L \cdot \int u \, du + \int u \, du \cdot L^T = D. \quad (11.12)
+$$
 
 从方程 11.10，假设稳态 $(D_{\Delta u \Delta u}/D t = 0)$ 并使用方程 11.11 和 11.12，我们得到：
 
-$ 6 \Delta u \Delta u - I = \lambda_{sc} D. \quad (11.13) $
+$$
+6 \Delta u \Delta u - I = \lambda_{sc} D. \quad (11.13)
+$$
 
 将方程 11.11 和 11.13 代入方程 11.9，得到：
 
-$ \tau_{sc} = 2\mu \lambda_{sc} D, \quad (11.14) $
+$$
+\tau_{sc} = 2\mu \lambda_{sc} D, \quad (11.14)
+$$
 
 其中 $\mu \lambda_{sc}$ 应该是 $\alpha$ 的函数。在 $\alpha \rightarrow 0$ 的极限下，无定形相占主导地位，$\mu \lambda_{sc} \rightarrow 0$。在 $\alpha$ 的高值下，半结晶相主导响应。$\mu \lambda_{sc}$ 对相对结晶度的依赖关系近似为 [418]：
 
-$ \eta_a \left(\frac{\alpha}{A}\right)^{\beta_1} \mu_{\lambda sc} = \frac{\eta_a \left(\frac{\alpha}{A}\right)^{\beta_1}}{(1 - \frac{\alpha}{A})^{\beta}}, \quad (11.15) $
+$$
+\eta_a \left(\frac{\alpha}{A}\right)^{\beta_1} \mu_{\lambda sc} = \frac{\eta_a \left(\frac{\alpha}{A}\right)^{\beta_1}}{(1 - \frac{\alpha}{A})^{\beta}}, \quad (11.15)
+$$
 
 其中 $A$ 与方程 11.6 中定义相同，$\beta$ 和 $\beta_1$ 是经验常数。我们可将方程 11.14 写为：
 
-$ 2\eta_a \left(\frac{\alpha}{A}\right)^{\beta_1} \tau_{sc} = D. \quad (11.16) $
+$$
+2\eta_a \left(\frac{\alpha}{A}\right)^{\beta_1} \tau_{sc} = D. \quad (11.16)
+$$
 
 在简单的剪切流动中，方程 11.16 可简化为：
 
-$ \left(\frac{\alpha}{A}\right)^{\beta_1} \tau_{(sc)}_{13} = \eta_a \dot{\gamma}, \quad (11.17) $
+$$
+\left(\frac{\alpha}{A}\right)^{\beta_1} \tau_{(sc)}_{13} = \eta_a \dot{\gamma}, \quad (11.17)
+$$
 
 而无定形相贡献的剪切应力为：
 
-$ \tau_{(a)}_{13} = \eta_a \dot{\gamma}. \quad (11.18) $
+$$
+\tau_{(a)}_{13} = \eta_a \dot{\gamma}. \quad (11.18)
+$$
 
 总的剪切应力为：
 
-$ \tau_{13} = \tau_{(a)}_{13} + \tau_{(sc)}_{13} = \left(1 + \frac{\eta_a \dot{\gamma}}{\left(1 - \frac{\alpha}{A}\right)^{\beta}}\right). \quad (11.19) $
+$$
+\tau_{13} = \tau_{(a)}_{13} + \tau_{(sc)}_{13} = \dot{\gamma} \left(1 + \frac{\eta_a}{\left(1 - \frac{\alpha}{A}\right)^{\beta}}\right) \quad (11.19)
+$$
 
 因此，我们可以将剪切黏度函数写为：
 
-$ \eta = \frac{\tau_{13}}{\dot{\gamma}} = 1 + \frac{\eta_a}{\left(1 - \frac{\alpha}{A}\right)^{\beta}}, \quad (11.20) $
+$$
+\eta = \frac{\tau_{13}}{\dot{\gamma}} = 1 + \frac{\eta_a}{\left(1 - \frac{\alpha}{A}\right)^{\beta}} \quad (11.20)
+$$
 
 其行为类似于悬浮模型（方程 11.6）。显然，上述所有方程仅适用于 $\alpha < A$。
 
@@ -90,19 +111,70 @@ $ \eta = \frac{\tau_{13}}{\dot{\gamma}} = 1 + \frac{\eta_a}{\left(1 - \frac{\alp
 ## 11.2 结晶对PVT的影响
 
 考虑一个包含结晶相和无定形相的代表性体积V。结晶相占据的体积为Vc，无定形相占据的体积为Va。由于我们仅考虑两相系统，我们有
-$ V = V_c + V_a \quad \text{(11.21)} $
-并且
-$ \rho V = \rho_c V_c + \rho_a V_a \quad \text{(11.22)} $
-其中，ρ是代表性体积的密度，ρc和ρa分别是结晶相和无定形相的密度。绝对结晶度简单地表示为
-$ \chi = \frac{V_c}{V} $
-无定形相的体积分数为
-$ 1 - \chi = \frac{V_a}{V} $
-因此，从方程11.22中我们得到
-$ \rho = \rho_c \chi + \rho_a (1 - \chi) \quad \text{(11.23)} $
-我们可以假设固体聚合物的结晶度达到了最终值χ∞。那么固体的密度为
-$ \rho_{sc} = \rho_c \chi_\infty + \rho_a (1 - \chi_\infty) $
 
-(11.24) 回忆到 χ = αχ∞，方程 11.23 可以重新写为 ρ = ρ sc α + ρ a (1 − α) ，(11.25) 这个方程也可以用比容的形式重写为： $\frac{1}{\alpha (1-\alpha)} = \frac{1}{\hat{V}} = \frac{1}{\hat{V}_{sc}} + \frac{1}{\hat{V}_{a}}$ ，(11.26) 其中 $\hat{V}_{sc} \equiv \frac{1}{\rho_{sc}}$，$\hat{V}_{a} \equiv \frac{1}{\rho_{a}}$，$\hat{V} \equiv \frac{1}{\rho}$ 分别是半结晶相、无定形相和整个系统的比容。$\hat{V}_{sc}$ 和 $\hat{V}_{a}$ 随温度和压力的变化由泰特方程给出：$ \hat{V}_i (T, P) = \hat{V}_{0(i)} (T) \left[1 - 0.0894 \ln \left(1 + \frac{P}{B_i (T)}\right)\right] \quad (i = sc, a) $ (11.27) 其中 $\hat{V}_{0(i)} = b_1(i) + b_2(i) (T - b_5) $ (11.28) $ B_i (T) = b_3(i) \exp \left(-b_4(i) (T - b_5)\right) $ (11.29) 其中 $b_1(i)$ 到 $b_4(i)$ 和 $b_5$ 是需要通过拟合 PVT 测量数据确定的模型常数。方程 11.26 考虑了 PVT 过渡区随冷却速率和材料变形的变化，因为结晶动力学对这些变量有很强的依赖性。在模拟中使用方程 11.26 的关键在于允许 PVT 图，通常是在接近稳态条件下测量的，随着加工条件的变化而变化。
+$$
+V = V_c + V_a \quad (11.21)
+$$
+
+并且
+
+$$
+\rho V = \rho_c V_c + \rho_a V_a \quad (11.22)
+$$
+
+其中，ρ是代表性体积的密度，ρc和ρa分别是结晶相和无定形相的密度。绝对结晶度简单地表示为
+
+$$
+\chi = \frac{V_c}{V}
+$$
+
+无定形相的体积分数为
+
+$$
+1 - \chi = \frac{V_a}{V}
+$$
+
+因此，从方程11.22中我们得到
+
+$$
+\rho = \rho_c \chi + \rho_a (1 - \chi) \quad (11.23)
+$$
+
+我们可以假设固体聚合物的结晶度达到了最终值χ∞。那么固体的密度为
+
+$$
+\rho_{sc} = \rho_c \chi_\infty + \rho_a (1 - \chi_\infty) \quad (11.24)
+$$
+
+回忆到 $\chi = \alpha \chi_\infty$，方程 11.23 可以重新写为
+
+$$
+\rho = \rho_{sc} \alpha + \rho_a (1 - \alpha) \quad (11.25)
+$$
+
+这个方程也可以用比容的形式重写为：
+
+$$
+\frac{1}{\hat{V}} = \frac{\alpha}{\hat{V}_{sc}} + \frac{1 - \alpha}{\hat{V}_a} \quad (11.26)
+$$
+
+其中 $\hat{V}_{sc} \equiv \frac{1}{\rho_{sc}}$，$\hat{V}_a \equiv \frac{1}{\rho_a}$，$\hat{V} \equiv \frac{1}{\rho}$ 分别是半结晶相、无定形相和整个系统的比容。$\hat{V}_{sc}$ 和 $\hat{V}_a$ 随温度和压力的变化由泰特方程给出：
+
+$$
+\hat{V}_i(T, P) = \hat{V}_{0(i)}(T) \left[1 - 0.0894 \ln \left(1 + \frac{P}{B_i(T)}\right)\right], \quad (i = sc, a) \quad (11.27)
+$$
+
+其中
+
+$$
+\hat{V}_{0(i)} = b_1(i) + b_2(i)(T - b_5) \quad (11.28)
+$$
+
+$$
+B_i(T) = b_3(i) \exp \left(-b_4(i)(T - b_5)\right) \quad (11.29)
+$$
+
+其中 $b_1(i)$ 到 $b_4(i)$ 和 $b_5$ 是需要通过拟合 PVT 测量数据确定的模型常数。方程 11.26 考虑了 PVT 过渡区随冷却速率和材料变形的变化，因为结晶动力学对这些变量有很强的依赖性。在模拟中使用方程 11.26 的关键在于允许 PVT 图，通常是在接近稳态条件下测量的，随着加工条件的变化而变化。
 
 *图 11.1：不同冷却速率下的 PVT 图（经 John Wiley and Sons 许可，转载自 Luyé 等人 [234]）*
 
