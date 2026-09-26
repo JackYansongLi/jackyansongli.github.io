@@ -208,4 +208,14 @@ test.describe('Academic Website Features', () => {
     await expect(page.locator('mjx-container')).not.toHaveCount(0);
     await expect(page.locator('[data-mjx-error]')).toHaveCount(0);
   });
+
+  test('flow-analysis chapter 6 renders normalized formulas', async ({ page }) => {
+    await page.goto('/zh/flow-analysis/ch06-numerical-methods/');
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+
+    await expect(page.locator('mjx-container')).not.toHaveCount(0);
+    await expect(page.getByText(/\\\[\s*\\theta_z/)).toHaveCount(0);
+    await expect(page.locator('[data-mjx-error]')).toHaveCount(0);
+  });
 });

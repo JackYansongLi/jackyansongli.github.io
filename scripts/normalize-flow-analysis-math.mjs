@@ -13,7 +13,12 @@ for (const chapterName of await readdir(chapterDirectory)) {
   const movedTags = source.replace(tagInsideAligned, (_match, beforeTag, tag, afterTag) => (
     `\\begin{aligned}${beforeTag}${afterTag}\\end{aligned} \\tag{${tag}}`
   ));
-  const normalized = movedTags.replace(duplicateAlignedTags, (_match, firstTag, secondTag) => {
+  const normalized = movedTags
+    .replace(/(?<!\\)\\\[/g, '$$')
+    .replace(/(?<!\\)\\\]/g, '$$')
+    .replace(/(?<!\\)\\\(/g, '$')
+    .replace(/(?<!\\)\\\)/g, '$')
+    .replace(duplicateAlignedTags, (_match, firstTag, secondTag) => {
     const retainedTag = chapterName === 'ch04-governing-equations.md' ? firstTag : secondTag;
     return `\\end{aligned} \\tag{${retainedTag}}`;
   }).replace(/^\${3,}$/gm, () => '$$')

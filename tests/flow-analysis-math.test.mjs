@@ -11,6 +11,7 @@ const inlineEnvironmentClosingDelimiter = /\\end\{[a-z]+\}[^\n$]*\$\$/;
 const singleDollarAfterEnvironment = /\\end\{[a-z]+\}(?:\s+\\tag\{[^}]+\})?\n\$(?!\$)/;
 const singleDollarBeforeEnvironment = /^\$(?!\$)\n\\begin\{[a-z]+\}/m;
 const oversizedDisplayDelimiter = /^\${3,}$/m;
+const unsupportedMathDelimiter = /(?<!\\)\\[\[\]\(\)]/;
 
 test('flow-analysis Markdown does not place equation tags inside aligned environments', async () => {
   const chapterNames = (await readdir(chapterDirectory)).filter((name) => name.endsWith('.md'));
@@ -63,6 +64,18 @@ test('flow-analysis Markdown closes display environments with double-dollar deli
     ) {
       invalidPages.push(chapterName);
     }
+  }
+
+  assert.deepEqual(invalidPages, []);
+});
+
+test('flow-analysis Markdown does not use unsupported backslash math delimiters', async () => {
+  const chapterNames = (await readdir(chapterDirectory)).filter((name) => name.endsWith('.md'));
+  const invalidPages = [];
+
+  for (const chapterName of chapterNames) {
+    const source = await readFile(join(chapterDirectory.pathname, chapterName), 'utf8');
+    if (unsupportedMathDelimiter.test(source)) invalidPages.push(chapterName);
   }
 
   assert.deepEqual(invalidPages, []);
