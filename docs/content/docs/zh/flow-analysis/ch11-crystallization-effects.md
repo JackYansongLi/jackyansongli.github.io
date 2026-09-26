@@ -87,19 +87,19 @@ $$
 其中 $\mu \lambda_{sc}$ 应该是 $\alpha$ 的函数。在 $\alpha \rightarrow 0$ 的极限下，无定形相占主导地位，$\mu \lambda_{sc} \rightarrow 0$。在 $\alpha$ 的高值下，半结晶相主导响应。$\mu \lambda_{sc}$ 对相对结晶度的依赖关系近似为 [418]：
 
 $$
-\eta_a \left(\frac{\alpha}{A}\right)^{\beta_1} \mu_{\lambda sc} = \frac{\eta_a \left(\frac{\alpha}{A}\right)^{\beta_1}}{(1 - \frac{\alpha}{A})^{\beta}}, \quad (11.15)
+\mu \lambda_{sc} = \frac{\eta_a \left(\frac{\alpha}{A}\right)^{\beta_1}}{\left(1 - \frac{\alpha}{A}\right)^{\beta}} \quad (11.15)
 $$
 
 其中 $A$ 与方程 11.6 中定义相同，$\beta$ 和 $\beta_1$ 是经验常数。我们可将方程 11.14 写为：
 
 $$
-2\eta_a \left(\frac{\alpha}{A}\right)^{\beta_1} \tau_{sc} = D. \quad (11.16)
+\tau_{sc} = \frac{2\eta_a \left(\frac{\alpha}{A}\right)^{\beta_1}}{\left(1 - \frac{\alpha}{A}\right)^{\beta}} D \quad (11.16)
 $$
 
 在简单的剪切流动中，方程 11.16 可简化为：
 
 $$
-\left(\frac{\alpha}{A}\right)^{\beta_1} \tau^{(sc)}_{13} = \eta_a \dot{\gamma}, \quad (11.17)
+\tau^{(sc)}_{13} = \frac{\left(\frac{\alpha}{A}\right)^{\beta_1}}{\left(1 - \frac{\alpha}{A}\right)^{\beta}} \eta_a \dot{\gamma} \quad (11.17)
 $$
 
 而无定形相贡献的剪切应力为：
@@ -111,13 +111,13 @@ $$
 总的剪切应力为：
 
 $$
-\tau_{13} = \tau^{(a)}_{13} + \tau^{(sc)}_{13} = \dot{\gamma} \left(1 + \frac{\eta_a}{\left(1 - \frac{\alpha}{A}\right)^{\beta}}\right) \quad (11.19)
+\tau_{13} = \tau^{(a)}_{13} + \tau^{(sc)}_{13} = \left[1 + \frac{\left(\frac{\alpha}{A}\right)^{\beta_1}}{\left(1 - \frac{\alpha}{A}\right)^{\beta}}\right] \eta_a \dot{\gamma} \quad (11.19)
 $$
 
 因此，我们可以将剪切黏度函数写为：
 
 $$
-\eta = \frac{\tau_{13}}{\dot{\gamma}} = 1 + \frac{\eta_a}{\left(1 - \frac{\alpha}{A}\right)^{\beta}} \quad (11.20)
+\eta = \frac{\tau_{13}}{\dot{\gamma}} = \left[1 + \frac{\left(\frac{\alpha}{A}\right)^{\beta_1}}{\left(1 - \frac{\alpha}{A}\right)^{\beta}}\right] \eta_a \quad (11.20)
 $$
 
 其行为类似于悬浮模型（方程 11.6）。显然，上述所有方程仅适用于 $\alpha < A$。
