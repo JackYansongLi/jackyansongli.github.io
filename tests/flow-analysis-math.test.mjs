@@ -11,6 +11,9 @@ const inlineEnvironmentClosingDelimiter = /\\end\{[a-z]+\}[^\n$]*\$\$/;
 const singleDollarAfterEnvironment = /\\end\{[a-z]+\}(?:\s+\\tag\{[^}]+\})?\n\$(?!\$)/;
 const singleDollarBeforeEnvironment = /^\$(?!\$)\n\\begin\{[a-z]+\}/m;
 const oversizedDisplayDelimiter = /^\${3,}$/m;
+const loneDollarBlockDelimiter = /^\$\s*$/m;
+const numberedDisplayInsideInlineDelimiter = /\$(?!\$)[^\n$]{20,}\s*\(\d+\.\d+\)[^\n$]*\$(?!\$)/;
+const orphanEquationNumberAfterDisplay = /\$\$\n[\s\S]*?\n\$\$\n\n[（(]\d+\.\d+[）)]/;
 const unsupportedMathDelimiter = /(?<!\\)\\[\[\]\(\)]/;
 
 test('flow-analysis Markdown does not place equation tags inside aligned environments', async () => {
@@ -67,6 +70,47 @@ test('flow-analysis Markdown closes display environments with double-dollar deli
   }
 
   assert.deepEqual(invalidPages, []);
+});
+
+test('flow-analysis Markdown uses display delimiters for numbered display math', async () => {
+  const chapterNames = [
+    'ch07-fiber-orientation.md',
+    'ch11-crystallization-effects.md',
+    'ch13-shrinkage-warpage.md',
+    'ch14-additional-issues.md',
+  ];
+  const invalidPages = [];
+
+  for (const chapterName of chapterNames) {
+    const source = await readFile(join(chapterDirectory.pathname, chapterName), 'utf8');
+    if (loneDollarBlockDelimiter.test(source) || numberedDisplayInsideInlineDelimiter.test(source)) {
+      invalidPages.push(chapterName);
+    }
+  }
+
+  assert.deepEqual(invalidPages, []);
+});
+
+test('affected Flow Analysis chapters keep equation numbers inside display blocks', async () => {
+  const chapterNames = [
+    'ch07-fiber-orientation.md',
+    'ch13-shrinkage-warpage.md',
+    'ch14-additional-issues.md',
+  ];
+  const invalidPages = [];
+
+  for (const chapterName of chapterNames) {
+    const source = await readFile(join(chapterDirectory.pathname, chapterName), 'utf8');
+    if (orphanEquationNumberAfterDisplay.test(source)) invalidPages.push(chapterName);
+  }
+
+  assert.deepEqual(invalidPages, []);
+});
+
+test('chapter 7 does not leave raw tau TeX in prose', async () => {
+  const chapterSeven = await readFile(join(chapterDirectory.pathname, 'ch07-fiber-orientation.md'), 'utf8');
+
+  assert.doesNotMatch(chapterSeven, /\\tau<sub/);
 });
 
 test('flow-analysis Markdown does not use unsupported backslash math delimiters', async () => {

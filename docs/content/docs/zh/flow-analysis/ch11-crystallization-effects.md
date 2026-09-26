@@ -22,21 +22,37 @@ head:
 半结晶聚合物的固化行为更难建模。这些聚合物在高于玻璃化转变温度的温度下由于结晶而固化。结晶速率受热历史和流动的影响。众所周知，在较高冷却速率下，半结晶聚合物会在较低温度下固化。
 
 对于半结晶聚合物而言，不存在单一的“无流动温度”值。为了模拟固化行为，使用粘度增加准则会更好。因此，在结晶过程中了解材料的流变学特性非常重要。为了考虑结晶动力学对流变学的影响，需要建立粘度与材料相对结晶度之间的关系。构建这种关系的最简单方法是将增强因子 $ f_{\eta}(\alpha) $ 引入现有的本构方程中。基于这一想法，Pantani 等人 [283] 采用了以下修改后的 Cross 模型：
-$ \eta = \eta_0 f_{\eta}(\alpha), \quad (11.1) $
-$ 1 + \left(\frac{\eta_0 \dot{\gamma}}{\tau^*}\right)^{1-n} $
+$$
+\begin{aligned}
+\eta &= \eta_0 f_{\eta}(\alpha), \\
+1 &+ \left(\frac{\eta_0 \dot{\gamma}}{\tau^*}\right)^{1-n}
+\end{aligned}
+\quad (11.1)
+$$
 其中，$\eta_0$ 是无剪切应力下的粘度，$\tau^*$ 是与牛顿流体和幂律行为过渡时的剪切应力相关的常数，$n$ 是幂律指数，衡量剪切稀释行为的程度。增强因子 $ f_{\eta}(\alpha) $ 假设具有以下经验形式（Titomanlio 等人 [365]）：
-$ f_{\eta} = 1 + \beta_1 \exp \left(-\frac{\beta_2}{\alpha^2}\right), \quad (11.2) $
+$$
+f_{\eta} = 1 + \beta_1 \exp \left(-\frac{\beta_2}{\alpha^2}\right), \quad (11.2)
+$$
 其中，$\beta$、$\beta_1$ 和 $\beta_2$ 是拟合参数。
 
 Tanner [357] 基于悬浮理论，考虑了半结晶聚合物在线性粘弹性应变范围内的流变学特性。他提出了分别使用低浓度和高浓度两种模型，并通过两种模型解的插值确保在中间体积分数（结晶度）处实现连续过渡。
 
 如果低浓度和高浓度下的复剪切模量分别为 $G_0^*$ 和 $G_1^*$，总体复剪切模量 $G^*$ 可以表示为：
-$G^*(\omega, \alpha) = f_G(\alpha)G_0^*(\omega) + h_G(\alpha)G_1^*(\omega) \quad (11.3)$
+$$
+G^*(\omega, \alpha) = f_G(\alpha)G_0^*(\omega) + h_G(\alpha)G_1^*(\omega) \quad (11.3)
+$$
 其中 $\omega$ 为频率。Tanner [357] 通过拟合 Boutahar 等人 [44] 对不同球晶体积分数的聚丙烯熔体的振荡剪切数据，直接确定了 $f_G(\alpha)$ 和 $h_G(\alpha)$。对于非线性粘弹性流动，Tanner 及其同事 [357, 359] 提出了使用修改后的 Phan-Thien-Tanner (PTT) 模型：
-$\frac{\Delta \tau_{\text{tr}}}{\Delta t} \left( \frac{\tau}{\mu} \right) \left( \lambda_a + \frac{\tau}{\exp(\lambda_a)} \right) \varepsilon = 2 f_\eta(\alpha) \eta_0 D \quad (11.4)$
-$\frac{\Delta \tau_{\text{tr}}}{\Delta t} = \frac{\Delta \tau_{ij}}{\Delta t} = \frac{\partial \tau_{ij}}{\partial t} + u_k \frac{\partial \tau_{ij}}{\partial x_k} - L_{ik} \tau_{kj} - L_{jk} \tau_{ki} \quad (11.5)$
+$$
+\frac{\Delta \tau_{\text{tr}}}{\Delta t} \left( \frac{\tau}{\mu} \right) \left( \lambda_a + \frac{\tau}{\exp(\lambda_a)} \right) \varepsilon = 2 f_\eta(\alpha) \eta_0 D \quad (11.4)
+$$
+
+$$
+\frac{\Delta \tau_{\text{tr}}}{\Delta t} = \frac{\Delta \tau_{ij}}{\Delta t} = \frac{\partial \tau_{ij}}{\partial t} + u_k \frac{\partial \tau_{ij}}{\partial x_k} - L_{ik} \tau_{kj} - L_{jk} \tau_{ki} \quad (11.5)
+$$
 其中 $\varepsilon$ 为参数，$\tau_{\text{tr}}$ 为 $\tau$ 的迹，$\eta_0$ 为无剪切流动相的零剪切粘度，$D$ 为变形率张量。函数 $f_\eta$ 根据 Metzner [248] 的悬浮理论表达如下：
-$f_\eta = \frac{1}{(1 - \alpha/A)^2} \quad (11.6)$
+$$
+f_\eta = \frac{1}{(1 - \alpha/A)^2} \quad (11.6)
+$$
 其中 $A$ 为表示几何效应的参数。对于光滑球形，$A \approx 0.68$；对于粗糙紧密晶体，$A \approx 0.44$。通过改变 $A$，方程 11.6 也可以应用于非球形形状。Pantani 等人 [281] 提供了多种具有不同增强因子的模型的综述。通常，这些模型预测随着相对结晶度的增加，粘度会出现急剧上升。
 
 一些模型，如方程11.6所示，在相对较低的结晶度下，粘度会增加并趋向于无穷大，而其他模型，如方程11.2所示，粘度首先增加然后趋于平稳，最终达到一个有限值。
@@ -83,19 +99,19 @@ $$
 在简单的剪切流动中，方程 11.16 可简化为：
 
 $$
-\left(\frac{\alpha}{A}\right)^{\beta_1} \tau_{(sc)}_{13} = \eta_a \dot{\gamma}, \quad (11.17)
+\left(\frac{\alpha}{A}\right)^{\beta_1} \tau^{(sc)}_{13} = \eta_a \dot{\gamma}, \quad (11.17)
 $$
 
 而无定形相贡献的剪切应力为：
 
 $$
-\tau_{(a)}_{13} = \eta_a \dot{\gamma}. \quad (11.18)
+\tau^{(a)}_{13} = \eta_a \dot{\gamma}. \quad (11.18)
 $$
 
 总的剪切应力为：
 
 $$
-\tau_{13} = \tau_{(a)}_{13} + \tau_{(sc)}_{13} = \dot{\gamma} \left(1 + \frac{\eta_a}{\left(1 - \frac{\alpha}{A}\right)^{\beta}}\right) \quad (11.19)
+\tau_{13} = \tau^{(a)}_{13} + \tau^{(sc)}_{13} = \dot{\gamma} \left(1 + \frac{\eta_a}{\left(1 - \frac{\alpha}{A}\right)^{\beta}}\right) \quad (11.19)
 $$
 
 因此，我们可以将剪切黏度函数写为：
@@ -204,9 +220,9 @@ $ c_{p(s)} = a_1 + a_2 T, \quad c_{p(a)} = b_1 + b_2 T $
 
 ### 11.4.2 van den Brule 法则对于无定形聚合物
 基于网络理论，van den Brule [374] 提出无定形聚合物的热导率张量 $ k $ 与应力张量 $ \sigma $ 之间存在线性关系：
-$
+$$
 \frac{1}{3} \left( k - \text{tr}(k)I \right) = k_0 C_t \left( \sigma - \text{tr}(\sigma)I \right),
-$
+$$
 其中 $\text{tr}$ 表示张量的迹，$ C_t $ 为应力-热系数，$ k_0 $ 为未受扰动的平衡标量导热系数。这种应力-热规则类似于广为人知的应力-光学规则（Janeschitz-Kriegl [180]）。Venerus 等人 [383, 384] 发现，几种受应力的聚合物（聚异丁烯和聚硅氧烷橡胶）的无量纲应力-热系数几乎具有通用值，即 $ C_t G_N \approx 0.03 $，其中 $ G_N $ 为熔体平台模量。
 
 这些材料的热扩散系数 $C_t$ 大约在 $1.2 \sim 1.9 \times 10^{-7} \, \text{Pa}^{-1}$ 之间。
@@ -216,8 +232,9 @@ $
 Dai 和 Tanner [74] 使用玻林-VOG 粘弹仪在低剪切速率下制备了等规聚丙烯（iPP）试样，并将其分为两组。第一组试样是在高剪切速率下进行注射成型并变形的，而第二组试样是在低剪切速率下制备的，然后迅速冷却。他们使用符合 ASTM E1952-01 标准的调制差示扫描量热法测量了沿剪切方向和垂直于剪切方向的热导率（分别标记为 $k_{\parallel}$ 和 $k_{\perp}$）。实验结果显示，剪切聚合物的热导率具有各向异性，在剪切方向上增加；$k_{\parallel}/k_{\perp} > 1$。该比值随施加的变形和应力而变化。通过使用应力-热规则将热导率的变化与应力相关联，Dai 和 Tanner 发现系数 $C_t$ 大约在 $10^{-5}$ Pa$^{-1}$，约为 Venerus 等人 [383, 384] 报告的无定形聚合物值的 5 倍。Dai 和 Tanner 将结果解释为“范登布鲁尔效应”总体效应和结构变化效应的结果。从模拟半结晶聚合物加工的角度出发，他们建议使用增强后的应力-热规则来模拟。
 
 郑等人 [421, 425] 将这一理念应用于注塑成型的模拟中。在他们的模拟中，平衡电导率 $ k_0 $ 被假设依赖于结晶度，并可粗略地通过“片层模型”近似表示如下：
-$ \frac{1}{k_0(\alpha, T)} = \frac{\alpha}{k_a(T)} + \frac{1 - \alpha}{k_s(T)} $
-（11.34）
+$$
+\frac{1}{k_0(\alpha, T)} = \frac{\alpha}{k_a(T)} + \frac{1 - \alpha}{k_s(T)} \quad (11.34)
+$$
 
 其中 $ k_a(T) $ 和 $ k_s(T) $ 分别是熔融态和固态下的温度依赖平衡热导率。它们可以从实验中获得。图 11.2 显示了典型聚丙烯在固态和熔融态下热导率随温度变化的实验数据。不同的曲线表示实验的重复性。方程 11.34 基于以下假设：
 
@@ -236,11 +253,15 @@ Speight 等人 [339] 提出了以下假设：
 
 涉及液固相变的瞬态传热问题通常被称为“斯特藩问题”，这一问题最早由斯特藩在1891年关于极地海洋冰形成的研究中提出 [342]。在这里，对于注塑成型的应用，我们考虑一个简化系统，即两个半无限体在完美接触下的情况。第一个体是金属模具。第二个体是具有初始温度 $T_{\text{initial}}$ 和结晶温度 $T_c$ 的聚合物介质。聚合物-金属接触表面的界面温度用 $T_w$ 表示，可以证明该温度与时间无关。如果 $T_w > T_c$，聚合物介质将保持液态；否则，聚合物介质将固化。假设聚合物的固态和液态密度没有差异。此外，在聚合物的液相中不考虑对流效应。如果 $x$ 轴从模具-聚合物接触面开始并指向聚合物介质，则聚合物介质中固态相的温度具有以下解析解 [231]：
 
-$ T_{\text{solid}}(x, t) - T_w = \frac{\text{erf}\left[\frac{x}{2a_{\text{solid}}t}\right]}{\frac{T_c - T_w}{\text{erf}(\xi)}} $
+$$
+T_{\text{solid}}(x, t) - T_w = \frac{\text{erf}\left[\frac{x}{2a_{\text{solid}}t}\right]}{\frac{T_c - T_w}{\text{erf}(\xi)}} \quad (11.35)
+$$
 
 聚合物介质中液态相的温度由以下公式给出：
 
-$ T_{\text{liquid}}(x, t) - T_{\text{initial}} = \frac{\text{erfc}\left[\frac{x}{2a_{\text{liquid}}t}\right]}{\frac{T_c - T_{\text{initial}}}{\text{erfc}(\xi \sqrt{\frac{a_{\text{solid}}}{a_{\text{liquid}}}})}} $
+$$
+T_{\text{liquid}}(x, t) - T_{\text{initial}} = \frac{\text{erfc}\left[\frac{x}{2a_{\text{liquid}}t}\right]}{\frac{T_c - T_{\text{initial}}}{\text{erfc}(\xi \sqrt{\frac{a_{\text{solid}}}{a_{\text{liquid}}}})}} \quad (11.36)
+$$
 
 其中，$a_{\text{solid}}$ 和 $a_{\text{liquid}}$ 分别是聚合物在固态和液态下的热扩散系数。
 
@@ -248,7 +269,9 @@ $ T_{\text{liquid}}(x, t) - T_{\text{initial}} = \frac{\text{erfc}\left[\frac{x}
 
 ### 11.5.2 结晶动力学的数值求解
 通过在方程4.67中的热源项中使用结晶潜热项，热传递方程可以写为：
-$ \frac{\partial (\rho c_p T)}{\partial t} = \frac{\partial}{\partial x_i} \left( \mu \frac{\partial T}{\partial x_i} \right) + \frac{\partial}{\partial t} \left( \rho \tau_{ij} D_{ij} \right) - \frac{\partial q_i}{\partial x_i} + \rho \Delta H_c \chi_\infty, \quad (11.39) $
+$$
+\frac{\partial (\rho c_p T)}{\partial t} = \frac{\partial}{\partial x_i} \left( \mu \frac{\partial T}{\partial x_i} \right) + \frac{\partial}{\partial t} \left( \rho \tau_{ij} D_{ij} \right) - \frac{\partial q_i}{\partial x_i} + \rho \Delta H_c \chi_\infty, \quad (11.39)
+$$
 其中，$ p $ 是压力，$\tau_{ij} D_{ij}$ 是由于粘性耗散产生的热量，$\tau_{ij}$ 是额外应力张量，$D_{ij}$ 是变形率张量，$q_i$ 是热流矢量，$\Delta H_c$ 是完美晶体的结晶潜热（单位为 J/kg），$\frac{D\alpha}{Dt}$ 是由上述结晶动力学给出的相对结晶速率，$\chi_\infty$ 是最终的绝对结晶度。
 
 *图 11.3：注塑制件核心区域的温度演变*
@@ -259,18 +282,21 @@ $ \frac{\partial (\rho c_p T)}{\partial t} = \frac{\partial}{\partial x_i} \left
 第5章详细展示了如何推导出适用于任意几何薄腔中广义牛顿流体流动的二维压力方程（方程5.71，称为Hele-Shaw方程）。
 
 为了将相关结晶度的演变纳入Hele-Shaw方程，需要注意的是，流体密度不仅取决于压力和温度，还取决于相对结晶度α，因此有
-$ \frac{\partial \rho}{\partial t} = \frac{\partial \rho}{\partial p} \frac{\partial p}{\partial t} + \frac{\partial \rho}{\partial T} \frac{\partial T}{\partial t} + \frac{\partial \rho}{\partial \alpha} \frac{\partial \alpha}{\partial t}. $
-(11.40)
+$$
+\frac{\partial \rho}{\partial t} = \frac{\partial \rho}{\partial p} \frac{\partial p}{\partial t} + \frac{\partial \rho}{\partial T} \frac{\partial T}{\partial t} + \frac{\partial \rho}{\partial \alpha} \frac{\partial \alpha}{\partial t}. \quad (11.40)
+$$
 
 按照第五章中描述的相同推导过程，我们得到
-$ \frac{\partial}{\partial x} \left( \frac{\partial p}{\partial x} \right) + \frac{\partial}{\partial y} \left( \frac{\partial p}{\partial y} \right) = a(x, y) - b(x, y) \frac{\partial^2 p}{\partial t^2} + 2S^2 \frac{\partial^2 p}{\partial x^2} + 2S^2 \frac{\partial^2 p}{\partial y^2} $
-$ = a(x, y) - b(x, y) \frac{\partial^2 p}{\partial t^2} + 2S^2 \left( \frac{\partial^2 p}{\partial x^2} + \frac{\partial^2 p}{\partial y^2} \right), $
-(11.41)
+$$
+\frac{\partial}{\partial x} \left( \frac{\partial p}{\partial x} \right) + \frac{\partial}{\partial y} \left( \frac{\partial p}{\partial y} \right) = a(x, y) - b(x, y) \frac{\partial^2 p}{\partial t^2} + 2S^2 \frac{\partial^2 p}{\partial x^2} + 2S^2 \frac{\partial^2 p}{\partial y^2}
+= a(x, y) - b(x, y) \frac{\partial^2 p}{\partial t^2} + 2S^2 \left( \frac{\partial^2 p}{\partial x^2} + \frac{\partial^2 p}{\partial y^2} \right), \quad (11.41)
+$$
 其中 $S^2$、$a(x, y)$、$b(x, y)$ 和 $d(x, y)$ 与第五章中的方程5.71中使用的相同，但上述方程右侧的最后一项并未出现在方程5.71中。
 
 如果我们使用 $\rho = \rho_{sc} \alpha + \rho_a (1 - \alpha)$，即方程11.25来近似密度 $\rho$，则有
-$ \frac{\partial \rho}{\partial \alpha} = \rho_{sc} - \rho_a. $
-(11.42)
+$$
+\frac{\partial \rho}{\partial \alpha} = \rho_{sc} - \rho_a. \quad (11.42)
+$$
 
 其中 $\frac{\partial \alpha}{\partial t}$ 由结晶动力学确定。
 
