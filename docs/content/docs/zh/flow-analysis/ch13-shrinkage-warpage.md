@@ -30,28 +30,38 @@ head:
 为了模拟脱模后的收缩和变形，需要解决一个应力分析与热传递的问题。应力和变形由力平衡方程描述：∇ · σ = 0，(13.1) 其中 σ 是库兹氏应力张量，通常是材料的机械和热历史的非线性函数。这里忽略体力。热传递由热传导方程描述：∂T ρcP = ∇ · (k∇T)，(13.2) ∂t 其中 ρ、cP 和 k 分别是材料的密度、比热和热导率。
 
 如果仅考虑薄壁零件并选择使用壳单元，则式13.1可以简化为等效的2D形式： 
-$
+
+$$
 \frac{\partial N_{xx}}{\partial x} + \frac{\partial N_{xy}}{\partial y} = 0 \quad (13.3)
-$
-$
+$$
+
+$$
 \frac{\partial N_{xy}}{\partial x} + \frac{\partial N_{yy}}{\partial y} = 0 \quad (13.4)
-$
+$$
+
 其中，$x$ 和 $y$ 是薄结构中平面内的局部坐标，$z$ 方向为中平面的法线方向（即厚度方向）。$N_{ij}$ 是每单位长度的合力分量，由下式给出：
-$
+
+$$
 N_{ij} = \sigma_{ij} dz \quad (13.5)
-$
+$$
+
 其中，$h$ 为零件的厚度的一半。平面外的响应由以下方程控制：
-$
+
+$$
 \frac{\partial^2 M_{xx}}{\partial x^2} + \frac{\partial^2 M_{xy}}{\partial x \partial y} + \frac{\partial^2 M_{yy}}{\partial y^2} = 0 \quad (13.6)
-$
+$$
+
 其中，$M_{ij}$ 是每单位长度的弯矩分量，定义为：
-$
+
+$$
 M_{ij} = \sigma_{ij} z dz \quad (13.7)
-$
+$$
+
 对于薄壁零件，厚度方向上的热传导远大于零件较大尺寸方向上的热传导。因此，热传导方程简化为：
-$
+
+$$
 \frac{\partial T}{\partial t} = \frac{k}{\rho c_p} \frac{\partial^2 T}{\partial z^2} \quad (13.8)
-$
+$$
 
 ## 13.3 本构方程
 
@@ -59,47 +69,66 @@ $
 为了简化起见，假设在热处理过程中，材料表现为热粘弹性固体，并且应变增量足够小，使得适用线性粘弹性本构方程。初始状态下，平衡的注塑成型零件通常处于应力状态。
 
 因此，本构方程可以写为
-$
-\frac{\partial h Z t i th σi j (x, t ) − σ0i j (x) = C i j kl (ξ(x, t ) − ξ(x, t ′ )) ′ εkl (x, t ′ ) − εkl (x, t ′ ) d t ′ (13.9)
-$
-其中，σi j 是总应力张量，σ0i j 是初始应力，εi j 和εit hj 分别是总应变和热应变，ξ 是伪时间尺度。我们在第5.9.1.2节中已经证明，使用伪时间是一种有用的方法来考虑温度对材料响应的影响，它与实际时间的关系如下：
-$
-\frac{d t′}{dξ} = \frac{1}{a T (T (x, t ′ ))}, \quad \xi = \int_0^{t} \frac{1}{a T (T (x, t ′ ))} d t′ (13.10)
-$
-其中，a T 是时间-温度移位函数，通常由WLF方程或Andrade方程来表征，如第三章所述。如果只考虑各向同性材料，C i j kl 可以表示为
-$
-C i j kl = \frac{1}{1 - 2ν} \left( δi j δkl + δi k δ j l + δi l δ j k \right) G(t ) (13.11)
-$
-其中，δi j 是克罗内克δ函数，ν 是泊松比，G(t ) 是剪切弛豫函数，用普朗特定律表示：
-$
-G(t ) = G 0 ϕ(t ) (13.12)
-$
+
+$$
+\sigma_{ij}(x, t) - \sigma^0_{ij}(x) = \int_0^t C_{ijkl}\left(\xi(x, t) - \xi(x, t')\right) \frac{\partial}{\partial t'} \left[\varepsilon_{kl}(x, t') - \varepsilon^{th}_{kl}(x, t')\right] dt' \quad (13.9)
+$$
+
+其中，$\sigma_{ij}$ 是总应力张量，$\sigma^0_{ij}$ 是初始应力，$\varepsilon_{ij}$ 和 $\varepsilon^{th}_{ij}$ 分别是总应变和热应变，$\xi$ 是伪时间尺度。我们在第5.9.1.2节中已经证明，使用伪时间是一种有用的方法来考虑温度对材料响应的影响，它与实际时间的关系如下：
+
+$$
+\xi = \int_0^t \frac{dt'}{a_T(T(x, t'))}, \quad \frac{d\xi}{dt} = \frac{1}{a_T(T(x, t))} \quad (13.10)
+$$
+
+其中，$a_T$ 是时间-温度移位函数，通常由WLF方程或Andrade方程来表征，如第三章所述。如果只考虑各向同性材料，$C_{ijkl}$ 可以表示为
+
+$$
+C_{ijkl} = \left(\frac{2\nu}{1 - 2\nu}\delta_{ij}\delta_{kl} + \delta_{ik}\delta_{jl} + \delta_{il}\delta_{jk}\right) G(t) \quad (13.11)
+$$
+
+其中，$\delta_{ij}$ 是克罗内克$\delta$函数，$\nu$ 是泊松比，$G(t)$ 是剪切弛豫函数，用普朗尼级数表示：
+
+$$
+G(t) = G_0 \phi(t) \quad (13.12)
+$$
+
 其中
-$
-ϕ(t ) = ϕ g ∞ + \sum_{i=1}^{m} g i \exp\left(-\frac{t}{λi}\right)
-$
-G 0 是剪切模量，通过Young’s模量E/[2(1+ν)]来表示，g ∞ 是长期无量纲模量，λi 是弛豫时间，g i 是相对无量纲模量，满足
-$
-\sum_{i=1}^{m} g∞ + g i = 1 (13.13)
-$
+
+$$
+\phi(t) = \phi \left[g_\infty + \sum_{i=1}^{m} g_i \exp\left(-\frac{t}{\lambda_i}\right)\right]
+$$
+
+$G_0$ 是剪切模量，通过Young’s模量$E/[2(1+\nu)]$来表示，$g_\infty$ 是长期无量纲模量，$\lambda_i$ 是弛豫时间，$g_i$ 是相对无量纲模量，满足
+
+$$
+g_\infty + \sum_{i=1}^{m} g_i = 1 \quad (13.13)
+$$
+
 对于各向同性材料，我们还得到
-$
-\frac{1}{3} εkl = εtvh δkl (13.14)
-$
-其中εtvh 称为体积热应变。
+
+$$
+\varepsilon^{th}_{kl} = \frac{1}{3}\varepsilon^{th}_v \delta_{kl} \quad (13.14)
+$$
+
+其中$\varepsilon^{th}_v$ 称为体积热应变。
 
 通过将式（13.11）和式（13.14）代入式（13.9），我们得到
-$
-\frac{\partial h}{\partial t} Z_t \sigma_{ij}(x, t) - \sigma_{0ij}(x) = \delta_{ij} K (\xi(x, t) - \xi(x, t')) \int_0^t \varepsilon_{kk}(x, t') - \varepsilon_{tvh}(x, t') \, dt' + 2 G(\xi(x, t) - \xi(x, t')) \frac{\partial \varepsilon_{dij}(x, t')}{\partial t'} \, dt',
-$
-其中，式（13.15）中 $\varepsilon_{dij}$ 是应变张量的体积外应变分量，定义为
-$
-\varepsilon_{dij} = \varepsilon_{ij} - \frac{\varepsilon_{kk} \delta_{ij}}{3},
-$
+
+$$
+\sigma_{ij}(x, t) - \sigma^0_{ij}(x) = \delta_{ij} \int_0^t K\left(\xi(x, t) - \xi(x, t')\right) \frac{\partial}{\partial t'} \left[\varepsilon_{kk}(x, t') - \varepsilon^{th}_v(x, t')\right] dt' + 2 \int_0^t G\left(\xi(x, t) - \xi(x, t')\right) \frac{\partial \varepsilon^d_{ij}(x, t')}{\partial t'} dt' \quad (13.15)
+$$
+
+其中，式（13.15）中 $\varepsilon^d_{ij}$ 是应变张量的偏应变分量，定义为
+
+$$
+\varepsilon^d_{ij} = \varepsilon_{ij} - \frac{1}{3}\varepsilon_{kk}\delta_{ij} \quad (13.16)
+$$
+
 而 $K(t)$ 由下式给出
-$
-K(t) = K_0 \phi(t),
-$
+
+$$
+K(t) = K_0 \phi(t) \quad (13.17)
+$$
 其中 $K_0 = \frac{E}{3(1-2\nu)}$ 是体积模量，我们假设 $K(t)$ 和 $G(t)$ 依赖于相同的松弛函数 $\phi(t)$。热流变简单性假设要求所有参与松弛过程的分子机制具有相同的温度依赖性。只有对于有限的材料，这一假设才成立。正如之前提到的，实际上许多真实材料是热流变复杂的。对于处理热流变复杂材料，参见 Dutta 和 Edward [90]。
 
 ### 13.3.2 热膨胀效应
@@ -107,9 +136,9 @@ $
 
 然后，将温度保持在最大值90分钟，之后从最高温度冷却至室温。注意到，特定体积与温度的关系曲线在冷却时与加热时有所不同。加热和冷却到相同温度时的特定体积差异随着最大温度的增加而增大。还发现，当最大温度低于某一临界值时，加热和冷却曲线之间的差异可以忽略不计。为初步考虑后成型收缩和翘曲模拟中的热行为，Fan等人[108, 109]将这一现象归因于后成型热处理过程中由于二次结晶（Huang [165]）引起的微观结构变化，并采用半经验方法描述热膨胀行为。首先，通过以下公式评估由于二次结晶引起的结晶度：
 
-$
+$$
 \chi_0 = \frac{1 + C_1 \left(1 - \frac{(T - T_i)^2}{0.05(T_i - T_g)^2}\right)}{1 + \frac{\tau_1}{a_i \tau_g} \left(1 - \frac{(T - T_i)^2}{0.05(T_i - T_g)^2}\right)^{k_2} \log \left(1 + \frac{\tau_1}{a_i \tau_g} \left(1 - \frac{(T - T_i)^2}{0.05(T_i - T_g)^2}\right)^{k_2}\right)}
-$
+$$
 
 (13.18)
 
