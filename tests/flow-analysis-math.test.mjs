@@ -136,3 +136,14 @@ test('affected Flow Analysis chapters retain structural Markdown instead of PDF 
     assert.doesNotMatch(source, /■|^\. |(?:模型|效应|方法) \d{3}(?:\s|$)/m);
   }
 });
+
+test('chapters 7 and 14 separate screenshot-reported equations from prose', async () => {
+  const [chapterSeven, chapterFourteen] = await Promise.all([
+    readFile(join(chapterDirectory.pathname, 'ch07-fiber-orientation.md'), 'utf8'),
+    readFile(join(chapterDirectory.pathname, 'ch14-additional-issues.md'), 'utf8'),
+  ]);
+
+  assert.match(chapterSeven, /方程写作如下：\n\n\$\$/);
+  assert.match(chapterFourteen, /质量守恒方程为：\n\n\$\$/);
+  assert.match(chapterFourteen, /动量方程为：\n\n\$\$/);
+});

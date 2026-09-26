@@ -219,7 +219,33 @@ $
 
 一些努力已经尝试探索无网格方法在解决注塑成型问题中的适用性，以消除网格生成的要求。本节将回顾平滑粒子 hydrodynamics（SPH）方法，这是一种无网格和完全拉格朗日方法。SPH 方法最初由 Gingold 和 Monaghan [130] 以及 Lucy [232] 在天体物理中非轴对称现象的模拟中提出。Liu 和 Liu [228] 的著作详细描述了 SPH 理论，包括数值程序和一些应用实例。早期的 SPH 方法适用于气体动力学中的不可压缩流体。它已被进一步发展以应用于更广泛的问题，包括牛顿流体、广义牛顿流体（Shao 和 Lo [331]、Rafiee [302]）、粘弹性（Ellero 和 Tanner [95]、Fang 等 [115]、Rafiee 等 [303]、Vázquez-Quesada 和 Ellero [381]）以及宾汉型流体流动（Zhu 等 [427]）。Cleary 等 [63] 和 Prakash 等 [301] 使用 SPH 模拟铸造和炉子排空中的金属流动，取得了一定的成功。
 
-首次尝试使用SPH方法模拟聚合物注塑成型的是Fan等人[106, 107]。在SPH中，流体被离散为有限数量的移动点，或“粒子”，在这些粒子的位置x处的任何物理量f(x)通过位置x附近邻近粒子的功能值进行内插。这种内插值通过核估计近似表示：$ f(x) \approx \sum_{b=1}^{N} m_b W\left(\frac{|x - x_b|}{h}\right) f(x_b), \quad (14.36) $ 其中f(x)仅在N个离散粒子xb (b = 1, 2, ...N)处已知，粒子b的质量为mb，密度为ρb，W是核函数，h是平滑长度，代表核的有效宽度。Liu和Liu的书中[228]可以找到几种常用的核函数。SPH离散化的控制方程如下。质量守恒方程为 $ \rho(x_a) = \sum_{b=1}^{N} m_b W_{ab}, \quad (14.37) $ 动量方程为 $ \frac{d u_a}{dt} = \sum_{b=1}^{N} \left( \frac{p_a}{\rho_a} - \frac{p_b}{\rho_b} \right) + \frac{2}{\rho_a} \tau_{ab} + \frac{2}{\rho_b} \tau_{ba} + \nabla_a \cdot \left( \frac{2}{\rho_a} \tau_{ab} + \frac{2}{\rho_b} \tau_{ba} \right) \cdot \nabla_a W_{ab} + b, \quad (14.38) $ 其中u是速度矢量，p是压力，τ是额外应力张量，b是场力。下标“a”和“b”分别表示粒子a和b。额外应力张量取决于所使用的本构方程。对于广义牛顿流体的具体形式，参见Fan等人[106, 107]。
+首次尝试使用SPH方法模拟聚合物注塑成型的是Fan等人[106, 107]。在SPH中，流体被离散为有限数量的移动点，或“粒子”，在这些粒子的位置x处的任何物理量f(x)通过位置x附近邻近粒子的功能值进行内插。这种内插值通过核估计近似表示：
+
+$$
+f(x) \approx \sum_{b=1}^{N} m_b W\left(\frac{|x - x_b|}{h}\right) f(x_b),
+$$
+
+(14.36)
+
+其中f(x)仅在N个离散粒子xb (b = 1, 2, ...N)处已知，粒子b的质量为mb，密度为ρb，W是核函数，h是平滑长度，代表核的有效宽度。Liu和Liu的书中[228]可以找到几种常用的核函数。SPH离散化的控制方程如下。
+
+质量守恒方程为：
+
+$$
+\rho(x_a) = \sum_{b=1}^{N} m_b W_{ab},
+$$
+
+(14.37)
+
+动量方程为：
+
+$$
+\frac{d u_a}{dt} = \sum_{b=1}^{N} \left( \frac{p_a}{\rho_a} - \frac{p_b}{\rho_b} \right) + \frac{2}{\rho_a} \tau_{ab} + \frac{2}{\rho_b} \tau_{ba} + \nabla_a \cdot \left( \frac{2}{\rho_a} \tau_{ab} + \frac{2}{\rho_b} \tau_{ba} \right) \cdot \nabla_a W_{ab} + b,
+$$
+
+(14.38)
+
+其中u是速度矢量，p是压力，τ是额外应力张量，b是场力。下标“a”和“b”分别表示粒子a和b。额外应力张量取决于所使用的本构方程。对于广义牛顿流体的具体形式，参见Fan等人[106, 107]。
 
 能量守恒方程（Cleary 和 Monaghan [64] 提出）为：
 $ \frac{d e_a}{d t} = \sum_{b=1}^{4m} \frac{k_a k_b}{\rho_a \rho_b (k_a + k_b) + \xi^2} \frac{\partial W_{ab}}{\partial t} \cdot (x_a - x_b) \cdot \nabla_a W_{ab} = (T_a - T_b) $
