@@ -21,6 +21,7 @@ mjx-container[display="true"] {
   display: block !important;
   box-sizing: border-box;
   width: 100% !important;
+  max-width: 100% !important;
   min-width: 0 !important;
   text-align: center !important;
   margin: 1.5rem 0 !important;
@@ -35,6 +36,22 @@ mjx-container[display="true"] svg {
 .main-pane,
 .sl-markdown-content {
   min-width: 0;
+}
+
+/* Let protected long-form reading pages use their available desktop space. */
+body:has([data-moldflow-protected-content]) {
+  --sl-content-width: clamp(45rem, calc(100vw - var(--sl-sidebar-width) - 5rem), 60rem);
+}
+
+html[data-right-sidebar-collapsed] body:has([data-moldflow-protected-content]) {
+  --sl-content-width: clamp(45rem, calc(100vw - var(--sl-sidebar-width)), 60rem);
+}
+
+@media (min-width: 72rem) {
+  html[data-right-sidebar-collapsed][data-has-sidebar][data-has-toc] .main-pane {
+    width: 100%;
+    --sl-content-margin-inline: auto;
+  }
 }
 
 /* Custom CSS Counters for Theorem & Definition environments */

@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 第 13 章：成型后收缩与翘曲预测
-
 13 预测后成型收缩和翘曲
 
 13.1 引言

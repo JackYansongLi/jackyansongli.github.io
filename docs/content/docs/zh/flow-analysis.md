@@ -12,8 +12,6 @@ head:
 
 <div data-moldflow-protected-content>
 
-# 《注塑模具流动分析》中文译文
-
 以下译文仅含正文，已跳过图片、目录和参考文献。输入访问密码后可阅读。
 
 1. [第 1 章：仿真现状](/zh/flow-analysis/ch01-current-status/)

@@ -1,4 +1,6 @@
 import { test, expect } from '@playwright/test';
+import { readdir } from 'node:fs/promises';
+import { resolve } from 'node:path';
 
 test.describe('Academic Website Features', () => {
   test('MathJax renders equations with correct selectors', async ({ page }) => {
@@ -76,13 +78,16 @@ test.describe('Academic Website Features', () => {
 
   test('desktop right table of contents can be collapsed and restores its saved state', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto('/zh/flow-analysis/ch04-governing-equations/');
+    await page.goto('/zh/subagent-tutorial/');
 
     const toggle = page.getByRole('button', { name: '收起本页目录' });
+    const mainPane = page.locator('.main-pane');
+    const widthBeforeCollapse = await mainPane.evaluate((element) => element.getBoundingClientRect().width);
     await expect(toggle).toHaveAttribute('aria-expanded', 'true');
     await toggle.click();
     await expect(page.locator('html')).toHaveAttribute('data-right-sidebar-collapsed', '');
     await expect(page.locator('.right-sidebar-container')).toHaveCSS('display', 'none');
+    expect(await mainPane.evaluate((element) => element.getBoundingClientRect().width)).toBeGreaterThan(widthBeforeCollapse);
     await expect(page.getByRole('button', { name: '展开本页目录' })).toHaveAttribute('aria-expanded', 'false');
 
     await page.reload();
@@ -155,12 +160,16 @@ test.describe('Academic Website Features', () => {
     await page.goto('/zh/flow-analysis/ch01-current-status/');
 
     await expect(page.getByLabel('访问密码')).toBeVisible();
-    await expect(page.getByRole('heading', { name: '第1章 绪论' })).toHaveCount(0);
+    await expect(
+      page.getByRole('heading', { level: 2, name: '1.1 注塑成型工艺' })
+    ).toBeHidden();
 
     await page.getByLabel('访问密码').fill('761893');
     await page.getByRole('button', { name: '进入阅读区' }).click();
 
-    await expect(page.getByRole('heading', { name: '第1章 绪论' })).toBeVisible();
+    await expect(
+      page.getByRole('heading', { level: 2, name: '1.1 注塑成型工艺' })
+    ).toBeVisible();
   });
 
   test('protected chapters provide bottom chapter navigation after unlocking', async ({ page }) => {
@@ -198,6 +207,287 @@ test.describe('Academic Website Features', () => {
       '/zh/flow-analysis/ch13-shrinkage-warpage/'
     );
     await expect(finalNavigation.getByRole('link', { name: '下一章' })).toHaveCount(0);
+  });
+
+  test('Moldflow Design Guide catalog rejects an incorrect password', async ({ page }) => {
+    await page.goto('/zh/moldflow-design-guide/');
+
+    const protectedContent = page.locator('[data-moldflow-protected-content]');
+    await expect(protectedContent).toBeHidden();
+
+    await page.getByLabel('访问密码').fill('wrong-password');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(page.getByText('密码不正确，请重试。')).toBeVisible();
+    await expect(protectedContent).toBeHidden();
+
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(protectedContent).toBeVisible();
+  });
+
+  test('Moldflow Design Guide chapter unlocks protected content', async ({ page }) => {
+    await page.goto('/zh/moldflow-design-guide/ch01-polymer-flow-behavior/');
+
+    const protectedContent = page.locator('[data-moldflow-protected-content]');
+    await expect(protectedContent).toBeHidden();
+
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(protectedContent).toBeVisible();
+  });
+
+  test('Human Use catalog requires the shared password', async ({ page }) => {
+    await page.goto('/zh/human-use-of-human-beings/');
+    const protectedContent = page.locator('[data-moldflow-protected-content]');
+
+    await expect(protectedContent).toBeHidden();
+    await page.getByLabel('访问密码').fill('wrong-password');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(page.getByText('密码不正确，请重试。')).toBeVisible();
+    await expect(protectedContent).toBeHidden();
+
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(protectedContent).toBeVisible();
+    await expect(page.getByRole('link', { name: '第1章：什么是控制论？' })).toBeVisible();
+  });
+
+  test('Human Use Chapter XI preserves both figures and links to Chapter XII', async ({ page }) => {
+    await page.goto('/zh/human-use-of-human-beings/ch11-communication-machines/');
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+
+    const protectedContent = page.locator('[data-moldflow-protected-content]');
+    await expect(
+      protectedContent.getByRole('img', { name: '“飞蛾或臭虫”反馈机器（原书扫描图）' })
+    ).toBeVisible();
+    await expect(
+      protectedContent.getByRole('img', { name: '供完全失聪者使用的助听器（原书扫描图）' })
+    ).toBeVisible();
+    await expect(
+      page.locator('[data-moldflow-protected-navigation]').getByRole('link', { name: '下一章' })
+    ).toHaveAttribute('href', '/zh/human-use-of-human-beings/ch12-voices-of-rigidity/');
+  });
+
+  test('Human Use boundary chapters omit unavailable navigation links', async ({ page }) => {
+    await page.goto('/zh/human-use-of-human-beings/ch01-what-is-cybernetics/');
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+
+    const firstNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(
+      page.locator('[data-moldflow-protected-content]').getByRole('img', { name: '典型的纸带系统（原书扫描图）' })
+    ).toBeVisible();
+    await expect(firstNavigation.getByRole('link', { name: '上一章' })).toHaveCount(0);
+    await expect(firstNavigation.getByRole('link', { name: '下一章' })).toHaveAttribute(
+      'href',
+      '/zh/human-use-of-human-beings/ch02-progress-and-entropy/'
+    );
+
+    await page.goto('/zh/human-use-of-human-beings/ch12-voices-of-rigidity/');
+    await page.evaluate(() => sessionStorage.clear());
+    await page.reload();
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+
+    const finalNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(finalNavigation.getByRole('link', { name: '上一章' })).toHaveAttribute(
+      'href',
+      '/zh/human-use-of-human-beings/ch11-communication-machines/'
+    );
+    await expect(finalNavigation.getByRole('link', { name: '下一章' })).toHaveCount(0);
+  });
+
+  test('Moldflow Design Guide navigation uses the exact first, middle, and final hrefs', async ({ page }) => {
+    await page.goto('/zh/moldflow-design-guide/ch01-polymer-flow-behavior/');
+
+    const firstNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(firstNavigation).toBeHidden();
+
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(firstNavigation).toBeVisible();
+    await expect(firstNavigation.getByRole('link', { name: '返回目录' })).toHaveAttribute(
+      'href',
+      '/zh/moldflow-design-guide/'
+    );
+    await expect(firstNavigation.getByRole('link', { name: '上一章' })).toHaveCount(0);
+    await expect(firstNavigation.getByRole('link', { name: '下一章' })).toHaveAttribute(
+      'href',
+      '/zh/moldflow-design-guide/ch02-molding-conditions-pressure/'
+    );
+
+    await page.goto('/zh/moldflow-design-guide/ch06-product-design/');
+    const middleNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(middleNavigation.getByRole('link', { name: '上一章' })).toHaveAttribute(
+      'href',
+      '/zh/moldflow-design-guide/ch05-meshes-used-in-analyses/'
+    );
+    await expect(middleNavigation.getByRole('link', { name: '下一章' })).toHaveAttribute(
+      'href',
+      '/zh/moldflow-design-guide/ch07-gate-design/'
+    );
+
+    await page.goto('/zh/moldflow-design-guide/appendix-d-plastic-materials/');
+    const finalNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(finalNavigation.getByRole('link', { name: '上一章' })).toHaveAttribute(
+      'href',
+      '/zh/moldflow-design-guide/appendix-c-process-control/'
+    );
+    await expect(finalNavigation.getByRole('link', { name: '下一章' })).toHaveCount(0);
+  });
+
+  test('all 16 Moldflow Design Guide routes remain protected', async ({ page }) => {
+    const routes = [
+      'ch01-polymer-flow-behavior',
+      'ch02-molding-conditions-pressure',
+      'ch03-filling-pattern',
+      'ch04-design-principles',
+      'ch05-meshes-used-in-analyses',
+      'ch06-product-design',
+      'ch07-gate-design',
+      'ch08-runner-system-design',
+      'ch09-cooling-system-design',
+      'ch10-shrinkage-warpage',
+      'ch11-design-procedure',
+      'ch12-part-defects',
+      'appendix-a-injection-molding',
+      'appendix-b-machine-systems-operations',
+      'appendix-c-process-control',
+      'appendix-d-plastic-materials',
+    ];
+
+    for (const route of routes) {
+      await page.goto(`/zh/moldflow-design-guide/${route}/`);
+      await expect(page.getByLabel('访问密码')).toBeVisible();
+      await expect(page.locator('[data-moldflow-protected-content]')).toBeHidden();
+    }
+  });
+
+  test('protected Chinese book content never renders a body H1', async ({ page }) => {
+    const routes = [
+      '/zh/moldflow-reading/',
+      '/zh/flow-analysis/',
+      '/zh/moldflow-design-guide/',
+      '/zh/human-use-of-human-beings/',
+      ...[
+        'ch02-plastic-part-design',
+        'ch05-cavity-filling',
+        'ch06-feed-system-design',
+        'ch07-gating-design',
+        'ch08-venting',
+        'ch09-cooling-system-design',
+        'ch10-shrinkage-warpage',
+        'ch14-mold-commissioning',
+        'ch15-appendix',
+      ].map((route) => `/zh/moldflow-reading/${route}/`),
+      ...Array.from({ length: 14 }, (_, chapter) =>
+        `/zh/flow-analysis/ch${String(chapter + 1).padStart(2, '0')}-${[
+          'current-status',
+          'stress-strain',
+          'polymer-properties',
+          'governing-equations',
+          'injection-molding-approximations',
+          'numerical-methods',
+          'fiber-orientation',
+          'mechanical-properties',
+          'long-fiber-materials',
+          'crystallization',
+          'crystallization-effects',
+          'colorants',
+          'shrinkage-warpage',
+          'additional-issues',
+        ][chapter]}/`
+      ),
+      ...[
+        'ch01-polymer-flow-behavior',
+        'ch02-molding-conditions-pressure',
+        'ch03-filling-pattern',
+        'ch04-design-principles',
+        'ch05-meshes-used-in-analyses',
+        'ch06-product-design',
+        'ch07-gate-design',
+        'ch08-runner-system-design',
+        'ch09-cooling-system-design',
+        'ch10-shrinkage-warpage',
+        'ch11-design-procedure',
+        'ch12-part-defects',
+        'appendix-a-injection-molding',
+        'appendix-b-machine-systems-operations',
+        'appendix-c-process-control',
+        'appendix-d-plastic-materials',
+      ].map((route) => `/zh/moldflow-design-guide/${route}/`),
+      ...[
+        'ch01-what-is-cybernetics',
+        'ch02-progress-and-entropy',
+        'ch03-rigidity-and-learning',
+        'ch04-mechanism-of-language',
+        'ch05-history-of-language',
+        'ch06-individual-as-the-word',
+        'ch07-law-and-communication',
+        'ch08-communication-and-secrecy',
+        'ch09-role-of-intellectual-and-scientist',
+        'ch10-industrial-revolutions',
+        'ch11-communication-machines',
+        'ch12-voices-of-rigidity',
+      ].map((route) => `/zh/human-use-of-human-beings/${route}/`),
+    ];
+
+    for (const route of routes) {
+      await page.goto(route);
+      await expect(page.locator('[data-moldflow-protected-content] h1')).toHaveCount(0);
+    }
+  });
+
+  test('Moldflow Design Guide publishes only the canonical 16 routes', async () => {
+    const routes = await readdir(resolve('docs/content/docs/zh/moldflow-design-guide'));
+    expect(routes.filter((route) => route.endsWith('.md')).sort()).toEqual([
+      'appendix-a-injection-molding.md',
+      'appendix-b-machine-systems-operations.md',
+      'appendix-c-process-control.md',
+      'appendix-d-plastic-materials.md',
+      'ch01-polymer-flow-behavior.md',
+      'ch02-molding-conditions-pressure.md',
+      'ch03-filling-pattern.md',
+      'ch04-design-principles.md',
+      'ch05-meshes-used-in-analyses.md',
+      'ch06-product-design.md',
+      'ch07-gate-design.md',
+      'ch08-runner-system-design.md',
+      'ch09-cooling-system-design.md',
+      'ch10-shrinkage-warpage.md',
+      'ch11-design-procedure.md',
+      'ch12-part-defects.md',
+    ]);
+  });
+
+  test('Human Use publishes only the canonical 12 routes', async () => {
+    const routes = await readdir(resolve('docs/content/docs/zh/human-use-of-human-beings'));
+    expect(routes.filter((route) => route.endsWith('.md')).sort()).toEqual([
+      'ch01-what-is-cybernetics.md',
+      'ch02-progress-and-entropy.md',
+      'ch03-rigidity-and-learning.md',
+      'ch04-mechanism-of-language.md',
+      'ch05-history-of-language.md',
+      'ch06-individual-as-the-word.md',
+      'ch07-law-and-communication.md',
+      'ch08-communication-and-secrecy.md',
+      'ch09-role-of-intellectual-and-scientist.md',
+      'ch10-industrial-revolutions.md',
+      'ch11-communication-machines.md',
+      'ch12-voices-of-rigidity.md',
+    ]);
+  });
+
+  test('catalog-linked Moldflow Design Guide Chapter 5 reveals translated prose after unlocking', async ({ page }) => {
+    await page.goto('/zh/moldflow-design-guide/ch05-meshes-used-in-analyses/');
+
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+
+    await expect(
+      page.getByText('要运行 Moldflow 分析，必须在零件模型上建立合适的有限元网格。')
+    ).toBeVisible();
   });
 
   test('flow-analysis equations do not contain MathJax rendering errors', async ({ page }) => {
