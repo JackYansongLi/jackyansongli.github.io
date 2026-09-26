@@ -120,3 +120,19 @@ test('chapter 6 preserves its Markdown hierarchy without PDF layout artifacts', 
     assert.match(chapterSix, new RegExp(`^\\*${caption}`, 'm'));
   }
 });
+
+test('affected Flow Analysis chapters retain structural Markdown instead of PDF layout text', async () => {
+  const chapters = [
+    ['ch07-fiber-orientation.md', ['## 7.1 Folgar-Tucker 模型的局限性介绍', '## 7.2 不均匀旋转扩散（ARD）模型', '### 7.2.3 交互系数的计算', '## 7.5 布朗运动模拟']],
+    ['ch11-crystallization-effects.md', ['## 11.1 结晶对流动特性的影响', '### 11.1.2 两相模型', '## 11.6 Hele-Shaw 方程的修改']],
+    ['ch12-colorants.md', ['## 12.1 引言', '## 12.2 材料表征', '### 12.2.3 半结晶化时间', '#### 12.2.3.2 流诱导结晶', '## 12.3 对收缩的影响']],
+    ['ch13-shrinkage-warpage.md', ['## 13.1 引言', '## 13.2 控制方程', '## 13.3 本构方程', '### 13.3.2 热膨胀效应']],
+    ['ch14-additional-issues.md', ['## 14.1 熔接线', '## 14.2 核位移', '## 14.3 非常规注塑模具', '### 14.3.4 微注塑成型', '## 14.4 黏弹效应', '### 14.4.2 可塑性不稳定性', '## 14.5 其他数值方法', '### 14.5.2 无网格方法']],
+  ];
+
+  for (const [chapterName, headings] of chapters) {
+    const source = await readFile(join(chapterDirectory.pathname, chapterName), 'utf8');
+    for (const heading of headings) assert.match(source, new RegExp(`^${heading}$`, 'm'));
+    assert.doesNotMatch(source, /■|^\. |(?:模型|效应|方法) \d{3}(?:\s|$)/m);
+  }
+});
