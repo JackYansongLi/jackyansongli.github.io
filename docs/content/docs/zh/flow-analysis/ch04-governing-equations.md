@@ -592,6 +592,8 @@ $$
 
 图 4.1 展示了一个简单的模具型腔，我们将讨论其所需的边界条件。有若干表面需要描述边界条件：
 
+<img src="/images/flow-analysis/fig-4-1.png" alt="图 4.1：充填、保压和冷却仿真的边界条件" loading="lazy" decoding="async" />
+
 *图 4.1：充填、保压和冷却仿真的边界条件*
 
 - $\Sigma_{\mathrm{inj}}$：熔体进入型腔所经过的表面

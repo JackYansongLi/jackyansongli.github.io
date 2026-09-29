@@ -192,6 +192,8 @@ $$
 
 其中 $b_1(i)$ 到 $b_4(i)$ 和 $b_5$ 是需要通过拟合 PVT 测量数据确定的模型常数。方程 11.26 考虑了 PVT 过渡区随冷却速率和材料变形的变化，因为结晶动力学对这些变量有很强的依赖性。在模拟中使用方程 11.26 的关键在于允许 PVT 图，通常是在接近稳态条件下测量的，随着加工条件的变化而变化。
 
+<img src="/images/flow-analysis/fig-11-1.png" alt="图 11.1：不同冷却速率下的 PVT 图（经 John Wiley and Sons 许可，转载自 Luyé 等人 [234]）" loading="lazy" decoding="async" />
+
 *图 11.1：不同冷却速率下的 PVT 图（经 John Wiley and Sons 许可，转载自 Luyé 等人 [234]）*
 
 由于冷却速率效应导致的 PVT 过渡区的移动。Luyé 等人的论文中的比容方程为 $\hat{V} = \alpha \hat{V}_{sc} + (1 - \alpha) \hat{V}_{a}$，这显然与方程 11.26 不同。然而，需要注意的是，Luyé 等人论文中的符号 $\alpha$ 表示相对质量结晶度，实际上这两个表达式是等价的。
@@ -238,6 +240,8 @@ $$
 
 其中 $ k_a(T) $ 和 $ k_s(T) $ 分别是熔融态和固态下的温度依赖平衡热导率。它们可以从实验中获得。图 11.2 显示了典型聚丙烯在固态和熔融态下热导率随温度变化的实验数据。不同的曲线表示实验的重复性。方程 11.34 基于以下假设：
 
+<img src="/images/flow-analysis/fig-11-2.png" alt="图 11.2：聚丙烯未受扰动的平衡热导率随温度的变化（转载自 Speight 等人 [339]）" loading="lazy" decoding="async" />
+
 *图 11.2：聚丙烯未受扰动的平衡热导率随温度的变化（转载自 Speight 等人 [339]）*
 
 Speight 等人 [339] 提出了以下假设：
@@ -273,6 +277,8 @@ $$
 \frac{\partial (\rho c_p T)}{\partial t} = \frac{\partial}{\partial x_i} \left( \mu \frac{\partial T}{\partial x_i} \right) + \frac{\partial}{\partial t} \left( \rho \tau_{ij} D_{ij} \right) - \frac{\partial q_i}{\partial x_i} + \rho \Delta H_c \chi_\infty, \quad (11.39)
 $$
 其中，$ p $ 是压力，$\tau_{ij} D_{ij}$ 是由于粘性耗散产生的热量，$\tau_{ij}$ 是额外应力张量，$D_{ij}$ 是变形率张量，$q_i$ 是热流矢量，$\Delta H_c$ 是完美晶体的结晶潜热（单位为 J/kg），$\frac{D\alpha}{Dt}$ 是由上述结晶动力学给出的相对结晶速率，$\chi_\infty$ 是最终的绝对结晶度。
+
+<img src="/images/flow-analysis/fig-11-3.png" alt="图 11.3：注塑制件核心区域的温度演变" loading="lazy" decoding="async" />
 
 *图 11.3：注塑制件核心区域的温度演变*
 
