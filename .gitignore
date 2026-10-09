@@ -1,6 +1,7 @@
 .DS_Store
 update_website
 .sisyphus
+.worktrees
 
 node_modules
 
