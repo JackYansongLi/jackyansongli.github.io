@@ -222,18 +222,19 @@ $$
 \int_{V(t)} \left(\frac{\partial}{\partial t}(\rho\mathbf{v}) + \nabla \cdot (\rho\mathbf{v}\mathbf{v})\right) dV = \int_{V(t)} (\rho\mathbf{g} + \nabla \cdot \boldsymbol{\sigma})\, dV. \tag{4.22}
 $$
 
-**提示（编辑补充）：区分并矢积与点积。** 本书中两个向量并排写成 $\mathbf{v}\mathbf{v}$，表示并矢积（张量积）$\mathbf{v}\otimes\mathbf{v}$，不是点积。在三维正交归一基下，将速度分量写成列向量 $\mathbf{v}=(v_1,v_2,v_3)^{\mathsf T}$，该二阶张量的矩阵表示为
-
-$$
+>**提示（编辑补充）：区分并矢积与点积。** 本书中两个向量并排写成 $\mathbf{v}\mathbf{v}$，表示并矢积（张量积）$\mathbf{v}\otimes\mathbf{v}$，不是点积。在三维正交归一基下，将速度分量写成列向量 $\mathbf{v}=(v_1,v_2,v_3)^{\mathsf T}$，该二阶张量的矩阵表示为
+>
+>$$
 \mathbf{v}\mathbf{v}=\mathbf{v}\otimes\mathbf{v}=\mathbf{v}\mathbf{v}^{\mathsf T}
 =\begin{pmatrix}
 v_1^2 & v_1v_2 & v_1v_3 \\
 v_2v_1 & v_2^2 & v_2v_3 \\
 v_3v_1 & v_3v_2 & v_3^2
 \end{pmatrix}.
-$$
-
-只有点积 $\mathbf{v}\cdot\mathbf{v}=\mathbf{v}^{\mathsf T}\mathbf{v}=v_1^2+v_2^2+v_3^2=v^2$ 才是标量，即速度大小的平方。因此，$\nabla\cdot(\rho\mathbf{v}\mathbf{v})$ 是二阶张量的散度，结果为向量；而 $\nabla\cdot(\tfrac12\rho v^2\mathbf{v})$ 是动能通量向量的散度，结果为标量。阅读后续式 (4.33)–(4.39) 时，尤其要注意这一区别。
+>$$
+>
+> 只有点积 $\mathbf{v}\cdot\mathbf{v}=\mathbf{v}^{\mathsf T}\mathbf{v}=v_1^2+v_2^2+v_3^2=v^2$ 才是标量，即速度大小的平方。因此，$\nabla\cdot(\rho\mathbf{v}\mathbf{v})$ 是二阶张量的散度，结果为向量；而 $\nabla\cdot(\tfrac12\rho v^2\mathbf{v})$ 是动能通量向量的散度，结果为标量。阅读后续式 (4.33)–(4.39) 时，尤其要注意这一区别。
+> It is easier to distinguish $v \otimes v$ and $v \cdot v$ by index notation, the former one is $v_i v^i$ and the latter
 
 然而，体积 $V(t)$ 是任意的，因此经整理后有
 
@@ -366,6 +367,22 @@ $$
 $$
 \mathbf{v} \cdot \nabla \cdot (\rho\mathbf{v}\mathbf{v}) = \nabla \cdot \left(\frac{1}{2}\rho v^2\mathbf{v}\right) + \frac{1}{2}v^2\nabla \cdot (\rho\mathbf{v}).
 $$
+
+
+> The above equality can be proved by using index notation. The left-hand side is 
+> $$
+> v_i \partial_j(\rho v^i v^j) = v_i v^i\partial_j(\rho v^j) + \rho v_j v^i \partial_j(v^i) .
+> $$
+> Note that $\partial_j (v_i v^i) = 2 v_i \partial_j(v^i)$, therefore,
+> $$
+> v_i \partial_j(\rho v^i v^j) = v_i v^i\partial_j(\rho v^j) + \frac{1}{2} \rho v_j \partial_j (v_i v^i).
+> $$
+> Also, 
+> $$
+> \nabla \cdot (\frac{1}{2} \rho v^2 \mathbf{v} ) = \frac{1}{2} \partial_j(\rho v_i v^i v^j) = \frac{1}{2} v_i v^i \partial_j(\rho v^j) + \frac{1}{2} \rho v^j \partial_j (v_i v^i).
+> $$
+> The rest is left to the reader to verify.
+
 
 将式 (4.35)、式 (4.36) 和上式代入式 (4.33)，得
 
