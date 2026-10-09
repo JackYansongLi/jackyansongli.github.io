@@ -4,6 +4,19 @@ import { resolve } from 'node:path';
 
 const chapterPath = resolve('docs/content/docs/zh/flow-analysis/ch04-governing-equations.md');
 
+test('dyadic-product hint keeps its display math inside one blockquote', async () => {
+  const chapter = await readFile(chapterPath, 'utf8');
+  const hint = chapter.split('提示（编辑补充）：区分并矢积与点积。')[1]?.split('然而，体积')[0];
+  expect(hint).toBeDefined();
+  const matrix = hint?.match(/^>\s*\$\$\s*\n([\s\S]*?)\n>\s*\$\$/m);
+  expect(matrix, 'matrix delimiters must belong to the same blockquote').not.toBeNull();
+  for (const line of (matrix?.[1] ?? '').split('\n')) {
+    expect(line, 'every display-math line must retain the quote marker').toMatch(/^>/);
+  }
+  expect(matrix?.[1]).toContain('\\begin{pmatrix}');
+  expect(hint).toContain('$v_i v_j$ with two free indices');
+});
+
 function equationBlock(chapter: string, equation: number): string {
   const tag = `\\tag{4.${equation}}`;
   const tagOccurrences = chapter.match(new RegExp(tag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) ?? [];

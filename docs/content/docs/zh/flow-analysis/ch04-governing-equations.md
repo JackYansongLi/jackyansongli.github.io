@@ -224,17 +224,18 @@ $$
 
 >**提示（编辑补充）：区分并矢积与点积。** 本书中两个向量并排写成 $\mathbf{v}\mathbf{v}$，表示并矢积（张量积）$\mathbf{v}\otimes\mathbf{v}$，不是点积。在三维正交归一基下，将速度分量写成列向量 $\mathbf{v}=(v_1,v_2,v_3)^{\mathsf T}$，该二阶张量的矩阵表示为
 >
->$$
-\mathbf{v}\mathbf{v}=\mathbf{v}\otimes\mathbf{v}=\mathbf{v}\mathbf{v}^{\mathsf T}
-=\begin{pmatrix}
-v_1^2 & v_1v_2 & v_1v_3 \\
-v_2v_1 & v_2^2 & v_2v_3 \\
-v_3v_1 & v_3v_2 & v_3^2
-\end{pmatrix}.
->$$
+> $$
+> \mathbf{v}\mathbf{v}=\mathbf{v}\otimes\mathbf{v}=\mathbf{v}\mathbf{v}^{\mathsf T}
+> =\begin{pmatrix}
+> v_1^2 & v_1v_2 & v_1v_3 \\
+> v_2v_1 & v_2^2 & v_2v_3 \\
+> v_3v_1 & v_3v_2 & v_3^2
+> \end{pmatrix}.
+> $$
 >
 > 只有点积 $\mathbf{v}\cdot\mathbf{v}=\mathbf{v}^{\mathsf T}\mathbf{v}=v_1^2+v_2^2+v_3^2=v^2$ 才是标量，即速度大小的平方。因此，$\nabla\cdot(\rho\mathbf{v}\mathbf{v})$ 是二阶张量的散度，结果为向量；而 $\nabla\cdot(\tfrac12\rho v^2\mathbf{v})$ 是动能通量向量的散度，结果为标量。阅读后续式 (4.33)–(4.39) 时，尤其要注意这一区别。
-> It is easier to distinguish $v \otimes v$ and $v \cdot v$ by index notation, the former one is $v_i v^i$ and the latter
+>
+> It is easier to distinguish $\mathbf{v}\otimes\mathbf{v}$ and $\mathbf{v}\cdot\mathbf{v}$ using index notation: in an orthonormal Cartesian basis, the former has components $v_i v_j$ with two free indices, whereas the latter is $\sum_{i=1}^{3}v_i^2$. With Einstein summation, $v_i v^i$ denotes the latter scalar contraction, not the dyadic product.
 
 然而，体积 $V(t)$ 是任意的，因此经整理后有
 
