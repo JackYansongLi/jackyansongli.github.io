@@ -17,6 +17,86 @@ test('dyadic-product hint keeps its display math inside one blockquote', async (
   expect(hint).toContain('$v_i v_j$ with two free indices');
 });
 
+test('Reynolds transport theorem proof remains a complete blockquote before section 4.2.4', async () => {
+  const chapter = await readFile(chapterPath, 'utf8');
+  const proof = chapter
+    .split('**Proof of the Reynolds transport theorem (supplementary note)**')[1]
+    ?.split('### 4.2.4')[0];
+
+  expect(proof).toBeDefined();
+  for (const line of (proof ?? '').split('\n').filter((line) => line !== '')) {
+    expect(line, 'every proof line, including blank and display-math lines, must retain the quote marker').toMatch(/^>/);
+  }
+
+  expect(proof).toContain('F(t)=\\int_{V(t)} f(x,t)\\,\\mathrm{d}V');
+  expect(proof).toContain('\\mathrm{d}^3x=\\mathrm{d}x^1\\mathrm{d}x^2\\mathrm{d}x^3');
+  expect(proof).toContain('\\frac{\\mathrm{d}F}{\\mathrm{d}t}');
+  expect(proof).toContain('\\frac{\\mathrm{D}f}{\\mathrm{D}t}');
+  expect(proof).toContain('v^i(\\chi(X,t),t)=\\left.\\frac{\\partial\\chi^i}{\\partial t}\\right|_X');
+  expect(proof).toContain('(\\Lambda^{-1})^A{}_i=\\frac{\\partial(\\chi^{-1})^A}{\\partial x^i}');
+  expect(proof).toContain('J(X,t)=\\sqrt{g(\\chi(X,t))}\\,j(X,t)');
+  expect(proof).toContain('\\begin{aligned}');
+  expect(proof).toContain('&=j\\,(\\Lambda^{-1})^A{}_i(\\partial_kv^i)\\Lambda^k{}_A');
+  expect(proof).toContain('&=j\\,(\\partial_kv^i)\\delta^k{}_i');
+  expect(proof).toContain('\\frac{\\dot J}{J}=\\partial_i v^i+v^i\\partial_i\\log\\sqrt{g}');
+  expect(proof).toContain('=\\int_{V(t)}\\left(\\partial_t f+\\nabla_i(fv^i)\\right)\\mathrm{d}V');
+  expect(proof).toContain('C.P. (Covariant Physics)');
+  expect(proof).toContain('handwritten attribution');
+  expect(proof).not.toContain('not a miscopied inverse derivative');
+
+});
+
+test('energy-equation meanings retain numbered markers and indentation', async ({ page }) => {
+  await page.addInitScript(() => {
+    sessionStorage.setItem('moldflow-reading-access', 'granted');
+  });
+  await page.goto('/zh/flow-analysis/ch04-governing-equations/');
+
+  const energyMeanings = page
+    .getByText('考察式 (4.32) 的物理意义是有益的。各项已编号，含义如下：')
+    .locator('xpath=following-sibling::ol[1]');
+  const items = energyMeanings.locator(':scope > li');
+
+  await expect(energyMeanings).toHaveCount(1);
+  await expect(items).toHaveCount(5);
+  await expect(items).toHaveText([
+    '物质体积动能的变化率',
+    '物质体积内能的变化率',
+    '表面牵引力（应力）对物质体积内流体做功的速率',
+    '重力对物质体积内流体做功的速率',
+    /由于穿过.*的传导，物质体积内流体的热损失/,
+  ]);
+
+  const styles = await energyMeanings.evaluate((list) => {
+    const listStyle = getComputedStyle(list);
+    const itemStyle = getComputedStyle(list.querySelector('li')!);
+    return {
+      listStyleType: listStyle.listStyleType,
+      paddingInlineStart: Number.parseFloat(listStyle.paddingInlineStart),
+      itemDisplay: itemStyle.display,
+    };
+  });
+
+  expect(styles.listStyleType).toBe('decimal');
+  expect(styles.itemDisplay).toBe('list-item');
+  expect(styles.paddingInlineStart).toBeGreaterThanOrEqual(24);
+});
+
+test('Reynolds transport theorem proof renders equations without MathJax errors', async ({ page }) => {
+  await page.addInitScript(() => {
+    sessionStorage.setItem('moldflow-reading-access', 'granted');
+  });
+  await page.goto('/zh/flow-analysis/ch04-governing-equations/');
+
+  const proof = page.locator('blockquote').filter({
+    hasText: 'Proof of the Reynolds transport theorem (supplementary note)',
+  });
+
+  await expect(proof).toContainText('The second expression differentiates the inverse map.');
+  await expect(proof.locator('mjx-container svg').first()).toBeVisible();
+  await expect(proof.locator('[data-mjx-error], g[data-mml-node="merror"]')).toHaveCount(0);
+});
+
 function equationBlock(chapter: string, equation: number): string {
   const tag = `\\tag{4.${equation}}`;
   const tagOccurrences = chapter.match(new RegExp(tag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) ?? [];

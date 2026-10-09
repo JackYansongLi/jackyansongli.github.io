@@ -116,6 +116,93 @@ $$
 
 在物理上，式 (4.8) 表明，$f(\mathbf{x}, t)$ 积分的变化率等于 $f(\mathbf{x}, t)$ 的变化率在固定区域 $V(t)$ 上的积分，加上 $f(\mathbf{x}, t)$ 穿过表面 $S(t)$ 的净流量。该结果可应用于任意标量、向量或张量函数 $f(\mathbf{x}, t)$。
 
+> **Proof of the Reynolds transport theorem (supplementary note)**
+>
+> The following is an editorial notation cleanup of the handwritten proof, retaining its steps and Exercise rather than presenting a verbatim transcription. Let
+>
+> $$
+> F(t)=\int_{V(t)} f(x,t)\,\mathrm{d}V,
+> $$
+>
+> where $V(t)$ contains the same particles for all $t$. Assume a smooth invertible flow $x^i=\chi^i(X,t)$, a smooth $f$, fixed spatial coordinates, and a time-independent metric. Spatial indices are $i,j,k$; material indices are $A,B,C$; and the material metric is $G_{AB}$. Write $\mathrm{d}^3x=\mathrm{d}x^1\mathrm{d}x^2\mathrm{d}x^3$ and
+>
+> $$
+> \mathrm{d}V=\sqrt{\det g(x)}\,\mathrm{d}^3x.
+> $$
+>
+> Fix a reference region $V_0$ and use its material labels $X$, so $\mathrm{d}X/\mathrm{d}t=0$. **Exercise 1.** Show that
+>
+> $$
+> v^i(\chi(X,t),t)=\left.\frac{\partial\chi^i}{\partial t}\right|_X.
+> $$
+>
+> Indeed, along a particle path $x^i(t)=\chi^i(X,t)$ with $X$ fixed, the chain rule gives $\mathrm{d}x^i/\mathrm{d}t=\left.\partial_t\chi^i\right|_X$, while the left side is $v^i(x(t),t)$.
+>
+> Define
+>
+> $$
+> \Lambda^i{}_A=\frac{\partial\chi^i}{\partial X^A},\qquad (\Lambda^{-1})^A{}_i=\frac{\partial(\chi^{-1})^A}{\partial x^i}.
+> $$
+>
+> The second expression differentiates the inverse map. Their contractions are $\Lambda^i{}_A(\Lambda^{-1})^A{}_j=\delta^i{}_j$ and $(\Lambda^{-1})^A{}_i\Lambda^i{}_B=\delta^A{}_B$. Assume the flow is orientation preserving, with $j=\det\Lambda>0$. The coordinate Jacobian $j$ differs from the metric density $\sqrt{g}=\sqrt{\det g}$; the pulled-back physical-volume density is
+>
+> $$
+> J(X,t)=\sqrt{g(\chi(X,t))}\,j(X,t),\qquad \mathrm{d}V=J\,\mathrm{d}^3X.
+> $$
+>
+> Therefore
+>
+> $$
+> F(t)=\int_{V_0}f(\chi(X,t),t)J(X,t)\,\mathrm{d}^3X.
+> $$
+>
+> Differentiating at fixed $X$ and applying the product rule yields
+>
+> $$
+> \frac{\mathrm{d}F}{\mathrm{d}t}=\int_{V_0}\left(J\frac{\mathrm{D}f}{\mathrm{D}t}+f\dot J\right)\mathrm{d}^3X,
+> $$
+>
+> where
+>
+> $$
+> \frac{\mathrm{D}f}{\mathrm{D}t}=\partial_t f+v^i\partial_i f.
+> $$
+>
+> For the Jacobian, Jacobi's determinant formula and the chain rule give
+>
+> $$
+> \begin{aligned}
+> \dot j
+> &=j\,\operatorname{Tr}(\Lambda^{-1}\dot\Lambda) \\
+> &=j\,(\Lambda^{-1})^A{}_i\dot\Lambda^i{}_A \\
+> &=j\,(\Lambda^{-1})^A{}_i(\partial_kv^i)\Lambda^k{}_A \\
+> &=j\,(\partial_kv^i)\delta^k{}_i
+> =j\,\partial_i v^i.
+> \end{aligned}
+> $$
+>
+> The handwritten determinant calculation is Cartesian: there $\mathrm{d}V=\mathrm{d}^3x$ and $J=j$, so this reduces exactly to $\dot J=J\partial_i v^i$. In the present fixed, spatially varying metric,
+>
+> $$
+> \frac{\dot J}{J}=\partial_i v^i+v^i\partial_i\log\sqrt{g}=\frac{1}{\sqrt{g}}\partial_i(\sqrt{g}\,v^i)=\nabla_i v^i.
+> $$
+>
+> Consequently,
+>
+> $$
+> \frac{\mathrm{d}F}{\mathrm{d}t}=\int_{V_0}J\left(\frac{\mathrm{D}f}{\mathrm{D}t}+f\nabla_i v^i\right)\mathrm{d}^3X
+> =\int_{V(t)}\left(\frac{\mathrm{D}f}{\mathrm{D}t}+f\nabla_i v^i\right)\mathrm{d}V
+> =\int_{V(t)}\left(\partial_t f+\nabla_i(fv^i)\right)\mathrm{d}V.
+> $$
+>
+> Applying the divergence theorem gives
+>
+> $$
+> \frac{\mathrm{d}}{\mathrm{d}t}\int_{V(t)}f\,\mathrm{d}V=\int_{V(t)}\partial_t f\,\mathrm{d}V+\int_{S(t)}f\,v^i n_i\,\mathrm{d}S,
+> $$
+>
+> which matches (4.7) and (4.8). The handwritten notes attribute the following formulas to C.P. (Covariant Physics): equation 2.137 for metric volume, 2.127 for change of variables, and 8.108 for Jacobi's determinant formula. This records the handwritten attribution and does not independently verify the source text.
+>
 ### 4.2.4 分部积分
 
 许多微积分教材都介绍分部积分。公式形式为：
