@@ -20,7 +20,7 @@ test('dyadic-product hint keeps its display math inside one blockquote', async (
 test('Reynolds transport theorem proof remains a complete blockquote before section 4.2.4', async () => {
   const chapter = await readFile(chapterPath, 'utf8');
   const proof = chapter
-    .split('**Proof of the Reynolds transport theorem (supplementary note)**')[1]
+    .split('C.P. corresponds to "Covariant Physics".')[1]
     ?.split('### 4.2.4')[0];
 
   expect(proof).toBeDefined();
@@ -30,19 +30,19 @@ test('Reynolds transport theorem proof remains a complete blockquote before sect
 
   expect(proof).toContain('F(t)=\\int_{V(t)} f(x,t)\\,\\mathrm{d}V');
   expect(proof).toContain('\\mathrm{d}^3x=\\mathrm{d}x^1\\mathrm{d}x^2\\mathrm{d}x^3');
-  expect(proof).toContain('\\frac{\\mathrm{d}F}{\\mathrm{d}t}');
-  expect(proof).toContain('\\frac{\\mathrm{D}f}{\\mathrm{D}t}');
-  expect(proof).toContain('v^i(\\chi(X,t),t)=\\left.\\frac{\\partial\\chi^i}{\\partial t}\\right|_X');
-  expect(proof).toContain('(\\Lambda^{-1})^A{}_i=\\frac{\\partial(\\chi^{-1})^A}{\\partial x^i}');
-  expect(proof).toContain('J(X,t)=\\sqrt{g(\\chi(X,t))}\\,j(X,t)');
-  expect(proof).toContain('\\begin{aligned}');
-  expect(proof).toContain('&=j\\,(\\Lambda^{-1})^A{}_i(\\partial_kv^i)\\Lambda^k{}_A');
-  expect(proof).toContain('&=j\\,(\\partial_kv^i)\\delta^k{}_i');
-  expect(proof).toContain('\\frac{\\dot J}{J}=\\partial_i v^i+v^i\\partial_i\\log\\sqrt{g}');
-  expect(proof).toContain('=\\int_{V(t)}\\left(\\partial_t f+\\nabla_i(fv^i)\\right)\\mathrm{d}V');
-  expect(proof).toContain('C.P. (Covariant Physics)');
-  expect(proof).toContain('handwritten attribution');
-  expect(proof).not.toContain('not a miscopied inverse derivative');
+  expect(proof).toContain('\\frac{\\mathrm{d}F(t)}{\\mathrm{d}t}');
+  expect(proof).toContain('v^i=\\frac{\\mathrm{d}x^i}{\\mathrm{d}t}=\\left.\\frac{\\partial\\mathcal{X}^i}{\\partial t}\\right|_X');
+  expect(proof).toContain('By Eq (2.137) in C.P.');
+  expect(proof).toContain('By Eq (2.127) in C.P.');
+  expect(proof).toContain('By Eq (8.108) in C.P.');
+  expect(proof).toContain('\\mathrm{d}|M|=|M|\\operatorname{Tr}(M^{-1}\\mathrm{d}M)');
+  expect(proof).toContain('\\mathcal{J}\\Lambda^A{}_i(\\partial_jv^i)\\Lambda^j{}_A');
+  expect(proof).toContain('\\frac{1}{\\mathcal{J}}\\frac{\\partial\\mathcal{J}}{\\partial t}=\\nabla\\cdot\\mathbf{v}');
+  expect(proof).toContain('\\tag{17}');
+  expect(proof).not.toContain('\\dot');
+  expect(proof).not.toContain('\\nabla_i');
+  expect(proof).not.toContain('\\chi');
+  expect(proof).not.toContain('orientation preserving');
 
 });
 
@@ -89,10 +89,10 @@ test('Reynolds transport theorem proof renders equations without MathJax errors'
   await page.goto('/zh/flow-analysis/ch04-governing-equations/');
 
   const proof = page.locator('blockquote').filter({
-    hasText: 'Proof of the Reynolds transport theorem (supplementary note)',
+    hasText: 'By Eq (8.108) in C.P.',
   });
 
-  await expect(proof).toContainText('The second expression differentiates the inverse map.');
+  await expect(proof).toContainText('By Eq (8.108) in C.P.');
   await expect(proof.locator('mjx-container svg').first()).toBeVisible();
   await expect(proof.locator('[data-mjx-error], g[data-mml-node="merror"]')).toHaveCount(0);
 });
