@@ -258,7 +258,7 @@ $$
 \end{aligned} \tag{4.26}
 $$
 
-最后，我们注意到左端方括号中的项正是 4.2.1 节定义的 $\mathbf{v}$ 的随体导数；而右端方括号中的项由于连续性方程 (4.14) 恒等于零。因此，动量方程可写为
+最后，我们注意到左端方括号中的项正是 4.2.1 节定义的 $\mathbf{v}$ 的随体导数；而右端方括号中的项由于连续性方程 (4.13) 恒等于零。因此，动量方程可写为
 
 $$
 \rho\frac{D\mathbf{v}}{Dt} = \rho\mathbf{g} + \nabla \cdot \boldsymbol{\sigma}. \tag{4.27}
@@ -266,7 +266,7 @@ $$
 
 ## 4.5 能量守恒
 
-物质体积 $V(t)$ 内流体的总能量由其动能与内能之和给出。设 $\hat{U}$ 为单位体积的内能，物质体积内的总能量为
+物质体积 $V(t)$ 内流体的总能量由其动能与内能之和给出。设 $\hat{U}$ 为单位质量的内能（比内能），物质体积内的总能量为
 
 $$
 \int_{V(t)} \rho\left(\frac{1}{2}v^2 + \hat{U}\right) dV = \int_{V(t)} \frac{1}{2}\rho v^2\, dV + \int_{V(t)} \rho\hat{U}\, dV, \tag{4.28}
@@ -292,7 +292,7 @@ $$
 \int_{V(t)} \rho(\mathbf{g} \cdot \mathbf{v})\, dV. \tag{4.30}
 $$
 
-现在考虑穿过表面 $S(t)$ 的热通量速率。设 $\mathbf{q}$ 为 $S(t)$ 上一点处的热通量向量，$\mathbf{n}$ 为 $S(t)$ 的单位外法向量，则从 $S(t)$ 散失热量的速率为
+现在考虑穿过表面 $S(t)$ 的热通量。设 $\mathbf{q}$ 为 $S(t)$ 上一点处的热通量向量，$\mathbf{n}$ 为 $S(t)$ 的单位外法向量，则 $\int_{S(t)} \mathbf{q} \cdot \mathbf{n}\, dS$ 表示向外净热流；相应地，热传导对物质体积能量变化的贡献（即向外净热流的负值）为
 
 $$
 -\int_{S(t)} \mathbf{q} \cdot \mathbf{n}\, dS = -\int_{V(t)} \nabla \cdot \mathbf{q}\, dV, \tag{4.31}
@@ -310,7 +310,7 @@ $$
 
 1. 物质体积动能的变化率
 2. 物质体积内能的变化率
-3. 黏性力对物质体积内流体做功的速率
+3. 表面牵引力（应力）对物质体积内流体做功的速率
 4. 重力对物质体积内流体做功的速率
 5. 由于穿过 $S(t)$ 的传导，物质体积内流体的热损失
 
@@ -319,15 +319,17 @@ $$
 取点积：
 
 $$
-\frac{\partial}{\partial t}(\rho\mathbf{v}) \cdot \mathbf{v} = \rho\mathbf{g} \cdot \mathbf{v} + (\nabla \cdot \boldsymbol{\sigma}) \cdot \mathbf{v} - \nabla \cdot \rho\mathbf{v}\mathbf{v} \cdot \mathbf{v}. \tag{4.33}
+\frac{\partial}{\partial t}(\rho\mathbf{v}) \cdot \mathbf{v} = \rho\mathbf{g} \cdot \mathbf{v} + (\nabla \cdot \boldsymbol{\sigma}) \cdot \mathbf{v} - \mathbf{v} \cdot \nabla \cdot (\rho\mathbf{v}\mathbf{v}). \tag{4.33}
 $$
+
+**编辑勘误注（式 4.34–4.39）**：原书 PDF 的印刷页 41–42 中，式 (4.34) 位于页 41，式 (4.35)–(4.39) 位于页 42；这些式未保留随时间变化的密度项，且将两个不同的对流项直接等同。这在一般的 $\rho = \rho(\mathbf{x},t)$ 情形下不成立。下列各式是保持原编号的编辑勘正，显式使用连续性方程 (4.13)，并非将该修正推导表述为原书原文。
 
 注意，由微分的乘积法则，
 
 $$
 \begin{aligned}
-\frac{\partial}{\partial t}(\rho\mathbf{v} \cdot \mathbf{v}) &= \frac{\partial}{\partial t}(\rho\mathbf{v}) \cdot \mathbf{v} + \mathbf{v} \cdot \frac{\partial}{\partial t}(\rho\mathbf{v}) \\
-&= 2\frac{\partial}{\partial t}(\rho\mathbf{v}) \cdot \mathbf{v}, 
+\frac{\partial}{\partial t}(\rho\mathbf{v} \cdot \mathbf{v}) &= \frac{\partial}{\partial t}(\rho\mathbf{v}) \cdot \mathbf{v} + \rho\mathbf{v} \cdot \frac{\partial \mathbf{v}}{\partial t} \\
+&= 2\frac{\partial}{\partial t}(\rho\mathbf{v}) \cdot \mathbf{v} - v^2\frac{\partial \rho}{\partial t},
 \end{aligned} \tag{4.34}
 $$
 
@@ -335,8 +337,8 @@ $$
 
 $$
 \begin{aligned}
-\frac{\partial}{\partial t}(\rho\mathbf{v}) \cdot \mathbf{v} &= \frac{1}{2}\frac{\partial}{\partial t}(\rho\mathbf{v} \cdot \mathbf{v}) \\
-&= \frac{1}{2}\frac{\partial}{\partial t}(\rho v^2), 
+\frac{\partial}{\partial t}(\rho\mathbf{v}) \cdot \mathbf{v} &= \frac{1}{2}\frac{\partial}{\partial t}(\rho\mathbf{v} \cdot \mathbf{v}) + \frac{1}{2}v^2\frac{\partial \rho}{\partial t} \\
+&= \frac{1}{2}\frac{\partial}{\partial t}(\rho v^2) + \frac{1}{2}v^2\frac{\partial \rho}{\partial t},
 \end{aligned} \tag{4.35}
 $$
 
@@ -346,28 +348,37 @@ $$
 (\nabla \cdot \boldsymbol{\sigma}) \cdot \mathbf{v} = \nabla \cdot (\boldsymbol{\sigma} \cdot \mathbf{v}) - \boldsymbol{\sigma} : \nabla\mathbf{v}. \tag{4.36}
 $$
 
-将式 (4.35) 和式 (4.36) 代入式 (4.33)，得
+此外，对流项必须按如下乘积法则展开：
 
 $$
-\frac{1}{2}\frac{\partial}{\partial t}(\rho v^2) = \rho\mathbf{g} \cdot \mathbf{v} + \nabla \cdot (\boldsymbol{\sigma} \cdot \mathbf{v}) - \boldsymbol{\sigma} : \nabla\mathbf{v} - \nabla \cdot \rho\mathbf{v}\mathbf{v} \cdot \mathbf{v}. \tag{4.37}
+\mathbf{v} \cdot \nabla \cdot (\rho\mathbf{v}\mathbf{v}) = \nabla \cdot \left(\frac{1}{2}\rho v^2\mathbf{v}\right) + \frac{1}{2}v^2\nabla \cdot (\rho\mathbf{v}).
 $$
 
-上式给出单位体积材料的动能。对于物质体积的动能，必须将式 (4.37) 在物质体积 $V(t)$ 上积分，得到
+将式 (4.35)、式 (4.36) 和上式代入式 (4.33)，得
 
 $$
-\int_{V(t)} \frac{1}{2}\frac{\partial}{\partial t}(\rho v^2)\, dV = \int_{V(t)} \rho\mathbf{g} \cdot \mathbf{v}\, dV + \int_{V(t)} \nabla \cdot (\boldsymbol{\sigma} \cdot \mathbf{v})\, dV - \int_{V(t)} \boldsymbol{\sigma} : \nabla\mathbf{v}\, dV - \int_{V(t)} \nabla \cdot \rho\mathbf{v}\mathbf{v} \cdot \mathbf{v}\, dV. \tag{4.38}
+\begin{aligned}
+\frac{1}{2}\frac{\partial}{\partial t}(\rho v^2) + \frac{1}{2}v^2\frac{\partial \rho}{\partial t} &= \rho\mathbf{g} \cdot \mathbf{v} + \nabla \cdot (\boldsymbol{\sigma} \cdot \mathbf{v}) - \boldsymbol{\sigma} : \nabla\mathbf{v} - \nabla \cdot \left(\frac{1}{2}\rho v^2\mathbf{v}\right) - \frac{1}{2}v^2\nabla \cdot (\rho\mathbf{v}) \\
+\frac{1}{2}\frac{\partial}{\partial t}(\rho v^2) + \frac{1}{2}v^2\underbrace{\left[\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho\mathbf{v})\right]}_{=0\ \text{（由式 (4.13)）}} &= \rho\mathbf{g} \cdot \mathbf{v} + \nabla \cdot (\boldsymbol{\sigma} \cdot \mathbf{v}) - \boldsymbol{\sigma} : \nabla\mathbf{v} - \nabla \cdot \left(\frac{1}{2}\rho v^2\mathbf{v}\right) \\
+\frac{1}{2}\frac{\partial}{\partial t}(\rho v^2) &= \rho\mathbf{g} \cdot \mathbf{v} + \nabla \cdot (\boldsymbol{\sigma} \cdot \mathbf{v}) - \boldsymbol{\sigma} : \nabla\mathbf{v} - \nabla \cdot \left(\frac{1}{2}\rho v^2\mathbf{v}\right).
+\end{aligned} \tag{4.37}
+$$
+
+上式给出单位体积材料的动能平衡方程。对于物质体积的动能，必须将式 (4.37) 在物质体积 $V(t)$ 上积分，得到
+
+$$
+\int_{V(t)} \frac{1}{2}\frac{\partial}{\partial t}(\rho v^2)\, dV = \int_{V(t)} \rho\mathbf{g} \cdot \mathbf{v}\, dV + \int_{V(t)} \nabla \cdot (\boldsymbol{\sigma} \cdot \mathbf{v})\, dV - \int_{V(t)} \boldsymbol{\sigma} : \nabla\mathbf{v}\, dV - \int_{V(t)} \nabla \cdot \left(\frac{1}{2}\rho v^2\mathbf{v}\right)\, dV. \tag{4.38}
 $$
 
 在雷诺输运定理（式 4.7）中令 $f = \frac{1}{2}\rho v^2$，有
 
 $$
 \begin{aligned}
-\frac{d}{dt}\int_{V(t)} \frac{1}{2}\rho v^2\, dV &= \int_{V(t)} \frac{\partial}{\partial t}\left(\frac{1}{2}\rho v^2\right) dV + \int_{V(t)} \frac{1}{2}\nabla \cdot \rho v^2 \mathbf{v}\, dV \\
-&= \int_{V(t)} \frac{\partial}{\partial t}\left(\frac{1}{2}\rho v^2\right) dV + \int_{V(t)} \nabla \cdot \rho\mathbf{v}\mathbf{v} \cdot \mathbf{v}\, dV. 
+\frac{d}{dt}\int_{V(t)} \frac{1}{2}\rho v^2\, dV &= \int_{V(t)} \frac{\partial}{\partial t}\left(\frac{1}{2}\rho v^2\right) dV + \int_{V(t)} \nabla \cdot \left(\frac{1}{2}\rho v^2\mathbf{v}\right)\, dV.
 \end{aligned} \tag{4.39}
 $$
 
-将上式代入式 (4.38)，得到
+将上式代入式 (4.38)，其中两个动能通量项相消，得到
 
 $$
 \frac{d}{dt}\int_{V(t)} \frac{1}{2}\rho v^2\, dV = \int_{V(t)} \rho\mathbf{g} \cdot \mathbf{v}\, dV - \int_{V(t)} \boldsymbol{\sigma} : (\nabla\mathbf{v})\, dV + \int_{V(t)} \nabla \cdot (\boldsymbol{\sigma} \cdot \mathbf{v})\, dV; \tag{4.40}
@@ -402,7 +413,7 @@ $$
 \end{aligned} \tag{4.44}
 $$
 
-其中最后一行使用了连续性方程 (4.13)。将式 (4.44) 代入式 (4.43)，得到
+其中最后一行使用了连续性方程的随体形式 (4.15)。将式 (4.44) 代入式 (4.43)，得到
 
 $$
 \rho\frac{D\hat{U}}{Dt} = \boldsymbol{\sigma} : (\nabla\mathbf{v}) - \nabla \cdot \mathbf{q}. \tag{4.45}
