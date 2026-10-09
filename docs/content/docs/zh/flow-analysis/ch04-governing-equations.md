@@ -130,7 +130,9 @@ $$
 > \mathrm{d}V=\sqrt{\det g(x)}\,\mathrm{d}^3x.
 > $$
 >
-> Fix a reference region $V_0$ and use its material labels $X$, so $\mathrm{d}X/\mathrm{d}t=0$. **Exercise 1.** Show that
+> Fix a reference region $V_0$ and use its material labels $X$, so $\mathrm{d}X/\mathrm{d}t=0$.
+>
+> **Exercise 1.** Show that
 >
 > $$
 > v^i(\chi(X,t),t)=\left.\frac{\partial\chi^i}{\partial t}\right|_X.
