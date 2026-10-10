@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { readdir } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 test.describe('Academic Website Features', () => {
@@ -459,6 +459,18 @@ test.describe('Academic Website Features', () => {
       'ch11-design-procedure.md',
       'ch12-part-defects.md',
     ]);
+  });
+
+  test('Moldflow Design Guide replaces every figure placeholder with an image', async () => {
+    const directory = resolve('docs/content/docs/zh/moldflow-design-guide');
+    const routes = (await readdir(directory)).filter((route) => route.endsWith('.md'));
+    const chapters = await Promise.all(
+      routes.map(async (route) => [route, await readFile(resolve(directory, route), 'utf8')] as const)
+    );
+
+    for (const [route, chapter] of chapters) {
+      expect(chapter, `${route} has an unrendered figure placeholder`).not.toMatch(/^\*图 .+\*$/m);
+    }
   });
 
   test('Human Use publishes only the canonical 12 routes', async () => {
