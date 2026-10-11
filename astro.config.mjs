@@ -69,6 +69,13 @@ export default defineConfig({
             { label: 'Coordinate Systems', translations: { 'zh-CN': '坐标系' }, link: '/coordinate-system/' },
           ],
         },
+        {
+          label: 'Fluid Mechanics',
+          translations: { 'zh-CN': 'Fluid Mechanics' },
+          items: [
+            { label: 'Helmholtz Decomposition', translations: { 'zh-CN': 'Helmholtz Decomposition' }, link: '/fluid-mechanics/helmholtz-decomposition/' },
+          ],
+        },
         { label: 'Photos', translations: { 'zh-CN': '相册' }, link: '/photos/' },
       ],
     }),

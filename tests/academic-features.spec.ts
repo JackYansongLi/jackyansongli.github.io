@@ -3,6 +3,51 @@ import { readdir, readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 test.describe('Academic Website Features', () => {
+  test('Fluid Mechanics presents Helmholtz Decomposition in English in both locales', async ({ page }) => {
+    for (const path of ['/fluid-mechanics/helmholtz-decomposition/', '/zh/fluid-mechanics/helmholtz-decomposition/']) {
+      await page.goto(path);
+      await expect(page.getByRole('heading', { level: 1, name: 'Helmholtz Decomposition' })).toBeVisible();
+      await expect(page.getByRole('link', { name: 'Download the PDF' })).toHaveAttribute(
+        'href',
+        '/fluid-mechanics/helmholtz-decomposition.pdf'
+      );
+      await expect(page.getByRole('navigation').getByText('Fluid Mechanics', { exact: true })).toBeVisible();
+      await expect(page.getByRole('navigation').getByRole('link', { name: 'Helmholtz Decomposition' })).toHaveAttribute(
+        'href',
+        path
+      );
+    }
+
+    for (const [indexPath, articlePath] of [
+      ['/list-articles/', '/fluid-mechanics/helmholtz-decomposition/'],
+      ['/zh/list-articles/', '/zh/fluid-mechanics/helmholtz-decomposition/'],
+    ]) {
+      await page.goto(indexPath);
+      await expect(page.getByRole('main').getByRole('link', { name: 'Helmholtz Decomposition' })).toHaveAttribute(
+        'href',
+        articlePath
+      );
+    }
+
+    const pdfResponse = await page.request.get('/fluid-mechanics/helmholtz-decomposition.pdf');
+    expect(pdfResponse.ok()).toBe(true);
+    expect(pdfResponse.headers()['content-type']).toContain('application/pdf');
+  });
+
+  test('Helmholtz Decomposition preserves the potential and vorticity derivation in both locales', async () => {
+    const articlePaths = [
+      'docs/content/docs/fluid-mechanics/helmholtz-decomposition.md',
+      'docs/content/docs/zh/fluid-mechanics/helmholtz-decomposition.md',
+    ];
+
+    for (const articlePath of articlePaths) {
+      const article = await readFile(resolve(process.cwd(), articlePath), 'utf8');
+      expect(article).toContain('\\phi=\\frac{1}{2}\\delta x^T S\\delta x');
+      expect(article).toContain('&=-\\frac{1}{4}\\epsilon^{imn}(\\partial_n u^m-\\partial_m u^n)');
+      expect(article).toContain('&=\\frac{1}{2}\\epsilon^{imn}\\partial_m u^n');
+    }
+  });
+
   test('MathJax renders equations with correct selectors', async ({ page }) => {
     await page.goto('/regret-ol');
     
