@@ -166,11 +166,21 @@ $$dU=\left(\frac{\partial U}{\partial T}\right)_VdT+\left(\frac{\partial U}{\par
 
 代入 (11.12) 并用 (11.8)：
 
-$$\delta Q=\left(\frac{\partial U}{\partial T}\right)_VdT+\left[\left(\frac{\partial U}{\partial V}\right)_T+p\right]dV.\tag{11.14}$$
+$$
+\begin{aligned}
+\delta Q&=\left(\frac{\partial U}{\partial T}\right)_VdT+\\
+&\left[\left(\frac{\partial U}{\partial V}\right)_T+p\right]dV.
+\end{aligned}\tag{11.14}
+$$
 
 在定容下，1760 年代 Black 先以实验描述的热容 $C$ 为 $C_V=\left(\frac{\delta Q}{dT}\right)_V=\left(\frac{\partial U}{\partial T}\right)_V$。定压下，
 
-$$C_p=\left(\frac{\delta Q}{dT}\right)_p=\left(\frac{\partial U}{\partial T}\right)_V+\left[\left(\frac{\partial U}{\partial V}\right)_T+p\right]\left(\frac{\partial V}{\partial T}\right)_p.\tag{11.15}$$
+$$
+\begin{aligned}
+C_p&=\left(\frac{\delta Q}{dT}\right)_p=\left(\frac{\partial U}{\partial T}\right)_V+\\
+&\left[\left(\frac{\partial U}{\partial V}\right)_T+p\right]\left(\frac{\partial V}{\partial T}\right)_p.
+\end{aligned}\tag{11.15}
+$$
 
 这些式给出既定热输入的温升。它们不指特定体积或质量，惯用单位质量的比热容，特定量按惯例用小写：
 
@@ -208,7 +218,12 @@ $$
 
 $pV+U$ 完全由状态函数组成，故亦为状态函数，称焓 $H$：
 
-$$H=U+pV,\qquad C_p=\left(\frac{\delta Q}{dT}\right)_p=\left(\frac{\partial H}{\partial T}\right)_p=\left(\frac{\partial}{\partial T}(U+pV)\right)_p.\tag{11.20}$$
+$$
+\begin{aligned}
+H&=U+pV,\\
+\qquad C_p&=\left(\frac{\delta Q}{dT}\right)_p=\left(\frac{\partial H}{\partial T}\right)_p=\left(\frac{\partial}{\partial T}(U+pV)\right)_p.
+\end{aligned}\tag{11.20}
+$$
 
 焓常出现于流动过程，特别是 Joule-Kelvin 膨胀。气体由一缸转入另一缸，二缸压强维持为 $p_1,p_2$（图 11.4）。设一定质量气体经一个或多个小孔或窄管，常称“多孔塞”，从 A 到 B。A 中初始内能 $U_1$、体积 $V_1$、压强 $p_1$；A 的活塞在恒压 $p_1$ 将气体推过塞入 B 后，B 中气体有 $p_2,V_2,T_2$。系统热隔离，推气体所涉能量为 $U_1+p_1V_1$，必须等于 $U_2+p_2V_2$：
 
@@ -438,11 +453,21 @@ $$f(\theta_1,\theta_3)=f(\theta_1,\theta_2)f(\theta_2,\theta_3).\tag{11.34}$$
 
 故 $f$ 必有形式
 
-$$f(\theta_1,\theta_3)=\frac{g(\theta_1)}{g(\theta_3)}=\frac{g(\theta_1)}{g(\theta_2)}\frac{g(\theta_2)}{g(\theta_3)}.\tag{11.35}$$
+$$
+\begin{aligned}
+f(\theta_1,\theta_3)&=\frac{g(\theta_1)}{g(\theta_3)}\\
+&=\frac{g(\theta_1)}{g(\theta_2)}\frac{g(\theta_2)}{g(\theta_3)}.
+\end{aligned}\tag{11.35}
+$$
 
 取符合要求的热力学温度定义：
 
-$$\frac{g(\theta_1)}{g(\theta_3)}=\frac{T_1}{T_3},\qquad\text{即}\qquad\frac{Q_1}{Q_3}=\frac{T_1}{T_3}.\tag{11.36}$$
+$$
+\begin{aligned}
+\frac{g(\theta_1)}{g(\theta_3)}&=\frac{T_1}{T_3},\\
+&\qquad\text{即}\qquad\frac{Q_1}{Q_3}=\frac{T_1}{T_3}.
+\end{aligned}\tag{11.36}
+$$
 
 可证明它与完全气体温标相同。写完全气体温标为 $T^P$，则 $pV=RT^P$。完全气体 Carnot 循环由 (11.29)：
 
@@ -458,7 +483,12 @@ $$
 
 因而
 
-$$\left(\frac{V_B}{V_A}\right)^{\gamma-1}=\frac{T_2^P}{T_1^P},\qquad\left(\frac{V_D}{V_C}\right)^{\gamma-1}=\frac{T_1^P}{T_2^P}.\tag{11.39}$$
+$$
+\begin{aligned}
+\left(\frac{V_B}{V_A}\right)^{\gamma-1}&=\frac{T_2^P}{T_1^P},\\
+\qquad\left(\frac{V_D}{V_C}\right)^{\gamma-1}&=\frac{T_1^P}{T_2^P}.
+\end{aligned}\tag{11.39}
+$$
 
 相乘得
 
@@ -498,7 +528,12 @@ $$\int_A^C\frac{\delta Q}{T}-\int_C^A\frac{\delta Q}{T}=0.\tag{11.45}$$
 
 因为图 11.12 Carnot 循环中仅等温段供、移热，且这些段可逆，故从 A 到 C 无论经循环哪一支：
 
-$$\left.\int_A^C\frac{\delta Q}{T}\right|_{\text{经 B}}=\left.\int_A^C\frac{\delta Q}{T}\right|_{\text{经 D}}.\tag{11.46}$$
+$$
+\begin{aligned}
+\left.\int_A^C\frac{\delta Q}{T}\right|_{\text{经 B}}&=\\
+&\left.\int_A^C\frac{\delta Q}{T}\right|_{\text{经 D}}.
+\end{aligned}\tag{11.46}
+$$
 
 这强烈暗示发现另一状态函数。任一双坐标系统，在示功图任意两点间可用大量小 Carnot 循环移动，且均可逆（图 11.20），无论何路径总得同结果。数学上任意 A、B：
 
@@ -620,15 +655,30 @@ $$dz=\left(\frac{\partial z}{\partial x}\right)_ydx+\left(\frac{\partial z}{\par
 微分 $dz$ 不依赖作 $dx,dy$ 增量的方式，从而限制 $z$ 对 $x,y$ 的函数依赖。图 A11.1 中从 A 到 C 可经 D 或 B。因为 $z$ 是状态函数，沿 ABC 与 ADC 的 $dz$ 必相同。沿 ADC，先沿 $x$ 方向走 $dx$，再从 $x+dx$ 点走 $dy$：
 
 $$z(C)=z(A)+\left(\frac{\partial z}{\partial x}\right)_ydx+\left[\left(\frac{\partial z}{\partial y}\right)_x+\frac{\partial}{\partial y}\left(\frac{\partial z}{\partial x}\right)_ydx\right]dy$$
-$$=z(A)+\left(\frac{\partial z}{\partial x}\right)_ydx+\left(\frac{\partial z}{\partial y}\right)_xdy+\frac{\partial^2z}{\partial y\partial x}dx\,dy.\tag{A11.2}$$
+$$
+\begin{aligned}
+&=z(A)+\left(\frac{\partial z}{\partial x}\right)_ydx+\left(\frac{\partial z}{\partial y}\right)_xdy+\\
+&\frac{\partial^2z}{\partial y\partial x}dx\,dy.
+\end{aligned}\tag{A11.2}
+$$
 
 其中 $\partial^2z/\partial y\partial x$ 指 $\left[\frac\partial{\partial y}\left(\frac{\partial z}{\partial x}\right)_y\right]_x$。沿 ABC：
 
-$$z(C)=z(A)+\left(\frac{\partial z}{\partial y}\right)_xdy+\left(\frac{\partial z}{\partial x}\right)_ydx+\frac{\partial^2z}{\partial x\partial y}dx\,dy.\tag{A11.3}$$
+$$
+\begin{aligned}
+z(C)&=z(A)+\left(\frac{\partial z}{\partial y}\right)_xdy+\left(\frac{\partial z}{\partial x}\right)_ydx+\\
+&\frac{\partial^2z}{\partial x\partial y}dx\,dy.
+\end{aligned}\tag{A11.3}
+$$
 
 在 (A11.2)、(A11.3) 中双偏导的顺序重要。两式必须相同，故
 
-$$\frac{\partial^2z}{\partial y\partial x}=\frac{\partial^2z}{\partial x\partial y},\qquad \frac\partial{\partial y}\left(\frac{\partial z}{\partial x}\right)_y=\frac\partial{\partial x}\left(\frac{\partial z}{\partial y}\right)_x.\tag{A11.4}$$
+$$
+\begin{aligned}
+\frac{\partial^2z}{\partial y\partial x}&=\frac{\partial^2z}{\partial x\partial y},\\
+\qquad \frac\partial{\partial y}\left(\frac{\partial z}{\partial x}\right)_y&=\frac\partial{\partial x}\left(\frac{\partial z}{\partial y}\right)_x.
+\end{aligned}\tag{A11.4}
+$$
 
 这是 $z$ 是 $x,y$ 的全微分的数学条件。
 
@@ -644,11 +694,21 @@ $$dU=\left(\frac{\partial U}{\partial S}\right)_VdS+\left(\frac{\partial U}{\par
 
 同 (A11.5) 比较：
 
-$$T=\left(\frac{\partial U}{\partial S}\right)_V;\qquad p=-\left(\frac{\partial U}{\partial V}\right)_S.\tag{A11.7}$$
+$$
+\begin{aligned}
+T&=\left(\frac{\partial U}{\partial S}\right)_V;\\
+\qquad p&=-\left(\frac{\partial U}{\partial V}\right)_S.
+\end{aligned}\tag{A11.7}
+$$
 
 又由 (A11.4)：
 
-$$\frac\partial{\partial V}\left(\frac{\partial U}{\partial S}\right)_V=\frac\partial{\partial S}\left(\frac{\partial U}{\partial V}\right)_S.\tag{A11.8}$$
+$$
+\begin{aligned}
+\frac\partial{\partial V}\left(\frac{\partial U}{\partial S}\right)_V&=\\
+&\frac\partial{\partial S}\left(\frac{\partial U}{\partial V}\right)_S.
+\end{aligned}\tag{A11.8}
+$$
 
 代入 (A11.7)：
 
@@ -677,7 +737,12 @@ $$dV_{uvw}=\left|\frac{\partial(x,y,z)}{\partial(u,v,w)}\right|du\,dv\,dw,\tag{A
 
 其中 Jacobian 定义为²¹
 
-$$\frac{\partial(x,y,z)}{\partial(u,v,w)}=\begin{vmatrix}\frac{\partial x}{\partial u}&\frac{\partial y}{\partial u}&\frac{\partial z}{\partial u}\\\frac{\partial x}{\partial v}&\frac{\partial y}{\partial v}&\frac{\partial z}{\partial v}\\\frac{\partial x}{\partial w}&\frac{\partial y}{\partial w}&\frac{\partial z}{\partial w}\end{vmatrix}.\tag{A11.15}$$
+$$
+\begin{aligned}
+\frac{\partial(x,y,z)}{\partial(u,v,w)}&=\\
+&\begin{vmatrix}\frac{\partial x}{\partial u}&\frac{\partial y}{\partial u}&\frac{\partial z}{\partial u}\\\frac{\partial x}{\partial v}&\frac{\partial y}{\partial v}&\frac{\partial z}{\partial v}\\\frac{\partial x}{\partial w}&\frac{\partial y}{\partial w}&\frac{\partial z}{\partial w}\end{vmatrix}.
+\end{aligned}\tag{A11.15}
+$$
 
 对 Maxwell 方程只需双坐标版本。若 $x,y,u,v$ 相关：
 
@@ -685,7 +750,12 @@ $$\begin{cases}x=x(u,v),\\y=y(u,v),\end{cases}\tag{A11.16}$$
 
 Jacobian 定义为行列式
 
-$$\frac{\partial(x,y)}{\partial(u,v)}=\begin{vmatrix}\frac{\partial x}{\partial u}&\frac{\partial y}{\partial u}\\\frac{\partial x}{\partial v}&\frac{\partial y}{\partial v}\end{vmatrix}.\tag{A11.17}$$
+$$
+\begin{aligned}
+\frac{\partial(x,y)}{\partial(u,v)}&=\\
+&\begin{vmatrix}\frac{\partial x}{\partial u}&\frac{\partial y}{\partial u}\\\frac{\partial x}{\partial v}&\frac{\partial y}{\partial v}\end{vmatrix}.
+\end{aligned}\tag{A11.17}
+$$
 
 由行列式性质容易证明
 
@@ -696,8 +766,17 @@ $$\frac{\partial(u,v)}{\partial(x,y)}=-\frac{\partial(v,u)}{\partial(x,y)}=\frac
 等等。分母的变换也有相似规则。特别是
 
 $$\frac{\partial(u,y)}{\partial(x,y)}=\left(\frac{\partial u}{\partial x}\right)_y,\tag{A11.19}$$
-$$\frac{\partial(u,v)}{\partial(x,y)}=\frac{\partial(u,v)}{\partial(r,s)}\frac{\partial(r,s)}{\partial(x,y)}=\frac1{\partial(x,y)/\partial(u,v)},\tag{A11.20}$$
-$$\left(\frac{\partial y}{\partial x}\right)_z\left(\frac{\partial z}{\partial y}\right)_x\left(\frac{\partial x}{\partial z}\right)_y=-1.\tag{A11.21}$$
+$$
+\begin{aligned}
+\frac{\partial(u,v)}{\partial(x,y)}&=\frac{\partial(u,v)}{\partial(r,s)}\frac{\partial(r,s)}{\partial(x,y)}\\
+&=\frac1{\partial(x,y)/\partial(u,v)},
+\end{aligned}\tag{A11.20}
+$$
+$$
+\begin{aligned}
+\left(\frac{\partial y}{\partial x}\right)_z\left(\frac{\partial z}{\partial y}\right)_x\left(\frac{\partial x}{\partial z}\right)_y&=-1.
+\end{aligned}\tag{A11.21}
+$$
 
 Riley、Hobson、Bence 给出等同 (A11.17) 至 (A11.21) 的一般 $n$ 坐标关系。²² Jacobian 记号的价值在于可将四个 Maxwell 方程紧凑写作
 
@@ -709,7 +788,12 @@ $$\left(\frac{\partial T}{\partial V}\right)_S=-\left(\frac{\partial p}{\partial
 
 恰等同于
 
-$$\frac{\partial(T,S)}{\partial(V,S)}=-\frac{\partial(p,V)}{\partial(S,V)}=\frac{\partial(p,V)}{\partial(V,S)}.\tag{A11.24}$$
+$$
+\begin{aligned}
+\frac{\partial(T,S)}{\partial(V,S)}&=-\frac{\partial(p,V)}{\partial(S,V)}\\
+&=\frac{\partial(p,V)}{\partial(V,S)}.
+\end{aligned}\tag{A11.24}
+$$
 
 将 $T,S,p,V$ 的四个适当组合放进 (A11.22) 分母，即生成四个 Maxwell 关系。依 (A11.20)，(A11.22) 恰等于
 

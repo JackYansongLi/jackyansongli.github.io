@@ -30,3 +30,16 @@ test('Theoretical Concepts preserves every source-numbered equation in a standal
     }
   }
 });
+
+test('long numbered equation 11.20 keeps its tag beside a wrapped display', async () => {
+  const source = await readFile(new URL('ch11-basic-thermodynamics.md', chapterDirectory), 'utf8');
+  const taggedBlock = source
+    .split('$$')
+    .filter((_block, index) => index % 2 === 1)
+    .find((block) => block.includes('\\tag{11.20}'));
+
+  assert.ok(taggedBlock, 'equation 11.20 must remain a display block');
+  assert.match(taggedBlock, /\\begin\{aligned\}/);
+  assert.match(taggedBlock, /\\\\/);
+  assert.match(taggedBlock, /\\end\{aligned\}\s*\\tag\{11\.20\}/);
+});
