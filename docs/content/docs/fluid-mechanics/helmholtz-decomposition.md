@@ -8,7 +8,7 @@ description: Helmholtz Decomposition.
 $$
 u=u_0+\frac{1}{2}(\nabla\times u)\times\delta x+\nabla\phi
 \qquad
-\phi=\frac{1}{2}\delta x^T S\delta x
+\phi=\frac{1}{2}\delta x^{\top} S\delta x
 $$
 
 transition &nbsp;&nbsp;&nbsp;&nbsp; rotation &nbsp;&nbsp;&nbsp;&nbsp; deformation
@@ -55,23 +55,24 @@ $$
 \begin{cases}
 1 & \text{if even permutation}\\
 -1 & \text{if odd permutation}\\
-0 & \text{if }i=i\text{ or }i=j\text{ or }j=k\text{ or }\cdots
+0 & \text{if }i=j\text{ or }j=k\text{ or }\cdots
 \end{cases}
 $$
 
-Lemma ("Covariant Physics" (1.107))
+>**Lemma** ("Covariant Physics" (1.107))
+>
+>$$
+>\epsilon_{ijk}\epsilon^{mnk}=\left(\delta_i^m\delta_j^n-\delta_i^n\delta_j^m\right)
+>$$
 
-$$
-\epsilon_{ijk}\epsilon^{mnk}=\left(\delta_i^m\delta_j^n-\delta_i^n\delta_j^m\right)
-$$
-
-Proposition
-
-$$
-u,v\in\mathbb{R}^3
-\qquad
-(u\times v)^i=\epsilon^i_{\ jk}u^jv^k
-$$
+>**Proposition**
+>
+>$$
+>u,v\in\mathbb{R}^3
+>\qquad
+>(u\times v)^i=\epsilon^i_{\ jk}u^jv^k
+>$$
+By Taylor Expansion,
 
 $$
 u^i=u^i(0)+\sum_{j=1}^3\frac{\partial u^i}{\partial x^j}\delta x^j
@@ -112,38 +113,39 @@ T_{2j}\delta x^j
 \end{pmatrix}
 $$
 
-Def. (Symmetric tensor)
+>**Def**. (Symmetric tensor)
+>
+>$$
+>S_{ij}=S_{ji}
+>$$
 
-$$
-S_{ij}=S_{ji}
-$$
+>**Def**. (Anti-Symm tensor)
+>
+>$$
+>A_{ij}=-A_{ji}
+>$$
 
-Def. (Anti-Symm tensor)
+>**Theorem**.
+>A $(0,2)$ tensor $T_{i j}$ can be decomposed into 
+>$$
+>T_{ij}=A_{ij}+S_{ij},
+>$$
+>where
+>$$
+>A_{ij}=\frac{1}{2}(T_{ij}-T_{ji})
+>$$
+>
+>is the voticity/antisymmertic tensor
+>
+>$$
+>S_{ij}=\frac{1}{2}(T_{ij}+T_{ji})
+>$$
+>
+>is the deformation/symmetric tensor.
 
+Therefore, the velocity is decompsed into
 $$
-A_{ij}=-A_{ji}
-$$
-
-Theorem
-
-$$
-T_{ij}=A_{ij}+S_{ij}
-$$
-
-$$
-A_{ij}=\frac{1}{2}(T_{ij}-T_{ji})
-$$
-
-voticity ten.
-
-$$
-S_{ij}=\frac{1}{2}(T_{ij}+T_{ji})
-$$
-
-deformation tensor
-
-$$
-u^i=T_{ij}\delta x^j=A_{ij}\delta x^j+S_{ij}\delta x^j
+u^i=T_{ij}\delta x^j=A_{ij}\delta x^j+S_{ij}\delta x^j.
 $$
 
 ## Anti-Symm term / Voticity tensor
@@ -154,53 +156,53 @@ $$
 \omega^j\triangleq-\frac{1}{2}\epsilon^{jmn}A_{mn}
 $$
 
-Prop.
+>**Prop.**
+>
+>$$
+>A_{ij}\delta x^j=\epsilon_{ijk}\omega^j\delta x^k
+>$$
+>
+>$$
+>A\,\delta x=\omega\times\delta x
+>$$
 
-$$
-A_{ij}\delta x^j=\epsilon_{ijk}\omega^j\delta x^k
-$$
+>**Proof:**
+>
+>$$
+>\begin{aligned}
+>\epsilon_{ijk}\omega^j\delta x^k
+>&=-\frac{1}{2}\epsilon_{ijk}\epsilon^{jmn}A_{mn}\delta x^k\\
+>&=\frac{1}{2}\epsilon_{ikj}\epsilon^{mnj}A_{mn}\delta x^k\\
+>&=\frac{1}{2}(\delta_i^m\delta_k^n-\delta_i^n\delta_k^m)A_{mn}\delta x^k\\
+>&=\frac{1}{2}(A_{ik}-A_{ki})\delta x^k\\
+>&=A_{ik}\delta x^k=A_{ij}\delta x^j
+>\end{aligned}
+>$$
 
-$$
-A\,\delta x=\omega\times\delta x
-$$
+>**Prop.**
+>
+>$$
+>\omega^i=\frac{1}{2}\epsilon^i_{\ jk}\partial_j u^k
+>$$
+>
+>$$
+>\omega=\frac{1}{2}\nabla\times u
+>$$
 
-proof:
-
-$$
-\begin{aligned}
-\epsilon_{ijk}\omega^j\delta x^k
-&=-\frac{1}{2}\epsilon_{ijk}\epsilon^{jmn}A_{mn}\delta x^k\\
-&=\frac{1}{2}\epsilon_{ikj}\epsilon^{mnj}A_{mn}\delta x^k\\
-&=\frac{1}{2}(\delta_i^m\delta_k^n-\delta_i^n\delta_k^m)A_{mn}\delta x^k\\
-&=\frac{1}{2}(A_{ik}-A_{ki})\delta x^k\\
-&=A_{ik}\delta x^k=A_{ij}\delta x^j
-\end{aligned}
-$$
-
-Prop.
-
-$$
-\omega^i=\frac{1}{2}\epsilon^i_{\ jk}\partial_j u^k
-$$
-
-$$
-\omega=\frac{1}{2}\nabla\times u
-$$
-
-proof:
-
-$$
-\begin{aligned}
-\omega^i
-&=-\frac{1}{2}\epsilon^{imn}A_{mn}\\
-&=-\frac{1}{2}\epsilon^{imn}\frac{1}{2}(T_{mn}-T_{nm})\\
-&=-\frac{1}{4}\epsilon^{imn}(T_{mn}-T_{nm})\\
-&=-\frac{1}{4}\epsilon^{imn}(\partial_n u^m-\partial_m u^n)\\
-&=-\frac{1}{4}\epsilon^{imn}\partial_n u^m+\frac{1}{4}\epsilon^{imn}\partial_m u^n\\
-&=\frac{1}{4}\epsilon^{imn}\partial_m u^n+\frac{1}{4}\epsilon^{imn}\partial_m u^n\\
-&=\frac{1}{2}\epsilon^{imn}\partial_m u^n
-\end{aligned}
-$$
+>Proof:
+>
+>$$
+>\begin{aligned}
+>\omega^i
+>&=-\frac{1}{2}\epsilon^{imn}A_{mn}\\
+>&=-\frac{1}{2}\epsilon^{imn}\frac{1}{2}(T_{mn}-T_{nm})\\
+>&=-\frac{1}{4}\epsilon^{imn}(T_{mn}-T_{nm})\\
+>&=-\frac{1}{4}\epsilon^{imn}(\partial_n u^m-\partial_m u^n)\\
+>&=-\frac{1}{4}\epsilon^{imn}\partial_n u^m+\frac{1}{4}\epsilon^{imn}\partial_m u^n\\
+>&=\frac{1}{4}\epsilon^{imn}\partial_m u^n+\frac{1}{4}\epsilon^{imn}\partial_m u^n\\
+>&=\frac{1}{2}\epsilon^{imn}\partial_m u^n
+>\end{aligned}
+>$$
 
 $$
 A\,\delta x=\frac{1}{2}(\nabla\times u)\times\delta x
@@ -213,7 +215,7 @@ S\,x\triangleq ?
 $$
 
 $$
-\phi=\frac{1}{2}x^T Sx
+\phi=\frac{1}{2}x^{\top} Sx
 \qquad
 \nabla\phi=Sx
 $$
@@ -224,14 +226,10 @@ Sx=\nabla\phi
 \phi:\mathbb{R}^3\to\mathbb{R}
 $$
 
-HW Define
-
-$$
-\phi=\frac{1}{2}x^iS_{ij}x^j
-$$
-
-prove
-
-$$
-\partial_i\phi=S_{ij}x^j
-$$
+>**HW** Define
+>
+>$$
+>\phi=\frac{1}{2}x^iS_{ij}x^j
+>$$
+>
+>prove that $\partial_i\phi=S_{ij}x^j$.
