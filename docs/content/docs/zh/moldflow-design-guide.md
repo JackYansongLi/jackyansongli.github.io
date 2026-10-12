@@ -12,7 +12,7 @@ head:
 
 <div data-moldflow-protected-content>
 
-以下译文仅含正文，已跳过图片、目录和参考文献。输入访问密码后可阅读。
+以下译文仅含正文，已跳过目录和参考文献。输入访问密码后可阅读。
 
 1. [第1章：注塑模具中的聚合物流动行为](/zh/moldflow-design-guide/ch01-polymer-flow-behavior/)
 2. [第2章：成型条件与压力](/zh/moldflow-design-guide/ch02-molding-conditions-pressure/)

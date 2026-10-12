@@ -12,7 +12,7 @@ head:
 
 <div data-moldflow-protected-content>
 
-以下译文仅含正文，已跳过图片、目录和参考文献。输入访问密码后可阅读。
+以下译文仅含正文，已跳过目录和参考文献。输入访问密码后可阅读。
 
 1. [第 1 章：仿真现状](/zh/flow-analysis/ch01-current-status/)
 2. [第 2 章：流体力学中的应力与应变](/zh/flow-analysis/ch02-stress-strain/)
