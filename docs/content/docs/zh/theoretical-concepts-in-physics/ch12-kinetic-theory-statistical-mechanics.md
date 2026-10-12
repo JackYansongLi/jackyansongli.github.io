@@ -132,7 +132,13 @@ $$J(v,\theta)d\theta=\frac{n(v)vdA}{2}\sin\theta\cos\theta\,d\theta.\tag{12.16}$
 
 故这些分子对容器壁单位面积动量变化率的贡献为
 
-$$\begin{aligned}dp(v,\theta)d\theta&=\Delta p_x\times J(v,\theta)d\theta\\&=2mv\cos\theta\times\frac{n(v)v}{2}\sin\theta\cos\theta\,d\theta\\&=n(v)mv^2\sin\theta\cos^2\theta\,d\theta.\end{aligned}\tag{12.17}$$
+$$
+\begin{aligned}
+dp(v,\theta)d\theta&=\Delta p_x\times J(v,\theta)d\theta\\
+&=2mv\cos\theta\times\frac{n(v)v}{2}\sin\theta\cos\theta\,d\theta\\
+&=n(v)mv^2\sin\theta\cos^2\theta\,d\theta.
+\end{aligned}\tag{12.17}
+$$
 
 从 $\theta=0$ 积分到 $\pi/2$，所有速度为 $v$ 的分子产生的压强为
 
@@ -246,13 +252,23 @@ $$N\frac4{\alpha^3\pi^{1/2}}v^2e^{-v^2/\alpha^2}dv.$$
 
 这是将三个 $f(v_x)$、$f(v_y)$、$f(v_z)$ 的乘积从笛卡儿坐标变换至速度空间极坐标所得：
 
-$$\begin{aligned}\phi(v)dv_xdv_ydv_z&=f(v_x)f(v_y)f(v_z)dv_xdv_ydv_z\\&=\frac1{\alpha^3\pi^{3/2}}e^{-v^2/\alpha^2}dv_xdv_ydv_z.\end{aligned}\tag{12.35}$$
+$$
+\begin{aligned}
+\phi(v)dv_xdv_ydv_z&=f(v_x)f(v_y)f(v_z)dv_xdv_ydv_z\\
+&=\frac1{\alpha^3\pi^{3/2}}e^{-v^2/\alpha^2}dv_xdv_ydv_z.
+\end{aligned}\tag{12.35}
+$$
 
 但与速度 $v$ 有关的体积元 $dv_x$、$dv_y$、$dv_z$ 的贡献，均位于速度空间中半径为 $v$、宽为 $dv$ 的球壳内（图 12.2），即速度由 $v$ 至 $v+dv$ 的空间体积 $4\pi v^2dv$。因此
 
 <img src="/images/theoretical-concepts-in-physics/fig-12-2.png" alt="图 12.2：原书扫描页" loading="lazy" decoding="async" />
 
-$$\phi(v)dv=\frac1{\alpha^3\pi^{3/2}}e^{-v^2/\alpha^2}4\pi v^2dv=\frac4{\alpha^3\pi^{1/2}}v^2e^{-v^2/\alpha^2}dv,\tag{12.36}$$
+$$
+\begin{aligned}
+\phi(v)dv&=\frac1{\alpha^3\pi^{3/2}}e^{-v^2/\alpha^2}4\pi v^2dv\\
+&=\frac4{\alpha^3\pi^{1/2}}v^2e^{-v^2/\alpha^2}dv,
+\end{aligned}\tag{12.36}
+$$
 
 正如 Maxwell 所述。
 
@@ -336,7 +352,11 @@ $$[dv_xdv_ydv_z]_1[dv_xdv_ydv_z]_2=[dv_x'dv_y'dv_z']_1[dv_x'dv_y'dv_z']_2.$$
 
 这个故事有一有趣脚注。Maxwell 速度分布中的指数因子正是 $\exp(-E/k_BT)$，其中 $E=\frac12mv^2$ 是分子动能。由式 (12.41)，速度区间 $v_i$ 至 $v_i+dv_i$ 和 $v_j$ 至 $v_j+dv_j$ 中的分子数之比为
 
-$$\frac{N(E_i)}{N(E_j)}=\frac{\exp(-E_i/k_BT)\times4\pi v_i^2dv_i}{\exp(-E_j/k_BT)\times4\pi v_j^2dv_j}.\tag{12.45}$$
+$$
+\begin{aligned}
+\frac{N(E_i)}{N(E_j)}&=\frac{\exp(-E_i/k_BT)\times4\pi v_i^2dv_i}{\exp(-E_j/k_BT)\times4\pi v_j^2dv_j}.
+\end{aligned}\tag{12.45}
+$$
 
 此式可从温度 $T$ 下分子具有能量 $E$ 的概率，以及速度在 $v$ 至 $v+dv$ 范围分子可用速度空间体积来诠释。这是可写成如下更普遍结果的一个版本：
 
@@ -366,11 +386,21 @@ $$J(v,\theta)d\theta=\frac{n(v)vdA}{2}\sin\theta\cos\theta\,d\theta.$$
 
 每个分子带有在距平面垂直距离 $\lambda\cos\theta$ 处获得的 $y$ 方向整体动量分量 $mv_y(x_0-\lambda\cos\theta)$，故这些分子每单位面积的动量输送率为
 
-$$\begin{aligned}\frac{dp_y(v,\theta)d\theta}{dt}&=mv_y(x_0-\lambda\cos\theta)\times\frac{n(v)v}{2}\sin\theta\cos\theta\,d\theta\\&=m\left[v_y(x_0)-\lambda\cos\theta\frac{dv_y}{dx}\right]\frac{n(v)v}{2}\sin\theta\cos\theta\,d\theta,\end{aligned}\tag{12.48}$$
+$$
+\begin{aligned}
+\frac{dp_y(v,\theta)d\theta}{dt}&=mv_y(x_0-\lambda\cos\theta)\times\frac{n(v)v}{2}\sin\theta\cos\theta\,d\theta\\
+&=m\left[v_y(x_0)-\lambda\cos\theta\frac{dv_y}{dx}\right]\frac{n(v)v}{2}\sin\theta\cos\theta\,d\theta,
+\end{aligned}\tag{12.48}
+$$
 
 其中得出第二个等式时作了 Taylor 展开。此计算令人愉快之处在于，现在可将角度从 $\theta=\pi$ 至 $\theta=0$ 积分，从而考虑从 $x_0$ 处 $y$–$z$ 平面两侧随机抵达的分子：
 
-$$\frac{dp_y(v)}{dt}=\frac12mvn(v)\left[v_y(x_0)\int_\pi^0\sin\theta\cos\theta\,d\theta-\lambda\frac{dv_y}{dx}\int_\pi^0\sin\theta\cos^2\theta\,d\theta\right].\tag{12.49}$$
+$$
+\begin{aligned}
+\frac{dp_y(v)}{dt}&=\frac12mvn(v)\left[v_y(x_0)\int_\pi^0\sin\theta\cos\theta\,d\theta\\
+&-\lambda\frac{dv_y}{dx}\int_\pi^0\sin\theta\cos^2\theta\,d\theta\right].
+\end{aligned}\tag{12.49}
+$$
 
 方括号内第一积分为零，第二为 $-2/3$。故在 $x_0$ 处单位面积动量输送净速率为
 
@@ -585,7 +615,12 @@ $$S=-N_0k_B[r\ln r+(1-r)\ln(1-r)].\tag{12.65}$$
 
 对 $x$ 小的偏差，展开 $g(N_0,x)$；使用 $\ln(1+x)=x-\frac12x^2$，
 
-$$\ln g(N_0,x)=N_0\ln2-\frac{2x^2}{N_0}+\cdots,\qquad g(N_0,x)=2^{N_0}\exp\left(-\frac{2x^2}{N_0}\right).\tag{12.66}$$
+$$
+\begin{aligned}
+\ln g(N_0,x)&=N_0\ln2-\frac{2x^2}{N_0}+\cdots,\\
+\qquad g(N_0,x)&=2^{N_0}\exp\left(-\frac{2x^2}{N_0}\right).
+\end{aligned}\tag{12.66}
+$$
 
 总分法数为 $2^{N_0}$，故概率分布为
 
@@ -634,7 +669,12 @@ $$
 
 故
 
-$$g_A=\frac{(5000+Q_A)^{5000+Q_A}}{Q_A^{Q_A}5000^{5000}},\quad g_B=\frac{(10000+Q_B)^{10000+Q_B}}{Q_B^{Q_B}10000^{10000}}.\tag{12.73}$$
+$$
+\begin{aligned}
+g_A&=\frac{(5000+Q_A)^{5000+Q_A}}{Q_A^{Q_A}5000^{5000}},\\
+\quad g_B&=\frac{(10000+Q_B)^{10000+Q_B}}{Q_B^{Q_B}10000^{10000}}.
+\end{aligned}\tag{12.73}
+$$
 
 $$
 g=g_Ag_B=
