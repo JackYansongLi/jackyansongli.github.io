@@ -124,7 +124,13 @@ $$W=\int_{\mathbf r_1}^{\mathbf r_2}\mathbf f\cdot d\mathbf r,\tag{11.7}$$
 
 其中力 $\mathbf f$ 的作用使物体移动距离增量 $d\mathbf r$。对物体做功使能量增加。对系统做功有不同方式：
 
-* 在外压 $p$ 作用下压缩流体，做功视为正量。对流体做机械功时体积减小，故 $dW=-p\,dV$。若流体膨胀做功，周围所受功为正，系统所受功为负，体积增量符号重要：$dW=-p\,dV$。\tag{11.8}
+* 在外压 $p$ 作用下压缩流体，做功视为正量。对流体做机械功时体积减小，故
+
+$$
+dW=-p\,dV.\tag{11.8}
+$$
+
+若流体膨胀做功，周围所受功为正，系统所受功为负，体积增量符号重要。
 * 拉伸导线 $dl$：$dW=\mathbf f\cdot d\mathbf l$。
 * 电场 $\mathbf E$ 对电荷 $q$ 做功：$dW=q\mathbf E\cdot d\mathbf r$。
 * 克服表面张力使面积增 $dA$：$dW=\gamma\,dA$，$\gamma$ 为表面张力系数。
@@ -420,7 +426,13 @@ $$\eta=\frac{Q_1-Q_2}{Q_1},\qquad \frac{Q_1}{Q_2}=\frac1{1-\eta}.\tag{11.31}$$
 
 $$\frac{Q_1}{Q_2}=f(\theta_1,\theta_2),\qquad\frac{Q_2}{Q_3}=f(\theta_2,\theta_3).\tag{11.32}$$
 
-将合系统视为 $\theta_1,\theta_3$ 间单机：$\frac{Q_1}{Q_3}=f(\theta_1,\theta_3)$。\tag{11.33} 因为 $Q_1/Q_3=(Q_1/Q_2)(Q_2/Q_3)$，所以
+将合系统视为 $\theta_1,\theta_3$ 间单机：
+
+$$
+\frac{Q_1}{Q_3}=f(\theta_1,\theta_3).\tag{11.33}
+$$
+
+因为 $Q_1/Q_3=(Q_1/Q_2)(Q_2/Q_3)$，所以
 
 $$f(\theta_1,\theta_3)=f(\theta_1,\theta_2)f(\theta_2,\theta_3).\tag{11.34}$$
 
@@ -436,11 +448,31 @@ $$\frac{g(\theta_1)}{g(\theta_3)}=\frac{T_1}{T_3},\qquad\text{即}\qquad\frac{Q_
 
 $$Q_1=\int_A^Bp\,dV=RT_1^P\ln\frac{V_B}{V_A},\qquad Q_2=\int_D^Cp\,dV=RT_2^P\ln\frac{V_C}{V_D}.\tag{11.37}$$
 
-循环绝热支上 $pV^\gamma=\text{常数}$、$T^PV^{\gamma-1}=\text{常数}$。\tag{11.38} 因而
+循环绝热支上
+
+$$
+pV^\gamma=\text{constant}
+\qquad\text{and}\qquad
+T^P V^{\gamma-1}=\text{constant}.\tag{11.38}
+$$
+
+因而
 
 $$\left(\frac{V_B}{V_A}\right)^{\gamma-1}=\frac{T_2^P}{T_1^P},\qquad\left(\frac{V_D}{V_C}\right)^{\gamma-1}=\frac{T_1^P}{T_2^P}.\tag{11.39}$$
 
-相乘得 $V_BV_D/(V_AV_C)=1$。\tag{11.40} 即 $V_B/V_A=V_C/V_D$。\tag{11.41} 故由 (11.37)、(11.36)：
+相乘得
+
+$$
+\frac{V_BV_D}{V_AV_C}=1.\tag{11.40}
+$$
+
+即
+
+$$
+\frac{V_B}{V_A}=\frac{V_C}{V_D}.\tag{11.41}
+$$
+
+故由 (11.37)、(11.36)：
 
 $$\frac{Q_1}{Q_2}=\frac{T_1^P}{T_2^P}=\frac{T_1}{T_2}.\tag{11.42}$$
 
