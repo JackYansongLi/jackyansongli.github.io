@@ -63,13 +63,6 @@ export default defineConfig({
          { label: 'Moldflow Design Guide (Chinese Translation)', translations: { 'zh-CN': '《Moldflow Design Guide》中文译文' }, link: 'https://jackyansongli.github.io/zh/moldflow-design-guide/' },
          { label: 'The Human Use of Human Beings (Chinese Translation)', translations: { 'zh-CN': '《人有人的用处》中文译文' }, link: 'https://jackyansongli.github.io/zh/human-use-of-human-beings/' },
         {
-          label: 'Vector Calculus & Tensors',
-          translations: { 'zh-CN': '向量微积分与张量' },
-          items: [
-            { label: 'Coordinate Systems', translations: { 'zh-CN': '坐标系' }, link: '/coordinate-system/' },
-          ],
-        },
-        {
           label: 'Fluid Mechanics',
           translations: { 'zh-CN': 'Fluid Mechanics' },
           items: [
