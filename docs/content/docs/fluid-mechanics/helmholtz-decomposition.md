@@ -189,7 +189,7 @@ $$
 >\omega=\frac{1}{2}\nabla\times u
 >$$
 
->Proof:
+>**Proof**:
 >
 >$$
 >\begin{aligned}
