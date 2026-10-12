@@ -21,7 +21,6 @@ const mountGate = (protectedElements) => {
   gate.innerHTML = `
     <p class="moldflow-access-gate__eyebrow">中文专题阅读</p>
     <h2>输入访问密码</h2>
-    <p>本专区仅提供中文内容。访问门仅防止随意浏览，不是服务器级别的安全认证。</p>
     <form>
       <label for="moldflow-access-password">访问密码</label>
       <input id="moldflow-access-password" name="password" type="password" autocomplete="current-password" required />
