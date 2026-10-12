@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import { access, readFile } from 'node:fs/promises';
+import { promisify } from 'node:util';
+import { execFile } from 'node:child_process';
 import { join } from 'node:path';
 import test from 'node:test';
 
@@ -10,6 +12,7 @@ const chapters = [
   ['ch11-basic-thermodynamics.md', 11, 21],
   ['ch12-kinetic-theory-statistical-mechanics.md', 12, 12],
 ];
+const execFileAsync = promisify(execFile);
 
 test('Theoretical Concepts chapters publish all mapped source figures with checked-in assets', async () => {
   let totalFigures = 0;
@@ -31,4 +34,41 @@ test('Theoretical Concepts chapters publish all mapped source figures with check
   }
 
   assert.equal(totalFigures, 50);
+});
+
+test('Theoretical Concepts figure assets are figure crops rather than complete PDF pages', async () => {
+  for (const [_chapterName, chapter, figureCount] of chapters) {
+    for (let figure = 1; figure <= figureCount; figure += 1) {
+      const assetName = `fig-${chapter}-${figure}.png`;
+      const { stdout } = await execFileAsync('magick', [
+        'identify',
+        '-format',
+        '%w %h',
+        join(imageDirectory.pathname, assetName),
+      ]);
+      const [width, height] = stdout.trim().split(' ').map(Number);
+
+      assert.ok(width > 0 && height > 0, `${assetName} must be a readable image`);
+      assert.ok(width * height < 1489 * 1938, `${assetName} must not retain a complete 200-DPI PDF page`);
+      assert.notEqual(`${width}x${height}`, '1589x2038', `${assetName} must not retain the old 50px-bordered page raster`);
+    }
+  }
+});
+
+test('Theoretical Concepts crop overrides preserve Fig. 11.13 and trim Fig. 12.8', async () => {
+  const expectedDimensions = new Map([
+    ['fig-11-13.png', '1160x816'],
+    ['fig-12-8.png', '944x308'],
+  ]);
+
+  for (const [assetName, expected] of expectedDimensions) {
+    const { stdout } = await execFileAsync('magick', [
+      'identify',
+      '-format',
+      '%wx%h',
+      join(imageDirectory.pathname, assetName),
+    ]);
+
+    assert.equal(stdout, expected, `${assetName} must use its verified crop bounds`);
+  }
 });
