@@ -521,6 +521,21 @@ $$\Delta S=S_2-S_1=k_B\ln(p_2/p_1).\tag{12.57}$$
 
 $$S_1(T,V)=C_V\ln\frac{T}{T_0}+R\ln\frac{V}{V_0}+S_1(T_0,V_0).$$
 
+两侧熵分别为
+
+$$
+\left\{
+\begin{aligned}
+S_1={}&rC_V\ln\frac{T}{T_0}
+    +rR\ln\frac{V}{2rV_0}
+    +rS_1(T_0,V_0),\\
+S_2={}&(1-r)C_V\ln\frac{T}{T_0}
+    +(1-r)R\ln\frac{V}{2(1-r)V_0}
+    +(1-r)S_1(T_0,V_0).
+\end{aligned}
+\right.\tag{12.58}
+$$
+
 合并 $m$ 个相等体积、共 $m$ 摩尔，熵可加；记 $mV=V_m$，得
 
 $$S_m(T,V_m)=mC_V\ln\frac{T}{T_0}+mR\ln\frac{V_m}{mV_0}+mS_1(T_0,V_0).$$
@@ -537,7 +552,32 @@ $$\Delta S(r)=-R[(1-r)\ln(1-r)+r\ln r].\tag{12.60}$$
 
 $$S=k_B\ln g(N,x)=k_B\{\ln N!-\ln[(N/2)-x]! -\ln[(N/2)+x]!\}.\tag{12.61}$$
 
-用 Stirling 近似 $\ln M!\approx M\ln M-M$ (12.62)，并令 $N=N_0$、$r=\frac12-x/N_0$、$1-r=\frac12+x/N_0$，即得
+用 Stirling 近似
+
+$$
+\ln M!\approx M\ln M-M.\tag{12.62}
+$$
+
+可得
+
+$$
+\frac{S}{k_B}
+=N\ln2
+-\left(\frac{N}{2}-x\right)\ln\left(1-\frac{2x}{N}\right)
+-\left(\frac{N}{2}+x\right)\ln\left(1+\frac{2x}{N}\right).\tag{12.63}
+$$
+
+即
+
+$$
+\frac{S}{k_B}
+=-N\left(\frac12-\frac{x}{N}\right)
+    \ln\left(\frac12-\frac{x}{N}\right)
+ -N\left(\frac12+\frac{x}{N}\right)
+    \ln\left(\frac12+\frac{x}{N}\right).\tag{12.64}
+$$
+
+令 $N=N_0$、$r=\frac12-x/N_0$、$1-r=\frac12+x/N_0$，即得
 
 $$S=-N_0k_B[r\ln r+(1-r)\ln(1-r)].\tag{12.65}$$
 
@@ -583,31 +623,95 @@ $$W=\frac{(Q+N-1)!}{Q!(N-1)!}.\tag{12.70}$$
 
 这开启通往熵增定律统计定义及统计物理中温度含义的道路。Waldram 给出例子：大系统 A、B，分别含 $N_A=5000$、$N_B=10000$ 个相同能级振子。对 A，
 
-$$g_A=\frac{(N_A+Q_A-1)!}{Q_A!(N_A-1)!}\approx\frac{(N_A+Q_A)!}{Q_A!N_A!}=\frac{(N_A+Q_A)^{N_A+Q_A}}{Q_A^{Q_A}N_A^{N_A}},\tag{12.71–12.72}$$
+$$
+g_A=\frac{(N_A+Q_A-1)!}{Q_A!(N_A-1)!}
+\approx\frac{(N_A+Q_A)!}{Q_A!N_A!}.\tag{12.71}
+$$
+
+$$
+g_A=\frac{(N_A+Q_A)^{N_A+Q_A}}{Q_A^{Q_A}N_A^{N_A}}.\tag{12.72}
+$$
 
 故
 
 $$g_A=\frac{(5000+Q_A)^{5000+Q_A}}{Q_A^{Q_A}5000^{5000}},\quad g_B=\frac{(10000+Q_B)^{10000+Q_B}}{Q_B^{Q_B}10000^{10000}}.\tag{12.73}$$
 
+$$
+g=g_Ag_B=
+\frac{(5000+Q_A)^{5000+Q_A}}{Q_A^{Q_A}5000^{5000}}
+\times
+\frac{(10000+Q_B)^{10000+Q_B}}{Q_B^{Q_B}10000^{10000}}.\tag{12.74}
+$$
+
 热接触后，量子可探索组合系统 $(A+B)$ 全部状态，态密度 $g=g_Ag_B$。总量子 $Q=Q_A+Q_B$ 固定；最大化 $g$（取对数，丢弃常数，求 $d\ln g/dQ_A$）得
 
 $$Q_A=Q/3,\qquad Q_B=2Q/3.\tag{12.75}$$
 
-能量正比于 A、B 中振子数分配，平衡分布即最大化系统可占据态密度。若相反，$Q_A=2Q/3,Q_B=Q/3$ (12.76)，代入得 $g/g_{\max}=10^{-738}$ (12.77)。
+能量正比于 A、B 中振子数分配，平衡分布即最大化系统可占据态密度。若相反，
+
+$$
+Q_A=\frac{2Q}{3},\qquad Q_B=\frac{Q}{3}.\tag{12.76}
+$$
+
+代入得
+
+$$
+\frac{g}{g_{\max}}=10^{-738}.\tag{12.77}
+$$
 
 系统如何走向平衡？按跳跃率对称，热接触时量子从 A 跃至 B 的概率是 B 至 A 的两倍，因 B 可用态数为 A 的两倍；故“自然热流”从 A 到 B。统计地，热在自然过程流动使 $g_Ag_B$ 增加：
 
-$$d(g_Ag_B)\ge0,\qquad d[\ln(g_Ag_B)]=d\ln g_A+d\ln g_B\ge0.\tag{12.78–12.79}$$
+$$
+d(g_Ag_B)\geq0.\tag{12.78}
+$$
+
+$$
+d[\ln(g_Ag_B)]=d(\ln g_A)+d(\ln g_B)\geq0.\tag{12.79}
+$$
 
 令 $g_A=g_A(E_A),g_B=g_B(E_B)$，且 $dE_A=-dE_B$，得
 
+$$
+\frac{\partial(\ln g_A)}{\partial E_A}\,dE_A+
+\frac{\partial(\ln g_B)}{\partial E_B}\,dE_B\geq0.\tag{12.80}
+$$
+
 $$\left[\frac{\partial\ln g_A}{\partial E_A}-\frac{\partial\ln g_B}{\partial E_B}\right]dE_A\ge0.\tag{12.81}$$
 
-若 $dE_A>0$，$\partial\ln g_A/\partial E_A>\partial\ln g_B/\partial E_B$ (12.82)；反之若 B 获能，$\partial\ln g_B/\partial E_B>\partial\ln g_A/\partial E_A$ (12.83)。故 $\partial(\ln g)/\partial E$ 是温度度量：它较大，温度较低；较小，温度较高。定义统计温度 $T_s$：
+若 $dE_A>0$，
+
+$$
+\frac{\partial(\ln g_A)}{\partial E_A}>
+\frac{\partial(\ln g_B)}{\partial E_B}.\tag{12.82}
+$$
+
+反之若 B 获能，
+
+$$
+\frac{\partial(\ln g_B)}{\partial E_B}>
+\frac{\partial(\ln g_A)}{\partial E_A}.\tag{12.83}
+$$
+
+故 $\partial(\ln g)/\partial E$ 是温度度量：它较大，温度较低；较小，温度较高。定义统计温度 $T_s$：
 
 $$\frac1{k_BT_s}=\frac{\partial\ln g}{\partial E}.\tag{12.84}$$
 
-平衡时 $d\ln(g_Ag_B)=0$，所以两导数相等，即 $T_s(A)=T_s(B)$ (12.85)。它与经典热力学 $\left(\partial S/\partial U\right)_V=1/T$ (12.86) 比较，给出统计熵定义：
+平衡时 $d\ln(g_Ag_B)=0$，所以
+
+$$
+\frac{\partial(\ln g_A)}{\partial E_A}
+=
+\frac{\partial(\ln g_B)}{\partial E_B},
+\qquad \text{that is, }T_s(A)=T_s(B).\tag{12.85}
+$$
+
+它与经典热力学
+
+$$
+\left(\frac{\partial S}{\partial U}\right)_V=\frac1T.\tag{12.86}
+$$
+
+比较，给出统计熵定义：
 
 $$S=k_B\ln g=k_B\ln[g(E)dE],\tag{12.87}$$
 

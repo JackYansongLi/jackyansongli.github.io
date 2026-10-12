@@ -3,7 +3,9 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
 const chapters = [
+  ['ch09-motion-of-fluids.md', 9, 112],
   ['ch11-basic-thermodynamics.md', 11, 57],
+  ['ch12-kinetic-theory-statistical-mechanics.md', 12, 92],
 ];
 const chapterDirectory = new URL('../docs/content/docs/zh/theoretical-concepts-in-physics/', import.meta.url);
 
