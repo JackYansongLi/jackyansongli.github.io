@@ -48,6 +48,19 @@ test.describe('Academic Website Features', () => {
     }
   });
 
+  test('Helmholtz Decomposition keeps decomposition labels in the equation', async () => {
+    for (const articlePath of [
+      'docs/content/docs/fluid-mechanics/helmholtz-decomposition.md',
+      'docs/content/docs/zh/fluid-mechanics/helmholtz-decomposition.md',
+    ]) {
+      const article = await readFile(resolve(process.cwd(), articlePath), 'utf8');
+      expect(article).toContain('\\underbrace{u_0}_{\\text{transition}}');
+      expect(article).toContain('\\underbrace{\\frac{1}{2}(\\nabla\\times u)\\times\\delta x}_{\\text{rotation}}');
+      expect(article).toContain('\\underbrace{\\nabla\\phi}_{\\text{deformation}}');
+      expect(article).not.toContain('transition &nbsp;');
+    }
+  });
+
   test('MathJax renders equations with correct selectors', async ({ page }) => {
     await page.goto('/regret-ol');
     

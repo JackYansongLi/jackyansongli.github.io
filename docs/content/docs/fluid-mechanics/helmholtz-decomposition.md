@@ -6,12 +6,13 @@ description: Helmholtz Decomposition.
 [Download the PDF](/fluid-mechanics/helmholtz-decomposition.pdf)
 
 $$
-u=u_0+\frac{1}{2}(\nabla\times u)\times\delta x+\nabla\phi
+u=
+\underbrace{u_0}_{\text{transition}}
++\underbrace{\frac{1}{2}(\nabla\times u)\times\delta x}_{\text{rotation}}
++\underbrace{\nabla\phi}_{\text{deformation}}
 \qquad
 \phi=\frac{1}{2}\delta x^{\top} S\delta x
 $$
-
-transition &nbsp;&nbsp;&nbsp;&nbsp; rotation &nbsp;&nbsp;&nbsp;&nbsp; deformation
 
 ## Notation
 
