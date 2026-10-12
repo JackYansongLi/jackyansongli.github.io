@@ -78,6 +78,8 @@ $$p(A)=\frac{A}{4\pi r^2}.\tag{12.5}$$
 
 速度矢量与所选方向成 $\theta$ 至 $\theta+d\theta$ 角的分子概率 $p(\theta)d\theta$，是图 12.1(a) 环带表面积 $dA=(2\pi r\sin\theta)\times(rd\theta)=2\pi r^2\sin\theta\,d\theta$ 与球面面积 $4\pi r^2$ 的比：
 
+<img src="/images/theoretical-concepts-in-physics/fig-12-1.png" alt="图 12.1：原书扫描页" loading="lazy" decoding="async" />
+
 $$p(\theta)d\theta=\frac{dA}{4\pi r^2}=\frac12\sin\theta\,d\theta.\tag{12.6}$$
 
 *图 12.1*　(a) 计算从 $\theta$ 至 $\theta+d\theta$ 方向范围接近原点的分子概率。(b) 说明速度矢量为 $\boldsymbol v$ 的分子穿过面积元 $d\boldsymbol A$ 的通量。约定将矢量 $d\boldsymbol A$ 与面积关联：它垂直于面积平面，且大小为 $|d\boldsymbol A|$。
@@ -248,6 +250,8 @@ $$\begin{aligned}\phi(v)dv_xdv_ydv_z&=f(v_x)f(v_y)f(v_z)dv_xdv_ydv_z\\&=\frac1{\
 
 但与速度 $v$ 有关的体积元 $dv_x$、$dv_y$、$dv_z$ 的贡献，均位于速度空间中半径为 $v$、宽为 $dv$ 的球壳内（图 12.2），即速度由 $v$ 至 $v+dv$ 的空间体积 $4\pi v^2dv$。因此
 
+<img src="/images/theoretical-concepts-in-physics/fig-12-2.png" alt="图 12.2：原书扫描页" loading="lazy" decoding="async" />
+
 $$\phi(v)dv=\frac1{\alpha^3\pi^{3/2}}e^{-v^2/\alpha^2}4\pi v^2dv=\frac4{\alpha^3\pi^{1/2}}v^2e^{-v^2/\alpha^2}dv,\tag{12.36}$$
 
 正如 Maxwell 所述。
@@ -287,6 +291,8 @@ $$v^2=\frac32\alpha^2=\frac{3k_BT}{m};\qquad \alpha=\left(\frac{2k_BT}{m}\right)
 $$\phi(v)dv=4\pi\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2\exp\left(-\frac{mv^2}{2k_BT}\right)dv.\tag{12.41}$$
 
 这实在是惊人成就。这是 Maxwell 分布极简洁的推导，几乎不承认所处理的对象竟是分子和气体。它与从 Boltzmann 分布出发的推导形成鲜明对照。图 12.3 以无量纲形式显示 Maxwell 分布。
+
+<img src="/images/theoretical-concepts-in-physics/fig-12-3.png" alt="图 12.3：原书扫描页" loading="lazy" decoding="async" />
 
 *图 12.3*　以无量纲形式绘制的 Maxwell 分布，$f(x)dx=\sqrt{2/\pi}\,x^2e^{-x^2/2}dx$，其中 $x=v/\sigma$，$\sigma$ 是该分布的标准差。图中标出分布的平均、均方根和最大值。
 
@@ -344,6 +350,8 @@ $$\frac{N(E_i)}{N(E_j)}=\frac{g_i\exp(-E_i/k_BT)}{g_j\exp(-E_j/k_BT)},\tag{12.46
 
 Maxwell 立即将气体动力学理论用于其输运性质——扩散、导热和黏度。他对气体黏度系数的计算特别重要；黏性应力输运的标准图见图 12.4。
 
+<img src="/images/theoretical-concepts-in-physics/fig-12-4.png" alt="图 12.4：原书扫描页" loading="lazy" decoding="async" />
+
 *图 12.4*　说明利用气体动力学理论计算黏度系数的几何构型。
 
 气体沿正 $y$ 方向流动，且 $x$ 方向存在速度梯度，如 $AA$、$x_0$ 与 $BB$ 处箭头相对长度所示。为说明起见，平面相隔一个平均自由程 $\lambda$。计算目标是求剪切应力 $\tau_{x_0}$，即在 $x_0$ 处作用于 $y$–$z$ 平面、沿 $y$ 方向的单位面积力。正如 9.5 节所述，应力依赖于速度梯度，表达式为
@@ -386,6 +394,8 @@ Maxwell 惊讶地发现，黏度系数与压强无关，因为式 (12.53) 中不
 
 同样惊人的是，气体温度升高时，$v$ 按 $T^{1/2}$ 增加。因此，气体黏度应随温度增加，这不同于液体行为。Maxwell 与妻子在 1863 至 1865 年进行的一套精彩实验研究了这有些违反直觉的结果（图 12.5）。他完全确认气体黏度与压强无关的预言，且完全预期发现 $T^{1/2}$ 定律，但实际上发现更强依赖，$\eta\propto T$。
 
+<img src="/images/theoretical-concepts-in-physics/fig-12-5.png" alt="图 12.5：原书扫描页" loading="lazy" decoding="async" />
+
 *图 12.5*　Maxwell 测量气体黏度的装置。¹¹ (a) 气体充满腔室，玻璃圆盘作为扭摆振子振荡。通过测量扭秤振荡的衰减率求出气体黏度。借由反射连接到悬挂装置的镜子的光测量扭秤振荡。可改变气体压强和温度。由于腔体必须完全密封，振荡以磁力启动。(b) 该装置的照片，摄于 19 世纪 90 年代。
 
 他在 1867 年伟大论文中将此差异诠释为：分子间必存在随间距 $r$ 按 $r^{-5}$ 变化的微弱排斥力，预示了 1873 年分子间 van der Waals 力的概念。¹² 这是深刻发现，因为不再需要把分子视为“具有确定半径的弹性球”。正比于 $r^{-5}$ 的排斥力意味着，分子相遇会以不同角度偏转，取决于碰撞参数（见 A4.3 节）。Maxwell 表明，用弛豫时间思考更恰当，即分子因同其他分子随机相遇而偏转 $90^\circ$ 所需的大致时间。
@@ -400,6 +410,8 @@ Maxwell 惊讶地发现，黏度系数与压强无关，因为式 (12.53) 中不
 
 第一组模拟涉及建立 Boltzmann 分布的性质。先考虑一个 $10\times10$ 方格阵列，每格代表一个气体分子，在每格放入五个能量量子。因此模拟以 100 个分子开始，所有分子均有五单位能量〔图 12.6(a)〕。现在为粒子能量演化采用以下程序规则：
 
+<img src="/images/theoretical-concepts-in-physics/fig-12-6.png" alt="图 12.6：原书扫描页" loading="lazy" decoding="async" />
+
 1. 随机选择阵列的格子 $i$，并将一个量子移至另一个随机选择的格子 $j$。
 2. 此过程将一个能量单位随机由 $i$ 转移至 $j$，除非格子 $i$ 没有量子，此时不发生转移。
 3. 随机重复多次，直至系统达到统计平衡态。
@@ -407,6 +419,8 @@ Maxwell 惊讶地发现，黏度系数与压强无关，因为式 (12.53) 中不
 1000 次随机交换的结果见图 12.6(b)，以及能量分布的直方图图 12.6(c)。¹³ 可见，开始时所有分子都有五单位能量的分布，会扩展为具有显著波动的近似指数分布。一旦系统稳定到定常分布，宽广的能量范围便得以维持。注意，经由纯随机过程，一些粒子能量增加到远高于初始能量；本例中一个开始时有五单位能量的粒子达到 23 能量单位。
 
 重复该模拟，但现在统计量大得多。有 $10\,000$ 个格子或分子，每个有 20 个量子。图 12.7 显示系统在 $0$、$300\,000$、$1\,800\,000$ 和 $4\,000\,000$ 次随机交换后的演化。所见演化与此前相同，但更大的统计量使若干关键点更为清楚。
+
+<img src="/images/theoretical-concepts-in-physics/fig-12-7.png" alt="图 12.7：原书扫描页" loading="lazy" decoding="async" />
 
 *图 12.6*　(a) 初始分布：100 个方格，每格五个能量量子。(b) 1000 次随机量子交换后，方格间能量的分布。(c) 1000 次随机量子交换后的能量分布。
 
@@ -430,6 +444,8 @@ $$\begin{aligned}p_{2x}''&=\tfrac12[(p_{2x}-p_{1x})\cos\theta+(p_{2y}-p_{1y})\si
 
 随机性仅与质心动量参考系中角 $\theta$ 的选择有关。设立二维方格阵列，每个格子包含 $p_{xi}$ 与 $p_{yi}$，如图 12.8。计算程序如下：
 
+<img src="/images/theoretical-concepts-in-physics/fig-12-8.png" alt="图 12.8：原书扫描页" loading="lazy" decoding="async" />
+
 1. 随机选择阵列中两个分子 $i$ 和 $j$。
 2. 让它们碰撞，并随机选择角 $\theta$。
 3. 求分子 $i$、$j$ 的 $[p_{x1}'',p_{y1}'']$ 和 $[p_{x2}'',p_{y2}'']$，以新值替代旧的 $[p_{x1},p_{y1}]$ 和 $[p_{x2},p_{y2}]$。
@@ -439,9 +455,13 @@ $$\begin{aligned}p_{2x}''&=\tfrac12[(p_{2x}-p_{1x})\cos\theta+(p_{2y}-p_{1y})\si
 
 从平坦动量分布开始的 10 000 分子阵列，结果见图 12.9。分布极快弛豫为二维 Maxwell 分布。模拟的关键元素仍是质心动量参考系中角 $\theta$ 随机选择。再次注意，模拟达到统计平衡后，它在平均 Gaussian 分布附近波动。
 
+<img src="/images/theoretical-concepts-in-physics/fig-12-9.png" alt="图 12.9：原书扫描页" loading="lazy" decoding="async" />
+
 *图 12.9*　不同碰撞数后粒子动量分布的演化：(a) 初始总动量平坦的 10 000 粒子；(b) 1000 次碰撞后的总动量分布；(c) 25 000 次碰撞后的 10 000 粒子。
 
 最后对质量为 $m$ 和 $4m$ 的分子混合物重复计算；两者均从相同平坦动量分布开始，演化见图 12.10。随机性仍只在质心动量参考系中选择分子碰撞角 $\theta$。碰撞不断在分子间转移动量，不需许多相互作用就使两物种都达到定常动量分布。两分布均在图 12.10(c) 所示 Gaussian 分布附近波动。此外，$4m$ 物种动量分布的标准差 $w$ 是较轻物种 $2w$ 的一半。因此两组粒子的平均动能 $p_i^2/2m_i$ 对两个物种相同。这就是能量均分定理：热平衡中，粒子经粒子碰撞最终具有相同平均动能。
+
+<img src="/images/theoretical-concepts-in-physics/fig-12-10.png" alt="图 12.10：原书扫描页" loading="lazy" decoding="async" />
 
 *图 12.10*　质量 $m$ 与 $4m$ 粒子因两物种之间随机碰撞造成的动量分布演化。有 5000 个质量 $m$ 粒子和 5000 个质量 $4m$ 粒子。(a) 两者均有相同平坦动量分布；(b) 10 000 次随机碰撞后粒子总动量分布；(c) 50 000 次随机碰撞后粒子总动量分布。
 
@@ -596,6 +616,10 @@ $$S=k_B\ln g=k_B\ln[g(E)dE],\tag{12.87}$$
 ## 12.10 教学插论（2）：熵增定律的数值方法
 
 可用 12.6 节技术说明上节结果。先取两个小的孤立系统 A、B；各自分子有相同但彼此不同能量：A 有 100 分子、每个五量子；B 有 25 分子、每个二量子〔图 12.11(a)〕。如图 12.6 模拟，因 A、B 孤立，在各阵列内多次随机交换后分别达到定常平衡指数 Boltzmann 分布。更大模拟图 12.12(a) 中，A 有 10 000 分子、每格 20 量子，B 有 2500 分子、每格五量子；它们分别可拟合为 $p(E_i)\propto e^{-\alpha E_i}$、$p(E_i)\propto e^{-\beta E_i}$。图清楚显示 $\alpha<\beta$，而二者皆正比于 $T^{-1}$，故 B 温度低于 A。
+
+<img src="/images/theoretical-concepts-in-physics/fig-12-12.png" alt="图 12.12：原书扫描页" loading="lazy" decoding="async" />
+
+<img src="/images/theoretical-concepts-in-physics/fig-12-11.png" alt="图 12.11：原书扫描页" loading="lazy" decoding="async" />
 
 现令 A、B 热接触，统计模型中意为量子可在两个网格间随机交换〔图 12.11(b)〕。大量网格内及网格间随机交换后，能量元从 A 至 B 有净转移，但完全基于随机统计。在图示例中，A 至 B 净转移 71 个量子，围绕平均 60 波动；60 将使每分子平均能量同为 4.4 单位。这些波动是两个阵列平衡态统计本性不可避免的后果；71 比均值 60 大约 $1\sigma$。
 
