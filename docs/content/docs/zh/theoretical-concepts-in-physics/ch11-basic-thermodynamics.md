@@ -38,6 +38,8 @@ Isaac Newton、Gottfried Leibniz、Henry Cavendish、Thomas Young、Humphry Davy
 
 Rumford 对物理学的伟大贡献，是认识到摩擦力可无限地产生热。1798 年用钝钻头镗制大炮的实验最生动地显示此现象（图 11.1）。在最著名实验中，他把约 19 磅水置于炮筒周围的箱内，两半小时后水竟沸腾。他写道：“难以描述旁观者见到如此大量的水无火加热且竟被煮沸时脸上表现的惊讶和震惊……推理此问题时，不能忘记最值得注意的情形，即本实验中摩擦产生的热源显然取之不尽。无须补充说明，任何孤立物体或物体系统能无限继续供给的东西不可能是物质；在我看来，若非**运动**，极难，甚至完全不可能，对本实验中能被激发和传递的任何东西形成明确观念。”⁷ 图 11.1：Rumford 在慕尼黑兵工厂于 1798 至 1799 年进行的大炮镗孔实验模型。（慕尼黑德国博物馆惠赐。）
 
+<img src="/images/theoretical-concepts-in-physics/fig-11-1.png" alt="图 11.1：原书扫描页" loading="lazy" decoding="async" />
+
 Rumford 成就的顶点，是首次测定热功当量。他由马匹转动钻具所做的功得到 1798 年的 $5.60\ \mathrm{J\,cal^{-1}}$，四十多年后 Mayer 和 Joule 才重返此问题。另一项关键贡献是 Fourier 1822 年出版的《热的解析理论》。⁸ Fourier 以微分方程建立热传递数学理论，并不要求为热的物理本性构造特定模型。他的方法牢固基于法国理性力学传统，给出热效应的数学表达而不追问其原因。
 
 十八世纪论著已讨论应用于今日所谓能量的机械系统守恒律，特别是 Leibniz 的工作。他主张现在称为动能的“活力”或 *vis viva* 在机械过程中守恒。至 1820 年代，动能和所做功的关系得到澄清。
@@ -99,6 +101,8 @@ $$\phi(p,V)=\theta.\tag{11.4}$$
 现可实验找出对应固定 $\theta$ 的所有 $p,V$ 组合。定义平衡态有 $p,V,\theta$ 三量，但任意两量足以完整定义它。常 $\theta$ 线称为等温线。
 
 图 11.2 说明定容气体温度计原理。温度计利用低压下气体紧密遵从理想气体定律 $pV=RT$，故体积固定时压强差直接量度温度。经验温度尚不像通常的温度；为建立坚实实验基础，须决定温标。一旦为一个系统固定，因所有热平衡系统有相同经验温度，它对所有系统均固定。温标题目极广，这里仅指出定容气体温度计的重要性。尽管笨重，实验证明所有气体在低压有相同压强体积变化，即固定温度下足够低压时所有气体每摩尔 $pV$ 相同；并且这些气体以极好近似为理想或完全气体，故可将其压强、体积测量联系到热力学温度 $T$。关系为完全气体定律：
+
+<img src="/images/theoretical-concepts-in-physics/fig-11-2.png" alt="图 11.2：原书扫描页" loading="lazy" decoding="async" />
 
 $$pV=RT,\tag{11.5}$$
 
@@ -174,6 +178,8 @@ $$C_p-C_V=\left[\left(\frac{\partial U}{\partial V}\right)_T+p\right]\left(\frac
 
 **(ii) Joule 膨胀。** 测定 $C_p,C_V$ 关系的一种方式是 Joule 膨胀，即气体向较大体积自由膨胀。系统与环境热隔离，故无热交换；容器壁固定，故自由膨胀无功。Joule 1845 年的精细实验见图 11.3。容器 A 装 $22$ 个大气压的干燥空气，B 抽真空，C 是精制旋塞。首个实验把整体置于水浴中（图 11.3(a)）；开旋塞后空气从 A 流到 B，虽能测小至 $0.005\,^{\circ}\mathrm{F}$ 的温变，却未测到水浴温变。他说：“空气以不发展机械功的方式膨胀时，不发生温度变化。”¹⁴ 第二实验中 A、B、C 各有独立水浴（图 11.3(b)）。开旋塞后 B、C 温度升而 A 降，因为 A 中气体推动气体进入 B 而做功。膨胀后若让 A、B 气体热接触达到新平衡，依 Joule 实验温度不变，此为 Joule 膨胀。$\Delta U=\delta Q+\delta W$，且 $\delta Q=0,\delta W=0$，故内能 $U$ 不变，即 $(dU/dV)_T=0$。经典的完全气体定义为：(a) 状态方程是每摩尔 $pV=RT$；(b) Joule 膨胀中内能 $U$ 不变。
 
+<img src="/images/theoretical-concepts-in-physics/fig-11-3.png" alt="图 11.3：原书扫描页" loading="lazy" decoding="async" />
+
 由 (b)，$\left(\frac{dU}{dV}\right)_T=0$；由 (a)，$\left(\frac{\partial V}{\partial T}\right)_p=\frac{\partial}{\partial T}\left(\frac{RT}{p}\right)=\frac Rp$。因此由 (11.17)：
 
 $$C_p-C_V=R.\tag{11.18}$$
@@ -200,11 +206,15 @@ $$H=U+pV,\qquad C_p=\left(\frac{\delta Q}{dT}\right)_p=\left(\frac{\partial H}{\
 
 焓常出现于流动过程，特别是 Joule-Kelvin 膨胀。气体由一缸转入另一缸，二缸压强维持为 $p_1,p_2$（图 11.4）。设一定质量气体经一个或多个小孔或窄管，常称“多孔塞”，从 A 到 B。A 中初始内能 $U_1$、体积 $V_1$、压强 $p_1$；A 的活塞在恒压 $p_1$ 将气体推过塞入 B 后，B 中气体有 $p_2,V_2,T_2$。系统热隔离，推气体所涉能量为 $U_1+p_1V_1$，必须等于 $U_2+p_2V_2$：
 
+<img src="/images/theoretical-concepts-in-physics/fig-11-4.png" alt="图 11.4：原书扫描页" loading="lazy" decoding="async" />
+
 $$p_1V_1+U_1=p_2V_2+U_2\quad\text{或}\quad H_1=H_2.\tag{11.21}$$
 
 图 11.4 说明 Joule-Kelvin 气体膨胀实验。流体经多孔塞，穿过塞时速度很小，工程师称为节流膨胀。完全气体 $H=pV+U=RT+U(T)$，为温度唯一函数，故两体积温度相同，Joule-Kelvin 膨胀无温变。实际气体则因分子间力有温变，正负取决于压强和温度。Joule-Kelvin 系数定义为 $(\partial T/\partial p)_H$，此实验比 Joule 膨胀对偏离完全气体定律更敏感。
 
 可导出包括总能量其他贡献的一般守恒方程，例如重力场中气体的动能和势能。考虑穿过黑箱的流动（图 11.5）。质量 $m$ 的气体或流体稳态进入、离开黑箱，能量守恒为
+
+<img src="/images/theoretical-concepts-in-physics/fig-11-5.png" alt="图 11.5：原书扫描页" loading="lazy" decoding="async" />
 
 $$H_1+\frac12mv_1^2+m\phi_1=H_2+\frac12mv_2^2+m\phi_2,$$
 $$p_1V_1+U_1+\frac12mv_1^2+m\phi_1=p_2V_2+U_2+\frac12mv_2^2+m\phi_2.\tag{11.22}$$
@@ -221,6 +231,8 @@ $$\frac p\rho+\frac12v^2+\phi=\text{常数}.\tag{11.24}$$
 图 11.5 说明重力场中流体流动的能量守恒。Joule-Kelvin 膨胀中假设 Bernoulli 方程附加项不存在，膨胀极慢故可忽略动能项，且两体积处于同一重力势。
 
 **(iv) 绝热膨胀。** 绝热膨胀中气体体积改变而系统不与环境热接触。经典说明是完全绝热的气缸和活塞内气体膨胀或压缩（图 11.6）。此类膨胀的重要点是极慢进行，系统在初末热力学坐标间经过无穷多个平衡态。第 11.5.1 节讨论可逆过程时将回到这一关键概念。因此
+
+<img src="/images/theoretical-concepts-in-physics/fig-11-6.png" alt="图 11.6：原书扫描页" loading="lazy" decoding="async" />
 
 $$\delta Q=dU+p\,dV=0.\tag{11.25}$$
 
@@ -260,6 +272,8 @@ $$\int_{V_1}^{V_2}p\,dV=\int_{V_1}^{V_2}\frac{RT}{V}dV=RT\ln\frac{V_2}{V_1}.\tag
 
 首个商业可行而成功的蒸汽机由 Thomas Newcomen 于 1712 年建造，用以从煤矿抽水和提升水来驱动水车。其蒸汽机（图 11.7）在大气压下运行。原理是装有活塞的气缸充满蒸汽，随后注入冷水射流使蒸汽凝结。气缸产生的真空使活塞下行，产生动力冲程，经图 11.7 所示机械装置传至泵。动力冲程结束，打开蒸汽阀，泵杆重量将活塞拉回气缸顶端。其后半世纪，John Smeaton 以更佳设计和工程使效率稳步提高到 Newcomen 原机的两倍以上（表 11.1）。
 
+<img src="/images/theoretical-concepts-in-physics/fig-11-7.png" alt="图 11.7：原书扫描页" loading="lazy" decoding="async" />
+
 **表 11.1 蒸汽机效率¹⁷**
 
 | 日期 | 制造者 | 责任指标 | 热效率百分比 |
@@ -277,7 +291,11 @@ $$\int_{V_1}^{V_2}p\,dV=\int_{V_1}^{V_2}\frac{RT}{V}dV=RT\ln\frac{V_2}{V_1}.\tag
 
 这个故事的一位伟大英雄是 James Watt，他在格拉斯哥受训为科学仪器制造者。1764 年修理 Newcomen 蒸汽机模型时，他对其运行中蒸汽和热的浪费印象深刻。1765 年 5 月，他作出关键发明，成为整个热力学的支撑：若蒸汽在与气缸分开的室内凝结，效率会显著提高。冷凝器的发明也许是其最大创新，1768 年他取得著名专利。图 11.8 展示 Watt 1788 年建造的蒸汽机，在大气压下工作。关键创新是将冷凝器 F 同气缸和活塞 E 分离。气缸绝热，保持恒定高温 $T_1$；冷凝器保持较低温 $T_2$，由气泵 H 抽真空。打开冷凝器阀时 E 中蒸汽凝结而发生动力冲程。随后蒸汽充满气缸上部，冲程完成后让蒸汽进入气缸下部，泵杆重量使活塞回原位。
 
+<img src="/images/theoretical-concepts-in-physics/fig-11-8.png" alt="图 11.8：原书扫描页" loading="lazy" decoding="async" />
+
 矿主为降低抽水成本不断施压提高效率。1782 年 Watt 取得双作用蒸汽机专利，蒸汽动力同时用于活塞动力和返回冲程，功加倍。这需要新式平行运动杆，使活塞既可推又可拉。Watt 称它是“我所设计的最巧妙、最简单的机械部件之一”。还有调节蒸汽供给的调速器。图 11.9 所示版本中，活塞往复运动由太阳行星齿轮转为旋转运动。
+
+<img src="/images/theoretical-concepts-in-physics/fig-11-9.png" alt="图 11.9：原书扫描页" loading="lazy" decoding="async" />
 
 下一个重大进步在 1800 年代初，是 Richard Trevithick 使用高压蒸汽而非大气压的蒸汽机。因此较小蒸汽机可产生更多动力，装入早期蒸汽车和早期蒸汽机车。表 11.1 显示从 Newcomen 至二十世纪初效率如何提高。发动机“责任指标”以每蒲式耳煤的一百万英尺磅达能量定义，1 蒲式耳为 84 磅，堪称终极非 SI 单位。表 11.1 对推动工业革命的制造商和实业家最重要。人们极感兴趣于热机最大效率，正是这些实践考虑引起 Sadi Carnot 对热机效率的兴趣。
 
@@ -301,6 +319,8 @@ Sadi Carnot 于 1832 年 8 月因霍乱在 36 岁去世，此前其工作深远�
 
 以可逆等温膨胀强调此点。设有温度 $T$ 的大热库，以及与其热接触、同为 $T$ 的含气缸（图 11.10）。二体积同温不流热。若使活塞向外无穷小移动，缸内气体无穷小冷却，因温差有无穷小热流入气体，这小能量使气体回到 $T$。系统可逆，因为在 $T$ 稍压缩气体，气体稍热，热流入热库。故仅考虑无穷小变化时，热流过程可逆。图 11.10 说明可逆等温膨胀。
 
+<img src="/images/theoretical-concepts-in-physics/fig-11-10.png" alt="图 11.10：原书扫描页" loading="lazy" decoding="async" />
+
 热库和活塞温度不同时显然不可能。不能以无穷小改变较冷物体温度来反转热流方向。这说明可逆过程里系统必须能由无穷平衡态演化，并以无穷小功和能量流增量连接。对绝热膨胀重述：气缸与宇宙其余部分完全热隔离，每一步无穷慢，无热流入或流出，无摩擦；每一无穷小步可逆，整个膨胀可由许多步骤相加完成。
 
 与另两类膨胀相比，Joule 膨胀中气体进入大体积，必有各种非平衡过程；不像绝热和等温膨胀，不能设计一列平衡态达到末态。Joule-Kelvin 膨胀中气体进入第二缸时性质不连续，末态也非经无穷慢的一列平衡态达到。这一长引言强调，可逆过程高度理想化，却是比较所有实际过程的基准。上述“无限缓慢”实际是系统改变的时间尺度远大于系统内基本物理过程在膨胀每阶段重新建立热平衡所需时间。若足够小心，系统可接近理想行为。
@@ -321,9 +341,13 @@ Clausius 的第二定律陈述是未经证明断言的另一“经验事实”�
 
 这是真实热机运行的理想化。其实际原理的简单说明是 1816 年苏格兰基尔马诺克 Robert Stirling 牧师博士发明的 Stirling 热机（图 11.11）。工作物质空气充满粗线所示全体积。循环开始，热端加热器将气体加热至高温，图右活塞上推而成图 11.11 构型。空气后冷却，压强降到大气压以下，压差将活塞推回缸下。Stirling 巧妙发明是用图中排移器将工作物质从热源移至热阱。热气体接触由散热片或冷却管水流维持室温的冷端，向冷端放热，压强降低，活塞返回冲程发生。活塞连于排移器，排移器移至其气缸冷端，将冷却气体推向热端重新加热，下一动力冲程开始。精心设计时，Stirling 机效率可接近下述理论最大值。
 
+<img src="/images/theoretical-concepts-in-physics/fig-11-11.png" alt="图 11.11：原书扫描页" loading="lazy" decoding="async" />
+
 该操作序列几乎与 Carnot 1824 年论文所研究的完全相同。工作物质在温度 $T_1$ 热端获热，对活塞做功，后在温度 $T_2$ 冷端放热，再被加热，循环重新开始。
 
 完美热机的 Carnot 著名操作循环如图 11.12(a)。Feynman《物理学讲义》第 1 卷第 44 章对循环有仔细描述，²⁰以下按其叙述。两个很大热库 1、2 保持 $T_1,T_2$；工作物质是含于无摩擦活塞气缸内的气体。进行如下可逆操作序列，模拟真实热机做功：
+
+<img src="/images/theoretical-concepts-in-physics/fig-11-12.png" alt="图 11.12：原书扫描页" loading="lazy" decoding="async" />
 
 1. 气缸同较高温 $T_1$ 热库热接触，极慢可逆等温膨胀。热自热库流入缸内气体；末态气体吸收热量 $Q_1$，工作物质对环境做一定功，对应 $p$-$V$ 示功图中 A 到 B。
 2. 隔离气缸，使之脱离热库，进行无限慢绝热膨胀，工作物质由 $T_1$ 降至第二热库温度 $T_2$，过程可逆并再次对环境做功。
@@ -332,11 +356,19 @@ Clausius 的第二定律陈述是未经证明断言的另一“经验事实”�
 
 这是理想热机操作序列。循环净效应是工作物质从 $T_1$ 热库 1 获热 $Q_1$，向 $T_2$ 热库 2 返回 $Q_2$，热机做功。功为环路积分 $W=\oint p\,dV$，等于 $p$-$V$ 示功图封闭曲线面积（图 11.13）。第一定律又表明功等于供给工作物质的净热 $Q_1-Q_2$：
 
+<img src="/images/theoretical-concepts-in-physics/fig-11-13.png" alt="图 11.13：原书扫描页" loading="lazy" decoding="async" />
+
 $$W=Q_1-Q_2.\tag{11.30}$$
 
 顺带说，绝热线必比等温线陡，因为前者 $pV^\gamma=\text{常数}$ 且对所有气体 $\gamma>1$。图 11.14 给出此机器示意。
 
+<img src="/images/theoretical-concepts-in-physics/fig-11-14.png" alt="图 11.14：原书扫描页" loading="lazy" decoding="async" />
+
 论证优美之处是 Carnot 循环各阶段可逆，故可将全部动作反向运行（图 11.15）：(1) 从 A 到 D 绝热膨胀，工作物质由 $T_1$ 降至 $T_2$；(2) 在 $T_2$ 等温膨胀，从热库取热 $Q_2$；(3) 从 C 到 B 绝热压缩，回到 $T_1$；(4) 在 $T_1$ 等温压缩，工作物质向 $T_1$ 热库放热 $Q_1$。反向 Carnot 循环描述理想冰箱或热泵，热从低温热库抽取并送至高温热库（图 11.16）。注意反向循环须做功，才能从 $T_2$ 取热并送至 $T_1$。
+
+<img src="/images/theoretical-concepts-in-physics/fig-11-16.png" alt="图 11.16：原书扫描页" loading="lazy" decoding="async" />
+
+<img src="/images/theoretical-concepts-in-physics/fig-11-15.png" alt="图 11.15：原书扫描页" loading="lazy" decoding="async" />
 
 现定义热机、冰箱、热泵效率。正向标准热机：
 
@@ -360,6 +392,8 @@ Carnot 定理说：
 
 若反面成立，可构造一不可逆机，其效率大于同温度间可逆机。用不可逆机产生的功反向驱动可逆机（图 11.17），将两机合看为一机。不可逆机所产功全用于反向驱动可逆机。既然 $\eta_{\mathrm{irr}}>\eta_{\mathrm{rev}}$，则 $W/Q_1'>W/Q_1$，故 $Q_1-Q_1'>0$。合机唯一净效应是无功把能量从低温传至高温，为第二定律禁止。因此不可逆机效率不能超过同温间可逆机。这正是 Carnot 在 1824 年《反思》发表的定理，比 Clausius 1850 年正式陈述热力学定律早 26 年。
 
+<img src="/images/theoretical-concepts-in-physics/fig-11-17.png" alt="图 11.17：原书扫描页" loading="lazy" decoding="async" />
+
 ### 11.5.4 Clausius 与 Kelvin 第二定律陈述的等价性
 
 Kelvin 的第二定律陈述为：
@@ -367,6 +401,8 @@ Kelvin 的第二定律陈述为：
 > 不可能存在唯一结果为将热完全转化为功的过程。
 
 若一 K 机可将热 $Q_1$ 完全转成功 $W$，可用此功反向驱动可逆 Carnot 机作热泵（图 11.18）。视作单一系统，无净功，送至 $T_1$ 热库的总热为
+
+<img src="/images/theoretical-concepts-in-physics/fig-11-18.png" alt="图 11.18：原书扫描页" loading="lazy" decoding="async" />
 
 $$Q_1-Q_1^K=Q_1-W=Q_1-(Q_1-Q_2)=Q_2,$$
 
@@ -379,6 +415,8 @@ $$Q_1-Q_1^K=Q_1-W=Q_1-(Q_1-Q_2)=Q_2,$$
 $$\eta=\frac{Q_1-Q_2}{Q_1},\qquad \frac{Q_1}{Q_2}=\frac1{1-\eta}.\tag{11.31}$$
 
 更精确地说，令 $Q_1/Q_2$ 为经验温度 $\theta_1,\theta_2$ 的函数 $f(\theta_1,\theta_2)$。如图 11.19 串联两热机：温度 $\theta_2$ 输出的热供给第二热机 $Q_2$，第二机做功 $W_2$ 并向 $\theta_3$ 热库传 $Q_3$，故
+
+<img src="/images/theoretical-concepts-in-physics/fig-11-19.png" alt="图 11.19：原书扫描页" loading="lazy" decoding="async" />
 
 $$\frac{Q_1}{Q_2}=f(\theta_1,\theta_2),\qquad\frac{Q_2}{Q_3}=f(\theta_2,\theta_3).\tag{11.32}$$
 
@@ -432,6 +470,8 @@ $$\left.\int_A^C\frac{\delta Q}{T}\right|_{\text{经 B}}=\left.\int_A^C\frac{\de
 
 这强烈暗示发现另一状态函数。任一双坐标系统，在示功图任意两点间可用大量小 Carnot 循环移动，且均可逆（图 11.20），无论何路径总得同结果。数学上任意 A、B：
 
+<img src="/images/theoretical-concepts-in-physics/fig-11-20.png" alt="图 11.20：原书扫描页" loading="lazy" decoding="async" />
+
 $$\int_A^B\frac{\delta Q}{T}=\text{常数}.\tag{11.47}$$
 
 积分形式：
@@ -453,6 +493,8 @@ $$\oint\frac{\delta Q}{T}\leq0.\tag{11.49}$$
 ## 11.7 熵增定律
 
 熵变定义为从 A 到 B 的可逆变化序列。实际不完美世界中从 A 到 B 永不可能精确可逆，所涉热因而不直接联系初末态熵差。比较两态间可逆、不可逆变化。设从 A 到 B 有不可逆变化（图 11.21），再取任一可逆路径由 B 回 A 完成循环。由 Clausius 定理：
+
+<img src="/images/theoretical-concepts-in-physics/fig-11-21.png" alt="图 11.21：原书扫描页" loading="lazy" decoding="async" />
 
 $$\oint\frac{\delta Q}{T}\leq0\quad\text{或}\quad\left.\int_A^B\frac{\delta Q}{T}\right|_{\mathrm{irrev}}+\left.\int_B^A\frac{\delta Q}{T}\right|_{\mathrm{rev}}\leq0,$$
 
