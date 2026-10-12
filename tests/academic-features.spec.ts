@@ -42,7 +42,7 @@ test.describe('Academic Website Features', () => {
 
     for (const articlePath of articlePaths) {
       const article = await readFile(resolve(process.cwd(), articlePath), 'utf8');
-      expect(article).toContain('\\phi=\\frac{1}{2}\\delta x^T S\\delta x');
+      expect(article).toMatch(/\\phi=\\frac\{1\}\{2\}\\delta x(?:\^T|\^\{\\top\}) S\\delta x/);
       expect(article).toContain('&=-\\frac{1}{4}\\epsilon^{imn}(\\partial_n u^m-\\partial_m u^n)');
       expect(article).toContain('&=\\frac{1}{2}\\epsilon^{imn}\\partial_m u^n');
     }
@@ -428,6 +428,7 @@ test.describe('Academic Website Features', () => {
       '/zh/flow-analysis/',
       '/zh/moldflow-design-guide/',
       '/zh/human-use-of-human-beings/',
+      '/zh/theoretical-concepts-in-physics/',
       ...[
         'ch02-plastic-part-design',
         'ch05-cavity-filling',
@@ -489,6 +490,11 @@ test.describe('Academic Website Features', () => {
         'ch11-communication-machines',
         'ch12-voices-of-rigidity',
       ].map((route) => `/zh/human-use-of-human-beings/${route}/`),
+      ...[
+        'ch09-motion-of-fluids',
+        'ch11-basic-thermodynamics',
+        'ch12-kinetic-theory-statistical-mechanics',
+      ].map((route) => `/zh/theoretical-concepts-in-physics/${route}/`),
     ];
 
     for (const route of routes) {
@@ -577,5 +583,64 @@ test.describe('Academic Website Features', () => {
     await expect(page.locator('mjx-container')).not.toHaveCount(0);
     await expect(page.getByText(/\\\[\s*\\theta_z/)).toHaveCount(0);
     await expect(page.locator('[data-mjx-error]')).toHaveCount(0);
+  });
+
+  test('Theoretical Concepts in Physics catalog and Chapter 9 require the shared password', async ({ page }) => {
+    await page.goto('/zh/theoretical-concepts-in-physics/');
+
+    const catalogContent = page.locator('[data-moldflow-protected-content]');
+    await expect(catalogContent).toBeHidden();
+    await expect(page.getByRole('link', { name: '第 9 章：流体的运动' })).toBeHidden();
+
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(page.getByRole('link', { name: '第 9 章：流体的运动' })).toBeVisible();
+
+    await page.evaluate(() => sessionStorage.clear());
+    await page.goto('/zh/theoretical-concepts-in-physics/ch09-motion-of-fluids/');
+    await expect(page.locator('[data-moldflow-protected-content]')).toBeHidden();
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+    await expect(page.getByRole('heading', { level: 2, name: '9.1 引言' })).toBeVisible();
+  });
+
+  test('Theoretical Concepts in Physics chapter navigation has exact boundary links', async ({ page }) => {
+    await page.goto('/zh/theoretical-concepts-in-physics/ch09-motion-of-fluids/');
+    await page.getByLabel('访问密码').fill('761893');
+    await page.getByRole('button', { name: '进入阅读区' }).click();
+
+    const firstNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(firstNavigation.getByRole('link', { name: '返回目录' })).toHaveAttribute(
+      'href',
+      '/zh/theoretical-concepts-in-physics/'
+    );
+    await expect(firstNavigation.getByRole('link', { name: '上一章' })).toHaveCount(0);
+    await expect(firstNavigation.getByRole('link', { name: '下一章' })).toHaveAttribute(
+      'href',
+      '/zh/theoretical-concepts-in-physics/ch11-basic-thermodynamics/'
+    );
+
+    await page.goto('/zh/theoretical-concepts-in-physics/ch12-kinetic-theory-statistical-mechanics/');
+    const finalNavigation = page.locator('[data-moldflow-protected-navigation]');
+    await expect(finalNavigation.getByRole('link', { name: '上一章' })).toHaveAttribute(
+      'href',
+      '/zh/theoretical-concepts-in-physics/ch11-basic-thermodynamics/'
+    );
+    await expect(finalNavigation.getByRole('link', { name: '下一章' })).toHaveCount(0);
+  });
+
+  test('Theoretical Concepts in Physics renders its chapter formulas without MathJax errors', async ({ page }) => {
+    for (const route of [
+      'ch09-motion-of-fluids',
+      'ch11-basic-thermodynamics',
+      'ch12-kinetic-theory-statistical-mechanics',
+    ]) {
+      await page.goto(`/zh/theoretical-concepts-in-physics/${route}/`);
+      await page.getByLabel('访问密码').fill('761893');
+      await page.getByRole('button', { name: '进入阅读区' }).click();
+      await expect(page.locator('mjx-container')).not.toHaveCount(0);
+      await expect(page.locator('[data-mjx-error]')).toHaveCount(0);
+      await page.evaluate(() => sessionStorage.clear());
+    }
   });
 });
