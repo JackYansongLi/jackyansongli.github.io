@@ -55,7 +55,7 @@ $$
 并将这种微分记为
 
 $$
-\frac{Df}{Dt} = \mathbf{v} \cdot \nabla f + \frac{\partial f}{\partial t}. 
+\frac{\mathrm{D}f}{\mathrm{D}t} = \mathbf{v} \cdot \nabla f + \frac{\partial f}{\partial t}. 
 $$
 
 我们称 $Df/Dt$ 为 $f$ 的随体导数（material derivative）。有些教材使用"实质导数"或"随流导数"等名称代替随体导数。在物理上，随体导数同时考虑了流体的运动以及流体微团的值随时间的变化。
@@ -207,7 +207,7 @@ $$
 > \left.\frac{\partial f(\mathcal{X}(X,t),t)}{\partial t}\right|_X
 > &=\frac{\partial f}{\partial t}+\frac{\partial f}{\partial x^i}\left.\frac{\partial x^i}{\partial t}\right|_X \\
 > &=\partial_t f+v^i\partial_i f \\
-> &=\frac{Df}{Dt}
+> &=\frac{\mathrm{D}f}{\mathrm{D}t}
 > \end{aligned}
 > $$
 >
@@ -256,7 +256,7 @@ $$
 > &=\int_{V_0}\left[\mathcal{J}\left.\frac{\partial f(\mathcal{X}(X,t),t)}{\partial t}\right|_X+f\frac{\partial\mathcal{J}}{\partial t}\right]\mathrm{d}^3X \\
 > &=\int_{V_0}\left[\mathcal{J}(\partial_t f+v^i\partial_i f)+f\mathcal{J}\partial_iv^i\right]\mathrm{d}^3X \\
 > &=\int_{V_0}\left(\partial_t f+v^i\partial_i f+f\partial_iv^i\right)\mathrm{d}V \\
-> &=\int_{V_0}\left(\frac{Df}{Dt}+f\partial_iv^i\right)\mathrm{d}V \\
+> &=\int_{V_0}\left(\frac{\mathrm{D}f}{\mathrm{D}t}+f\partial_iv^i\right)\mathrm{d}V \\
 > &=\int_{V_0}\left(\partial_t f+\underbrace{\partial_i(fv^i)}_{\nabla\cdot(f\mathbf{v})}\right)\mathrm{d}V
 > \end{aligned}
 > $$
