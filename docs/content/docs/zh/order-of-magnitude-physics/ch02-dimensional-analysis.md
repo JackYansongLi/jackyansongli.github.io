@@ -119,9 +119,9 @@ $$
 $$
 \begin{aligned}
 a(x,y,z)&=xyz^{-2},\\
-b(x,y,z)&=x,\tag{2.10}\\
-c(x,y,z)&=yz^{-2}.
-\end{aligned}
+    b(x,y,z)&=x,\\
+    c(x,y,z)&=yz^{-2}.
+\end{aligned}\tag{2.10}
 $$
 
 这里 $a,b,c$ 分别对应 $[F]$、$[m]$、$[a]$，$x,y,z$ 分别对应 $[M]$、$[L]$、$[T]$。变量 $y,z$ 只以 $yz^{-2}$ 的组合出现，故仅有两个独立变量 $x$ 和 $yz^{-2}$。在 $F=ma$ 例中，仅有两个独立单位 $[M]$ 和 $[L][T]^{-2}$。
@@ -450,9 +450,9 @@ $$
 
 $$
 \begin{aligned}
-\tau_v&\equiv\frac{R}{v},\tag{2.43}\\
-\tau_V&\equiv\frac{R}{V}\sim\frac{R^2}{\nu}.
-\end{aligned}
+    \tau_v&\equiv\frac{R}{v},\\
+    \tau_V&\equiv\frac{R}{V}\sim\frac{R^2}{\nu}.
+\end{aligned}\tag{2.43}
 $$
 
 注意 $\mathrm{Re}\equiv\tau_V/\tau_v$。$\tau_v$ 是流体绕球运动的时间（忽略常数）。如第 4.5 节所述，运动黏度是动量扩散系数，动量扩散距离 $x$ 的时间为 $x^2/\nu$，故 $\tau_V$ 是动量绕球扩散的时间。若 $\tau_V\ll\tau_v$，即 $\text{Re}\ll1$，动量在流体绕球前就扩散。若有时间，动量扩散会均衡速度；低 Re 极限中确实如此，防止前方流动和后方流动截然不同，没有湍流。另一极限 $\tau_V\gg\tau_v$ 或 $\text{Re}\gg1$ 中，动量扩散被流体运动彻底击败，流体可为所欲为：它湍流。流体运动击败动量扩散的程度不影响流动；流动已不受黏度约束。（这话是谎言，但相当准确。）
@@ -519,9 +519,9 @@ $$
 
 $$
 \begin{aligned}
-\mathrm{Re}&\sim\mathrm{Re}_{\text{儿童}}\times\frac{v_{\text{跳伞者}}}{v_{\text{起身}}}\times\frac{R_{\text{跳伞者}}}{R_{\text{儿童}}}\tag{2.51}\\
-&\sim5000\times100\times2=10^6,
-\end{aligned}
+    \mathrm{Re}&\sim\mathrm{Re}_{\text{儿童}}\times\frac{v_{\text{跳伞者}}}{v_{\text{起身}}}\times\frac{R_{\text{跳伞者}}}{R_{\text{儿童}}}\\
+    &\sim5000\times100\times2=10^6,
+\end{aligned}\tag{2.51}
 $$
 
 远大于 1，流动极其湍流。

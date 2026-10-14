@@ -76,3 +76,27 @@ test('Order-of-Magnitude Physics preserves source equation numbering without con
     }
   }
 });
+
+test('Order-of-Magnitude Physics writes display delimiters on standalone lines', async () => {
+  for (const chapterName of ['ch02-dimensional-analysis.md', 'ch05-waves.md']) {
+    const source = await readFile(join(chapterDirectory.pathname, chapterName), 'utf8');
+
+    for (const line of source.split('\n')) {
+      if (line.includes('$$')) {
+        assert.equal(line.trim(), '$$', `${chapterName} must place each display delimiter on its own line`);
+      }
+    }
+  }
+});
+
+test('Order-of-Magnitude Physics keeps tags outside aligned environments', async () => {
+  const source = await readFile(join(chapterDirectory.pathname, 'ch02-dimensional-analysis.md'), 'utf8');
+
+  for (const aligned of source.matchAll(/\\begin\{aligned\}[\s\S]*?\\end\{aligned\}/g)) {
+    assert.doesNotMatch(
+      aligned[0],
+      /\\tag\{[^}]+\}/,
+      'ch02-dimensional-analysis.md must place equation tags after aligned environments',
+    );
+  }
+});
