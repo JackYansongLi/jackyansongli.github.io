@@ -123,9 +123,33 @@ test('chapter 5 preserves display equations and math-mode variables in its 2.5D 
     assert.match(chapterFive, new RegExp(`\\$\\$\\n[\\s\\S]*?\\\\tag\\{${equation.replace('.', '\\.') }\\}\\n\\$\\$`));
   }
 
+  for (let equation = 1; equation <= 131; equation += 1) {
+    const tag = `\\tag{5.${equation}}`;
+    const occurrences = chapterFive.match(new RegExp(tag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) ?? [];
+    assert.equal(occurrences.length, 1, `${tag} must occur exactly once`);
+  }
+
+  const equation123 = chapterFive
+    .split('$$')
+    .filter((_block, index) => index % 2 === 1)
+    .find((block) => block.includes('\\tag{5.123}'));
+  assert.match(equation123 ?? '', /\\bar\{v\}_x\(x\).*?-\\frac\{S_1\}\{r\^\+\}\\frac\{\\partial p\}\{\\partial x\}/s);
+
   assert.match(chapterFive, /^### 5\.6\.3 \$z\$ 方向的速度$/m);
   assert.match(chapterFive, /压力 \$p\$ 只是 \$x\$ 和 \$y\$ 的函数/);
   assert.doesNotMatch(chapterFive, /x-y 平面|z 轴|密度 ρ|压力 p 和温度 T|其中 κ|其中 β/);
+});
+
+test('Flow Analysis chapters write every display equation with standalone delimiters', async () => {
+  const chapterNames = (await readdir(chapterDirectory)).filter((name) => name.endsWith('.md'));
+  const inlineDisplayChapters = [];
+
+  for (const chapterName of chapterNames) {
+    const chapter = await readFile(join(chapterDirectory.pathname, chapterName), 'utf8');
+    if (/^\$\$[^\n]+\$\$$/m.test(chapter)) inlineDisplayChapters.push(chapterName);
+  }
+
+  assert.deepEqual(inlineDisplayChapters, []);
 });
 
 test('flow-analysis Markdown does not use unsupported backslash math delimiters', async () => {

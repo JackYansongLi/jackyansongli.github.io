@@ -63,17 +63,23 @@ head:
 
 半结晶材料在凝固时会释放出一些热量，这一点应当加以考虑。然而，很少有模拟处理结晶问题，尽管它是当前的一个研究领域。目前我们忽略它，并在本书第二部分再回过头来讨论。目前我们假设
 
-$$\dot{Q} = 0 \tag{5.1}$$
+$$
+\dot{Q} = 0 \tag{5.1}
+$$
 
 ### 5.3.2 粘度建模
 
 我们假设熔体为广义牛顿流体（GNF），见第 2.3 节。即
 
-$$\boldsymbol{\sigma} = -p\mathbf{I} + 2\eta(\dot{\gamma})\mathbf{D} \tag{5.2}$$
+$$
+\boldsymbol{\sigma} = -p\mathbf{I} + 2\eta(\dot{\gamma})\mathbf{D} \tag{5.2}
+$$
 
 这会改变方程 4.23 和 4.67 中的 $\nabla \cdot \boldsymbol{\sigma}$ 项和 $\boldsymbol{\sigma} : \nabla \mathbf{v}$ 项。利用方程 2.19，我们有
 
-$$\nabla \cdot \boldsymbol{\sigma} = \nabla \cdot (-p\mathbf{I} + 2\eta\mathbf{D}) = -\nabla p + 2\nabla \cdot \eta\mathbf{D} \tag{5.3}$$
+$$
+\nabla \cdot \boldsymbol{\sigma} = \nabla \cdot (-p\mathbf{I} + 2\eta\mathbf{D}) = -\nabla p + 2\nabla \cdot \eta\mathbf{D} \tag{5.3}
+$$
 
 聚合物熔体本质上是粘弹性的。然而对于注塑模拟而言，GNF 假设可以提供有用的结果。对一个注塑模具进行完整的粘弹性分析会引出一系列问题。首先是粘弹性模型本身。在过去 40 年中，这类模型的发展取得了一些重大进展。然而，任何模型都必须根据它给注塑模拟带来的改进来加以评估。不管这些模型的价值如何，即使在简单几何形状中，它们也把我们的计算能力推到了极限。对于复杂的模具，它们今天根本不可行。这并非全是坏事。Baaijens [21] 为预测无定形注塑制品的分子取向、收缩和翘曲提供了一种合理的近似，我们将在本章后面讨论。在许多商业程序中，这种近似已被应用于半结晶材料。然而半结晶材料更为复杂，值得更细致的处理。我们暂且搁置这个主题，留待本书第二部分讨论。现在我们来考虑材料为 GNF 的假设。
 
@@ -88,6 +94,7 @@ $$
 &= -p\nabla \cdot \mathbf{v} + 2\eta\,\mathbf{D} : \mathbf{D} \\
 &= -p\nabla \cdot \mathbf{v} + \eta\dot{\gamma}^2
 \end{aligned}
+\tag{5.4}
 $$
 
 其中在最后一步我们使用了方程 2.17。
@@ -191,15 +198,21 @@ $$
 
 质量守恒：
 
-$$\frac{\partial \rho}{\partial t} + \nabla \cdot \rho\mathbf{v} = 0 \tag{5.5}$$
+$$
+\frac{\partial \rho}{\partial t} + \nabla \cdot \rho\mathbf{v} = 0 \tag{5.5}
+$$
 
 动量守恒：
 
-$$\frac{\partial}{\partial t}(\rho\mathbf{v}) = \rho\mathbf{g} + \nabla \cdot \boldsymbol{\sigma} - \nabla \cdot (\rho\mathbf{v}\mathbf{v}) \tag{5.6}$$
+$$
+\frac{\partial}{\partial t}(\rho\mathbf{v}) = \rho\mathbf{g} + \nabla \cdot \boldsymbol{\sigma} - \nabla \cdot (\rho\mathbf{v}\mathbf{v}) \tag{5.6}
+$$
 
 能量守恒：
 
-$$\rho c_p \left(\frac{\partial T}{\partial t} + \mathbf{v} \cdot \nabla T\right) = \beta T\left(\frac{\partial p}{\partial t} + \mathbf{v} \cdot \nabla p\right) + p\nabla \cdot \mathbf{v} + \boldsymbol{\sigma} : \nabla\mathbf{v} + \nabla \cdot (k\nabla T) + \dot{Q} \tag{5.7}$$
+$$
+\rho c_p \left(\frac{\partial T}{\partial t} + \mathbf{v} \cdot \nabla T\right) = \beta T\left(\frac{\partial p}{\partial t} + \mathbf{v} \cdot \nabla p\right) + p\nabla \cdot \mathbf{v} + \boldsymbol{\sigma} : \nabla\mathbf{v} + \nabla \cdot (k\nabla T) + \dot{Q} \tag{5.7}
+$$
 
 现在我们考虑第 5.2 节讨论的材料假设对这些方程的影响以及可以引入的近似。
 
@@ -207,27 +220,39 @@ $$\rho c_p \left(\frac{\partial T}{\partial t} + \mathbf{v} \cdot \nabla T\right
 
 我们先处理动量守恒方程。将方程 5.3 代入方程 5.6，得到
 
-$$\frac{\partial}{\partial t}(\rho\mathbf{v}) = \rho\mathbf{g} - \nabla p + \nabla \cdot \eta\mathbf{D} - \nabla \cdot (\rho\mathbf{v}\mathbf{v}) \tag{5.8}$$
+$$
+\frac{\partial}{\partial t}(\rho\mathbf{v}) = \rho\mathbf{g} - \nabla p + \nabla \cdot \eta\mathbf{D} - \nabla \cdot (\rho\mathbf{v}\mathbf{v}) \tag{5.8}
+$$
 
 方程 5.8 的左端可展开为：
 
-$$\frac{\partial}{\partial t}(\rho\mathbf{v}) = \frac{\partial \rho}{\partial t}\mathbf{v} + \rho\frac{\partial \mathbf{v}}{\partial t} = -(\nabla \cdot \rho\mathbf{v})\mathbf{v} + \rho\frac{\partial \mathbf{v}}{\partial t} \tag{5.9}$$
+$$
+\frac{\partial}{\partial t}(\rho\mathbf{v}) = \frac{\partial \rho}{\partial t}\mathbf{v} + \rho\frac{\partial \mathbf{v}}{\partial t} = -(\nabla \cdot \rho\mathbf{v})\mathbf{v} + \rho\frac{\partial \mathbf{v}}{\partial t} \tag{5.9}
+$$
 
 其中我们使用了质量守恒方程，即方程 5.5。方程 5.8 的最后一项可展开为：
 
-$$\nabla \cdot (\rho\mathbf{v}\mathbf{v}) = \rho\mathbf{v} \cdot \nabla\mathbf{v} + (\nabla \cdot \rho\mathbf{v})\mathbf{v} \tag{5.10}$$
+$$
+\nabla \cdot (\rho\mathbf{v}\mathbf{v}) = \rho\mathbf{v} \cdot \nabla\mathbf{v} + (\nabla \cdot \rho\mathbf{v})\mathbf{v} \tag{5.10}
+$$
 
 将方程 5.9 和 5.10 代入方程 5.8，得到
 
-$$-(\nabla \cdot \rho\mathbf{v})\mathbf{v} + \rho\frac{\partial \mathbf{v}}{\partial t} = \rho\mathbf{g} - \nabla p + \nabla \cdot \eta\mathbf{D} - \rho\mathbf{v} \cdot \nabla\mathbf{v} - (\nabla \cdot \rho\mathbf{v})\mathbf{v} \tag{5.11}$$
+$$
+-(\nabla \cdot \rho\mathbf{v})\mathbf{v} + \rho\frac{\partial \mathbf{v}}{\partial t} = \rho\mathbf{g} - \nabla p + \nabla \cdot \eta\mathbf{D} - \rho\mathbf{v} \cdot \nabla\mathbf{v} - (\nabla \cdot \rho\mathbf{v})\mathbf{v} \tag{5.11}
+$$
 
 即，
 
-$$\rho\frac{\partial \mathbf{v}}{\partial t} = \rho\mathbf{g} - \nabla p + \nabla \cdot \eta\mathbf{D} - \rho\mathbf{v} \cdot \nabla\mathbf{v} \tag{5.12}$$
+$$
+\rho\frac{\partial \mathbf{v}}{\partial t} = \rho\mathbf{g} - \nabla p + \nabla \cdot \eta\mathbf{D} - \rho\mathbf{v} \cdot \nabla\mathbf{v} \tag{5.12}
+$$
 
 现在考虑能量方程，即方程 5.7。假设热导率为常数，并将方程 5.1 和 5.4 代入方程 5.7，得到：
 
-$$\rho c_p \left(\frac{\partial T}{\partial t} + \mathbf{v} \cdot \nabla T\right) = \beta T\left(\frac{\partial p}{\partial t} + \mathbf{v} \cdot \nabla p\right) + \eta\dot{\gamma}^2 + k\nabla^2 T \tag{5.13}$$
+$$
+\rho c_p \left(\frac{\partial T}{\partial t} + \mathbf{v} \cdot \nabla T\right) = \beta T\left(\frac{\partial p}{\partial t} + \mathbf{v} \cdot \nabla p\right) + \eta\dot{\gamma}^2 + k\nabla^2 T \tag{5.13}
+$$
 
 大多数商业程序将分别以方程 5.5、5.12 和 5.13 作为质量、动量和能量守恒的基础。要改善这一远不令人满意的状况，就需要发展更细致的材料属性模型。如果这听起来有些消极，需要指出的是，只要理解假设和局限，任何模拟都能带来一些认识。正因如此，许多使用上述假设的程序仍能为用户提供信息以改进设计，尽管存在科学上的缺陷。程序开发者（商业的和学术的）所面临的挑战，是对注塑成型过程进行更完整的建模，特别是对本身受过程影响的材料属性的建模。我们将在本书第二部分进一步考虑这个问题，并提供一些解决思路。
 
@@ -255,17 +280,27 @@ $$\rho c_p \left(\frac{\partial T}{\partial t} + \mathbf{v} \cdot \nabla T\right
 
 在笛卡尔坐标中，质量守恒方程变为：
 
-$$\frac{\partial \rho}{\partial t} = -\rho\left(\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z}\right) - \left(v_x\frac{\partial \rho}{\partial x} + v_y\frac{\partial \rho}{\partial y} + v_z\frac{\partial \rho}{\partial z}\right) \tag{5.14}$$
+$$
+\frac{\partial \rho}{\partial t} = -\rho\left(\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z}\right) - \left(v_x\frac{\partial \rho}{\partial x} + v_y\frac{\partial \rho}{\partial y} + v_z\frac{\partial \rho}{\partial z}\right) \tag{5.14}
+$$
 
 密度 $\rho$ 是状态变量，其依赖于压力 $p$ 和温度 $T$ 的关系由 PVT 关系定义。利用微分链式法则，我们得到：
 
-$$\frac{\partial \rho}{\partial x} = \left(\frac{\partial \rho}{\partial p}\right)_T \frac{\partial p}{\partial x} + \left(\frac{\partial \rho}{\partial T}\right)_p \frac{\partial T}{\partial x} \tag{5.15}$$
+$$
+\frac{\partial \rho}{\partial x} = \left(\frac{\partial \rho}{\partial p}\right)_T \frac{\partial p}{\partial x} + \left(\frac{\partial \rho}{\partial T}\right)_p \frac{\partial T}{\partial x} \tag{5.15}
+$$
 
-$$\frac{\partial \rho}{\partial y} = \left(\frac{\partial \rho}{\partial p}\right)_T \frac{\partial p}{\partial y} + \left(\frac{\partial \rho}{\partial T}\right)_p \frac{\partial T}{\partial y} \tag{5.16}$$
+$$
+\frac{\partial \rho}{\partial y} = \left(\frac{\partial \rho}{\partial p}\right)_T \frac{\partial p}{\partial y} + \left(\frac{\partial \rho}{\partial T}\right)_p \frac{\partial T}{\partial y} \tag{5.16}
+$$
 
-$$\frac{\partial \rho}{\partial z} = \left(\frac{\partial \rho}{\partial p}\right)_T \frac{\partial p}{\partial z} + \left(\frac{\partial \rho}{\partial T}\right)_p \frac{\partial T}{\partial z} \tag{5.17}$$
+$$
+\frac{\partial \rho}{\partial z} = \left(\frac{\partial \rho}{\partial p}\right)_T \frac{\partial p}{\partial z} + \left(\frac{\partial \rho}{\partial T}\right)_p \frac{\partial T}{\partial z} \tag{5.17}
+$$
 
-$$\frac{\partial \rho}{\partial t} = \left(\frac{\partial \rho}{\partial p}\right)_T \frac{\partial p}{\partial t} + \left(\frac{\partial \rho}{\partial T}\right)_p \frac{\partial T}{\partial t} \tag{5.18}$$
+$$
+\frac{\partial \rho}{\partial t} = \left(\frac{\partial \rho}{\partial p}\right)_T \frac{\partial p}{\partial t} + \left(\frac{\partial \rho}{\partial T}\right)_p \frac{\partial T}{\partial t} \tag{5.18}
+$$
 
 将上述表达式代入方程 5.14 并整理，得：
 
@@ -279,11 +314,15 @@ $$
 
 回想密度是比体积 $\hat{V}$ 的倒数。因此我们可以写出
 
-$$\frac{1}{\rho}\left(\frac{\partial \rho}{\partial p}\right)_T = \frac{1}{\rho}\left(\frac{\partial}{\partial p}\frac{1}{\hat{V}}\right)_T = \frac{1}{\rho}\frac{\partial}{\partial \hat{V}}\left(\frac{1}{\hat{V}}\right)\left(\frac{\partial \hat{V}}{\partial p}\right)_T = \frac{1}{\rho}\left(-\frac{1}{\hat{V}^2}\right)\left(\frac{\partial \hat{V}}{\partial p}\right)_T = -\frac{1}{\hat{V}}\left(\frac{\partial \hat{V}}{\partial p}\right)_T = \kappa \tag{5.20}$$
+$$
+\frac{1}{\rho}\left(\frac{\partial \rho}{\partial p}\right)_T = \frac{1}{\rho}\left(\frac{\partial}{\partial p}\frac{1}{\hat{V}}\right)_T = \frac{1}{\rho}\frac{\partial}{\partial \hat{V}}\left(\frac{1}{\hat{V}}\right)\left(\frac{\partial \hat{V}}{\partial p}\right)_T = \frac{1}{\rho}\left(-\frac{1}{\hat{V}^2}\right)\left(\frac{\partial \hat{V}}{\partial p}\right)_T = -\frac{1}{\hat{V}}\left(\frac{\partial \hat{V}}{\partial p}\right)_T = \kappa \tag{5.20}
+$$
 
 其中 $\kappa$ 是材料的等温压缩系数 [326]，定义见第 3.8.1 节。类似地，
 
-$$\frac{1}{\rho}\left(\frac{\partial \rho}{\partial T}\right)_p = \frac{1}{\rho}\left(\frac{\partial}{\partial T}\frac{1}{\hat{V}}\right)_p = \frac{1}{\rho}\frac{\partial}{\partial \hat{V}}\left(\frac{1}{\hat{V}}\right)\left(\frac{\partial \hat{V}}{\partial T}\right)_p = \frac{1}{\rho}\left(-\frac{1}{\hat{V}^2}\right)\left(\frac{\partial \hat{V}}{\partial T}\right)_p = -\frac{1}{\hat{V}}\left(\frac{\partial \hat{V}}{\partial T}\right)_p = -\beta \tag{5.21}$$
+$$
+\frac{1}{\rho}\left(\frac{\partial \rho}{\partial T}\right)_p = \frac{1}{\rho}\left(\frac{\partial}{\partial T}\frac{1}{\hat{V}}\right)_p = \frac{1}{\rho}\frac{\partial}{\partial \hat{V}}\left(\frac{1}{\hat{V}}\right)\left(\frac{\partial \hat{V}}{\partial T}\right)_p = \frac{1}{\rho}\left(-\frac{1}{\hat{V}^2}\right)\left(\frac{\partial \hat{V}}{\partial T}\right)_p = -\frac{1}{\hat{V}}\left(\frac{\partial \hat{V}}{\partial T}\right)_p = -\beta \tag{5.21}
+$$
 
 其中 $\beta$ 是材料的膨胀系数 [326]，定义见第 3.8.1 节。
 
@@ -301,7 +340,7 @@ $$
 
 动量方程（方程 5.12）用笛卡尔坐标表示时，得到其各分量的三个方程：
 
-- x 分量：
+- $x$ 分量：
 
 $$
 \begin{aligned}
@@ -310,16 +349,17 @@ $$
 \end{aligned} \tag{5.23}
 $$
 
-- y 分量：
+- $y$ 分量：
 
 $$
 \begin{aligned}
 \rho\frac{\partial v_y}{\partial t} = &\,\rho g_y - \frac{\partial p}{\partial y} + \frac{\partial}{\partial x}\left(\eta\left(\frac{\partial v_x}{\partial y} + \frac{\partial v_y}{\partial x}\right)\right) + \frac{\partial}{\partial y}\left(2\eta\frac{\partial v_y}{\partial y}\right) \\
 &+ \frac{\partial}{\partial z}\left(\eta\left(\frac{\partial v_z}{\partial y} + \frac{\partial v_y}{\partial z}\right)\right) - \rho\left(v_x\frac{\partial v_y}{\partial x} + v_y\frac{\partial v_y}{\partial y} + v_z\frac{\partial v_y}{\partial z}\right)
 \end{aligned}
+\tag{5.24}
 $$
 
-- z 分量：
+- $z$ 分量：
 
 $$
 \begin{aligned}
@@ -332,11 +372,15 @@ $$
 
 能量方程（方程 5.13）在笛卡尔坐标中为：
 
-$$\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y} + v_z\frac{\partial T}{\partial z}\right) = \beta T\left(\frac{\partial p}{\partial t} + v_x\frac{\partial p}{\partial x} + v_y\frac{\partial p}{\partial y} + v_z\frac{\partial p}{\partial z}\right) + \eta\dot{\gamma}^2 + k\left(\frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} + \frac{\partial^2 T}{\partial z^2}\right) \tag{5.26}$$
+$$
+\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y} + v_z\frac{\partial T}{\partial z}\right) = \beta T\left(\frac{\partial p}{\partial t} + v_x\frac{\partial p}{\partial x} + v_y\frac{\partial p}{\partial y} + v_z\frac{\partial p}{\partial z}\right) + \eta\dot{\gamma}^2 + k\left(\frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} + \frac{\partial^2 T}{\partial z^2}\right) \tag{5.26}
+$$
 
 回想方程 2.17：
 
-$$\dot{\gamma}^2 = 2\mathbf{D} : \mathbf{D} = 2\,\mathrm{tr}\,\mathbf{D}^2$$
+$$
+\dot{\gamma}^2 = 2\mathbf{D} : \mathbf{D} = 2\,\mathrm{tr}\,\mathbf{D}^2
+$$
 
 在笛卡尔坐标中，
 
@@ -387,43 +431,61 @@ $$
 
 我们的方法是将无量纲变量代入控制方程，然后估计每一项的量级。例如，
 
-$$\frac{\partial v_x}{\partial x} = \left[\frac{V}{L}\right]\frac{\partial v_x^*}{\partial x^*} \tag{5.28}$$
+$$
+\frac{\partial v_x}{\partial x} = \left[\frac{V}{L}\right]\frac{\partial v_x^*}{\partial x^*} \tag{5.28}
+$$
 
 由于带星号的量量级为一，$\partial v_x/\partial x$ 的量级等于 $V/L$ 的量级。为简洁起见，我们写：
 
-$$O\left[\frac{\partial v_x}{\partial x}\right] = O\left[\frac{V}{L}\right] \tag{5.29}$$
+$$
+O\left[\frac{\partial v_x}{\partial x}\right] = O\left[\frac{V}{L}\right] \tag{5.29}
+$$
 
 其中 $O[*]$ 读作"[*] 的量级"。
 
 利用 V 和 L 的特征值，我们得到：
 
-$$O\left[\frac{\partial v_x}{\partial x}\right] = O\left[\frac{V}{L}\right] = O\left[\frac{\delta V}{H}\right] = O\left[\frac{10^{-1}\delta}{10^{-3}}\right] = O\left[10^{2}\delta\right] \tag{5.30}$$
+$$
+O\left[\frac{\partial v_x}{\partial x}\right] = O\left[\frac{V}{L}\right] = O\left[\frac{\delta V}{H}\right] = O\left[\frac{10^{-1}\delta}{10^{-3}}\right] = O\left[10^{2}\delta\right] \tag{5.30}
+$$
 
 在附录 D 中，我们使用上述方法估计方程 5.22 至 5.26 中各项的相对大小。结果是：质量守恒方程（方程 5.22）保持不变，即
 
-$$0 = \kappa\left(\frac{\partial p}{\partial t} + v_x\frac{\partial p}{\partial x} + v_y\frac{\partial p}{\partial y} + v_z\frac{\partial p}{\partial z}\right) - \beta\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y} + v_z\frac{\partial T}{\partial z}\right) + \left(\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z}\right) \tag{5.31}$$
+$$
+0 = \kappa\left(\frac{\partial p}{\partial t} + v_x\frac{\partial p}{\partial x} + v_y\frac{\partial p}{\partial y} + v_z\frac{\partial p}{\partial z}\right) - \beta\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y} + v_z\frac{\partial T}{\partial z}\right) + \left(\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z}\right) \tag{5.31}
+$$
 
 动量方程（方程 5.23 至 5.25）简化为：
 
 - x 分量：
 
-$$\frac{\partial p}{\partial x} = \frac{\partial}{\partial z}\left(\eta\frac{\partial v_x}{\partial z}\right) \tag{5.32}$$
+$$
+\frac{\partial p}{\partial x} = \frac{\partial}{\partial z}\left(\eta\frac{\partial v_x}{\partial z}\right) \tag{5.32}
+$$
 
 - y 分量：
 
-$$\frac{\partial p}{\partial y} = \frac{\partial}{\partial z}\left(\eta\frac{\partial v_y}{\partial z}\right) \tag{5.33}$$
+$$
+\frac{\partial p}{\partial y} = \frac{\partial}{\partial z}\left(\eta\frac{\partial v_y}{\partial z}\right) \tag{5.33}
+$$
 
 - z 分量：
 
-$$\frac{\partial p}{\partial z} = 0 \tag{5.34}$$
+$$
+\frac{\partial p}{\partial z} = 0 \tag{5.34}
+$$
 
 能量方程简化为（见方程 D.51）：
 
-$$\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y} + v_z\frac{\partial T}{\partial z}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2} \tag{5.35}$$
+$$
+\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y} + v_z\frac{\partial T}{\partial z}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2} \tag{5.35}
+$$
 
 利用量纲分析可以证明，在 2.5D 近似中，
 
-$$\dot{\gamma} = \sqrt{\left(\frac{\partial v_x}{\partial z}\right)^2 + \left(\frac{\partial v_y}{\partial z}\right)^2} \tag{5.36}$$
+$$
+\dot{\gamma} = \sqrt{\left(\frac{\partial v_x}{\partial z}\right)^2 + \left(\frac{\partial v_y}{\partial z}\right)^2} \tag{5.36}
+$$
 
 通常称 $\dot{\gamma}$ 为剪切速率。
 
@@ -433,11 +495,15 @@ $$\dot{\gamma} = \sqrt{\left(\frac{\partial v_x}{\partial z}\right)^2 + \left(\f
 
 质量守恒：
 
-$$0 = \kappa\left(\frac{\partial p}{\partial t} + v_x\frac{\partial p}{\partial x} + v_y\frac{\partial p}{\partial y}\right) - \beta\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y}\right) + \left(\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y}\right) \tag{5.37}$$
+$$
+0 = \kappa\left(\frac{\partial p}{\partial t} + v_x\frac{\partial p}{\partial x} + v_y\frac{\partial p}{\partial y}\right) - \beta\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y}\right) + \left(\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y}\right) \tag{5.37}
+$$
 
 动量方程（方程 5.32–5.34）保持不变，能量方程为：
 
-$$\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2} \tag{5.38}$$
+$$
+\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2} \tag{5.38}
+$$
 
 忽略 $v_z$ 会影响流动前沿附近的温度，因为喷泉流动会把熔体从型腔中部输运到壁面。在薄壁模具中，流动前沿通过某一点之后，流动为层流，因此 $z$ 方向的对流不那么重要。在熔体快速改变方向的拐角处可能引入显著误差。在这些区域（包括流道系统），温度对流误差会导致流动前沿预测的误差。只有真正的三维模拟才能准确识别这一点。我们将在第 6.4 节讨论。
 
@@ -453,51 +519,77 @@ $$\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x}
 
 首先，我们将方程 5.32 对 $z$ 从 $h^-(x, y)$ 积分到 $z$，得到：
 
-$$\int_{h^-}^{z}\frac{\partial p}{\partial x}\,dz = \int_{h^-}^{z}\frac{\partial}{\partial z}\left(\eta\frac{\partial v_x}{\partial z}\right)dz \tag{5.39}$$
+$$
+\int_{h^-}^{z}\frac{\partial p}{\partial x}\,dz = \int_{h^-}^{z}\frac{\partial}{\partial z}\left(\eta\frac{\partial v_x}{\partial z}\right)dz \tag{5.39}
+$$
 
-$$\frac{\partial p}{\partial x}\left(z - z\big|_{z=h^-}\right) = \eta\frac{\partial v_x}{\partial z} - \left[\eta\frac{\partial v_x}{\partial z}\right]_{z=h^-} \tag{5.40}$$
+$$
+\frac{\partial p}{\partial x}\left(z - z\big|_{z=h^-}\right) = \eta\frac{\partial v_x}{\partial z} - \left[\eta\frac{\partial v_x}{\partial z}\right]_{z=h^-} \tag{5.40}
+$$
 
-$$\frac{\partial p}{\partial x}z = \eta\frac{\partial v_x}{\partial z} + A(x, y) \tag{5.41}$$
+$$
+\frac{\partial p}{\partial x}z = \eta\frac{\partial v_x}{\partial z} + A(x, y) \tag{5.41}
+$$
 
 其中
 
-$$A(x, y) = \left[\frac{\partial p}{\partial x}z\right]_{z=h^-} - \left[\eta\frac{\partial v_x}{\partial z}\right]_{z=h^-} \tag{5.42}$$
+$$
+A(x, y) = \left[\frac{\partial p}{\partial x}z\right]_{z=h^-} - \left[\eta\frac{\partial v_x}{\partial z}\right]_{z=h^-} \tag{5.42}
+$$
 
 我们将方程 5.41 两边除以 $\eta$，再从 $h^-$ 到 $z$ 对两边积分，得：
 
-$$\frac{\partial p}{\partial x}\int_{h^-}^{z}\frac{z}{\eta}\,dz = \int_{h^-}^{z}\frac{\partial v_x}{\partial z}\,dz + A(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz = v_x(z) - v_x(h^-) + A(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz \tag{5.43}$$
+$$
+\frac{\partial p}{\partial x}\int_{h^-}^{z}\frac{z}{\eta}\,dz = \int_{h^-}^{z}\frac{\partial v_x}{\partial z}\,dz + A(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz = v_x(z) - v_x(h^-) + A(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz \tag{5.43}
+$$
 
 在凝固层形成的界面处（$z = h^-$ 或 $z = h^+$），有 $v_x = 0$。这称为无滑移条件。应用该条件并整理方程 5.43，得到：
 
-$$v_x(z) = \frac{\partial p}{\partial x}\int_{h^-}^{z}\frac{z}{\eta}\,dz + A(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz \tag{5.44}$$
+$$
+v_x(z) = \frac{\partial p}{\partial x}\int_{h^-}^{z}\frac{z}{\eta}\,dz + A(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz \tag{5.44}
+$$
 
 我们对方程 5.44 再次应用无滑移条件，代入 $z = h^+$，得：
 
-$$0 = \frac{\partial p}{\partial x}\int_{h^-}^{h^+}\frac{z}{\eta}\,dz + A(x, y)\int_{h^-}^{h^+}\frac{1}{\eta}\,dz \tag{5.45}$$
+$$
+0 = \frac{\partial p}{\partial x}\int_{h^-}^{h^+}\frac{z}{\eta}\,dz + A(x, y)\int_{h^-}^{h^+}\frac{1}{\eta}\,dz \tag{5.45}
+$$
 
 于是
 
-$$A(x, y) = -\frac{\partial p}{\partial x}\frac{\displaystyle\int_{h^-}^{h^+}\frac{z}{\eta}\,dz}{\displaystyle\int_{h^-}^{h^+}\frac{1}{\eta}\,dz} = -\frac{\partial p}{\partial x}C(x, y) \tag{5.46}$$
+$$
+A(x, y) = -\frac{\partial p}{\partial x}\frac{\displaystyle\int_{h^-}^{h^+}\frac{z}{\eta}\,dz}{\displaystyle\int_{h^-}^{h^+}\frac{1}{\eta}\,dz} = -\frac{\partial p}{\partial x}C(x, y) \tag{5.46}
+$$
 
 其中
 
-$$C(x, y) = \frac{\displaystyle\int_{h^-}^{h^+}\frac{z}{\eta}\,dz}{\displaystyle\int_{h^-}^{h^+}\frac{1}{\eta}\,dz} \tag{5.47}$$
+$$
+C(x, y) = \frac{\displaystyle\int_{h^-}^{h^+}\frac{z}{\eta}\,dz}{\displaystyle\int_{h^-}^{h^+}\frac{1}{\eta}\,dz} \tag{5.47}
+$$
 
 将方程 5.46 和 5.47 代入方程 5.44，得到 x 方向速度的以下表达式：
 
-$$v_x(z) = \frac{\partial p}{\partial x}\left[\int_{h^-}^{z}\frac{z}{\eta}\,dz - C(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz\right] \tag{5.48}$$
+$$
+v_x(z) = \frac{\partial p}{\partial x}\left[\int_{h^-}^{z}\frac{z}{\eta}\,dz - C(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz\right] \tag{5.48}
+$$
 
 对动量方程的 y 分量（方程 5.33）执行相同的步骤，可得 y 方向速度的类似表达式：
 
-$$v_y(z) = \frac{\partial p}{\partial y}\left[\int_{h^-}^{z}\frac{z}{\eta}\,dz - C(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz\right] \tag{5.49}$$
+$$
+v_y(z) = \frac{\partial p}{\partial y}\left[\int_{h^-}^{z}\frac{z}{\eta}\,dz - C(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz\right] \tag{5.49}
+$$
 
 流动通道的宽度由 $h^+ - h^-$ 定义。跨越流动通道宽度的 x 方向平均速度定义为：
 
-$$\bar{v}_x = \frac{1}{h^+ - h^-}\int_{h^-}^{h^+}v_x(z)\,dz \tag{5.50}$$
+$$
+\bar{v}_x = \frac{1}{h^+ - h^-}\int_{h^-}^{h^+}v_x(z)\,dz \tag{5.50}
+$$
 
 将方程 5.48 代入方程 5.50，得到：
 
-$$\bar{v}_x = \frac{1}{h^+ - h^-}\frac{\partial p}{\partial x}\left[\int_{h^-}^{h^+}\int_{h^-}^{z}\frac{z}{\eta}\,dz\,dz - C(x, y)\int_{h^-}^{h^+}\int_{h^-}^{z}\frac{1}{\eta}\,dz\,dz\right] \tag{5.51}$$
+$$
+\bar{v}_x = \frac{1}{h^+ - h^-}\frac{\partial p}{\partial x}\left[\int_{h^-}^{h^+}\int_{h^-}^{z}\frac{z}{\eta}\,dz\,dz - C(x, y)\int_{h^-}^{h^+}\int_{h^-}^{z}\frac{1}{\eta}\,dz\,dz\right] \tag{5.51}
+$$
 
 方程 5.51 可利用分部积分（见第 4.2.4 节）简化。第一项可通过令 $M = z$、$N = \int_{h^-}^{z}\frac{z}{\eta}\,dz$ 来计算，于是
 
@@ -535,31 +627,43 @@ $$
 
 其中我们定义
 
-$$S_2 = \frac{1}{2}\left[\int_{h^-}^{h^+}\frac{z^2}{\eta}\,dz - \frac{\left(\int_{h^-}^{h^+}\frac{z}{\eta}\,dz\right)^2}{\int_{h^-}^{h^+}\frac{1}{\eta}\,dz}\right] \tag{5.55}$$
+$$
+S_2 = \frac{1}{2}\left[\int_{h^-}^{h^+}\frac{z^2}{\eta}\,dz - \frac{\left(\int_{h^-}^{h^+}\frac{z}{\eta}\,dz\right)^2}{\int_{h^-}^{h^+}\frac{1}{\eta}\,dz}\right] \tag{5.55}
+$$
 
 量 $S_2$ 称为流动导率（fluidity）。我们使用下标来表示它与本质上是二维的间隙中的流动相关联。
 
 y 方向的平均速度可类似定义为：
 
-$$\bar{v}_y = \frac{1}{h^+ - h^-}\int_{h^-}^{h^+}v_y(z)\,dz \tag{5.56}$$
+$$
+\bar{v}_y = \frac{1}{h^+ - h^-}\int_{h^-}^{h^+}v_y(z)\,dz \tag{5.56}
+$$
 
 将方程 5.49 代入方程 5.56，并像对平均 $v_x$ 速度那样完成积分运算，得到：
 
-$$\bar{v}_y = \frac{-2S_2}{h^+ - h^-}\frac{\partial p}{\partial y} \tag{5.57}$$
+$$
+\bar{v}_y = \frac{-2S_2}{h^+ - h^-}\frac{\partial p}{\partial y} \tag{5.57}
+$$
 
 ### 5.6.5 连续性方程的积分
 
 回想第 5.6.3 节，经过量纲分析简化并忽略 $z$ 方向速度后，能量守恒方程的形式为：
 
-$$\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2} \tag{5.58}$$
+$$
+\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2} \tag{5.58}
+$$
 
 可整理为：
 
-$$\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y} = \frac{1}{\rho c_p}\left(\beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2}\right) \tag{5.59}$$
+$$
+\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y} = \frac{1}{\rho c_p}\left(\beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2}\right) \tag{5.59}
+$$
 
 回想第 5.6.3 节的连续性方程为：
 
-$$0 = \kappa\left(\frac{\partial p}{\partial t} + v_x\frac{\partial p}{\partial x} + v_y\frac{\partial p}{\partial y}\right) - \beta\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y}\right) + \left(\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y}\right) \tag{5.60}$$
+$$
+0 = \kappa\left(\frac{\partial p}{\partial t} + v_x\frac{\partial p}{\partial x} + v_y\frac{\partial p}{\partial y}\right) - \beta\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y}\right) + \left(\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y}\right) \tag{5.60}
+$$
 
 将方程 5.59 代入方程 5.60，得：
 
@@ -572,21 +676,29 @@ $$
 
 现在我们将此方程对 z 沿型腔厚度积分，即从 $z = -H$ 到 $z = +H$，得到：
 
-$$0 = \int_{-H}^{+H}\left(\kappa - \frac{\beta^2 T}{\rho c_p}\right)\frac{\partial p}{\partial t}\,dz + \int_{-H}^{+H}\kappa\left(v_x\frac{\partial p}{\partial x} + v_y\frac{\partial p}{\partial y}\right)dz - \int_{-H}^{+H}\frac{\beta}{\rho c_p}\left(\eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2}\right)dz + \int_{-H}^{+H}\frac{\partial v_x}{\partial x}\,dz + \int_{-H}^{+H}\frac{\partial v_y}{\partial y}\,dz \tag{5.62}$$
+$$
+0 = \int_{-H}^{+H}\left(\kappa - \frac{\beta^2 T}{\rho c_p}\right)\frac{\partial p}{\partial t}\,dz + \int_{-H}^{+H}\kappa\left(v_x\frac{\partial p}{\partial x} + v_y\frac{\partial p}{\partial y}\right)dz - \int_{-H}^{+H}\frac{\beta}{\rho c_p}\left(\eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2}\right)dz + \int_{-H}^{+H}\frac{\partial v_x}{\partial x}\,dz + \int_{-H}^{+H}\frac{\partial v_y}{\partial y}\,dz \tag{5.62}
+$$
 
 考虑第一项。我们可以把 $\partial p/\partial t$ 提到积分号外，于是
 
-$$\int_{-H}^{+H}\left(\kappa - \frac{\beta^2 T}{\rho c_p}\right)\frac{\partial p}{\partial t}\,dz = \frac{\partial p}{\partial t}\int_{-H}^{+H}\left(\kappa - \frac{\beta^2 T}{\rho c_p}\right)dz = a(x, y)\frac{\partial p}{\partial t} \tag{5.63}$$
+$$
+\int_{-H}^{+H}\left(\kappa - \frac{\beta^2 T}{\rho c_p}\right)\frac{\partial p}{\partial t}\,dz = \frac{\partial p}{\partial t}\int_{-H}^{+H}\left(\kappa - \frac{\beta^2 T}{\rho c_p}\right)dz = a(x, y)\frac{\partial p}{\partial t} \tag{5.63}
+$$
 
 其中
 
-$$a(x, y) = \int_{-H}^{+H}\left(\kappa - \frac{\beta^2 T}{\rho c_p}\right)dz \tag{5.64}$$
+$$
+a(x, y) = \int_{-H}^{+H}\left(\kappa - \frac{\beta^2 T}{\rho c_p}\right)dz \tag{5.64}
+$$
 
-是关于 z 的常数。
+是关于 $z$ 的常数。
 
 现在考虑方程 5.62 第二项的第一部分。由方程 5.48 我们知道
 
-$$v_x(z) = \frac{\partial p}{\partial x}\left[\int_{h^-}^{z}\frac{z}{\eta}\,dz - C(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz\right] \tag{5.65}$$
+$$
+v_x(z) = \frac{\partial p}{\partial x}\left[\int_{h^-}^{z}\frac{z}{\eta}\,dz - C(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz\right] \tag{5.65}
+$$
 
 于是
 
@@ -596,11 +708,14 @@ $$
 &= \left(\frac{\partial p}{\partial x}\right)^2\left[\int_{-H}^{+H}\kappa\left(\int_{h^-}^{z}\frac{z}{\eta}\,dz\right)dz - C(x, y)\int_{-H}^{+H}\kappa\left(\int_{h^-}^{z}\frac{1}{\eta}\,dz\right)dz\right] \\
 &= d(x, y)\left(\frac{\partial p}{\partial x}\right)^2
 \end{aligned}
+\tag{5.66}
 $$
 
 其中
 
-$$d(x, y) = \left[\int_{-H}^{+H}\kappa\left(\int_{h^-}^{z}\frac{z}{\eta}\,dz\right)dz - C(x, y)\int_{-H}^{+H}\kappa\left(\int_{h^-}^{z}\frac{1}{\eta}\,dz\right)dz\right] \tag{5.67}$$
+$$
+d(x, y) = \left[\int_{-H}^{+H}\kappa\left(\int_{h^-}^{z}\frac{z}{\eta}\,dz\right)dz - C(x, y)\int_{-H}^{+H}\kappa\left(\int_{h^-}^{z}\frac{1}{\eta}\,dz\right)dz\right] \tag{5.67}
+$$
 
 对方程 5.62 第二项的第二个积分做类似考虑，得：
 
@@ -614,7 +729,9 @@ $$
 
 对于方程 5.62 的第三项，我们令
 
-$$b(x, y) = \int_{-H}^{+H}\frac{\beta}{\rho c_p}\left(\eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2}\right)dz \tag{5.69}$$
+$$
+b(x, y) = \int_{-H}^{+H}\frac{\beta}{\rho c_p}\left(\eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2}\right)dz \tag{5.69}
+$$
 
 最后，考虑方程 5.62 的第四项和第五项。利用速度分量在凝固层中为零的假设，我们有：
 
@@ -625,13 +742,16 @@ $$
 &= \frac{\partial}{\partial x}\left((h^+ - h^-)\bar{v}_x\right) + \frac{\partial}{\partial y}\left((h^+ - h^-)\bar{v}_y\right) \\
 &= -\frac{\partial}{\partial x}\left(2S_2\frac{\partial p}{\partial x}\right) - \frac{\partial}{\partial y}\left(2S_2\frac{\partial p}{\partial y}\right)
 \end{aligned}
+\tag{5.70}
 $$
 
 其中在最后两个表达式中，我们使用了方程 5.50、5.54、5.56 和 5.57 给出的平均速度的定义和数值。
 
 将方程 5.63、5.66、5.68、5.69 和 5.70 代入方程 5.62，得到：
 
-$$0 = a(x, y)\frac{\partial p}{\partial t} + d(x, y)\left(\left(\frac{\partial p}{\partial x}\right)^2 + \left(\frac{\partial p}{\partial y}\right)^2\right) - b(x, y) - \frac{\partial}{\partial x}\left(2S_2\frac{\partial p}{\partial x}\right) - \frac{\partial}{\partial y}\left(2S_2\frac{\partial p}{\partial y}\right) \tag{5.71}$$
+$$
+0 = a(x, y)\frac{\partial p}{\partial t} + d(x, y)\left(\left(\frac{\partial p}{\partial x}\right)^2 + \left(\frac{\partial p}{\partial y}\right)^2\right) - b(x, y) - \frac{\partial}{\partial x}\left(2S_2\frac{\partial p}{\partial x}\right) - \frac{\partial}{\partial y}\left(2S_2\frac{\partial p}{\partial y}\right) \tag{5.71}
+$$
 
 #### 5.6.5.1 2.5D 近似小结
 
@@ -651,11 +771,15 @@ $$0 = a(x, y)\frac{\partial p}{\partial t} + d(x, y)\left(\left(\frac{\partial p
 
 经过这些步骤，守恒方程 4.13、4.23 和 5.7 简化为一个压力方程：
 
-$$0 = a(x, y)\frac{\partial p}{\partial t} + d(x, y)\left(\left(\frac{\partial p}{\partial x}\right)^2 + \left(\frac{\partial p}{\partial y}\right)^2\right) - b(x, y) - \frac{\partial}{\partial x}\left(2S_2\frac{\partial p}{\partial x}\right) - \frac{\partial}{\partial y}\left(2S_2\frac{\partial p}{\partial y}\right) \tag{5.72}$$
+$$
+0 = a(x, y)\frac{\partial p}{\partial t} + d(x, y)\left(\left(\frac{\partial p}{\partial x}\right)^2 + \left(\frac{\partial p}{\partial y}\right)^2\right) - b(x, y) - \frac{\partial}{\partial x}\left(2S_2\frac{\partial p}{\partial x}\right) - \frac{\partial}{\partial y}\left(2S_2\frac{\partial p}{\partial y}\right) \tag{5.72}
+$$
 
 以及简化的能量方程：
 
-$$\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2} \tag{5.73}$$
+$$
+\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2} \tag{5.73}
+$$
 
 ## 5.7 模具冷却分析
 
@@ -665,7 +789,9 @@ $$\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x}
 
 除冷却液的水力分析外，模具冷却分析软件基于热传导方程：
 
-$$\frac{\partial T}{\partial t} = \alpha\frac{\partial^2 T}{\partial z^2} \tag{5.74}$$
+$$
+\frac{\partial T}{\partial t} = \alpha\frac{\partial^2 T}{\partial z^2} \tag{5.74}
+$$
 
 其中 $\alpha = k/\rho c_p$ 是材料的热扩散率。这是一个瞬态方程，而模具冷却分析的早期版本并未考虑这一点。它们只处理方程 5.74 的右端。
 
@@ -681,7 +807,9 @@ Karjalainen [192] 的工作是该领域一项值得注意但鲜为人知的贡�
 
 在第 4.7.3 节我们发现，对处于浓悬浮范围的纤维填充材料进行准确建模需要统计方法。令 $\psi(\mathbf{p}, t)\,d\mathbf{p}$ 表示在时刻 $t$ 找到取向方向在 $\mathbf{p}$ 到 $\mathbf{p} + d\mathbf{p}$ 范围内的纤维的概率，$\psi(\mathbf{p}, t)$ 满足方程：
 
-$$\frac{\partial \psi}{\partial t} = \frac{\partial}{\partial \mathbf{p}}\left[D^{(r)}(\mathbf{I} - \mathbf{p}\mathbf{p}) \cdot \frac{\partial \psi}{\partial \mathbf{p}} - \left(\mathbf{L} \cdot \mathbf{p} - (\mathbf{L} : \mathbf{p}\mathbf{p})\mathbf{p}\right)\psi\right] \tag{5.75}$$
+$$
+\frac{\partial \psi}{\partial t} = \frac{\partial}{\partial \mathbf{p}}\left[D^{(r)}(\mathbf{I} - \mathbf{p}\mathbf{p}) \cdot \frac{\partial \psi}{\partial \mathbf{p}} - \left(\mathbf{L} \cdot \mathbf{p} - (\mathbf{L} : \mathbf{p}\mathbf{p})\mathbf{p}\right)\psi\right] \tag{5.75}
+$$
 
 其中 $D^{(r)}$ 是扩散系数。该方程可以直接求解，但计算代价高昂。例如，假设我们有一个 2.5D 模型，由 1000 个节点在制品中面上定义三角形单元。设型腔厚度在中面上下各由 10 个节点覆盖，则每个中面节点位置在厚度方向上有 21 个节点。如果我们用 20 个 $\theta$ 增量覆盖 180 度，用 40 个 $\phi$ 增量覆盖 360 度，那么每个节点有 800 个自由度。由于共有 21,000 个节点，模型的自由度为 21,000 × 800 = 16,800,000。以注塑成型的标准看，中面上有 1000 个节点的模型是很小的。几十万节点的情况并不少见。因此我们需要一种更高效的取向计算方法。
 
@@ -689,13 +817,17 @@ $$\frac{\partial \psi}{\partial t} = \frac{\partial}{\partial \mathbf{p}}\left[D
 
 Advani 和 Tucker [2] 引入了一种克服计算量问题的方法。他们定义二阶取向张量 $a_{ij}$ 为
 
-$$a_{ij} \equiv \langle p_i p_j \rangle = \int p_i p_j \psi(\mathbf{p}, t)\,d\mathbf{p} \tag{5.76}$$
+$$
+a_{ij} \equiv \langle p_i p_j \rangle = \int p_i p_j \psi(\mathbf{p}, t)\,d\mathbf{p} \tag{5.76}
+$$
 
 其中 $\langle\cdot\rangle$ 称为关于概率密度函数 $\psi(\mathbf{p}, t)$ 的系综平均。由于分布函数是归一化的（见方程 4.74），且 $\mathbf{p}$ 是单位向量，因此 $a_{ij}$ 的迹等于 1。此外，由方程 5.76 有 $a_{ij} = a_{ji}$。因此二阶张量 $a_{ij}$ 只有五个独立分量。图 5.5 给出了一些极端取向状态下二阶张量的示例。
 
 类似地，可以定义四阶取向张量 $a_{ijkl}$：
 
-$$a_{ijkl} \equiv \langle p_i p_j p_k p_l \rangle = \int p_i p_j p_k p_l \psi(\mathbf{p}, t)\,d\mathbf{p} \tag{5.77}$$
+$$
+a_{ijkl} \equiv \langle p_i p_j p_k p_l \rangle = \int p_i p_j p_k p_l \psi(\mathbf{p}, t)\,d\mathbf{p} \tag{5.77}
+$$
 
 <img src="/images/flow-analysis/fig-5-5.png" alt="图 5.5：纤维取向分布的示意图，(a) 沿 1 方向完全取向，(b) 在 1-2 平面内随机取向，(c) 在三维空间中随机取向" loading="lazy" decoding="async" />
 
@@ -703,7 +835,9 @@ $$a_{ijkl} \equiv \langle p_i p_j p_k p_l \rangle = \int p_i p_j p_k p_l \psi(\m
 
 现在我们转向 $a_{ij}$ 的计算。第一步是获得 $a_{ij}$ 的演化方程。这需要一些数学处理，见附录 C。由方程 C.46 可得 $a_{ij}$ 的以下演化方程：
 
-$$\frac{\mathrm{D}a_{ij}}{\mathrm{D}t} = W_{ik}a_{kj} - a_{ik}W_{kj} + \frac{a_r^2 - 1}{a_r^2 + 1}\left(D_{ik}a_{kj} + D_{jk}a_{ki} - 2D_{kl}a_{ijkl}\right) + 2D^{(r)}\left(\delta_{ij} - 3a_{ij}\right) \tag{5.78}$$
+$$
+\frac{\mathrm{D}a_{ij}}{\mathrm{D}t} = W_{ik}a_{kj} - a_{ik}W_{kj} + \frac{a_r^2 - 1}{a_r^2 + 1}\left(D_{ik}a_{kj} + D_{jk}a_{ki} - 2D_{kl}a_{ijkl}\right) + 2D^{(r)}\left(\delta_{ij} - 3a_{ij}\right) \tag{5.78}
+$$
 
 其中 $D^{(r)}$ 称为旋转扩散系数，它考虑了注塑复合材料是浓悬浮液、纤维之间存在相互作用这一事实。这与上一章讨论的单根纤维的 Jeffery 方程（方程 4.72）形成对比。
 
@@ -711,7 +845,9 @@ $$\frac{\mathrm{D}a_{ij}}{\mathrm{D}t} = W_{ik}a_{kj} - a_{ik}W_{kj} + \frac{a_r
 
 计算注塑件纤维取向分布的常用方法是所谓的 Folgar-Tucker 方程 [122]。Folgar 和 Tucker 在方程 5.78 中假设 $D_r = C_I\dot{\gamma}$，得到
 
-$$\frac{\mathrm{D}a_{ij}}{\mathrm{D}t} = W_{ik}a_{kj} - a_{ik}W_{kj} + \frac{a_r^2 - 1}{a_r^2 + 1}\left(D_{ik}a_{kj} + D_{jk}a_{ki} - 2D_{kl}a_{ijkl}\right) + 2C_I\dot{\gamma}\left(\delta_{ij} - 3a_{ij}\right) \tag{5.79}$$
+$$
+\frac{\mathrm{D}a_{ij}}{\mathrm{D}t} = W_{ik}a_{kj} - a_{ik}W_{kj} + \frac{a_r^2 - 1}{a_r^2 + 1}\left(D_{ik}a_{kj} + D_{jk}a_{ki} - 2D_{kl}a_{ijkl}\right) + 2C_I\dot{\gamma}\left(\delta_{ij} - 3a_{ij}\right) \tag{5.79}
+$$
 
 其中 $C_I$ 是一个常数，称为相互作用系数。
 
@@ -732,7 +868,9 @@ $$\frac{\mathrm{D}a_{ij}}{\mathrm{D}t} = W_{ik}a_{kj} - a_{ik}W_{kj} + \frac{a_r
 
 线性封闭由 Hand [145] 描述，其三维形式为：
 
-$$a_{ijkl} \approx a_{ijkl}^{\mathrm{lin}} = -\frac{1}{35}\left(\delta_{ij}\delta_{kl} + \delta_{ik}\delta_{jl} + \delta_{il}\delta_{jk}\right) + \frac{1}{7}\left(a_{ij}\delta_{kl} + a_{il}\delta_{jk} + a_{kl}\delta_{ij} + a_{jl}\delta_{ik} + a_{jk}\delta_{il}\right) \tag{5.80}$$
+$$
+a_{ijkl} \approx a_{ijkl}^{\mathrm{lin}} = -\frac{1}{35}\left(\delta_{ij}\delta_{kl} + \delta_{ik}\delta_{jl} + \delta_{il}\delta_{jk}\right) + \frac{1}{7}\left(a_{ij}\delta_{kl} + a_{il}\delta_{jk} + a_{kl}\delta_{ij} + a_{jl}\delta_{ik} + a_{jk}\delta_{il}\right) \tag{5.80}
+$$
 
 对于平面取向，表达式类似，但系数 1/35 改为 1/24，系数 1/7 改为 1/6。对随机取向，线性封闭是精确的，但当纤维变得更取向时可能不稳定 [3]。
 
@@ -740,7 +878,9 @@ $$a_{ijkl} \approx a_{ijkl}^{\mathrm{lin}} = -\frac{1}{35}\left(\delta_{ij}\delt
 
 Doi [80] 使用过二次封闭。其形式为：
 
-$$a_{ijkl} \approx a_{ijkl}^{\mathrm{quad}} = a_{ij}a_{kl} \tag{5.81}$$
+$$
+a_{ijkl} \approx a_{ijkl}^{\mathrm{quad}} = a_{ij}a_{kl} \tag{5.81}
+$$
 
 当纤维完全取向时它是精确的，但在瞬态流动中或相互作用系数非零时表现可能较差 [3]。
 
@@ -748,15 +888,21 @@ $$a_{ijkl} \approx a_{ijkl}^{\mathrm{quad}} = a_{ij}a_{kl} \tag{5.81}$$
 
 Advani 和 Tucker [3] 提出了线性封闭与二次封闭的混合。其形式为：
 
-$$a_{ijkl} \approx a_{ijkl}^{\mathrm{hybrid}} = (1 - f)a_{ijkl}^{\mathrm{lin}} + f\,a_{ijkl}^{\mathrm{quad}} \tag{5.82}$$
+$$
+a_{ijkl} \approx a_{ijkl}^{\mathrm{hybrid}} = (1 - f)a_{ijkl}^{\mathrm{lin}} + f\,a_{ijkl}^{\mathrm{quad}} \tag{5.82}
+$$
 
 其中
 
-$$f = 1 - 27\det(a_{ij}) \quad \text{（三维取向）} \tag{5.83}$$
+$$
+f = 1 - 27\det(a_{ij}) \quad \text{（三维取向）} \tag{5.83}
+$$
 
 以及
 
-$$f = 1 - 4\det(a_{ij}) \quad \text{（平面取向）} \tag{5.84}$$
+$$
+f = 1 - 4\det(a_{ij}) \quad \text{（平面取向）} \tag{5.84}
+$$
 
 按其构造，混合近似在纤维随机分布或完全取向时是精确的。然而，它在瞬态剪切流动中倾向于加速取向。
 
@@ -768,7 +914,9 @@ $$f = 1 - 4\det(a_{ij}) \quad \text{（平面取向）} \tag{5.84}$$
 
 相互作用系数自身存在一个问题：目前仍缺乏可从理论上或实验上确定其数值的基础理论。Bay [29] 基于不同浓度下稳态简单剪切流动中 $a_{11}$ 的实验值提出了一种方法。将这些实验结果与用与实验数据吻合最好的 $C_I$ 值数值计算出的 $a_{11}$ 进行比较。实验中使用的聚合物基体为尼龙、聚碳酸酯和聚对苯二甲酸丁二醇酯。然后将 $C_I$ 值对 $\phi a_r$ 作图，得到以下经验关系：
 
-$$C_I = 0.0184\exp(-0.7184\,\phi a_r) \tag{5.85}$$
+$$
+C_I = 0.0184\exp(-0.7184\,\phi a_r) \tag{5.85}
+$$
 
 在 Bay 的实验中，测得的 $a_{11}$ 值随纤维体积分数增大而增大，因此经验公式显示 $C_I$ 随 $\phi a_r$ 增大而减小。这与 Folgar 和 Tucker [122] 对硅油中尼龙纤维观察到的趋势相反。不过，Folgar 和 Tucker 的数据是在半浓悬浮区间测得的，而 Bay 的数据是在浓悬浮区间测得的。Bay [29] 和 Tucker 与 Advani [370] 猜想，在某一浓度（约 $\phi a_r = 1$）附近，纤维间相互作用可能从"扰动"转变为"笼蔽"。
 
@@ -778,7 +926,9 @@ $$C_I = 0.0184\exp(-0.7184\,\phi a_r) \tag{5.85}$$
 
 Bay [29] 用实验数据确定 $C_I$ 与 $\phi a_r$ 的关系，而 Phan-Thien 等人 [289] 则对剪切中的纤维运动进行了直接模拟。他们用边界元法计算纤维取向，并在悬浮液达到平衡时计算 $C_I$ 的值。他们提出：
 
-$$C_I = 0.03\left[1 - \exp(-0.224\,\phi a_r)\right] \tag{5.86}$$
+$$
+C_I = 0.03\left[1 - \exp(-0.224\,\phi a_r)\right] \tag{5.86}
+$$
 
 直接模拟的结果和经验方程 5.86 与 Folgar 和 Tucker [122] 的数据相当吻合，如图 5.6 所示。
 
@@ -808,9 +958,13 @@ $$C_I = 0.03\left[1 - \exp(-0.224\,\phi a_r)\right] \tag{5.86}$$
 
 Moldflow 引入的模型形式为 [390]：
 
-$$S_{\parallel} = \sum_{i=1}^{5} b_i M_i \tag{5.87}$$
+$$
+S_{\parallel} = \sum_{i=1}^{5} b_i M_i \tag{5.87}
+$$
 
-$$S_{\perp} = \sum_{i=6}^{10} b_i M_i \tag{5.88}$$
+$$
+S_{\perp} = \sum_{i=6}^{10} b_i M_i \tag{5.88}
+$$
 
 其中 $S_{\parallel}$ 和 $S_{\perp}$ 分别是平行和垂直于流动方向计算出的收缩应变，$b_i$ 是材料常数，$M_i$ 是加工影响的度量，由充填和保压分析的结果计算。$M_1 = M_6$，为体积收缩；$M_2 = M_7$，为结晶度水平的度量；$M_3 \neq M_8$，为分子取向的度量；$M_4 = M_9$，为松弛影响的度量；$M_5 = M_{10}$ 为常数，如果模型对给定材料有效，其值应当很小。材料常数 $b_i$（$i = 1, \ldots, 10$）通过以下步骤获得：
 
@@ -843,19 +997,27 @@ Baaijens [21] 表明，流动诱导应力比压力诱导应力和热残余应力
 
 残余应力模型是胡克定律的推广。对于弹性固体，胡克定律的形式为：
 
-$$\sigma_{ij} = c_{ijkl}^{e}\varepsilon_{kl} \tag{5.89}$$
+$$
+\sigma_{ij} = c_{ijkl}^{e}\varepsilon_{kl} \tag{5.89}
+$$
 
 其中 $\sigma_{ij}$ 和 $\varepsilon_{kl}$ 分别为应力张量和总应变张量，$c_{ijkl}^{e}$ 是弹性常数张量或刚度张量。应变张量由位移向量 $\mathbf{u}$ 的各分量求导确定，定义为：
 
-$$\varepsilon_{ij} = \frac{1}{2}\left(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}\right) \tag{5.90}$$
+$$
+\varepsilon_{ij} = \frac{1}{2}\left(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}\right) \tag{5.90}
+$$
 
 残余应力模型常用粘弹性本构关系来表述 [21, 308]。一般的线性各向异性热粘弹性本构关系可写为：
 
-$$\sigma_{ij} = \int_{0}^{t}\left[c_{ijkl}\left(\xi(t) - \xi(t')\right)\frac{\partial \varepsilon_{kl}}{\partial t'} - \alpha_{kl}\left(\xi(t) - \xi(t')\right)\frac{\partial T}{\partial t'}\right]dt' \tag{5.91}$$
+$$
+\sigma_{ij} = \int_{0}^{t}\left[c_{ijkl}\left(\xi(t) - \xi(t')\right)\frac{\partial \varepsilon_{kl}}{\partial t'} - \alpha_{kl}\left(\xi(t) - \xi(t')\right)\frac{\partial T}{\partial t'}\right]dt' \tag{5.91}
+$$
 
 其中 $c_{ijkl}$ 是粘弹性松弛模量，$t$ 是时间，$T$ 是温度，$\alpha_{kl}$ 是热膨胀系数张量，$\xi(t)$ 是伪时间尺度，定义为：
 
-$$\xi(t) = \int_{0}^{t}\frac{1}{a_T}\,dt' \tag{5.92}$$
+$$
+\xi(t) = \int_{0}^{t}\frac{1}{a_T}\,dt' \tag{5.92}
+$$
 
 其中 $a_T$ 是时温平移因子，用于考虑温度对材料响应的影响。
 
@@ -890,11 +1052,17 @@ $$
 
 其中下标 (e) 指单元编号，应力在每个网格点 $z_i \in [-H, H]$ 上计算。为得到制品的收缩，计算出的残余应力被用作结构分析的载荷条件。这需要一组额外的边界条件来防止几何体的刚体运动。我们通过在制品上选取三个不共线的节点来实现。分别用 $u_x$、$u_y$ 和 $u_z$ 表示坐标方向 $x$、$y$ 和 $z$ 上的位移自由度，定义边界条件为：
 
-$$\text{节点 1：} u_x = u_y = u_z = 0 \tag{5.95}$$
+$$
+\text{节点 1：} u_x = u_y = u_z = 0 \tag{5.95}
+$$
 
-$$\text{节点 2：} u_x = u_y = 0 \tag{5.96}$$
+$$
+\text{节点 2：} u_x = u_y = 0 \tag{5.96}
+$$
 
-$$\text{节点 3：} u_z = 0 \tag{5.97}$$
+$$
+\text{节点 3：} u_z = 0 \tag{5.97}
+$$
 
 所有转动自由度不受约束。有了这些边界条件，制品可以自由收缩和变形，而刚体运动被阻止。可以计算变形，并由此确定翘曲和收缩。
 
@@ -944,27 +1112,41 @@ Kennedy 和 Zheng [200] 讨论了为理论模型获取材料数据的困难。�
 
 质量守恒方程（方程 4.13）可用柱坐标表示为 [35, 260]：
 
-$$\frac{\partial \rho}{\partial t} + \rho\left(\frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x}\right) + v_r\frac{\partial \rho}{\partial r} + \frac{v_\theta}{r}\frac{\partial \rho}{\partial \theta} + v_x\frac{\partial \rho}{\partial x} = 0 \tag{5.98}$$
+$$
+\frac{\partial \rho}{\partial t} + \rho\left(\frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x}\right) + v_r\frac{\partial \rho}{\partial r} + \frac{v_\theta}{r}\frac{\partial \rho}{\partial \theta} + v_x\frac{\partial \rho}{\partial x} = 0 \tag{5.98}
+$$
 
 由于关于流道轴线对称，涉及 $\theta$ 导数的项为零，方程 5.98 变为：
 
-$$\frac{\partial \rho}{\partial t} + \rho\left(\frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x}\right) + v_r\frac{\partial \rho}{\partial r} + v_x\frac{\partial \rho}{\partial x} = 0 \tag{5.99}$$
+$$
+\frac{\partial \rho}{\partial t} + \rho\left(\frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x}\right) + v_r\frac{\partial \rho}{\partial r} + v_x\frac{\partial \rho}{\partial x} = 0 \tag{5.99}
+$$
 
 密度 $\rho$ 同时依赖于温度和压力。因此，利用微分链式法则以及方程 3.23 和 3.26 给出的膨胀系数与压缩系数定义，有：
 
-$$\frac{\partial \rho}{\partial t} = \left(\frac{\partial \rho}{\partial p}\right)_T\frac{\partial p}{\partial t} + \left(\frac{\partial \rho}{\partial T}\right)_p\frac{\partial T}{\partial t} = \rho\kappa\frac{\partial p}{\partial t} - \rho\beta\frac{\partial T}{\partial t} \tag{5.100}$$
+$$
+\frac{\partial \rho}{\partial t} = \left(\frac{\partial \rho}{\partial p}\right)_T\frac{\partial p}{\partial t} + \left(\frac{\partial \rho}{\partial T}\right)_p\frac{\partial T}{\partial t} = \rho\kappa\frac{\partial p}{\partial t} - \rho\beta\frac{\partial T}{\partial t} \tag{5.100}
+$$
 
-$$\frac{\partial \rho}{\partial r} = \left(\frac{\partial \rho}{\partial p}\right)_T\frac{\partial p}{\partial r} + \left(\frac{\partial \rho}{\partial T}\right)_p\frac{\partial T}{\partial r} = \rho\kappa\frac{\partial p}{\partial r} - \rho\beta\frac{\partial T}{\partial r} \tag{5.101}$$
+$$
+\frac{\partial \rho}{\partial r} = \left(\frac{\partial \rho}{\partial p}\right)_T\frac{\partial p}{\partial r} + \left(\frac{\partial \rho}{\partial T}\right)_p\frac{\partial T}{\partial r} = \rho\kappa\frac{\partial p}{\partial r} - \rho\beta\frac{\partial T}{\partial r} \tag{5.101}
+$$
 
-$$\frac{\partial \rho}{\partial x} = \left(\frac{\partial \rho}{\partial p}\right)_T\frac{\partial p}{\partial x} + \left(\frac{\partial \rho}{\partial T}\right)_p\frac{\partial T}{\partial x} = \rho\kappa\frac{\partial p}{\partial x} - \rho\beta\frac{\partial T}{\partial x} \tag{5.102}$$
+$$
+\frac{\partial \rho}{\partial x} = \left(\frac{\partial \rho}{\partial p}\right)_T\frac{\partial p}{\partial x} + \left(\frac{\partial \rho}{\partial T}\right)_p\frac{\partial T}{\partial x} = \rho\kappa\frac{\partial p}{\partial x} - \rho\beta\frac{\partial T}{\partial x} \tag{5.102}
+$$
 
 将这些表达式代入方程 5.99 并整理，得：
 
-$$\kappa\left(\frac{\partial p}{\partial t} + v_r\frac{\partial p}{\partial r} + v_x\frac{\partial p}{\partial x}\right) - \beta\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + v_x\frac{\partial T}{\partial x}\right) + \frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x} = 0 \tag{5.103}$$
+$$
+\kappa\left(\frac{\partial p}{\partial t} + v_r\frac{\partial p}{\partial r} + v_x\frac{\partial p}{\partial x}\right) - \beta\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + v_x\frac{\partial T}{\partial x}\right) + \frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x} = 0 \tag{5.103}
+$$
 
 通常忽略径向的压力变化以及压力对流项，于是
 
-$$\kappa\frac{\partial p}{\partial t} - \beta\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + v_x\frac{\partial T}{\partial x}\right) + \frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x} = 0 \tag{5.104}$$
+$$
+\kappa\frac{\partial p}{\partial t} - \beta\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + v_x\frac{\partial T}{\partial x}\right) + \frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x} = 0 \tag{5.104}
+$$
 
 忽略径向压力依赖与忽略型腔厚度方向的压力依赖是类似的。这会在流动前沿处引入误差，那里熔体从中心线被对流到流道壁面（喷泉流动）。不过，与型腔中一样，这些误差在流动前沿通过后会减小。
 
@@ -974,71 +1156,103 @@ $$\kappa\frac{\partial p}{\partial t} - \beta\left(\frac{\partial T}{\partial t}
 
 在柱坐标中，动量方程（方程 5.12）可写为三个标量方程 [35, 260]：
 
-- r 分量：
+- $r$ 分量：
 
-$$\rho\frac{\partial v_r}{\partial t} = \rho g_r - \frac{\partial p}{\partial r} + \frac{2}{r}\frac{\partial}{\partial r}\left(r\eta\frac{\partial v_r}{\partial r}\right) + \frac{\partial}{\partial x}\left(\eta\left(\frac{\partial v_r}{\partial x} + \frac{\partial v_x}{\partial r}\right)\right) - \frac{2\eta v_r}{r^2} - \rho\left(v_r\frac{\partial v_r}{\partial r} - \frac{v_\theta^2}{r} + v_x\frac{\partial v_r}{\partial x}\right) \tag{5.105}$$
+$$
+\rho\frac{\partial v_r}{\partial t} = \rho g_r - \frac{\partial p}{\partial r} + \frac{2}{r}\frac{\partial}{\partial r}\left(r\eta\frac{\partial v_r}{\partial r}\right) + \frac{\partial}{\partial x}\left(\eta\left(\frac{\partial v_r}{\partial x} + \frac{\partial v_x}{\partial r}\right)\right) - \frac{2\eta v_r}{r^2} - \rho\left(v_r\frac{\partial v_r}{\partial r} - \frac{v_\theta^2}{r} + v_x\frac{\partial v_r}{\partial x}\right) \tag{5.105}
+$$
 
-- θ 分量：
+- $\theta$ 分量：
 
-$$\rho\frac{\partial v_\theta}{\partial t} = \rho g_\theta - \frac{1}{r}\frac{\partial p}{\partial \theta} + \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^3\eta\frac{\partial}{\partial r}\left(\frac{v_\theta}{r}\right)\right) + \frac{\partial}{\partial x}\left(\eta\frac{\partial v_\theta}{\partial x}\right) - \rho\left(v_r\frac{\partial v_\theta}{\partial r} + \frac{v_\theta v_r}{r} + v_x\frac{\partial v_\theta}{\partial x}\right) \tag{5.106}$$
+$$
+\rho\frac{\partial v_\theta}{\partial t} = \rho g_\theta - \frac{1}{r}\frac{\partial p}{\partial \theta} + \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^3\eta\frac{\partial}{\partial r}\left(\frac{v_\theta}{r}\right)\right) + \frac{\partial}{\partial x}\left(\eta\frac{\partial v_\theta}{\partial x}\right) - \rho\left(v_r\frac{\partial v_\theta}{\partial r} + \frac{v_\theta v_r}{r} + v_x\frac{\partial v_\theta}{\partial x}\right) \tag{5.106}
+$$
 
-- x 分量：
+- $x$ 分量：
 
-$$\rho\frac{\partial v_x}{\partial t} = \rho g_x - \frac{\partial p}{\partial x} + \frac{1}{r}\frac{\partial}{\partial r}\left(r\eta\left(\frac{\partial v_r}{\partial x} + \frac{\partial v_x}{\partial r}\right)\right) + 2\frac{\partial}{\partial x}\left(\eta\frac{\partial v_x}{\partial x}\right) - \rho\left(v_r\frac{\partial v_x}{\partial r} + v_x\frac{\partial v_x}{\partial x}\right) \tag{5.107}$$
+$$
+\rho\frac{\partial v_x}{\partial t} = \rho g_x - \frac{\partial p}{\partial x} + \frac{1}{r}\frac{\partial}{\partial r}\left(r\eta\left(\frac{\partial v_r}{\partial x} + \frac{\partial v_x}{\partial r}\right)\right) + 2\frac{\partial}{\partial x}\left(\eta\frac{\partial v_x}{\partial x}\right) - \rho\left(v_r\frac{\partial v_x}{\partial r} + v_x\frac{\partial v_x}{\partial x}\right) \tag{5.107}
+$$
 
 忽略体积力，假设关于流道中心轴线对称，并运用第 5.6.2 节的量纲分析技术确定各项的量级，动量方程可简化为：
 
-$$\frac{\partial p}{\partial r} = 0, \qquad \frac{\partial p}{\partial \theta} = 0, \qquad \frac{\partial p}{\partial x} = \frac{1}{r}\frac{\partial}{\partial r}\left(r\eta\frac{\partial v_x}{\partial r}\right) \tag{5.108}$$
+$$
+\frac{\partial p}{\partial r} = 0, \qquad \frac{\partial p}{\partial \theta} = 0, \qquad \frac{\partial p}{\partial x} = \frac{1}{r}\frac{\partial}{\partial r}\left(r\eta\frac{\partial v_x}{\partial r}\right) \tag{5.108}
+$$
 
 ### 5.10.3 流道的能量守恒
 
 利用柱坐标中的梯度和拉普拉斯算子 [35, 260]，能量方程（方程 5.13）可用柱坐标写为：
 
-$$\rho c_p\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + \frac{v_\theta}{r}\frac{\partial T}{\partial \theta} + v_x\frac{\partial T}{\partial x}\right) = \beta T\left(\frac{\partial p}{\partial t} + v_r\frac{\partial p}{\partial r} + \frac{v_\theta}{r}\frac{\partial T}{\partial \theta} + v_x\frac{\partial p}{\partial x}\right) + \eta\dot{\gamma}^2 + k\left(\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right) + \frac{\partial^2 T}{\partial x^2}\right) \tag{5.109}$$
+$$
+\rho c_p\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + \frac{v_\theta}{r}\frac{\partial T}{\partial \theta} + v_x\frac{\partial T}{\partial x}\right) = \beta T\left(\frac{\partial p}{\partial t} + v_r\frac{\partial p}{\partial r} + \frac{v_\theta}{r}\frac{\partial T}{\partial \theta} + v_x\frac{\partial p}{\partial x}\right) + \eta\dot{\gamma}^2 + k\left(\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right) + \frac{\partial^2 T}{\partial x^2}\right) \tag{5.109}
+$$
 
 其中
 
-$$\dot{\gamma} = \frac{\partial v_x}{\partial r} \tag{5.110}$$
+$$
+\dot{\gamma} = \frac{\partial v_x}{\partial r} \tag{5.110}
+$$
 
 假设流道为圆形，因而温度场和压力场与 $\theta$ 无关，方程 5.109 变为：
 
-$$\rho c_p\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + v_x\frac{\partial T}{\partial x}\right) = \beta T\left(\frac{\partial p}{\partial t} + v_r\frac{\partial p}{\partial r} + v_x\frac{\partial p}{\partial x}\right) + \eta\dot{\gamma}^2 + k\left(\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right) + \frac{\partial^2 T}{\partial x^2}\right) \tag{5.111}$$
+$$
+\rho c_p\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + v_x\frac{\partial T}{\partial x}\right) = \beta T\left(\frac{\partial p}{\partial t} + v_r\frac{\partial p}{\partial r} + v_x\frac{\partial p}{\partial x}\right) + \eta\dot{\gamma}^2 + k\left(\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right) + \frac{\partial^2 T}{\partial x^2}\right) \tag{5.111}
+$$
 
 进一步的简化通过忽略径向压力变化 $\partial p/\partial r$ 和 $x$ 方向的传导项 $\partial^2 T/\partial x^2$ 获得。前者在流动前沿处是不合理的，类似于在型腔中忽略速度 $v_z$。此外，该假设在流道系统的弯折处也不成立。这可能很重要，将在第 6.4 节讨论。忽略沿 $x$ 方向的温度传导是合理的，可由量纲分析证实。最后我们忽略压力对流项 $v_x\partial p/\partial x$。考虑到这些进一步的假设，我们得到能量方程的 2.5D 近似最终形式：
 
-$$\rho c_p\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + v_x\frac{\partial T}{\partial x}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + \frac{k}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right) \tag{5.112}$$
+$$
+\rho c_p\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + v_x\frac{\partial T}{\partial x}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + \frac{k}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right) \tag{5.112}
+$$
 
 ### 5.10.4 流道动量方程的积分
 
 在第 5.6.4 节中，我们对型腔的动量方程积分，得到了速度 $v_x$ 和 $v_y$ 的表达式。方程 5.108 给出的流道动量方程可以做类似处理。非平凡的动量方程，即方程 5.108，
 
-$$\frac{\partial p}{\partial x} = \frac{1}{r}\frac{\partial}{\partial r}\left(r\eta\frac{\partial v_x}{\partial r}\right) \tag{5.113}$$
+$$
+\frac{\partial p}{\partial x} = \frac{1}{r}\frac{\partial}{\partial r}\left(r\eta\frac{\partial v_x}{\partial r}\right) \tag{5.113}
+$$
 
 两边同乘以 $r$，然后对 $r$ 积分，得到
 
-$$\frac{\partial p}{\partial x}\int_{0}^{r}r'\,dr' = \int_{0}^{r}\frac{\partial}{\partial r'}\left(r'\eta\frac{\partial v_x}{\partial r'}\right)dr'$$
+$$
+\frac{\partial p}{\partial x}\int_{0}^{r}r'\,dr' = \int_{0}^{r}\frac{\partial}{\partial r'}\left(r'\eta\frac{\partial v_x}{\partial r'}\right)dr'
+$$
 
-$$\frac{1}{2}\frac{\partial p}{\partial x}r^2 = r\eta\frac{\partial v_x}{\partial r} \tag{5.114}$$
+$$
+\frac{1}{2}\frac{\partial p}{\partial x}r^2 = r\eta\frac{\partial v_x}{\partial r} \tag{5.114}
+$$
 
 将方程 5.114 两边除以 $r\eta$，再对 $r$ 积分一次，
 
-$$\frac{1}{2}\frac{\partial p}{\partial x}\int_{0}^{r}\frac{r'}{\eta}\,dr' = \int_{0}^{r}\frac{\partial v_x}{\partial r'}\,dr' = v_x(r) - v_x(0) \tag{5.115}$$
+$$
+\frac{1}{2}\frac{\partial p}{\partial x}\int_{0}^{r}\frac{r'}{\eta}\,dr' = \int_{0}^{r}\frac{\partial v_x}{\partial r'}\,dr' = v_x(r) - v_x(0) \tag{5.115}
+$$
 
 令 $r^+$ 表示凝固层与熔体界面处的 $r$ 值，如图 5.10 所示。按照定义，速度 $v_x$ 在凝固层中为零，故 $v_x(r^+) = 0$。于是由方程 5.115，
 
-$$v_x(0) = -\frac{1}{2}\frac{\partial p}{\partial x}\int_{0}^{r^+}\frac{r'}{\eta}\,dr' \tag{5.116}$$
+$$
+v_x(0) = -\frac{1}{2}\frac{\partial p}{\partial x}\int_{0}^{r^+}\frac{r'}{\eta}\,dr' \tag{5.116}
+$$
 
 因此，方程 5.115 变为：
 
-$$v_x(r) = \frac{1}{2}\frac{\partial p}{\partial x}\left[\int_{0}^{r}\frac{r'}{\eta}\,dr' - \int_{0}^{r^+}\frac{r'}{\eta}\,dr'\right] \tag{5.117}$$
+$$
+v_x(r) = \frac{1}{2}\frac{\partial p}{\partial x}\left[\int_{0}^{r}\frac{r'}{\eta}\,dr' - \int_{0}^{r^+}\frac{r'}{\eta}\,dr'\right] \tag{5.117}
+$$
 
 点 $x$ 处 $x$ 方向的平均速度 $\bar{v}_x$ 可定义为：$x$ 处通过流道的总流量除以 $x$ 处熔体通道的面积 $A_c$。即，
 
-$$\bar{v}_x(x) = \frac{1}{A_c}\int_{A_c}v_x(r)\,dA \tag{5.118}$$
+$$
+\bar{v}_x(x) = \frac{1}{A_c}\int_{A_c}v_x(r)\,dA \tag{5.118}
+$$
 
 由图 5.10，并因我们假设了圆形截面，有 $A = \pi r^2$、$A_c = \pi r^{+2}$。于是方程 5.118 变为：
 
-$$\bar{v}_x(x) = \frac{1}{\pi r^{+2}}\int_{0}^{r^+}2\pi r\,v_x(r)\,dr = \frac{2}{r^{+2}}\int_{0}^{r^+}r\,v_x(r)\,dr \tag{5.119}$$
+$$
+\bar{v}_x(x) = \frac{1}{\pi r^{+2}}\int_{0}^{r^+}2\pi r\,v_x(r)\,dr = \frac{2}{r^{+2}}\int_{0}^{r^+}r\,v_x(r)\,dr \tag{5.119}
+$$
 
 方程 5.117 定义了 $v_x(r)$，可代入方程 5.119：
 
@@ -1051,11 +1265,15 @@ $$
 
 方程 5.120 右端的二重积分可用第 4.2.4 节讨论的分部积分计算。为此，令
 
-$$M = \int_{0}^{r}\frac{r'}{\eta}\,dr' \tag{5.121}$$
+$$
+M = \int_{0}^{r}\frac{r'}{\eta}\,dr' \tag{5.121}
+$$
 
 以及
 
-$$N = \frac{1}{2}r^2 \tag{5.122}$$
+$$
+N = \frac{1}{2}r^2 \tag{5.122}
+$$
 
 于是方程 5.120 右端的二重积分可写为：
 
@@ -1064,16 +1282,20 @@ $$
 \int_{0}^{r^+}\left(\int_{0}^{r}\frac{r'}{\eta}\,dr'\right)r\,dr &= \int_{0}^{r^+}MN'\,dr = \left[MN\right]_{0}^{r^+} - \int_{0}^{r^+}M'N\,dr \\
 &= \frac{1}{2}r^{+2}\int_{0}^{r^+}\frac{r'}{\eta}\,dr' - \frac{1}{2}\int_{0}^{r^+}\frac{r'^3}{\eta}\,dr'
 \end{aligned}
-\tag{5.123}
 $$
 
 将此结果代入方程 5.119，得
 
-$$\bar{v}_x(x) = -\frac{\partial p}{\partial x}\frac{1}{2r^{+2}}\int_{0}^{r^+}\frac{r'^3}{\eta}\,dr' = -\frac{S_1}{r^+}\frac{\partial p}{\partial x} $$
+$$
+\bar{v}_x(x) = -\frac{\partial p}{\partial x}\frac{1}{2r^{+2}}\int_{0}^{r^+}\frac{r'^3}{\eta}\,dr' = -\frac{S_1}{r^+}\frac{\partial p}{\partial x}
+\tag{5.123}
+$$
 
 其中流动导率 $S_1$ 定义为
 
-$$S_1 = \frac{1}{2r^+}\int_{0}^{r^+}\frac{r'^3}{\eta}\,dr' \tag{5.124}$$
+$$
+S_1 = \frac{1}{2r^+}\int_{0}^{r^+}\frac{r'^3}{\eta}\,dr' \tag{5.124}
+$$
 
 注意，流动导率下标 1 用于将其与第 5.6.4 节型腔的流动导率 $S_2$ 区分开。
 
@@ -1083,7 +1305,9 @@ $$S_1 = \frac{1}{2r^+}\int_{0}^{r^+}\frac{r'^3}{\eta}\,dr' \tag{5.124}$$
 
 我们将能量方程（方程 5.112）整理为：
 
-$$\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + v_x\frac{\partial T}{\partial x} = \frac{1}{\rho c_p}\left[\beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + \frac{k}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right)\right] \tag{5.125}$$
+$$
+\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + v_x\frac{\partial T}{\partial x} = \frac{1}{\rho c_p}\left[\beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + \frac{k}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right)\right] \tag{5.125}
+$$
 
 将其代入连续性方程（方程 5.104），得到：
 
@@ -1096,11 +1320,15 @@ $$
 
 利用量纲分析，量 $\beta^2 T/\rho c_p$ 远小于 $\kappa$，因此可以忽略。于是方程 5.126 变为：
 
-$$0 = \kappa\frac{\partial p}{\partial t} - \frac{\beta}{\rho c_p}\left[\eta\dot{\gamma}^2 + \frac{k}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right)\right] + \frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x} \tag{5.127}$$
+$$
+0 = \kappa\frac{\partial p}{\partial t} - \frac{\beta}{\rho c_p}\left[\eta\dot{\gamma}^2 + \frac{k}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right)\right] + \frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x} \tag{5.127}
+$$
 
 取 $A_c = \pi R^2$ 为流道横截面积，压缩系数的平均值 $\bar{\kappa}_c$ 可定义为：
 
-$$\bar{\kappa}_c = \frac{1}{A_c}\int_{A_c}\kappa\,dA = \frac{2}{R^2}\int_{0}^{R}\kappa r\,dr \tag{5.128}$$
+$$
+\bar{\kappa}_c = \frac{1}{A_c}\int_{A_c}\kappa\,dA = \frac{2}{R^2}\int_{0}^{R}\kappa r\,dr \tag{5.128}
+$$
 
 注意到 $\partial p/\partial t$ 与 $x$ 无关，并利用平均压缩系数，方程 5.127 可沿流道横截面积分，得到
 
@@ -1114,11 +1342,15 @@ $$
 
 现在考虑方程 5.129 右端的最后一项：
 
-$$2\pi\int_{0}^{r^+}\left[\frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x}\right]r\,dr = 2\pi\left[r v_r\Big|_{r=0}^{r=r^+} + \frac{\partial}{\partial x}\int_{0}^{r^+}v_x(r)\,r\,dr\right] = 2\pi\frac{\partial}{\partial x}\left(\frac{\bar{v}_x(x)\,r^+}{2}\right) = -\pi\frac{\partial}{\partial x}\left(r^+ S_1\frac{\partial p}{\partial x}\right) \tag{5.130}$$
+$$
+2\pi\int_{0}^{r^+}\left[\frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x}\right]r\,dr = 2\pi\left[r v_r\Big|_{r=0}^{r=r^+} + \frac{\partial}{\partial x}\int_{0}^{r^+}v_x(r)\,r\,dr\right] = 2\pi\frac{\partial}{\partial x}\left(\frac{\bar{v}_x(x)\,r^+}{2}\right) = -\pi\frac{\partial}{\partial x}\left(r^+ S_1\frac{\partial p}{\partial x}\right) \tag{5.130}
+$$
 
 其中在最后两步中，我们使用了平均速度方程 5.123。将方程 5.130 代入方程 5.129，得：
 
-$$0 = \bar{\kappa}_c R^2\frac{\partial p}{\partial t} - 2\int_{0}^{R}\frac{\beta}{\rho c_p}\left[\eta\dot{\gamma}^2 + \frac{k}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right)\right]r\,dr - \frac{\partial}{\partial x}\left(r^+ S_1\frac{\partial p}{\partial x}\right) \tag{5.131}$$
+$$
+0 = \bar{\kappa}_c R^2\frac{\partial p}{\partial t} - 2\int_{0}^{R}\frac{\beta}{\rho c_p}\left[\eta\dot{\gamma}^2 + \frac{k}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right)\right]r\,dr - \frac{\partial}{\partial x}\left(r^+ S_1\frac{\partial p}{\partial x}\right) \tag{5.131}
+$$
 
 流道的 2.5D 处理至此结束。
 
