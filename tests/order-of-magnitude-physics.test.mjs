@@ -100,3 +100,11 @@ test('Order-of-Magnitude Physics keeps tags outside aligned environments', async
     );
   }
 });
+
+test('Order-of-Magnitude Physics renders Chapter 1 summary labels as strong text', async () => {
+  const source = await readFile(join(chapterDirectory.pathname, 'ch01-wetting-your-feet.md'), 'utf8');
+  const summary = source.slice(source.indexOf('## 1.3 你学到了什么'));
+
+  assert.doesNotMatch(summary, /\*\*/, 'Chapter 1 summary must not use literal Markdown bold delimiters');
+  assert.ok(summary.includes('<strong>分而治之：</strong>'), 'Chapter 1 summary must use strong text for technique labels');
+});
