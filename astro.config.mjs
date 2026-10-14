@@ -62,7 +62,8 @@ export default defineConfig({
          { label: 'Flow Analysis of Injection Molds (Chinese Translation)', translations: { 'zh-CN': '《注塑模具流动分析》中文译文' }, link: 'https://jackyansongli.github.io/zh/flow-analysis/' },
          { label: 'Moldflow Design Guide (Chinese Translation)', translations: { 'zh-CN': '《Moldflow Design Guide》中文译文' }, link: 'https://jackyansongli.github.io/zh/moldflow-design-guide/' },
          { label: 'The Human Use of Human Beings (Chinese Translation)', translations: { 'zh-CN': '《人有人的用处》中文译文' }, link: 'https://jackyansongli.github.io/zh/human-use-of-human-beings/' },
-         { label: 'Theoretical Concepts in Physics (Chinese Translation)', translations: { 'zh-CN': '《物理学中的理论概念》中文译文' }, link: 'https://jackyansongli.github.io/zh/theoretical-concepts-in-physics/' },
+          { label: 'Theoretical Concepts in Physics (Chinese Translation)', translations: { 'zh-CN': '《物理学中的理论概念》中文译文' }, link: 'https://jackyansongli.github.io/zh/theoretical-concepts-in-physics/' },
+          { label: 'Order-of-Magnitude Physics (Chinese Translation)', translations: { 'zh-CN': '《数量级物理学》中文译文' }, link: 'https://jackyansongli.github.io/zh/order-of-magnitude-physics/' },
         {
           label: 'Fluid Mechanics',
           translations: { 'zh-CN': 'Fluid Mechanics' },
