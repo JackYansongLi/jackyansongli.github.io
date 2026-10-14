@@ -167,7 +167,7 @@ $$
 > $$
 > \begin{aligned}
 > \Lambda^i{}_A&=\frac{\partial x^i}{\partial X^A}=\frac{\partial\mathcal{X}^i}{\partial X^A} \\
-> \Lambda^A{}_i&=\frac{\partial X^A}{\partial x^i}=\frac{\partial\mathcal{X}^i}{\partial X^A}
+> \Lambda^A{}_i&=\frac{\partial X^A}{\partial x^i}=\frac{\partial X^A}{\partial\mathcal{X}^i}
 > \end{aligned}
 > $$
 >
