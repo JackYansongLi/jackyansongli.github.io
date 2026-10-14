@@ -241,7 +241,7 @@ $$\rho c_p \left(\frac{\partial T}{\partial t} + \mathbf{v} \cdot \nabla T\right
 
 应当记住，注塑模拟中的近似是由于对材料属性、边界条件缺乏认识以及计算能力不足而引入的。对今天的读者而言，最后一点可能显得奇怪。然而注塑成型程序是从 20 世纪 60 年代开始发展的，计算机速度和内存的不足是一个重要因素。以今天的能力，这已不是什么大问题。不过从注塑产品设计者的角度看，运行大量分析以优化设计是可取的。因此速度很重要。正因如此，虽然全三维分析已经可用（见第 6.2 节），但它未必是优化设计的最佳途径。基于这些原因，2.5D 近似至今仍广受欢迎。
 
-为了推导 2.5D 近似，我们引入一个笛卡尔坐标系来描述型腔。坐标轴的布置使得型腔内任意点处的 x-y 平面与制品中面重合，z 轴指向厚度方向，即垂直于中面。图 5.3 显示了一个简单型腔以及在其中两点处定义的坐标轴。
+为了推导 2.5D 近似，我们引入一个笛卡尔坐标系来描述型腔。坐标轴的布置使得型腔内任意点处的 $x$-$y$ 平面与制品中面重合，$z$ 轴指向厚度方向，即垂直于中面。图 5.3 显示了一个简单型腔以及在其中两点处定义的坐标轴。
 
 <img src="/images/flow-analysis/fig-5-3.png" alt="图 5.3：在两点处定义坐标系的薄壁型腔" loading="lazy" decoding="async" />
 
@@ -257,7 +257,7 @@ $$\rho c_p \left(\frac{\partial T}{\partial t} + \mathbf{v} \cdot \nabla T\right
 
 $$\frac{\partial \rho}{\partial t} = -\rho\left(\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z}\right) - \left(v_x\frac{\partial \rho}{\partial x} + v_y\frac{\partial \rho}{\partial y} + v_z\frac{\partial \rho}{\partial z}\right) \tag{5.14}$$
 
-密度 ρ 是状态变量，其依赖于压力 p 和温度 T 的关系由 PVT 关系定义。利用微分链式法则，我们得到：
+密度 $\rho$ 是状态变量，其依赖于压力 $p$ 和温度 $T$ 的关系由 PVT 关系定义。利用微分链式法则，我们得到：
 
 $$\frac{\partial \rho}{\partial x} = \left(\frac{\partial \rho}{\partial p}\right)_T \frac{\partial p}{\partial x} + \left(\frac{\partial \rho}{\partial T}\right)_p \frac{\partial T}{\partial x} \tag{5.15}$$
 
@@ -281,11 +281,11 @@ $$
 
 $$\frac{1}{\rho}\left(\frac{\partial \rho}{\partial p}\right)_T = \frac{1}{\rho}\left(\frac{\partial}{\partial p}\frac{1}{\hat{V}}\right)_T = \frac{1}{\rho}\frac{\partial}{\partial \hat{V}}\left(\frac{1}{\hat{V}}\right)\left(\frac{\partial \hat{V}}{\partial p}\right)_T = \frac{1}{\rho}\left(-\frac{1}{\hat{V}^2}\right)\left(\frac{\partial \hat{V}}{\partial p}\right)_T = -\frac{1}{\hat{V}}\left(\frac{\partial \hat{V}}{\partial p}\right)_T = \kappa \tag{5.20}$$
 
-其中 κ 是材料的等温压缩系数 [326]，定义见第 3.8.1 节。类似地，
+其中 $\kappa$ 是材料的等温压缩系数 [326]，定义见第 3.8.1 节。类似地，
 
 $$\frac{1}{\rho}\left(\frac{\partial \rho}{\partial T}\right)_p = \frac{1}{\rho}\left(\frac{\partial}{\partial T}\frac{1}{\hat{V}}\right)_p = \frac{1}{\rho}\frac{\partial}{\partial \hat{V}}\left(\frac{1}{\hat{V}}\right)\left(\frac{\partial \hat{V}}{\partial T}\right)_p = \frac{1}{\rho}\left(-\frac{1}{\hat{V}^2}\right)\left(\frac{\partial \hat{V}}{\partial T}\right)_p = -\frac{1}{\hat{V}}\left(\frac{\partial \hat{V}}{\partial T}\right)_p = -\beta \tag{5.21}$$
 
-其中 β 是材料的膨胀系数 [326]，定义见第 3.8.1 节。
+其中 $\beta$ 是材料的膨胀系数 [326]，定义见第 3.8.1 节。
 
 将方程 5.20 和 5.21 代入方程 5.19，得到
 
@@ -294,6 +294,7 @@ $$
 0 = &\,\kappa\left(\frac{\partial p}{\partial t} + v_x\frac{\partial p}{\partial x} + v_y\frac{\partial p}{\partial y} + v_z\frac{\partial p}{\partial z}\right) - \beta\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y} + v_z\frac{\partial T}{\partial z}\right) \\
 &+ \left(\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z}\right)
 \end{aligned}
+\tag{5.22}
 $$
 
 #### 5.6.1.2 动量守恒
@@ -426,9 +427,9 @@ $$\dot{\gamma} = \sqrt{\left(\frac{\partial v_x}{\partial z}\right)^2 + \left(\f
 
 通常称 $\dot{\gamma}$ 为剪切速率。
 
-### 5.6.3 z 方向的速度
+### 5.6.3 $z$ 方向的速度
 
-从方程 5.32 至 5.34 可见，压力 p 只是 x 和 y 的函数。然而这里存在一个矛盾：质量守恒方程和能量守恒方程都含有涉及 $v_z$ 的项，但由方程 5.34，z 方向上没有压力梯度。为了使 2.5D 近似中各守恒方程保持一致，我们进一步假设 $v_z = 0$。Denn [78] 考虑过当厚度作为 x 或 y 的函数已知时对 $v_z$ 的近似。然而，在注塑成型中，浇口处的过渡以及型腔厚度的变化经常非常突然，不适合 Denn 的处理方法。因此，我们令 $v_z = 0$，并采用以下方程作为 2.5D 近似：
+从方程 5.32 至 5.34 可见，压力 $p$ 只是 $x$ 和 $y$ 的函数。然而这里存在一个矛盾：质量守恒方程和能量守恒方程都含有涉及 $v_z$ 的项，但由方程 5.34，$z$ 方向上没有压力梯度。为了使 2.5D 近似中各守恒方程保持一致，我们进一步假设 $v_z = 0$。Denn [78] 考虑过当厚度作为 $x$ 或 $y$ 的函数已知时对 $v_z$ 的近似。然而，在注塑成型中，浇口处的过渡以及型腔厚度的变化经常非常突然，不适合 Denn 的处理方法。因此，我们令 $v_z = 0$，并采用以下方程作为 2.5D 近似：
 
 质量守恒：
 
@@ -438,11 +439,11 @@ $$0 = \kappa\left(\frac{\partial p}{\partial t} + v_x\frac{\partial p}{\partial 
 
 $$\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2} \tag{5.38}$$
 
-忽略 $v_z$ 会影响流动前沿附近的温度，因为喷泉流动会把熔体从型腔中部输运到壁面。在薄壁模具中，流动前沿通过某一点之后，流动为层流，因此 z 方向的对流不那么重要。在熔体快速改变方向的拐角处可能引入显著误差。在这些区域（包括流道系统），温度对流误差会导致流动前沿预测的误差。只有真正的三维模拟才能准确识别这一点。我们将在第 6.4 节讨论。
+忽略 $v_z$ 会影响流动前沿附近的温度，因为喷泉流动会把熔体从型腔中部输运到壁面。在薄壁模具中，流动前沿通过某一点之后，流动为层流，因此 $z$ 方向的对流不那么重要。在熔体快速改变方向的拐角处可能引入显著误差。在这些区域（包括流道系统），温度对流误差会导致流动前沿预测的误差。只有真正的三维模拟才能准确识别这一点。我们将在第 6.4 节讨论。
 
 ### 5.6.4 动量方程的积分
 
-如上一节所述，动量方程表明压力仅依赖于 x 和 y。这提示我们，将这些方程沿厚度 z 积分以获得速度 $v_x$ 和 $v_y$ 的表达式可能是有用的。
+如上一节所述，动量方程表明压力仅依赖于 $x$ 和 $y$。这提示我们，将这些方程沿厚度 $z$ 积分以获得速度 $v_x$ 和 $v_y$ 的表达式可能是有用的。
 
 不过在此之前，我们注意到注塑成型中材料同时处于固态和熔融态。实际上，进入的熔体被夹在一层附着于型腔壁面的凝固材料之间。显然需要某种区分这两相的方法。成型行业中使用了一个常见但不严格的术语来描述它，称为"凝固层"。按照定义，速度 $v_x$ 和 $v_y$ 在该区域为零。从模拟的角度看，问题在于如何定义凝固层，最重要的是熔体与固体之间的过渡。大多数使用 2.5D 近似的程序以温度作为判据。如前所述，有"不流动温度"或"转变温度"等不同术语。目前我们注意到，大多数商业软件使用一个固定的温度值来界定材料处于固相或熔融相。因此会存在一个由该温度确定的凝固层。图 5.4 在此基础上定义了我们的记号。型腔厚度为 2H，中心线在 $z = 0$，点 $(x, y)$ 处固液界面的位置在 $z = h^+(x, y)$ 和 $z = h^-(x, y)$。因此，任意点 $(x, y)$ 处有流动发生的厚度为 $h^+(x, y) - h^-(x, y)$。注意这里我们没有做对称假设，即 $|h^-(x, y)| \neq |h^+(x, y)|$。不过读者应当知道，商业软件可能假定对称以减少计算时间，因为只需分析半个型腔。
 
@@ -450,7 +451,7 @@ $$\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x}
 
 *图 5.4：凝固层厚度的定义*
 
-首先，我们将方程 5.32 对 z 从 $h^-(x, y)$ 积分到 z，得到：
+首先，我们将方程 5.32 对 $z$ 从 $h^-(x, y)$ 积分到 $z$，得到：
 
 $$\int_{h^-}^{z}\frac{\partial p}{\partial x}\,dz = \int_{h^-}^{z}\frac{\partial}{\partial z}\left(\eta\frac{\partial v_x}{\partial z}\right)dz \tag{5.39}$$
 
@@ -462,7 +463,7 @@ $$\frac{\partial p}{\partial x}z = \eta\frac{\partial v_x}{\partial z} + A(x, y)
 
 $$A(x, y) = \left[\frac{\partial p}{\partial x}z\right]_{z=h^-} - \left[\eta\frac{\partial v_x}{\partial z}\right]_{z=h^-} \tag{5.42}$$
 
-我们将方程 5.41 两边除以 η，再从 $h^-$ 到 z 对两边积分，得：
+我们将方程 5.41 两边除以 $\eta$，再从 $h^-$ 到 $z$ 对两边积分，得：
 
 $$\frac{\partial p}{\partial x}\int_{h^-}^{z}\frac{z}{\eta}\,dz = \int_{h^-}^{z}\frac{\partial v_x}{\partial z}\,dz + A(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz = v_x(z) - v_x(h^-) + A(x, y)\int_{h^-}^{z}\frac{1}{\eta}\,dz \tag{5.43}$$
 
@@ -506,6 +507,7 @@ $$
 &= \left[z\int_{h^-}^{z}\frac{z}{\eta}\,dz\right]_{z=h^-}^{z=h^+} - \int_{h^-}^{h^+}\frac{z^2}{\eta}\,dz \\
 &= \left(h^+ - h^-\right)\int_{h^-}^{h^+}\frac{z}{\eta}\,dz - \int_{h^-}^{h^+}\frac{z^2}{\eta}\,dz
 \end{aligned}
+\tag{5.52}
 $$
 
 我们再次使用分部积分来计算方程 5.51 中的第二个积分，令 $M = z$、$N = \int_{h^-}^{z}\frac{1}{\eta}\,dz$：
@@ -528,6 +530,7 @@ $$
 &= -\frac{1}{h^+ - h^-}\frac{\partial p}{\partial x}\left[\int_{h^-}^{h^+}\frac{z^2}{\eta}\,dz - \frac{\left(\int_{h^-}^{h^+}\frac{z}{\eta}\,dz\right)^2}{\int_{h^-}^{h^+}\frac{1}{\eta}\,dz}\right] \\
 &= \frac{-2S_2}{h^+ - h^-}\frac{\partial p}{\partial x}
 \end{aligned}
+\tag{5.54}
 $$
 
 其中我们定义
@@ -546,7 +549,7 @@ $$\bar{v}_y = \frac{-2S_2}{h^+ - h^-}\frac{\partial p}{\partial y} \tag{5.57}$$
 
 ### 5.6.5 连续性方程的积分
 
-回想第 5.6.3 节，经过量纲分析简化并忽略 z 方向速度后，能量守恒方程的形式为：
+回想第 5.6.3 节，经过量纲分析简化并忽略 $z$ 方向速度后，能量守恒方程的形式为：
 
 $$\rho c_p\left(\frac{\partial T}{\partial t} + v_x\frac{\partial T}{\partial x} + v_y\frac{\partial T}{\partial y}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + k\frac{\partial^2 T}{\partial z^2} \tag{5.58}$$
 
@@ -640,10 +643,10 @@ $$0 = a(x, y)\frac{\partial p}{\partial t} + d(x, y)\left(\left(\frac{\partial p
 - 忽略能量方程 5.7 中的源项 $\dot{Q}$。
 - 假设熔体可用广义牛顿流体建模。
 - 假设熔体热导率为常数。这对 2.5D 近似并非必要，但许多程序采用。也可以使用两个值：熔体状态一个热导率值，固体状态另一个值。最高的精细程度是根据特定条件下的实验室测量确定热导率，并考虑加工的影响。
-- 采用 z 轴沿制品厚度方向的笛卡尔坐标系。
+- 采用 $z$ 轴沿制品厚度方向的笛卡尔坐标系。
 - 在制品为薄壁的假设下，利用量纲分析去除低阶项。
-- 由于薄壁假设，忽略厚度方向（z 方向）的速度。
-- 对由薄壁假设得到的动量方程积分，得到依赖于压力梯度的 x 和 y 方向速度，其中压力 $p = p(x, y)$。
+- 由于薄壁假设，忽略厚度方向（$z$ 方向）的速度。
+- 对由薄壁假设得到的动量方程积分，得到依赖于压力梯度的 $x$ 和 $y$ 方向速度，其中压力 $p = p(x, y)$。
 - 对连续性（即质量守恒）方程积分，得到压力 $p(x, y)$ 的方程，即方程 5.71。
 
 经过这些步骤，守恒方程 4.13、4.23 和 5.7 简化为一个压力方程：
@@ -676,11 +679,11 @@ Karjalainen [192] 的工作是该领域一项值得注意但鲜为人知的贡�
 
 ## 5.8 纤维取向
 
-在第 4.7.3 节我们发现，对处于浓悬浮范围的纤维填充材料进行准确建模需要统计方法。令 $\psi(\mathbf{p}, t)\,d\mathbf{p}$ 表示在时刻 t 找到取向方向在 $\mathbf{p}$ 到 $\mathbf{p} + d\mathbf{p}$ 范围内的纤维的概率，$\psi(\mathbf{p}, t)$ 满足方程：
+在第 4.7.3 节我们发现，对处于浓悬浮范围的纤维填充材料进行准确建模需要统计方法。令 $\psi(\mathbf{p}, t)\,d\mathbf{p}$ 表示在时刻 $t$ 找到取向方向在 $\mathbf{p}$ 到 $\mathbf{p} + d\mathbf{p}$ 范围内的纤维的概率，$\psi(\mathbf{p}, t)$ 满足方程：
 
 $$\frac{\partial \psi}{\partial t} = \frac{\partial}{\partial \mathbf{p}}\left[D^{(r)}(\mathbf{I} - \mathbf{p}\mathbf{p}) \cdot \frac{\partial \psi}{\partial \mathbf{p}} - \left(\mathbf{L} \cdot \mathbf{p} - (\mathbf{L} : \mathbf{p}\mathbf{p})\mathbf{p}\right)\psi\right] \tag{5.75}$$
 
-其中 $D^{(r)}$ 是扩散系数。该方程可以直接求解，但计算代价高昂。例如，假设我们有一个 2.5D 模型，由 1000 个节点在制品中面上定义三角形单元。设型腔厚度在中面上下各由 10 个节点覆盖，则每个中面节点位置在厚度方向上有 21 个节点。如果我们用 20 个 θ 增量覆盖 180 度，用 40 个 φ 增量覆盖 360 度，那么每个节点有 800 个自由度。由于共有 21,000 个节点，模型的自由度为 21,000 × 800 = 16,800,000。以注塑成型的标准看，中面上有 1000 个节点的模型是很小的。几十万节点的情况并不少见。因此我们需要一种更高效的取向计算方法。
+其中 $D^{(r)}$ 是扩散系数。该方程可以直接求解，但计算代价高昂。例如，假设我们有一个 2.5D 模型，由 1000 个节点在制品中面上定义三角形单元。设型腔厚度在中面上下各由 10 个节点覆盖，则每个中面节点位置在厚度方向上有 21 个节点。如果我们用 20 个 $\theta$ 增量覆盖 180 度，用 40 个 $\phi$ 增量覆盖 360 度，那么每个节点有 800 个自由度。由于共有 21,000 个节点，模型的自由度为 21,000 × 800 = 16,800,000。以注塑成型的标准看，中面上有 1000 个节点的模型是很小的。几十万节点的情况并不少见。因此我们需要一种更高效的取向计算方法。
 
 ### 5.8.1 取向张量
 
@@ -850,7 +853,7 @@ $$\varepsilon_{ij} = \frac{1}{2}\left(\frac{\partial u_i}{\partial x_j} + \frac{
 
 $$\sigma_{ij} = \int_{0}^{t}\left[c_{ijkl}\left(\xi(t) - \xi(t')\right)\frac{\partial \varepsilon_{kl}}{\partial t'} - \alpha_{kl}\left(\xi(t) - \xi(t')\right)\frac{\partial T}{\partial t'}\right]dt' \tag{5.91}$$
 
-其中 $c_{ijkl}$ 是粘弹性松弛模量，t 是时间，T 是温度，$\alpha_{kl}$ 是热膨胀系数张量，$\xi(t)$ 是伪时间尺度，定义为：
+其中 $c_{ijkl}$ 是粘弹性松弛模量，$t$ 是时间，$T$ 是温度，$\alpha_{kl}$ 是热膨胀系数张量，$\xi(t)$ 是伪时间尺度，定义为：
 
 $$\xi(t) = \int_{0}^{t}\frac{1}{a_T}\,dt' \tag{5.92}$$
 
@@ -869,7 +872,7 @@ Zheng 等人 [420] 给出了关于残余应力计算更详尽的讨论，包括�
 
 方程 5.93 通常在以下假设下求解：
 
-1. 相对于 z 方向垂直于局部中面的局部坐标系，剪切应变 $\varepsilon_{13} = \varepsilon_{23} = 0$。
+1. 相对于 $z$ 方向垂直于局部中面的局部坐标系，剪切应变 $\varepsilon_{13} = \varepsilon_{23} = 0$。
 2. 正应力 $\sigma_{33}$ 沿厚度方向为常数。
 3. 只要 $\sigma_{33} < 0$，材料就贴附于模具壁面。
 4. 脱模前，制品在制品平面内受到完全约束，唯一的非零应变分量为 $\varepsilon_{33}$。
@@ -885,7 +888,7 @@ $$
 \end{cases} \tag{5.94}
 $$
 
-其中下标 (e) 指单元编号，应力在每个网格点 $z_i \in [-H, H]$ 上计算。为得到制品的收缩，计算出的残余应力被用作结构分析的载荷条件。这需要一组额外的边界条件来防止几何体的刚体运动。我们通过在制品上选取三个不共线的节点来实现。分别用 $u_x$、$u_y$ 和 $u_z$ 表示坐标方向 x、y 和 z 上的位移自由度，定义边界条件为：
+其中下标 (e) 指单元编号，应力在每个网格点 $z_i \in [-H, H]$ 上计算。为得到制品的收缩，计算出的残余应力被用作结构分析的载荷条件。这需要一组额外的边界条件来防止几何体的刚体运动。我们通过在制品上选取三个不共线的节点来实现。分别用 $u_x$、$u_y$ 和 $u_z$ 表示坐标方向 $x$、$y$ 和 $z$ 上的位移自由度，定义边界条件为：
 
 $$\text{节点 1：} u_x = u_y = u_z = 0 \tag{5.95}$$
 
@@ -929,7 +932,7 @@ Kennedy 和 Zheng [200] 讨论了为理论模型获取材料数据的困难。�
 
 流道常为梯形截面，以确保制品易于从模具中脱出。然而大多数 2.5D 充填模拟软件只使用圆形截面的流道。虽然模拟程序的用户可以选择各种截面，但软件一般会将其折算为等效圆形截面。不过，这可能不是一个令人满意的近似，会在剪切生热计算和熔体绕拐角对流中引入误差。尽管如此，我们暂且忽略这一点，留待第 6.4 节讨论。
 
-与型腔一样，流道系统中的流动由质量、动量和能量守恒方程决定。不过，利用第 5.2 节讨论的材料近似以及关于流道轴线的对称假设，可以得到简化。图 5.10 显示了圆形流道的几何形状及其相关坐标系。我们假设温度场和流动场关于流道纵轴对称。因此没有任何量依赖于 θ。特别地，这意味着熔体与凝固层之间的界面只依赖于 r 和 x。
+与型腔一样，流道系统中的流动由质量、动量和能量守恒方程决定。不过，利用第 5.2 节讨论的材料近似以及关于流道轴线的对称假设，可以得到简化。图 5.10 显示了圆形流道的几何形状及其相关坐标系。我们假设温度场和流动场关于流道纵轴对称。因此没有任何量依赖于 $\theta$。特别地，这意味着熔体与凝固层之间的界面只依赖于 $r$ 和 $x$。
 
 <img src="/images/flow-analysis/fig-5-10.png" alt="图 5.10：流道的几何形状和坐标系" loading="lazy" decoding="async" />
 
@@ -943,11 +946,11 @@ Kennedy 和 Zheng [200] 讨论了为理论模型获取材料数据的困难。�
 
 $$\frac{\partial \rho}{\partial t} + \rho\left(\frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x}\right) + v_r\frac{\partial \rho}{\partial r} + \frac{v_\theta}{r}\frac{\partial \rho}{\partial \theta} + v_x\frac{\partial \rho}{\partial x} = 0 \tag{5.98}$$
 
-由于关于流道轴线对称，涉及 θ 导数的项为零，方程 5.98 变为：
+由于关于流道轴线对称，涉及 $\theta$ 导数的项为零，方程 5.98 变为：
 
 $$\frac{\partial \rho}{\partial t} + \rho\left(\frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x}\right) + v_r\frac{\partial \rho}{\partial r} + v_x\frac{\partial \rho}{\partial x} = 0 \tag{5.99}$$
 
-密度 ρ 同时依赖于温度和压力。因此，利用微分链式法则以及方程 3.23 和 3.26 给出的膨胀系数与压缩系数定义，有：
+密度 $\rho$ 同时依赖于温度和压力。因此，利用微分链式法则以及方程 3.23 和 3.26 给出的膨胀系数与压缩系数定义，有：
 
 $$\frac{\partial \rho}{\partial t} = \left(\frac{\partial \rho}{\partial p}\right)_T\frac{\partial p}{\partial t} + \left(\frac{\partial \rho}{\partial T}\right)_p\frac{\partial T}{\partial t} = \rho\kappa\frac{\partial p}{\partial t} - \rho\beta\frac{\partial T}{\partial t} \tag{5.100}$$
 
@@ -997,11 +1000,11 @@ $$\rho c_p\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r}
 
 $$\dot{\gamma} = \frac{\partial v_x}{\partial r} \tag{5.110}$$
 
-假设流道为圆形，因而温度场和压力场与 θ 无关，方程 5.109 变为：
+假设流道为圆形，因而温度场和压力场与 $\theta$ 无关，方程 5.109 变为：
 
 $$\rho c_p\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + v_x\frac{\partial T}{\partial x}\right) = \beta T\left(\frac{\partial p}{\partial t} + v_r\frac{\partial p}{\partial r} + v_x\frac{\partial p}{\partial x}\right) + \eta\dot{\gamma}^2 + k\left(\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right) + \frac{\partial^2 T}{\partial x^2}\right) \tag{5.111}$$
 
-进一步的简化通过忽略径向压力变化 $\partial p/\partial r$ 和 x 方向的传导项 $\partial^2 T/\partial x^2$ 获得。前者在流动前沿处是不合理的，类似于在型腔中忽略速度 $v_z$。此外，该假设在流道系统的弯折处也不成立。这可能很重要，将在第 6.4 节讨论。忽略沿 x 方向的温度传导是合理的，可由量纲分析证实。最后我们忽略压力对流项 $v_x\partial p/\partial x$。考虑到这些进一步的假设，我们得到能量方程的 2.5D 近似最终形式：
+进一步的简化通过忽略径向压力变化 $\partial p/\partial r$ 和 $x$ 方向的传导项 $\partial^2 T/\partial x^2$ 获得。前者在流动前沿处是不合理的，类似于在型腔中忽略速度 $v_z$。此外，该假设在流道系统的弯折处也不成立。这可能很重要，将在第 6.4 节讨论。忽略沿 $x$ 方向的温度传导是合理的，可由量纲分析证实。最后我们忽略压力对流项 $v_x\partial p/\partial x$。考虑到这些进一步的假设，我们得到能量方程的 2.5D 近似最终形式：
 
 $$\rho c_p\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r} + v_x\frac{\partial T}{\partial x}\right) = \beta T\frac{\partial p}{\partial t} + \eta\dot{\gamma}^2 + \frac{k}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right) \tag{5.112}$$
 
@@ -1011,17 +1014,17 @@ $$\rho c_p\left(\frac{\partial T}{\partial t} + v_r\frac{\partial T}{\partial r}
 
 $$\frac{\partial p}{\partial x} = \frac{1}{r}\frac{\partial}{\partial r}\left(r\eta\frac{\partial v_x}{\partial r}\right) \tag{5.113}$$
 
-两边同乘以 r，然后对 r 积分，得到
+两边同乘以 $r$，然后对 $r$ 积分，得到
 
 $$\frac{\partial p}{\partial x}\int_{0}^{r}r'\,dr' = \int_{0}^{r}\frac{\partial}{\partial r'}\left(r'\eta\frac{\partial v_x}{\partial r'}\right)dr'$$
 
 $$\frac{1}{2}\frac{\partial p}{\partial x}r^2 = r\eta\frac{\partial v_x}{\partial r} \tag{5.114}$$
 
-将方程 5.114 两边除以 $r\eta$，再对 r 积分一次，
+将方程 5.114 两边除以 $r\eta$，再对 $r$ 积分一次，
 
 $$\frac{1}{2}\frac{\partial p}{\partial x}\int_{0}^{r}\frac{r'}{\eta}\,dr' = \int_{0}^{r}\frac{\partial v_x}{\partial r'}\,dr' = v_x(r) - v_x(0) \tag{5.115}$$
 
-令 $r^+$ 表示凝固层与熔体界面处的 r 值，如图 5.10 所示。按照定义，速度 $v_x$ 在凝固层中为零，故 $v_x(r^+) = 0$。于是由方程 5.115，
+令 $r^+$ 表示凝固层与熔体界面处的 $r$ 值，如图 5.10 所示。按照定义，速度 $v_x$ 在凝固层中为零，故 $v_x(r^+) = 0$。于是由方程 5.115，
 
 $$v_x(0) = -\frac{1}{2}\frac{\partial p}{\partial x}\int_{0}^{r^+}\frac{r'}{\eta}\,dr' \tag{5.116}$$
 
@@ -1029,7 +1032,7 @@ $$v_x(0) = -\frac{1}{2}\frac{\partial p}{\partial x}\int_{0}^{r^+}\frac{r'}{\eta
 
 $$v_x(r) = \frac{1}{2}\frac{\partial p}{\partial x}\left[\int_{0}^{r}\frac{r'}{\eta}\,dr' - \int_{0}^{r^+}\frac{r'}{\eta}\,dr'\right] \tag{5.117}$$
 
-点 x 处 x 方向的平均速度 $\bar{v}_x$ 可定义为：x 处通过流道的总流量除以 x 处熔体通道的面积 $A_c$。即，
+点 $x$ 处 $x$ 方向的平均速度 $\bar{v}_x$ 可定义为：$x$ 处通过流道的总流量除以 $x$ 处熔体通道的面积 $A_c$。即，
 
 $$\bar{v}_x(x) = \frac{1}{A_c}\int_{A_c}v_x(r)\,dA \tag{5.118}$$
 
@@ -1061,6 +1064,7 @@ $$
 \int_{0}^{r^+}\left(\int_{0}^{r}\frac{r'}{\eta}\,dr'\right)r\,dr &= \int_{0}^{r^+}MN'\,dr = \left[MN\right]_{0}^{r^+} - \int_{0}^{r^+}M'N\,dr \\
 &= \frac{1}{2}r^{+2}\int_{0}^{r^+}\frac{r'}{\eta}\,dr' - \frac{1}{2}\int_{0}^{r^+}\frac{r'^3}{\eta}\,dr'
 \end{aligned}
+\tag{5.123}
 $$
 
 将此结果代入方程 5.119，得
@@ -1090,7 +1094,7 @@ $$
 \end{aligned} \tag{5.126}
 $$
 
-利用量纲分析，量 $\beta^2 T/\rho c_p$ 远小于 κ，因此可以忽略。于是方程 5.126 变为：
+利用量纲分析，量 $\beta^2 T/\rho c_p$ 远小于 $\kappa$，因此可以忽略。于是方程 5.126 变为：
 
 $$0 = \kappa\frac{\partial p}{\partial t} - \frac{\beta}{\rho c_p}\left[\eta\dot{\gamma}^2 + \frac{k}{r}\frac{\partial}{\partial r}\left(r\frac{\partial T}{\partial r}\right)\right] + \frac{1}{r}\frac{\partial}{\partial r}(rv_r) + \frac{\partial v_x}{\partial x} \tag{5.127}$$
 
@@ -1098,7 +1102,7 @@ $$0 = \kappa\frac{\partial p}{\partial t} - \frac{\beta}{\rho c_p}\left[\eta\dot
 
 $$\bar{\kappa}_c = \frac{1}{A_c}\int_{A_c}\kappa\,dA = \frac{2}{R^2}\int_{0}^{R}\kappa r\,dr \tag{5.128}$$
 
-注意到 $dp/dt$ 与 x 无关，并利用平均压缩系数，方程 5.127 可沿流道横截面积分，得到
+注意到 $\partial p/\partial t$ 与 $x$ 无关，并利用平均压缩系数，方程 5.127 可沿流道横截面积分，得到
 
 $$
 \begin{aligned}

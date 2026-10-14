@@ -113,6 +113,21 @@ test('chapter 7 does not leave raw tau TeX in prose', async () => {
   assert.doesNotMatch(chapterSeven, /\\tau<sub/);
 });
 
+test('chapter 5 preserves display equations and math-mode variables in its 2.5D derivation', async () => {
+  const chapterFive = await readFile(
+    join(chapterDirectory.pathname, 'ch05-injection-molding-approximations.md'),
+    'utf8',
+  );
+
+  for (const equation of ['5.22', '5.52', '5.54', '5.123']) {
+    assert.match(chapterFive, new RegExp(`\\$\\$\\n[\\s\\S]*?\\\\tag\\{${equation.replace('.', '\\.') }\\}\\n\\$\\$`));
+  }
+
+  assert.match(chapterFive, /^### 5\.6\.3 \$z\$ 方向的速度$/m);
+  assert.match(chapterFive, /压力 \$p\$ 只是 \$x\$ 和 \$y\$ 的函数/);
+  assert.doesNotMatch(chapterFive, /x-y 平面|z 轴|密度 ρ|压力 p 和温度 T|其中 κ|其中 β/);
+});
+
 test('flow-analysis Markdown does not use unsupported backslash math delimiters', async () => {
   const chapterNames = (await readdir(chapterDirectory)).filter((name) => name.endsWith('.md'));
   const invalidPages = [];
