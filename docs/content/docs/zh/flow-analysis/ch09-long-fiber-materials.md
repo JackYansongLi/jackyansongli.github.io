@@ -38,17 +38,23 @@ Phillips 等人 [297] 提出了一个扩散通量模型来描述球形颗粒的�
 
 实验和数值数据都表明，迁移是一个缓慢的过程。达到稳态浓度分布所需的时间主要取决于颗粒的体积。体积越小，迁移过程就越慢。对于短纤维这类小尺寸颗粒，达到稳态浓度分布所需的时间远长于注塑过程中的典型充模时间。因此，除浇口区域外，短纤维在注塑加工过程中的迁移可能并不显著。但对于长纤维而言，情况可能并非如此，Spahr 和 Friedrich 的实验 [338] 已经表明了这一点。迄今为止，尚无关于长纤维迁移的理论和数值研究。尽管如此，固相的守恒定律对所有物体都是相同的。如果我们假设长纤维与短纤维具有相同的迁移机理，我们也可以采用 Phillips 等人 [297] 的模型来模拟长纤维迁移现象。在该模型中，固体颗粒的守恒定律在欧拉参考系中写为
 
-$$\frac{D\phi}{Dt} = \frac{\partial N_i}{\partial x_i}, \tag{9.1}$$
+$$
+\frac{D\phi}{Dt} = \frac{\partial N_i}{\partial x_i}, \tag{9.1}
+$$
 
 其中 $\phi$ 是纤维的体积分数，$N_i$ 是颗粒通量，表示为
 
-$$N_i = k_c a^2\phi\frac{\partial}{\partial x_i}(\dot{\gamma}\phi) + k_\eta a^2\dot{\gamma}\phi^2\frac{\partial\ln\eta_r}{\partial x_i}, \tag{9.2}$$
+$$
+N_i = k_c a^2\phi\frac{\partial}{\partial x_i}(\dot{\gamma}\phi) + k_\eta a^2\dot{\gamma}\phi^2\frac{\partial\ln\eta_r}{\partial x_i}, \tag{9.2}
+$$
 
 其中 $k_c$ 和 $k_\eta$ 是由实验数据确定的两个经验参数，$\eta_r$ 是相对黏度，定义为悬浮液黏度与溶剂黏度之比（$\eta_r = \eta/\eta_s$），$a$ 是基于单根纤维体积的颗粒无量纲等效半径，$\dot{\gamma} = \sqrt{2D:D}$ 是广义应变速率，见方程 2.17。颗粒通量由两部分组成：一部分来自纤维之间的碰撞（方程 9.2 右端第一项），另一部分来自黏度梯度（右端第二项）。在 Phillips 模型中，$\eta_r$ 通常采用 Krieger 针对球形颗粒的经验表达式 [212]。对于纤维悬浮液，建议使用 Phan-Thien-Graham 模型（方程 7.18），其中相对黏度 $\eta_r$ 是纤维长径比的强函数。这使得通量 $N$ 依赖于纤维长径比。然而，Kitano 等人 [203] 关于 $\phi_m$ 的经验方程（方程 7.20）可能需要在长纤维的不同长径比范围内重新关联。
 
 方程 9.1 在固体边界上满足无通量边界条件 $\mathbf{N}\cdot\mathbf{n} = 0$，其中 $\mathbf{n}$ 是外法向单位向量。还需要指定均匀的体积分数作为初始条件。整个区域上的平均体积分数在过程中将保持为常数。上述模型的一个缺点是，它在型腔流动中预测出尖点状的浓度分布。这是因为，在对称面上 $\dot{\gamma}$ 及其梯度为零，因而 $N_i = 0$。然而实际上，由于来自整体流动的扰动，对称面上的颗粒不会绝对静止。因此 Fan 等人 [105] 将方程 9.2 修改为
 
-$$N_i = k_c a^2\phi\frac{\partial}{\partial x_i}\left[(\dot{\gamma} + \dot{\gamma}_0)\phi\right] + k_\eta a^2\dot{\gamma}\phi^2\frac{\partial\ln\eta_r}{\partial x_i}, \tag{9.3}$$
+$$
+N_i = k_c a^2\phi\frac{\partial}{\partial x_i}\left[(\dot{\gamma} + \dot{\gamma}_0)\phi\right] + k_\eta a^2\dot{\gamma}\phi^2\frac{\partial\ln\eta_r}{\partial x_i}, \tag{9.3}
+$$
 
 其中 $\dot{\gamma}_0$ 是表征整体流动扰动的参数。
 
@@ -56,15 +62,21 @@ $$N_i = k_c a^2\phi\frac{\partial}{\partial x_i}\left[(\dot{\gamma} + \dot{\gamm
 
 加工过程中的纤维长度退化是长纤维中的一个问题。Phelps [295] 基于流体动力载荷下纤维的屈曲力建立了纤维长度磨损模型，用于预测注塑加工过程中的纤维长度分布。在该模型中提出了一个断裂判据。该判据指出，长度为 $l^{(i)}$、直径为 $d$、取向状态为 $\langle\mathbf{pp}\rangle$ 的纤维在下列条件下将发生断裂：
 
-$$\left(\Gamma - 2D:\langle\mathbf{pp}\rangle\right) > 1, \tag{9.4}$$
+$$
+\left(\Gamma - 2D:\langle\mathbf{pp}\rangle\right) > 1, \tag{9.4}
+$$
 
 其中 $D$ 是变形速率张量，$\Gamma$ 由下式给出：
 
-$$\Gamma = \frac{4\zeta\eta_s\left[l^{(i)}\right]^4}{\pi^3 E^f d^4}. \tag{9.5}$$
+$$
+\Gamma = \frac{4\zeta\eta_s\left[l^{(i)}\right]^4}{\pi^3 E^f d^4}. \tag{9.5}
+$$
 
 这里，$\eta_s$ 是树脂黏度，$E^f$ 是纤维弹性模量，$d$ 是纤维直径，$\zeta$ 是无量纲曳力系数，由 Dinh 和 Armstrong [79] 给出：
 
-$$\zeta = \frac{2\pi}{\ln(H_f/d)}, \tag{9.6}$$
+$$
+\zeta = \frac{2\pi}{\ln(H_f/d)}, \tag{9.6}
+$$
 
 其中 $H_f$ 是某根给定纤维到其最近邻纤维的平均横向间距：
 
@@ -76,17 +88,23 @@ $$
 
 Phelps [295] 将长度为 $l^{(i)}$ 的纤维在时间增量 $\Delta t$ 内发生断裂的概率表示为 $P^{(i)}\Delta t$，其中 $P^{(i)}$ 由下式给出：
 
-$$P^{(i)} = C_B\,\dot{\gamma}\max\left[0,\ 1 - \exp(1 - \Gamma)\right], \tag{9.8}$$
+$$
+P^{(i)} = C_B\,\dot{\gamma}\max\left[0,\ 1 - \exp(1 - \Gamma)\right], \tag{9.8}
+$$
 
 其中 $C_B$ 是用于缩放断裂速率的拟合参数。
 
 虽然纤维长度可能因纤维磨损而减小，但在给定纤维长度分布下纤维的总长度不变。设 $M$ 表示纤维长度分布的离散化总数，并令 $\Delta l = l_{max}/M$，其中 $l_{max}$ 是纤维长度分布中的最大纤维长度。如果 $N^{(i)}$（$i = 1$ 到 $M$）是长度为 $i\Delta l$（$\Delta l = l_{max}/M$）的纤维数量，则它满足下列守恒方程：
 
-$$\frac{DN^{(i)}}{Dt} = -P^{(i)}N^{(i)} + \sum_{k|k\geq i} R^{(ik)}N^{(k)}, \tag{9.9}$$
+$$
+\frac{DN^{(i)}}{Dt} = -P^{(i)}N^{(i)} + \sum_{k|k\geq i} R^{(ik)}N^{(k)}, \tag{9.9}
+$$
 
 其中 $R^{(ik)}$ 是概率密度函数，定义为：在时间 $t$ 内，长度为 $l^{(k)}$ 的纤维断裂形成长度为 $l^{(i)}$（其中 $l^{(i)} < l^{(k)}$）的纤维的概率为 $R^{(ik)}\Delta t$。该函数假定为正态概率密度函数，由下式给出：
 
-$$R^{(ik)} = \frac{1}{Sl^{(k)}\sqrt{2\pi}}\exp\left[-\frac{\left(l^{(i)} - 0.5l^{(k)}\right)^2}{2\left(Sl^{(k)}\right)^2}\right], \tag{9.10}$$
+$$
+R^{(ik)} = \frac{1}{Sl^{(k)}\sqrt{2\pi}}\exp\left[-\frac{\left(l^{(i)} - 0.5l^{(k)}\right)^2}{2\left(Sl^{(k)}\right)^2}\right], \tag{9.10}
+$$
 
 其中 $Sl^{(k)}$ 是标准差，变量 $S$ 是无量纲拟合参数，用于控制高斯断裂分布的形状。较小的 $S$ 值对应于纤维中点处断裂概率较高的情况，而较大的 $S$ 值对应于可能的断裂点沿纤维长度更均匀分布的情况。
 
@@ -98,11 +116,15 @@ $$R^{(ik)} = \frac{1}{Sl^{(k)}\sqrt{2\pi}}\exp\left[-\frac{\left(l^{(i)} - 0.5l^
 
 考虑聚合物基体中一根沿载荷方向取向的单纤维。施加的载荷通过纤维/基体界面处恒定的剪切应力传递给纤维。假定纤维仅受拉伸，由作用在界面上的剪切力拉伸。若以 $\tau$ 表示界面处的剪切应力，$l$ 和 $d$ 分别为纤维长度和直径，则距纤维端部 $x$ 处（其中 $x = 0$ 指纤维的一端，延伸到纤维中点的 $x = l/2$）纤维中的拉伸应力由下式给出：
 
-$$\sigma^{(f)} = \frac{4x\tau}{d}. \tag{9.11}$$
+$$
+\sigma^{(f)} = \frac{4x\tau}{d}. \tag{9.11}
+$$
 
 要使不连续纤维达到连续纤维的增强效率，应力必须在纤维长度上充分发展；存在一个临界纤维长径比，在该长径比下，纤维中点处的峰值应力恰好达到纤维的极限强度 $\sigma^{(f,ult)}$（Kelly 和 Tyson [194]；Guell 和 Benard [135]）。临界长径比由下式给出：
 
-$$\left(\frac{l_c}{d}\right) = \frac{\sigma^{(f,ult)}}{2\tau_y}, \tag{9.12}$$
+$$
+\left(\frac{l_c}{d}\right) = \frac{\sigma^{(f,ult)}}{2\tau_y}, \tag{9.12}
+$$
 
 其中 $\tau_y$ 是界面的剪切强度，等同于基体的屈服剪切应力。我们称 $l_c/d$ 为临界纤维长径比，$l_c$ 为临界纤维长度。
 
@@ -116,7 +138,9 @@ $$
 
 在介质统计均匀的条件下，复合材料的拉伸强度由下式给出：
 
-$$\sigma^{(c,ult)} = \phi\bar{\sigma}^{(f)} + (1-\phi)\bar{\sigma}^{(m)}, \tag{9.14}$$
+$$
+\sigma^{(c,ult)} = \phi\bar{\sigma}^{(f)} + (1-\phi)\bar{\sigma}^{(m)}, \tag{9.14}
+$$
 
 其中 $\bar{\sigma}^{(f)}$ 和 $\bar{\sigma}^{(m)}$ 分别为复合材料破坏时纤维和基体中的平均应力。我们可以令基体应力等于基体强度，即 $\bar{\sigma}^{(m)} = \sigma^{(m,ult)}$，然后 $\bar{\sigma}^{(f)}$ 由下式给出：
 
@@ -136,21 +160,29 @@ $$
 
 作用在每个球珠上的力有两类：外力和内力。外力来自黏性曳力（包括来自其他珠子的长程速度扰动），以及珠子彼此靠近时珠子之间的短程润滑力。内力是连接件张力。由于连接件是刚性且不可伸长的，"张力"只是恰好抵消沿连接件方向外力的反作用力。一旦确定了外力，还可以计算作用在每个接头上的力矩。接头处的内力矩等于接头两侧珠子所受作用力产生的力矩平衡。外部曳力可按下式计算：
 
-$$\mathbf{F}_{drag}^\mu = -\zeta\left[\dot{\mathbf{r}}^\mu - (\mathbf{u}^\mu + \tilde{\mathbf{u}}^\mu)\right]. \tag{9.16}$$
+$$
+\mathbf{F}_{drag}^\mu = -\zeta\left[\dot{\mathbf{r}}^\mu - (\mathbf{u}^\mu + \tilde{\mathbf{u}}^\mu)\right]. \tag{9.16}
+$$
 
 该方程描述了作用于位于位置 $\mathbf{r}^\mu$ 的珠子 $\mu$ 上的曳力。在方程 9.16 中，$\zeta$ 是 Stokes 曳力系数，由 $\zeta = 6\pi\eta_s a$ 给出，其中 $\eta_s$ 是溶剂黏度，$a$ 是球形珠子的半径。根据方程 9.16 的表达式，曳力正比于珠子速度 $\dot{\mathbf{r}}^\mu$ 与珠子 $\mu$ 处溶剂速度 $(\mathbf{u}^\mu + \tilde{\mathbf{u}}^\mu)$ 之差。速度 $\mathbf{u}^\mu$ 在假定均匀速度梯度张量 $\mathbf{L}$ 的条件下确定：$\mathbf{u}^\mu = \mathbf{L}\cdot\mathbf{r}^\mu$。速度 $\tilde{\mathbf{u}}^\mu$ 是悬浮液中所有其他球珠 $\nu$ 在珠子 $\mu$ 处产生的累积扰动速度，由下式描述：
 
-$$\tilde{\mathbf{u}}^\mu = \sum_{\nu\neq\mu}\Omega^{\mu\nu}\cdot\mathbf{F}_{drag}^\nu, \tag{9.17}$$
+$$
+\tilde{\mathbf{u}}^\mu = \sum_{\nu\neq\mu}\Omega^{\mu\nu}\cdot\mathbf{F}_{drag}^\nu, \tag{9.17}
+$$
 
 其中 $\mathbf{F}_{drag}^\nu$ 是作用在所有其他悬浮球珠 $\nu$ 上的曳力，$\Omega^{\mu\nu}$ 称为 Oseen 张量，由下式给出：
 
-$$\Omega^{\mu\nu} = \frac{1}{8\pi\eta_s|\mathbf{r}^{\mu\nu}|}\left(\mathbf{I} + \frac{\mathbf{r}^{\mu\nu}\mathbf{r}^{\mu\nu}}{|\mathbf{r}^{\mu\nu}|^2}\right), \tag{9.18}$$
+$$
+\Omega^{\mu\nu} = \frac{1}{8\pi\eta_s|\mathbf{r}^{\mu\nu}|}\left(\mathbf{I} + \frac{\mathbf{r}^{\mu\nu}\mathbf{r}^{\mu\nu}}{|\mathbf{r}^{\mu\nu}|^2}\right), \tag{9.18}
+$$
 
 其中 $\mathbf{r}^{\mu\nu} = \mathbf{r}^\nu - \mathbf{r}^\mu$ 是从珠子 $\mu$ 指向珠子 $\nu$ 的位置矢量。
 
 短程润滑力用下式计算：
 
-$$\mathbf{F}_{lub}^{\mu\nu} = -3\pi\eta_s\frac{a^2}{|\mathbf{r}^{\mu\nu}| - 2a}\frac{\mathbf{r}^{\mu\nu}}{|\mathbf{r}^{\mu\nu}|}\frac{\mathbf{r}^{\mu\nu}}{|\mathbf{r}^{\mu\nu}|}\cdot(\mathbf{u}^\nu - \mathbf{u}^\mu). \tag{9.19}$$
+$$
+\mathbf{F}_{lub}^{\mu\nu} = -3\pi\eta_s\frac{a^2}{|\mathbf{r}^{\mu\nu}| - 2a}\frac{\mathbf{r}^{\mu\nu}}{|\mathbf{r}^{\mu\nu}|}\frac{\mathbf{r}^{\mu\nu}}{|\mathbf{r}^{\mu\nu}|}\cdot(\mathbf{u}^\nu - \mathbf{u}^\mu). \tag{9.19}
+$$
 
 由于所有相互作用都只发生在珠子之间，而且无论珠子属于同一根纤维还是不同纤维，珠子之间的相互作用都服从相同的规律，因此在确定外力时无需区分不同纤维的珠子。
 
@@ -170,43 +202,67 @@ $$\mathbf{F}_{lub}^{\mu\nu} = -3\pi\eta_s\frac{a^2}{|\mathbf{r}^{\mu\nu}| - 2a}\
 
 $\mathbf{p}$ 和 $\mathbf{q}$ 向量相对于取向分布函数 $\psi(\mathbf{p},\mathbf{q},t)$ 的矩定义为
 
-$$\mathbf{a}^{(m,n)} = \iint \mathbf{p}^m\mathbf{q}^n\,\psi(\mathbf{p},\mathbf{q},t)\,d\mathbf{p}\,d\mathbf{q}, \tag{9.20}$$
+$$
+\mathbf{a}^{(m,n)} = \iint \mathbf{p}^m\mathbf{q}^n\,\psi(\mathbf{p},\mathbf{q},t)\,d\mathbf{p}\,d\mathbf{q}, \tag{9.20}
+$$
 
 其中 $\mathbf{p}^m\mathbf{q}^n$ 是 $(m+n)$ 阶张量。只有以下 4 种情形是重要的：
 
-$$a_{ij}^{(2,0)} = \iint p_i p_j\,\psi(\mathbf{p},\mathbf{q},t)\,d\mathbf{p}\,d\mathbf{q}, \tag{9.21}$$
+$$
+a_{ij}^{(2,0)} = \iint p_i p_j\,\psi(\mathbf{p},\mathbf{q},t)\,d\mathbf{p}\,d\mathbf{q}, \tag{9.21}
+$$
 
-$$a_{ij}^{(1,1)} = \iint p_i q_j\,\psi(\mathbf{p},\mathbf{q},t)\,d\mathbf{p}\,d\mathbf{q}, \tag{9.22}$$
+$$
+a_{ij}^{(1,1)} = \iint p_i q_j\,\psi(\mathbf{p},\mathbf{q},t)\,d\mathbf{p}\,d\mathbf{q}, \tag{9.22}
+$$
 
-$$a_i^{(1,0)} = \iint p_i\,\psi(\mathbf{p},\mathbf{q},t)\,d\mathbf{p}\,d\mathbf{q}, \tag{9.23}$$
+$$
+a_i^{(1,0)} = \iint p_i\,\psi(\mathbf{p},\mathbf{q},t)\,d\mathbf{p}\,d\mathbf{q}, \tag{9.23}
+$$
 
-$$a_{ijkl}^{(4,0)} = \iint p_i p_j p_k p_l\,\psi(\mathbf{p},\mathbf{q},t)\,d\mathbf{p}\,d\mathbf{q}. \tag{9.24}$$
+$$
+a_{ijkl}^{(4,0)} = \iint p_i p_j p_k p_l\,\psi(\mathbf{p},\mathbf{q},t)\,d\mathbf{p}\,d\mathbf{q}. \tag{9.24}
+$$
 
 然后可以得到长纤维取向张量的方程如下（详见 Ortman 等人 [274]）：
 
-$$\frac{D a_{ij}^{(2,0)}}{Dt} - L_{ik}a_{kj}^{(2,0)} - L_{jk}a_{ki}^{(2,0)} + 2L_{kl}a_{ijkl}^{(4,0)} = \frac{l_{rod}}{2}\left(a_i^{(1,0)}m_j + m_i a_j^{(1,0)} - 2m_k a_k^{(1,0)}a_{ij}^{(2,0)}\right) - 2\kappa\left(a_{ij}^{(1,1)} - a_{kk}^{(1,1)}a_{ij}^{(2,0)}\right) + 2C_I\dot{\gamma}\left(\delta_{ij} - 3a_{ij}^{(2,0)}\right), \tag{9.25}$$
+$$
+\frac{D a_{ij}^{(2,0)}}{Dt} - L_{ik}a_{kj}^{(2,0)} - L_{jk}a_{ki}^{(2,0)} + 2L_{kl}a_{ijkl}^{(4,0)} = \frac{l_{rod}}{2}\left(a_i^{(1,0)}m_j + m_i a_j^{(1,0)} - 2m_k a_k^{(1,0)}a_{ij}^{(2,0)}\right) - 2\kappa\left(a_{ij}^{(1,1)} - a_{kk}^{(1,1)}a_{ij}^{(2,0)}\right) + 2C_I\dot{\gamma}\left(\delta_{ij} - 3a_{ij}^{(2,0)}\right), \tag{9.25}
+$$
 
-$$\frac{D a_{ij}^{(1,1)}}{Dt} - L_{ik}a_{kj}^{(1,1)} - L_{jk}a_{ki}^{(1,1)} + 2L_{kl}a_{lk}^{(2,0)}a_{ij}^{(1,1)} = \frac{l_{rod}}{2}\left(a_i^{(1,0)}m_j + m_i a_j^{(1,0)} - 2m_k a_k^{(1,0)}a_{ij}^{(1,1)}\right) - 2\kappa\left(a_{ij}^{(2,0)} - a_{kk}^{(1,1)}a_{ij}^{(1,1)}\right) - 4C_I\dot{\gamma}\,a_{ij}^{(1,1)}, \tag{9.26}$$
+$$
+\frac{D a_{ij}^{(1,1)}}{Dt} - L_{ik}a_{kj}^{(1,1)} - L_{jk}a_{ki}^{(1,1)} + 2L_{kl}a_{lk}^{(2,0)}a_{ij}^{(1,1)} = \frac{l_{rod}}{2}\left(a_i^{(1,0)}m_j + m_i a_j^{(1,0)} - 2m_k a_k^{(1,0)}a_{ij}^{(1,1)}\right) - 2\kappa\left(a_{ij}^{(2,0)} - a_{kk}^{(1,1)}a_{ij}^{(1,1)}\right) - 4C_I\dot{\gamma}\,a_{ij}^{(1,1)}, \tag{9.26}
+$$
 
-$$\frac{D a_i^{(1,0)}}{Dt} - L_{ik}a_k^{(1,0)} + a_{kl}^{(2,0)}L_{lk}a_i^{(1,0)} = \frac{l_{rod}}{2}\left(m_i - a_i^{(1,0)}m_j a_j^{(1,0)}\right) - \kappa a_i^{(1,0)}\left(1 - a_{kk}^{(1,1)}\right) - 2C_I\dot{\gamma}\,a_i^{(1,0)}, \tag{9.27}$$
+$$
+\frac{D a_i^{(1,0)}}{Dt} - L_{ik}a_k^{(1,0)} + a_{kl}^{(2,0)}L_{lk}a_i^{(1,0)} = \frac{l_{rod}}{2}\left(m_i - a_i^{(1,0)}m_j a_j^{(1,0)}\right) - \kappa a_i^{(1,0)}\left(1 - a_{kk}^{(1,1)}\right) - 2C_I\dot{\gamma}\,a_i^{(1,0)}, \tag{9.27}
+$$
 
 其中
 
-$$m_i = \frac{\partial^2 u_i}{\partial x_j\partial x_k}a_{jk}^{(2,0)}, \tag{9.28}$$
+$$
+m_i = \frac{\partial^2 u_i}{\partial x_j\partial x_k}a_{jk}^{(2,0)}, \tag{9.28}
+$$
 
 式中 $u_i$ 是速度矢量。在这些方程中，$C_I$ 是 Folgar-Tucker 模型中定义的相互作用系数，$\kappa$ 是抗弯势能系数。当 $\kappa$ 的值减小时，纤维变得更柔软。相反，随着 $\kappa$ 的值增大，模型的行为更接近刚性纤维；当 $\kappa\to\infty$ 时，模型的解收敛于高长径比刚性纤维的 Folgar-Tucker 模型。
 
 Ortman 等人 [274] 为珠-杆模型提出了如下应力律：
 
-$$\sigma_{bead-rod} = -p\mathbf{I} + 2\eta_m\mathbf{D} + f_1\phi\mathbf{D} + f_2\mathbf{a}^{(4,0)}:\mathbf{D} + \frac{3}{4l_{rod}}\eta_m\kappa\phi a_r\,\mathrm{tr}(\mathbf{r})\left(\mathbf{a}^{(2,0)} - \mathbf{R}\right), \tag{9.29}$$
+$$
+\sigma_{bead-rod} = -p\mathbf{I} + 2\eta_m\mathbf{D} + f_1\phi\mathbf{D} + f_2\mathbf{a}^{(4,0)}:\mathbf{D} + \frac{3}{4l_{rod}}\eta_m\kappa\phi a_r\,\mathrm{tr}(\mathbf{r})\left(\mathbf{a}^{(2,0)} - \mathbf{R}\right), \tag{9.29}
+$$
 
 其中 $p$ 是各向同性压力，$\eta_m$ 是基体黏度，$\mathbf{D}$ 是变形速率张量，$f_1$ 和 $f_2$ 是通过拟合长纤维悬浮液流变数据确定的经验参数，$\phi$ 是纤维体积分数，$\mathbf{r}$ 是二阶有量纲端到端取向张量，定义为端到端向量 $l_{rod}(\mathbf{p}-\mathbf{q})$ 相对于 $\psi$ 的二阶矩：
 
-$$\mathbf{r} \equiv \iint l_{rod}^2(\mathbf{p}-\mathbf{q})(\mathbf{p}-\mathbf{q})\,\psi(\mathbf{p},\mathbf{q},t)\,d\mathbf{p}\,d\mathbf{q} = 2l_{rod}^2\left(\mathbf{a}^{(2,0)} - \mathbf{a}^{(1,1)}\right), \tag{9.30}$$
+$$
+\mathbf{r} \equiv \iint l_{rod}^2(\mathbf{p}-\mathbf{q})(\mathbf{p}-\mathbf{q})\,\psi(\mathbf{p},\mathbf{q},t)\,d\mathbf{p}\,d\mathbf{q} = 2l_{rod}^2\left(\mathbf{a}^{(2,0)} - \mathbf{a}^{(1,1)}\right), \tag{9.30}
+$$
 
 而 $\mathbf{R}$ 定义为归一化的无量纲端到端取向张量：
 
-$$\mathbf{R} \equiv \frac{\mathbf{r}}{\mathrm{tr}(\mathbf{r})} = \frac{\mathbf{a}^{(2,0)} - \mathbf{a}^{(1,1)}}{1 - \mathrm{tr}(\mathbf{a}^{(1,1)})}. \tag{9.31}$$
+$$
+\mathbf{R} \equiv \frac{\mathbf{r}}{\mathrm{tr}(\mathbf{r})} = \frac{\mathbf{a}^{(2,0)} - \mathbf{a}^{(1,1)}}{1 - \mathrm{tr}(\mathbf{a}^{(1,1)})}. \tag{9.31}
+$$
 
 方程 9.29 中的最后一项是弯曲应力项。对于完全笔直的纤维，$\mathbf{p} = -\mathbf{q}$，此时 $\mathbf{a}^{(2,0)} = \mathbf{R}$，因此弯曲应力项消失，方程退化为刚性纤维悬浮液的本构模型（Lipscomb 等人 [227]）。
 

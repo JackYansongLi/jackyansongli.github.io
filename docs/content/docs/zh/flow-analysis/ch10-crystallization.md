@@ -30,33 +30,45 @@ head:
 
 球晶的生长可以描述为半径不断增大的球体。设 $G(t)$ 表示球体半径随时间的生长速率。在时间区间 $s$ 到 $t$ 内不受限制地生长的球体的体积为 $\upsilon(s,t) = \frac{4\pi}{3}\left[\int_s^t G(u)\,du\right]^3$。设 $N_q(t)$ 为时刻 $t$ 单位体积内的晶核数（注意 $N_q(t)$ 不一定是整数）。如果假设球晶体积的生长不受限制且互不碰撞，则体积分数 $\phi$ 由下式给出：
 
-$$\phi(t) = \frac{4\pi}{3}\int_0^t \dot{N}_q(s)\left[\int_s^t G(u)\,du\right]^3 ds, \tag{10.1}$$
+$$
+\phi(t) = \frac{4\pi}{3}\int_0^t \dot{N}_q(s)\left[\int_s^t G(u)\,du\right]^3 ds, \tag{10.1}
+$$
 
 其中 $\dot{N}_q$ 是单位体积的成核速率。计算得到的体积分数也称为假想体积分数（fictive volume fraction）。无限制生长的假设在物理上是不现实的，但假想体积分数可以与球晶的实际体积分数（记为 $\alpha$）相关联。Avrami [16–18] 提出，当晶核在生长过程中均匀分布于整个体积时，实际体积分数的增量等于假想增量的 $(1-\alpha)$ 份，即
 
-$$d\alpha = (1-\alpha)\,d\phi, \tag{10.2}$$
+$$
+d\alpha = (1-\alpha)\,d\phi, \tag{10.2}
+$$
 
 该式很容易积分得到
 
-$$\alpha = 1 - \exp(-\phi). \tag{10.3}$$
+$$
+\alpha = 1 - \exp(-\phi). \tag{10.3}
+$$
 
 在 Avrami 之前几年，Kolmogoroff [209] 使用更一般的统计方法得到了相同的方程。晚于 Avrami，Evans [99] 也独立地发展了这一理论，他利用了结晶与雨滴落在池塘上所产生的扩散圆形波纹之间的类比。因此，该方程称为 Kolmogoroff-Avrami-Evans 模型。
 
 在瞬时成核情形下，晶核数密度的形式为 $N_q(t) = N_0 H(t)$，其中 $H(t)$ 是 Heaviside 单位阶跃函数，当 $t$ 为负时为零，当 $t \geq 0$ 时为 1。于是有 $\dot{N}_q(t) = N_0\delta(t)$，其中 $\delta(t)$ 是集中于 $t = 0$ 处的 Dirac δ 函数。我们假设在固定的结晶温度下球晶生长速率为常数。Kolmogoroff-Avrami-Evans 方程简化为
 
-$$\alpha = 1 - \exp\left(-\frac{4\pi}{3}N_0 G^3 t^3\right). \tag{10.4}$$
+$$
+\alpha = 1 - \exp\left(-\frac{4\pi}{3}N_0 G^3 t^3\right). \tag{10.4}
+$$
 
 时间的幂指数称为 Avrami 指数，对于球晶生长和瞬时成核，其值等于 3。
 
 如果 $\dot{N}_q$ 为常数，则有
 
-$$\alpha = 1 - \exp\left(-\frac{\pi}{3}\dot{N}_q G^3 t^4\right). \tag{10.5}$$
+$$
+\alpha = 1 - \exp\left(-\frac{\pi}{3}\dot{N}_q G^3 t^4\right). \tag{10.5}
+$$
 
 因此，在非瞬时成核情形下，Avrami 指数变为 4。
 
 事实上，球晶的体积分数 $\alpha$ 也可以解释为已结晶体积与总可结晶体积之比，称为相对结晶度，取值范围为 0 到 1。也可以用绝对结晶度 $\chi$ 来描述结晶程度，$\chi$ 定义为晶体体积与总体积之比。$\chi$ 的值永远不会达到 1，它与 $\alpha$ 有如下关系：
 
-$$\chi = \chi_\infty\alpha, \tag{10.6}$$
+$$
+\chi = \chi_\infty\alpha, \tag{10.6}
+$$
 
 其中 $\chi_\infty$ 表示极限绝对结晶度。
 
@@ -64,27 +76,47 @@ $$\chi = \chi_\infty\alpha, \tag{10.6}$$
 
 为了处理非等温结晶，Schneider 等人 [324] 将方程 10.1 中的积分变换为由四个一阶微分方程组成的速率方程组。将方程 10.1 对时间 $t$ 逐次微分四次，得到
 
-$$\phi_0 = \phi = \frac{4\pi}{3}\int_0^t\left[\int_s^t G(u)\,du\right]^3 dN_q(s), \tag{10.7}$$
+$$
+\phi_0 = \phi = \frac{4\pi}{3}\int_0^t\left[\int_s^t G(u)\,du\right]^3 dN_q(s), \tag{10.7}
+$$
 
-$$\phi_1 = \frac{1}{G}\dot{\phi}_0 = 4\pi\int_0^t\left[\int_s^t G(u)\,du\right]^2 dN_q(s), \tag{10.8}$$
+$$
+\phi_1 = \frac{1}{G}\dot{\phi}_0 = 4\pi\int_0^t\left[\int_s^t G(u)\,du\right]^2 dN_q(s), \tag{10.8}
+$$
 
-$$\phi_2 = \frac{1}{G}\dot{\phi}_1 = 8\pi\int_0^t\left[\int_s^t G(u)\,du\right] dN_q(s), \tag{10.9}$$
+$$
+\phi_2 = \frac{1}{G}\dot{\phi}_1 = 8\pi\int_0^t\left[\int_s^t G(u)\,du\right] dN_q(s), \tag{10.9}
+$$
 
-$$\phi_3 = \frac{1}{G}\dot{\phi}_2 = 8\pi N_q(t), \tag{10.10}$$
+$$
+\phi_3 = \frac{1}{G}\dot{\phi}_2 = 8\pi N_q(t), \tag{10.10}
+$$
 
-$$\phi_4 = \dot{\phi}_3 = 8\pi\dot{N}_q(t). \tag{10.11}$$
+$$
+\phi_4 = \dot{\phi}_3 = 8\pi\dot{N}_q(t). \tag{10.11}
+$$
 
 因此，可以得到如下速率方程组：
 
-$$\dot{\phi}_3 = 8\pi\dot{N}_q(t), \tag{10.12}$$
+$$
+\dot{\phi}_3 = 8\pi\dot{N}_q(t), \tag{10.12}
+$$
 
-$$\dot{\phi}_2 = G\phi_3, \tag{10.13}$$
+$$
+\dot{\phi}_2 = G\phi_3, \tag{10.13}
+$$
 
-$$\dot{\phi}_1 = G\phi_2, \tag{10.14}$$
+$$
+\dot{\phi}_1 = G\phi_2, \tag{10.14}
+$$
 
-$$\dot{\phi}_0 = G\phi_1, \tag{10.15}$$
+$$
+\dot{\phi}_0 = G\phi_1, \tag{10.15}
+$$
 
-$$\phi_0 = -\ln(1-\alpha). \tag{10.16}$$
+$$
+\phi_0 = -\ln(1-\alpha). \tag{10.16}
+$$
 
 函数 $\phi_i$ 可以与球晶无限制生长的晶体形态相关联：$\phi_0$ 是单位体积内未受干扰球晶的总体积，$\phi_1$ 是单位体积内未受干扰球晶的总表面积，$\phi_2$ 是单位体积内未受干扰球晶半径之和的 $8\pi$ 倍，$\phi_3$ 是单位体积内未受干扰球晶数量的 $8\pi$ 倍。
 
@@ -94,7 +126,9 @@ $$\phi_0 = -\ln(1-\alpha). \tag{10.16}$$
 
 在静态条件下发现，晶核数密度随过冷度 $\Delta T = T_m^0 - T$ 的增大而增大，其中 $T_m^0$ 是平衡熔点。对于瞬时成核，晶核数密度对 $\Delta T$ 的依赖关系可用下式描述（Koscher 和 Fulchiron [211]）：
 
-$$N_q = N_0\delta(t), \quad \ln N_0 = a_N\Delta T + b_N, \tag{10.17}$$
+$$
+N_q = N_0\delta(t), \quad \ln N_0 = a_N\Delta T + b_N, \tag{10.17}
+$$
 
 其中 $a_N$ 和 $b_N$ 是通过将该方程拟合到 $N_0(T)$ 实验数据而确定的常数。图 10.2 [211] 给出了 $\ln N_0$ 随 $\Delta T$ 线性变化的一个示例。
 
@@ -104,11 +138,15 @@ $$N_q = N_0\delta(t), \quad \ln N_0 = a_N\Delta T + b_N, \tag{10.17}$$
 
 Ziabicki [431] 提出了一个将成核速率表示为温度函数的方程。Coppola 等人 [67] 和 Chen 等人 [58] 使用的该方程形式为
 
-$$\dot{N}_q = C_0 k_B T\,\Delta F_q\exp\left(-\frac{E_a}{k_B T}\right)\exp\left(-\frac{K_n}{T(\Delta F_q)^n}\right), \tag{10.18}$$
+$$
+\dot{N}_q = C_0 k_B T\,\Delta F_q\exp\left(-\frac{E_a}{k_B T}\right)\exp\left(-\frac{K_n}{T(\Delta F_q)^n}\right), \tag{10.18}
+$$
 
 其中 $C_0$ 包含能量和几何常数，$k_B$ 是 Boltzmann 常数，$T$ 是绝对温度，$\Delta F_q$ 表示静态条件下熔体与晶相之间单位体积的 Gibbs 自由能之差，$E_a$ 是过冷液体-晶核界面的活化能，$K_n$ 是包含晶体晶核能量和几何因素的常数。幂指数 $n$（也作为 $K$ 的下标出现）与均相成核发生的温度区域有关，对于均相熔体中初级晶核的形成一般取值为 2，对于次级晶核取值为 1 [218]。对于小过冷度，$\Delta F_q$ 可表示为
 
-$$\Delta F_q = \Delta H_c\frac{\Delta T}{T_m^0}, \tag{10.19}$$
+$$
+\Delta F_q = \Delta H_c\frac{\Delta T}{T_m^0}, \tag{10.19}
+$$
 
 其中 $\Delta T$ 是过冷度，$T_m^0$ 是平衡熔点，$\Delta H_c$ 是结晶潜热。潜热是物质在相变过程中吸收或放出的单位体积热量（单位为 J/m³）。之所以称为"潜"热，是因为尽管有热量的输入或释放，材料在相变过程中温度并不发生变化。
 
@@ -116,23 +154,31 @@ $$\Delta F_q = \Delta H_c\frac{\Delta T}{T_m^0}, \tag{10.19}$$
 
 对于球晶，径向生长速率 $G$ 可应用 Hoffman-Lauritzen 理论 [218] 计算：
 
-$$G(T) = G_0\exp\left[-\frac{U^*}{R_g(T - T_\infty)}\right]\exp\left[-\frac{K_g(T + T_m^0)}{2T^2\Delta T}\right], \tag{10.20}$$
+$$
+G(T) = G_0\exp\left[-\frac{U^*}{R_g(T - T_\infty)}\right]\exp\left[-\frac{K_g(T + T_m^0)}{2T^2\Delta T}\right], \tag{10.20}
+$$
 
 其中 $U^*$ 是运动活化能，常取通用值 6270 J/mol（Koscher 和 Fulchiron [211]），$R_g$ 是气体常数，$T_\infty = T_g - 30$，$T_g$ 为玻璃化转变温度。平衡熔点可能依赖于压力。Fulchiron 等人 [126] 将压力依赖关系表示为多项式函数
 
-$$T_m^0(p) = T_m^0(0) + a_1 p + a_2 p^2, \tag{10.21}$$
+$$
+T_m^0(p) = T_m^0(0) + a_1 p + a_2 p^2, \tag{10.21}
+$$
 
 其中 $p$ 是压力，$a_1$ 和 $a_2$ 是可由压力-体积-温度（PVT）图确定的常数。方程 10.20 中的参数 $G_0$ 和 $K_g$ 通过绘制 $\ln G + U^*/R_g(T - T_\infty)$ 对 $(T + T_m^0)/2T^2\Delta T$ 的关系图来确定。$G(T)$ 的实验测量方法将在后面介绍。
 
 还有一些描述生长速率温度依赖关系的更简单的经验或半经验关系式。Eder 等人 [91] 和 Zuidema 等人 [435] 采用了下面的经验方程：
 
-$$G(T) = G_{max}\exp\left[-c_G(T - T_{ref})^2\right], \tag{10.22}$$
+$$
+G(T) = G_{max}\exp\left[-c_G(T - T_{ref})^2\right], \tag{10.22}
+$$
 
 其中 $G_{max}$、$c_G$ 和 $T_{ref}$ 是拟合参数。
 
 Van Krevelen [380] 基于从多种典型半结晶聚合物获得的文献数据，推导了一个球晶生长速率的半经验方程。该方程为
 
-$$\log G(T) = \log G_0 - 2.3\frac{T_m^0}{T}\left(\frac{T_m^0}{T_m^0 - T_g} + \frac{50}{T_m^0 - T}\right), \tag{10.23}$$
+$$
+\log G(T) = \log G_0 - 2.3\frac{T_m^0}{T}\left(\frac{T_m^0}{T_m^0 - T_g} + \frac{50}{T_m^0 - T}\right), \tag{10.23}
+$$
 
 其中 $G_0 = 7.5\times 10^8$ µm/s。
 
@@ -184,27 +230,37 @@ $$\log G(T) = \log G_0 - 2.3\frac{T_m^0}{T}\left(\frac{T_m^0}{T_m^0 - T_g} + \fr
 
 Eder 等人 [92] 为流动增强成核提出了如下一阶微分方程：
 
-$$\dot{N}_f + \frac{1}{\lambda_N}N_f = f, \tag{10.24}$$
+$$
+\dot{N}_f + \frac{1}{\lambda_N}N_f = f, \tag{10.24}
+$$
 
 其中 $N_f$ 是流动诱导的晶核数密度，$\lambda_N$ 是依赖于温度的松弛时间，通常取较大的数值，$f$ 是依赖于流动变量和温度的函数。Eder 等人将剪切速率视为流动增强成核的驱动力，并将 $f$ 写成如下形式：
 
-$$f = g_n\left(\frac{\dot{\gamma}}{\dot{\gamma}_n}\right)^2, \tag{10.25}$$
+$$
+f = g_n\left(\frac{\dot{\gamma}}{\dot{\gamma}_n}\right)^2, \tag{10.25}
+$$
 
 其中 $g_n$ 是一个量纲为 s$^{-1}$ m$^{-3}$ 的因子，$\dot{\gamma}_n$ 是活化剪切速率。最初引入对 $\dot{\gamma}^2$ 的二次依赖关系是基于这样的论点：成核过程不应依赖于剪切方向。Janeschitz-Kriegl [181] 后来将这一项解释为比功。
 
 不同的作者对驱动力采用了若干其他假设。Zuidema 等人 [435] 用可回复应变偏量部分的第二不变量替换了 $\dot{\gamma}^2$ 项，认为该不变量是分子取向的代表性度量。其基本思想是：影响成核速度的不是流动运动学，而是分子的行为。Koscher 和 Fulchiron [211] 将第一法向应力差作为成核的驱动力。Coppola 等人 [67] 基于自由能的考虑对流动增强成核进行了建模。他们取方程 10.18 的右端来构造函数 $f$，并通过在方程中的 $\Delta F_q$ 上添加额外项 $\Delta F_f$ 进行修正，其中 $\Delta F_f$ 是流动诱导的自由能变化，取自 Doi-Edwards 模型。Zheng 和 Kennedy [418] 也将函数 $f$ 视为自由能的函数，他们使用 FENE-P 哑铃模型来计算 $\Delta F_f$。Doi-Edwards 自由能和 FENE-P 哑铃自由能在剪切流动中都表现出如下的极限行为 [67, 359]。对于低剪切速率，有
 
-$$\frac{\Delta F_f}{n_0 k_B T} \propto (\lambda_a\dot{\gamma})^2, \tag{10.26}$$
+$$
+\frac{\Delta F_f}{n_0 k_B T} \propto (\lambda_a\dot{\gamma})^2, \tag{10.26}
+$$
 
 对于高剪切速率，有
 
-$$\frac{\Delta F_f}{n_0 k_B T} \propto \ln(\lambda_a\dot{\gamma}), \tag{10.27}$$
+$$
+\frac{\Delta F_f}{n_0 k_B T} \propto \ln(\lambda_a\dot{\gamma}), \tag{10.27}
+$$
 
 其中 $n_0$ 是分子数密度，$k_B$ 是 Boltzmann 常数，$\lambda_a$ 是聚合物熔体的松弛时间，$\dot{\gamma}$ 是广义应变速率。量 $n_0 k_B T$ 通常与剪切模量相关，后者可以估算或测量。
 
 Tanner 和 Qi [359] 还提出了 $f$ 的一种应变与应变速率表达式：
 
-$$f = a\dot{\gamma}^p\gamma, \tag{10.28}$$
+$$
+f = a\dot{\gamma}^p\gamma, \tag{10.28}
+$$
 
 其中 $a$ 和 $p$ 是经验常数，$\gamma = \dot{\gamma}t_s$ 是应变，$t_s$ 为剪切时间。该方程与 Wassner 和 Maier [396] 在简单剪切和小应变振荡下的实验结果拟合得非常好。
 
@@ -216,11 +272,15 @@ Mykhaylyk 等人 [263] 的实验观察表明，有两个参数决定了流动诱
 
 临界剪切速率估算为 $\dot{\gamma}_c \approx 1/\lambda_R$，其中 $\lambda_R$ 是分子的最长 Rouse 松弛时间 [81, 312]，与分子量的平方成正比。比功 $w$ 由黏度 $\eta$ 与应变速率平方的乘积在总剪切时间 $t_s$ 上的积分给出：
 
-$$w = \int_0^{t_s}\eta[\dot{\gamma}(t)]\,\dot{\gamma}^2(t)\,dt. \tag{10.29}$$
+$$
+w = \int_0^{t_s}\eta[\dot{\gamma}(t)]\,\dot{\gamma}^2(t)\,dt. \tag{10.29}
+$$
 
 因此，比功除了包含应变速率的影响外，还包含剪切时间的影响。标志串晶结构形成的判据于是为
 
-$$\dot{\gamma}\lambda_R > 1 \quad \text{且} \quad \int_0^{t_s}\eta[\dot{\gamma}(t)]\,\dot{\gamma}^2(t)\,dt > w_c. \tag{10.30}$$
+$$
+\dot{\gamma}\lambda_R > 1 \quad \text{且} \quad \int_0^{t_s}\eta[\dot{\gamma}(t)]\,\dot{\gamma}^2(t)\,dt > w_c. \tag{10.30}
+$$
 
 Mykhaylyk 等人 [263] 发现，临界比功与剪切速率无关，但随长链浓度的增大而减小。这些观察结果进一步得到了 Housmans 等人 [161] 实验工作的支持。基于这些结果，Steenbakkers 和 Peters [341] 以及 Steenbakkers [340] 用最慢松弛模态分子拉伸的四次方依赖关系对流动增强成核速率（$\dot{N}_f$）进行了建模：
 
@@ -236,27 +296,37 @@ Mykhaylyk 等人 [263] 还表明，临界剪切速率和临界功可以通过实
 
 出于建模目的，串晶的几何形状可以用圆柱体表示。串晶的假想体积分数于是为
 
-$$\phi = \pi L_{total}\left[\int_0^t G(u)\,du\right]^2, \tag{10.32}$$
+$$
+\phi = \pi L_{total}\left[\int_0^t G(u)\,du\right]^2, \tag{10.32}
+$$
 
 其中 $L_{total}$ 是单位体积内线状晶核的总长度，可按下式计算：
 
-$$L_{total} = \int_0^{t_s}\dot{N}_f(s)\,l(t_s - s)\,ds, \tag{10.33}$$
+$$
+L_{total} = \int_0^{t_s}\dot{N}_f(s)\,l(t_s - s)\,ds, \tag{10.33}
+$$
 
 其中 $t_s$ 是剪切时间，$l(t_s - s)$ 是在时刻 $s$ 被活化的线状晶核在时刻 $t_s$ 的长度。更多细节和进一步的参考文献见 Janeschitz-Kriegl [181]。
 
 如果我们分别用 $\phi_{spheres}$ 和 $\phi_{rods}$ 表示球晶和串晶的假想体积分数，则相对结晶度可按下式计算：
 
-$$\alpha = 1 - \exp\left[-(\phi_{spheres} + \phi_{rods})\right]. \tag{10.34}$$
+$$
+\alpha = 1 - \exp\left[-(\phi_{spheres} + \phi_{rods})\right]. \tag{10.34}
+$$
 
 ### 10.2.4 流动诱导结晶动力学的材料表征
 
 要测量流动诱导结晶的结晶度和半结晶时间，不能使用常规 DSC，因为它无法对样品施加流动。可以使用 Linkam 剪切热台结合显微镜和光强读数装置（Koscher 和 Fulchiron [211]；Hadinata 等人 [142]）。实验中，记录透过置于正交偏振片之间样品的光强随时间的变化。实验从初始光强 $I_0$ 开始，当光强达到稳定值 $I_\infty$ 时结束，表明结晶已完成。相对结晶度 $\alpha$ 估算如下：
 
-$$\alpha(t) = \frac{I(t) - I_0}{I_\infty - I_0}, \tag{10.35}$$
+$$
+\alpha(t) = \frac{I(t) - I_0}{I_\infty - I_0}, \tag{10.35}
+$$
 
 半结晶时间估算为光强达到下式所给值的时间：
 
-$$I_{1/2}(t_{1/2}) = \frac{I_\infty - I_0}{2}. \tag{10.36}$$
+$$
+I_{1/2}(t_{1/2}) = \frac{I_\infty - I_0}{2}. \tag{10.36}
+$$
 
 注塑制件沿厚度方向的形态变化可以使用同步辐射小角和/或广角 X 射线技术进行研究。图 10.7 给出了 Zhu 和 Edward [428] 报道的 iPP 样品的小角 X 射线散射（SAXS）实验结果示例。图中显示了沿样品厚度方向、从壁面到中心面不同距离处的二维 SAXS 图像。在 100 µ 和 200 µ 处，可以看到两个明显的极大值，一个沿赤道方向，另一个沿子午线方向，表明形成了取向的串晶结构。赤道向和子午线向的极大值分别归因于平行于流动方向的串芯（shish）结构和垂直于流动方向的串片（kebab）结构。在距壁面 300 µ 处，赤道向极大值明显减弱，而子午线向极大值变化很小。在 500 µ 处，赤道向和子午线向的极大值都变得非常弱。随着距离进一步向中心面增大，图像表明结构为各向同性。
 

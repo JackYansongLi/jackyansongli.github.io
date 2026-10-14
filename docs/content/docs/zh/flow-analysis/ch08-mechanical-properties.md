@@ -28,73 +28,105 @@ head:
 
 考虑由体积分数为 $\phi_m$ 的基体和体积分数为 $\phi_f$ 的纤维组成的两相复合材料（二者满足 $\phi_m+\phi_f=1$），复合材料中的平均应力 $\bar{\sigma}$ 由下式给出：
 
-$$\bar{\sigma} = \phi_f\bar{\sigma}^f + \phi_m\bar{\sigma}^m, \tag{8.1}$$
+$$
+\bar{\sigma} = \phi_f\bar{\sigma}^f + \phi_m\bar{\sigma}^m, \tag{8.1}
+$$
 
 其中 $\bar{\sigma}^f$ 和 $\bar{\sigma}^m$ 分别为纤维和基体中的体积平均应力，由下式给出：
 
-$$\bar{\sigma}^f = \frac{1}{V_f}\int_{V_f}\sigma(\mathbf{x})\,dV, \quad \bar{\sigma}^m = \frac{1}{V_m}\int_{V_m}\sigma(\mathbf{x})\,dV, \tag{8.2}$$
+$$
+\bar{\sigma}^f = \frac{1}{V_f}\int_{V_f}\sigma(\mathbf{x})\,dV, \quad \bar{\sigma}^m = \frac{1}{V_m}\int_{V_m}\sigma(\mathbf{x})\,dV, \tag{8.2}
+$$
 
 其中 $V_f$ 和 $V_m$ 分别为纤维和基体所占据的体积。复合材料中的平均应变 $\bar{\varepsilon}$ 由下式给出：
 
-$$\bar{\varepsilon} = \phi_f\bar{\varepsilon}^f + \phi_m\bar{\varepsilon}^m. \tag{8.3}$$
+$$
+\bar{\varepsilon} = \phi_f\bar{\varepsilon}^f + \phi_m\bar{\varepsilon}^m. \tag{8.3}
+$$
 
 其中 $\bar{\varepsilon}^f$ 和 $\bar{\varepsilon}^m$ 分别为纤维和基体中的体积平均应变。类似地，纤维相和基体相中的应力-应变关系分别为
 
-$$\bar{\sigma}^f = C^f\bar{\varepsilon}^f \tag{8.4}$$
+$$
+\bar{\sigma}^f = C^f\bar{\varepsilon}^f \tag{8.4}
+$$
 
 和
 
-$$\bar{\sigma}^m = C^m\bar{\varepsilon}^m. \tag{8.5}$$
+$$
+\bar{\sigma}^m = C^m\bar{\varepsilon}^m. \tag{8.5}
+$$
 
 复合材料的有效刚度张量为 $C$（$C_{ijkl}$），它按下式将平均应变与平均应力联系起来：
 
-$$\bar{\sigma} = C\bar{\varepsilon}. \tag{8.6}$$
+$$
+\bar{\sigma} = C\bar{\varepsilon}. \tag{8.6}
+$$
 
 Hill [156] 定义了一个称为应变集中张量的四阶张量 $A$，它本质上是纤维平均应变与复合材料总平均应变之比，即
 
-$$\bar{\varepsilon}^f = A\bar{\varepsilon} \quad (\bar{\varepsilon}^f_{ij} = A_{ijkl}\bar{\varepsilon}_{kl}). \tag{8.7}$$
+$$
+\bar{\varepsilon}^f = A\bar{\varepsilon} \quad (\bar{\varepsilon}^f_{ij} = A_{ijkl}\bar{\varepsilon}_{kl}). \tag{8.7}
+$$
 
 联立方程 8.1–8.7，可得
 
-$$\bar{\sigma} = C\bar{\varepsilon} = \phi_f\bar{\sigma}^f + \phi_m\bar{\sigma}^m = \phi_f C^f\bar{\varepsilon}^f + \phi_m C^m\bar{\varepsilon}^m = \phi_f C^f\bar{\varepsilon}^f + C^m(\bar{\varepsilon} - \phi_f\bar{\varepsilon}^f) = C^m\bar{\varepsilon} + \phi_f(C^f - C^m)\bar{\varepsilon}^f = C^m\bar{\varepsilon} + \phi_f(C^f - C^m)A\bar{\varepsilon}, \tag{8.8}$$
+$$
+\bar{\sigma} = C\bar{\varepsilon} = \phi_f\bar{\sigma}^f + \phi_m\bar{\sigma}^m = \phi_f C^f\bar{\varepsilon}^f + \phi_m C^m\bar{\varepsilon}^m = \phi_f C^f\bar{\varepsilon}^f + C^m(\bar{\varepsilon} - \phi_f\bar{\varepsilon}^f) = C^m\bar{\varepsilon} + \phi_f(C^f - C^m)\bar{\varepsilon}^f = C^m\bar{\varepsilon} + \phi_f(C^f - C^m)A\bar{\varepsilon}, \tag{8.8}
+$$
 
 因此，
 
-$$C = C^m + \phi_f\left(C^f - C^m\right)A. \tag{8.9}$$
+$$
+C = C^m + \phi_f\left(C^f - C^m\right)A. \tag{8.9}
+$$
 
 这就是有效刚度张量 $C$ 所需的方程。由于 $C^f$、$C^m$ 和 $\phi_f$ 都是已知的，因此只需求出应变集中张量 $A$。一旦确定了 $A$，就可以计算有效刚度。$A$ 的不同表达式代表不同的模型。例如，如果 $A = I$，其中 $I$（$I_{ijkl} = (1/2)(\delta_{ik}\delta_{jl} + \delta_{il}\delta_{jk})$）是四阶单位张量，则方程 8.9 简化为
 
-$$C = \phi_m C^m + \phi_f C^f, \tag{8.10}$$
+$$
+C = \phi_m C^m + \phi_f C^f, \tag{8.10}
+$$
 
 这就是 Voigt 平均。Voigt 平均是有效刚度的上限。
 
 Eshelby [98] 得到了稀薄（dilute）情形下的解。对于嵌入无限大基体中的单个椭球形颗粒，应变集中张量记为 $A^{Eshelby}$，由下式给出：
 
-$$A = A^{Eshelby} = \left[I + ES^m(C^f - C^m)\right]^{-1}, \tag{8.11}$$
+$$
+A = A^{Eshelby} = \left[I + ES^m(C^f - C^m)\right]^{-1}, \tag{8.11}
+$$
 
 其中 $E$ 是四阶 Eshelby 张量 [98]，$S^m = (C^m)^{-1}$ 是弹性柔度张量。Eshelby 模型仅适用于颗粒之间无相互作用的低浓度情形。
 
 Mori 和 Tanaka [258] 将上述模型推广到了非稀薄情形。我们将应变集中张量 $A$ 记为 $A^{MT}$。要求 $A^{MT}$ 在两个极端浓度下满足下列条件：
 
-$$A^{MT}\big|_{\phi_f\to 0} = A^{Eshelby}, \quad A^{MT}\big|_{\phi_f\to 1} = I. \tag{8.12}$$
+$$
+A^{MT}\big|_{\phi_f\to 0} = A^{Eshelby}, \quad A^{MT}\big|_{\phi_f\to 1} = I. \tag{8.12}
+$$
 
 显然，下面的方程满足两端的必要条件：
 
-$$A = A^{MT} = \left[I + (1-\phi_f)ES^m(C^f - C^m)\right]^{-1}. \tag{8.13}$$
+$$
+A = A^{MT} = \left[I + (1-\phi_f)ES^m(C^f - C^m)\right]^{-1}. \tag{8.13}
+$$
 
 将方程 8.13 代入方程 8.9，得到
 
-$$C = C^m + \phi_f\left(C^f - C^m\right)\left[I + (1-\phi_f)ES^m(C^f - C^m)\right]^{-1}, \tag{8.14}$$
+$$
+C = C^m + \phi_f\left(C^f - C^m\right)\left[I + (1-\phi_f)ES^m(C^f - C^m)\right]^{-1}, \tag{8.14}
+$$
 
 或等价地，
 
-$$C = C^m + \phi_f\left[(C^f - C^m)^{-1} + (1-\phi_f)ES^m\right]^{-1}. \tag{8.15}$$
+$$
+C = C^m + \phi_f\left[(C^f - C^m)^{-1} + (1-\phi_f)ES^m\right]^{-1}. \tag{8.15}
+$$
 
 该模型最早由 Mori 和 Tanaka [258] 推导，因此称为 Mori-Tanaka 模型，后来 Benveniste [32] 和 Christensen [61] 以更简单、更直接的方式对其进行了描述。该模型在低浓度下给出正确的稀薄解，在高浓度下也给出正确的复合材料性能。Tandon 和 Weng [354] 给出了各向同性基体的 Eshelby 张量 $E$ 的实用封闭形式表达式。Eshelby 张量的一般形式见 Mura 的著作 [262]，也可以通过数值方法计算（Gavazzi 和 Langodas [129]）。
 
 方程 8.15 的一种等价形式为
 
-$$C = C^m + \phi_f\left(C^f - C^m\right)A^{Eshelby}\left(\phi_m I + \phi_f A^{Eshelby}\right)^{-1}, \tag{8.16}$$
+$$
+C = C^m + \phi_f\left(C^f - C^m\right)A^{Eshelby}\left(\phi_m I + \phi_f A^{Eshelby}\right)^{-1}, \tag{8.16}
+$$
 
 这就是 Benveniste [32] 论文中给出的方程。
 
@@ -102,15 +134,21 @@ $$C = C^m + \phi_f\left(C^f - C^m\right)A^{Eshelby}\left(\phi_m I + \phi_f A^{Es
 
 复合材料的热弹性本构关系可表示为
 
-$$\bar{\varepsilon} = S\bar{\sigma} + \alpha\triangle T, \tag{8.17}$$
+$$
+\bar{\varepsilon} = S\bar{\sigma} + \alpha\triangle T, \tag{8.17}
+$$
 
 其中 $\alpha$ 是有效热膨胀系数张量。Benveniste 和 Dvorak [33] 证明了
 
-$$\alpha = \alpha^f + (S^f - S)(S^m - S^f)^{-1}(\alpha^f - \alpha^m). \tag{8.18}$$
+$$
+\alpha = \alpha^f + (S^f - S)(S^m - S^f)^{-1}(\alpha^f - \alpha^m). \tag{8.18}
+$$
 
 弹性柔度张量 $S = C^{-1}$ 可由 Mori-Tanaka 模型计算。方程 8.18 与 Rosen 和 Hashin [314] 的下述方程等同：
 
-$$\alpha = \phi_f\alpha^f + \phi_m\alpha^m + (S - \phi_f S^f - \phi_m S^m)(S^f - S^m)^{-1}(\alpha^f - \alpha^m). \tag{8.19}$$
+$$
+\alpha = \phi_f\alpha^f + \phi_m\alpha^m + (S - \phi_f S^f - \phi_m S^m)(S^f - S^m)^{-1}(\alpha^f - \alpha^m). \tag{8.19}
+$$
 
 ### 8.2.3 纤维浓度和长径比的影响
 
@@ -166,33 +204,51 @@ $$\alpha = \phi_f\alpha^f + \phi_m\alpha^m + (S - \phi_f S^f - \phi_m S^m)(S^f -
 
 如前所述，纤维取向张量定义为纤维单位取向向量 $\mathbf{p}$ 的并矢积乘以分布函数并在所有方向上积分。纤维取向张量可用于进行取向平均（Advani 和 Tucker [2]）。横向各向同性子单元的四阶刚度张量 $C_{ijkl}$ 可按下式进行平均，得到复合材料刚度 $\langle C_{ijkl}\rangle$ [2]：
 
-$$\langle C_{ijkl}\rangle = B_1 a_{ijkl} + B_2(a_{ij}\delta_{kl} + a_{kl}\delta_{ij}) + B_3(a_{ik}\delta_{jl} + a_{il}\delta_{jk} + a_{jl}\delta_{ik} + a_{jk}\delta_{il}) + B_4(\delta_{ij}\delta_{kl}) + B_5(\delta_{ik}\delta_{jl} + \delta_{il}\delta_{jk}). \tag{8.20}$$
+$$
+\langle C_{ijkl}\rangle = B_1 a_{ijkl} + B_2(a_{ij}\delta_{kl} + a_{kl}\delta_{ij}) + B_3(a_{ik}\delta_{jl} + a_{il}\delta_{jk} + a_{jl}\delta_{ik} + a_{jk}\delta_{il}) + B_4(\delta_{ij}\delta_{kl}) + B_5(\delta_{ik}\delta_{jl} + \delta_{il}\delta_{jk}). \tag{8.20}
+$$
 
 常数 $B_i$ 是张量 $C_{ijkl}$ 的不变量，由下式给出：
 
-$$B_1 = C_{1111} + C_{2222} - 2C_{1122} - 4C_{1212}, \tag{8.21}$$
+$$
+B_1 = C_{1111} + C_{2222} - 2C_{1122} - 4C_{1212}, \tag{8.21}
+$$
 
-$$B_2 = C_{1122} - C_{2233}, \tag{8.22}$$
+$$
+B_2 = C_{1122} - C_{2233}, \tag{8.22}
+$$
 
-$$B_3 = C_{1212} + 0.5(C_{2233} - 2C_{2222}), \tag{8.23}$$
+$$
+B_3 = C_{1212} + 0.5(C_{2233} - 2C_{2222}), \tag{8.23}
+$$
 
-$$B_4 = C_{2233}, \tag{8.24}$$
+$$
+B_4 = C_{2233}, \tag{8.24}
+$$
 
-$$B_5 = 0.5(C_{2222} - C_{2233}). \tag{8.25}$$
+$$
+B_5 = 0.5(C_{2222} - C_{2233}). \tag{8.25}
+$$
 
 一般而言，$\langle C_{ijkl}\rangle$ 不再是横向各向同性的。方程 8.20 表明，复合材料刚度同时依赖于二阶取向张量 $a_{ij}$ 和四阶取向张量 $a_{ijkl}$。事实上，只需要知道四阶张量即可。注意到 $p_k p_k = 1$，可以证明
 
-$$a_{ijkk} = \langle p_i p_j p_k p_k\rangle = \langle p_i p_j\rangle = a_{ij}. \tag{8.26}$$
+$$
+a_{ijkk} = \langle p_i p_j p_k p_k\rangle = \langle p_i p_j\rangle = a_{ij}. \tag{8.26}
+$$
 
 这意味着，对于横向各向同性子单元的情形，二阶张量已包含在四阶张量之中。
 
 取向平均方法也可用于预测平均热膨胀系数。其结果为
 
-$$\langle\alpha_{kl}\rangle = \langle C_{ijkl}\rangle^{-1}\langle C_{ijmn}\alpha_{mn}\rangle, \tag{8.27}$$
+$$
+\langle\alpha_{kl}\rangle = \langle C_{ijkl}\rangle^{-1}\langle C_{ijmn}\alpha_{mn}\rangle, \tag{8.27}
+$$
 
 其中四阶刚度张量的平均由方程 8.20 给出。另一个涉及二阶张量的取向平均由 Bay [29] 给出：
 
-$$\langle C_{ijmn}\alpha_{mn}\rangle = \left[(C_{1111} - C_{1122})\alpha_{11} + (2C_{1122} - C_{2222} - C_{2233})\alpha_{22}\right]a_{ij} + \left[C_{2211}\alpha_{11} + (C_{2222} + C_{2233})\alpha_{22}\right]\delta_{ij}. \tag{8.28}$$
+$$
+\langle C_{ijmn}\alpha_{mn}\rangle = \left[(C_{1111} - C_{1122})\alpha_{11} + (2C_{1122} - C_{2222} - C_{2233})\alpha_{22}\right]a_{ij} + \left[C_{2211}\alpha_{11} + (C_{2222} + C_{2233})\alpha_{22}\right]\delta_{ij}. \tag{8.28}
+$$
 
 知道了 $\langle C_{ijkl}\rangle$ 和 $\langle\alpha_{ij}\rangle$ 的平均值，就可以在翘曲或结构分析中预测构件的结构性能。
 
