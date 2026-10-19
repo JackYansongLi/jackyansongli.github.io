@@ -1,3 +1,8 @@
+# 提交与推送
+
+- 用户要求：之后所有修改完成并通过验证后，直接提交并推送，不再逐次询问确认。
+- 仅提交本次任务的改动，不提交密钥、本地产物或无关的已有修改；推送失败时如实报告，不强制推送。
+
 # Subagent 教程同步
 
 - 中文页面 `docs/content/docs/zh/subagent-tutorial.md` 的正文来自 `/Users/jackyansongli/git/learn-harness/docs/tutorial.md`。
