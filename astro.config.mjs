@@ -49,6 +49,7 @@ export default defineConfig({
       },
       components: {
         Header: './docs/components/Header.astro',
+        LanguageSelect: './docs/components/LanguageSelect.astro',
         Footer: './docs/components/Footer.astro',
         PageFrame: './docs/components/PageFrame.astro',
       },

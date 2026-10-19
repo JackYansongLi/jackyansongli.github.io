@@ -1,7 +1,7 @@
 ---
 import config from 'virtual:starlight/user-config';
 import type { Props } from '@astrojs/starlight/props';
-import LanguageSelect from '@astrojs/starlight/components/LanguageSelect.astro';
+import LanguageSelect from './LanguageSelect.astro';
 import Search from '@astrojs/starlight/components/Search.astro';
 import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
 import SocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
@@ -21,6 +21,9 @@ const articlesLabel = isChinese ? '杂文' : 'Articles';
   <a class="articles-link" href={articlesHref}>{articlesLabel}</a>
   <div class="search-wrapper sl-flex">
     {shouldRenderSearch && <Search {...Astro.props} />}
+  </div>
+  <div class="sl-flex md:sl-hidden">
+    <LanguageSelect {...Astro.props} />
   </div>
   <div class="sl-hidden md:sl-flex right-group">
     <div class="sl-flex social-icons">

@@ -1,0 +1,49 @@
+---
+import config from 'virtual:starlight/user-config';
+import type { Props } from '@astrojs/starlight/props';
+// Starlight 0.28 does not expose this utility through its package exports.
+import { localizedUrl } from '../../node_modules/@astrojs/starlight/utils/localizedUrl';
+
+const targetLocale = Astro.props.locale === 'zh' ? 'root' : 'zh';
+const targetLanguage = config.locales?.[targetLocale]?.lang;
+const label = targetLocale === 'root' ? 'English' : '中文';
+const href = localizedUrl(Astro.url, targetLocale).pathname;
+---
+
+{
+  config.isMultilingual && (
+    <a class="language-link" href={href} lang={targetLanguage} hreflang={targetLanguage}>
+      {label}
+    </a>
+  )
+}
+
+<style>
+  .language-link {
+    --language-space: 0.25rem;
+    --language-border: 1px;
+    --language-focus-width: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--language-space) var(--sl-nav-pad-y);
+    border: var(--language-border) solid var(--sl-color-gray-5);
+    border-radius: var(--language-space);
+    color: var(--sl-color-gray-1);
+    background: var(--sl-color-bg-nav);
+    font-size: var(--sl-text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .language-link:hover {
+    border-color: var(--sl-color-text-accent);
+    color: var(--sl-color-text-accent);
+  }
+
+  .language-link:focus-visible {
+    outline: var(--language-focus-width) solid var(--sl-color-text-accent);
+    outline-offset: var(--language-space);
+  }
+</style>
