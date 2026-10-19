@@ -39,7 +39,7 @@ $$
 \frac{\partial T}{\partial t} \rho c_P = \nabla \cdot (k\nabla T) \quad (13.2)
 $$
 
-其中 ρ、cP 和 k 分别是材料的密度、比热和热导率。
+其中 $\rho$、$c_P$ 和 $k$ 分别是材料的密度、比热和热导率。
 
 如果仅考虑薄壁零件并选择使用壳单元，则式13.1可以简化为等效的2D形式： 
 

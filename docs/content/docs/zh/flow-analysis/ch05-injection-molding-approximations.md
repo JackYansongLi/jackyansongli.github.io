@@ -414,13 +414,13 @@ $$
 
 利用这些典型值，方程中的相关变量可以用无量纲变量定义如下：
 
-- x 坐标：$x = Lx^* = (H/\delta)x^*$
-- y 坐标：$y = Ly^* = (H/\delta)y^*$
-- z 坐标：$z = Hz^*$
+- $x$ 坐标：$x = Lx^* = (H/\delta)x^*$
+- $y$ 坐标：$y = Ly^* = (H/\delta)y^*$
+- $z$ 坐标：$z = Hz^*$
 - 时间：$t = [L/V]t^* = (H/\delta V)t^*$
-- 熔体速度 x 分量：$v_x = (L/t)v_x^* = Vv_x^*$
-- 熔体速度 y 分量：$v_y = (L/t)v_y^* = Vv_y^*$
-- 熔体速度 z 分量：$v_z = (H/t)v_z^* = \delta Vv_z^*$
+- 熔体速度 $x$ 分量：$v_x = (L/t)v_x^* = Vv_x^*$
+- 熔体速度 $y$ 分量：$v_y = (L/t)v_y^* = Vv_y^*$
+- 熔体速度 $z$ 分量：$v_z = (H/t)v_z^* = \delta Vv_z^*$
 - 压力：$p = p_0 p^*$
 - 粘度：$\eta = \eta_0 \eta^*$
 - 温度差：$\Delta T = T_0 \Delta T^*$
@@ -443,7 +443,7 @@ $$
 
 其中 $O[*]$ 读作"[*] 的量级"。
 
-利用 V 和 L 的特征值，我们得到：
+利用 $V$ 和 $L$ 的特征值，我们得到：
 
 $$
 O\left[\frac{\partial v_x}{\partial x}\right] = O\left[\frac{V}{L}\right] = O\left[\frac{\delta V}{H}\right] = O\left[\frac{10^{-1}\delta}{10^{-3}}\right] = O\left[10^{2}\delta\right] \tag{5.30}

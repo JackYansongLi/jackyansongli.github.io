@@ -152,6 +152,25 @@ test('Flow Analysis chapters write every display equation with standalone delimi
   assert.deepEqual(inlineDisplayChapters, []);
 });
 
+test('Flow Analysis prose puts defined mathematical symbols in math mode', async () => {
+  const chapterFive = await readFile(join(chapterDirectory.pathname, 'ch05-injection-molding-approximations.md'), 'utf8');
+  const chapterSix = await readFile(join(chapterDirectory.pathname, 'ch06-numerical-methods.md'), 'utf8');
+  const chapterSeven = await readFile(join(chapterDirectory.pathname, 'ch07-fiber-orientation.md'), 'utf8');
+  const chapterEleven = await readFile(join(chapterDirectory.pathname, 'ch11-crystallization-effects.md'), 'utf8');
+  const chapterTwelve = await readFile(join(chapterDirectory.pathname, 'ch12-colorants.md'), 'utf8');
+  const chapterThirteen = await readFile(join(chapterDirectory.pathname, 'ch13-shrinkage-warpage.md'), 'utf8');
+  const chapterFourteen = await readFile(join(chapterDirectory.pathname, 'ch14-additional-issues.md'), 'utf8');
+
+  assert.match(chapterFive, /利用 \$V\$ 和 \$L\$ 的特征值/);
+  assert.match(chapterSix, /压力 \$p\$、流度 \$S_2\$ 和温度 \$T\$/);
+  assert.match(chapterSeven, /\$n = 1, \\ldots, N\$/);
+  assert.match(chapterEleven, /代表性体积 \$V\$/);
+  assert.ok(chapterTwelve.includes('温度 $T = 135\\,^\\circ\\mathrm{C}$ 时于 $t = 180\\,\\mathrm{s}$'));
+  assert.match(chapterThirteen, /其中 \$\\rho\$、\$c_P\$ 和 \$k\$/);
+  assert.match(chapterFourteen, /气泡的生长（\$dR\/dt > 0\$）/);
+  assert.match(chapterFourteen, /其中，\$\\sigma\$ 是流体的表面张力，\$R_1\$ 和 \$R_2\$/);
+});
+
 test('flow-analysis Markdown does not use unsupported backslash math delimiters', async () => {
   const chapterNames = (await readdir(chapterDirectory)).filter((name) => name.endsWith('.md'));
   const invalidPages = [];
