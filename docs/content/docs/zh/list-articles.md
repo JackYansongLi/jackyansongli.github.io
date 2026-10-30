@@ -20,3 +20,4 @@ description: 本网站发布的所有文章与笔记的完整索引。
 ## Fluid Mechanics
 
 - [Helmholtz Decomposition](/zh/fluid-mechanics/helmholtz-decomposition/)
+- [Generalized Navier-Stokes Equations](/zh/fluid-mechanics/generalized-navier-stokes-equations/)

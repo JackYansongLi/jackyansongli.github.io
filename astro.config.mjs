@@ -70,6 +70,7 @@ export default defineConfig({
           translations: { 'zh-CN': 'Fluid Mechanics' },
           items: [
             { label: 'Helmholtz Decomposition', translations: { 'zh-CN': 'Helmholtz Decomposition' }, link: '/fluid-mechanics/helmholtz-decomposition/' },
+            { label: 'Generalized Navier-Stokes Equations', translations: { 'zh-CN': 'Generalized Navier-Stokes Equations' }, link: '/fluid-mechanics/generalized-navier-stokes-equations/' },
           ],
         },
         { label: 'Photos', translations: { 'zh-CN': '相册' }, link: '/photos/' },

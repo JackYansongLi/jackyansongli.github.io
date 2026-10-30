@@ -12,3 +12,4 @@ A complete list of all the articles published on this website.
 ## Fluid Mechanics
 
 - [Helmholtz Decomposition](/fluid-mechanics/helmholtz-decomposition/)
+- [Generalized Navier-Stokes Equations](/fluid-mechanics/generalized-navier-stokes-equations/)
