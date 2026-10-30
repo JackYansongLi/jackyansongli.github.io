@@ -222,7 +222,7 @@ $$
 shear force
 
 $$
--pI\vec{n}+\underset{\substack{\swarrow\\\text{linear transformation}}}{\tau}\cdot\vec{n}
+-pI\vec{n}+\overbrace{\tau}^{\text{linear transformation}}\cdot\vec{n}
 $$
 
 $$
@@ -232,7 +232,7 @@ $$
 For Newtonian Fluid
 
 $$
-\sigma=-pI+2\mu D\quad\overset{\text{deformation tensor}}{\swarrow}
+\sigma=-pI+2\mu\overbrace{D}^{\text{deformation tensor}}
 $$
 
 $$
