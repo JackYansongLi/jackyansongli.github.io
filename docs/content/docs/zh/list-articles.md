@@ -17,7 +17,7 @@ description: 本网站发布的所有文章与笔记的完整索引。
 
 - [在线学习中为何使用悔值 (Regret)](/zh/regret-ol/)
 
-## Fluid Mechanics
+## [Fluid Mechanics](/zh/fluid-mechanics/)
 
 - [Helmholtz Decomposition](/zh/fluid-mechanics/helmholtz-decomposition/)
 - [Generalized Navier-Stokes Equations](/zh/fluid-mechanics/generalized-navier-stokes-equations/)
